@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/default_screen_layout">
+
+    <TextView
+        android:id="@+id/lessson_title"
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal|top"
+        android:text="@string/lesson_title"
+        android:textColor="@color/first_main_font_color" />
+
+    <TextView
+        android:id="@+id/lesson_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|top"
+        android:text="@string/lesson_content"
+        android:textColor="@color/first_main_font_color" />
+
+    <ToggleButton
+        android:id="@+id/lesson_switch"
+        style="@style/switch_button_style"
+        android:layout_width="fill_parent"
+        android:checked="true"
+        android:textOff="@string/show_information"
+        android:textOn="@string/show_vocabulary" />
+
+    <ListView
+        android:id="@+id/wordList"
+        style="@style/list_style"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_weight="1.0"
+        android:choiceMode="singleChoice"
+        android:visibility="visible"
+        tools:ignore="InefficientWeight" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal|bottom"
+        android:text="@string/lesson_testyourself"
+        android:textColor="@color/ok" />
+
+    <Button
+        android:id="@+id/lesson_test_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:drawableLeft="@drawable/report_edit"
+        android:drawableStart="@drawable/report_edit"
+        android:gravity="center_horizontal|clip_horizontal|bottom"
+        android:text="@string/test_start" />
+</LinearLayout>

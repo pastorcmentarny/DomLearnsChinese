@@ -1,0 +1,42 @@
+<resources>
+    <array name="newGame">
+        <item>@string/adventure_game</item>
+        <item>@string/saper_game</item>
+        <!-- <item>@string/more</item> -->
+    </array>
+    <array name="runAbout">
+        <item>@string/about_me_label</item>
+        <item>@string/about_program_label</item>
+        <item>@string/thanks_label</item>
+        <item>@string/eula_label</item>
+    </array>
+
+    <array name="extras">
+        <item>@string/todo_b4_title</item>
+        <item>@string/useful_numbers_title</item>
+        <item>@string/about_tips_title</item>
+        <item>@string/dt_links</item>
+        <item>@string/word_mistakes_list</item>
+        <item>@string/fullscreen</item>
+    </array>
+    <array name="hs">
+        <item>@string/hs_adventure</item>
+        <item>@string/hs_sapper</item>
+    </array>
+    <array name="dict_type">
+        <item>@string/dt_words</item>
+        <item>@string/dt_questions</item>
+        <item>@string/dt_sentences</item>
+    </array>
+    <array name="test_dialog">
+        <item>@string/hsk_game</item>
+        <item>@string/radical_game</item>
+        <item>@string/dictionary_test_title</item>
+    </array>
+    <array name="lesson_dialog">
+        <item>@string/mini_lesson_title</item>
+        <item>@string/chat_title</item>
+        <item>@string/patterns_title</item>
+    </array>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/default_screen_layout">
+
+    <TextView
+        android:id="@+id/chat_title"
+        style="@style/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|center_vertical|center_horizontal|top"
+        android:text="@string/chat_title" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chat_pattern_about"
+        android:textColor="@color/first_main_font_color" />
+
+    <Button
+        android:id="@+id/lesson_selection_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/page_green"
+        android:drawableStart="@drawable/page_green"
+        android:text="@string/select_chat_pattern"
+        android:textColor="@color/menu_button_font" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center|bottom|center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/adUnitId" />
+    </LinearLayout>
+
+</LinearLayout>

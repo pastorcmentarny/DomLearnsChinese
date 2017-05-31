@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress AndroidLintTypographyDashes -->
+<resources>
+    <string name="app_name">Doms LEARN CHINESE:WORD GAME</string>
+    <string name="app_id">218166723270</string>
+
+    <!-- ABOUT -->
+    <string name="about_me_label">ABOUT ME</string>
+    <string name="about_me_text">ABOUT ME:\n\n
+        My name is Dominik. I am software developer. If you want know more look to my parody of homepage
+        pastor.ovh.org . I hope You enjoying use my program. If You have any USEFUL comment,
+        suggestion,feedback.\n
+        Feel happy to send to dmspastor@gmail.com.\n\n
+        Ciao.
+    </string>
+    <string name="about_program_label">ABOUT PROGRAM</string>
+    <string name="about_program_text">ABOUT GAME:\n
+        This game is designed to help me with learning chinese.\n
+        I learn mandarin chinese and this app is a my essential tool improve my vocabulary with useful words , phrases
+        and sentences.
+        It offer few types of game and tools.\n
+        \tFor general vocabulary practice, play adventure game.\n
+        \tFor practice radicals, play radicals game.\n
+        \tFor practice to hsk exam, play hsk exams test.\n
+        \tFor vocabulary review go to learning and select mini lesson.\n
+        \tTo see dictionary,go to learning and show dictionary.\n
+    </string>
+    <string name="thanks_label">THANKS</string>
+    <string name="about_thanks_text">THANKS:\n\n
+        PEOPLE:\n
+        * My wife.\n
+        * Friends.\n
+        * People who making awesome tunes.\n
+        \n
+        SPECIAL THANKS:\n\n
+        Mark James (www.famfamfam.com) for his epic icon set!\n
+        www.fontsquirrel.com, www.fictionalhead.com for Awesome Font sources!\n
+        \n
+        DICTIONARY Sources:
+        \n\t http://www.mdbg.net/chindict/chindict.php
+        \n\t http://www.nciku.com/
+        \n\t http://www.tanos.co.uk/hsk/
+        \n\t http://www.zein.se/patrick/3000en.html
+        \n\t http://www.blcu.edu.cn/blcuweb/english/index-en.asp
+        \n\t http://www.chinese.cn/
+        \n
+        \n Other THANKS:\n
+        * The Book People.\n
+        * SAW (http://softwarealliancewales.com/)\n
+        * stackoverflow.com website for useful solutions.\n
+        * android-er.blogspot.co.uk for awesome blog entries\n
+        \n THANKS for useful feedback:\n
+        Evan Herbert\n
+        Gerald Manley\n
+
+    </string>
+    <string name="eula_label">EULA</string>
+    <string name="about_eula_text">
+        EULA\n\n
+        NOTICE TO USER: Please, please PLEEEEASE read this document carefully!\n
+        If You use this program, it means YOU voluntarily accept all the terms and conditions of this
+        Agreement.\n
+        Do NOT use this software, if You do not agree with this agreement.\n
+        If You do NOT understand any part of this EULA or You think that it something unclear or missing here, You need
+        contact
+        with author for explanation, before You can use this software.\n
+        \n
+        I put best efforts to create accuracy information about this program, but I cannot guarantee the
+        perfect accuracy of all content on this website.\n
+        I do not take any responsibility for content of ads(Appbrain, Admob are companies who displays ads in my
+        app),links to
+        other blogs, websites, or resources maintained by third parties in my program.\n
+        All copyrights, product names, service marks and trademarks are property of their respective owners and I used
+        them only for reference.\n
+        \n
+        LIMITATION OF LIABILITY\n
+        \n
+        This software is provided \'AS-IS\' and I do NOT take any liability for any damages or results of using\/modify
+        this software.\n
+        I do not take any responsibility or liability for any error, omission or inaccuracy.\n
+        The Software may be installed and used for any legal purpose only. I NOT take any liability for illegal usage of
+        this
+        software).\n\n
+        OTHER NOTICES:\n
+        Program is intended for any user.\n
+        Author assumes that You use your brain and logic as best as You can to ensure that You use program for what
+        program is designed for, because You are using at your own risk and You will not find any
+        warning like Milk (Allergy warning: contains Milk) as You can find on carton in shops.\n
+        Software is Ad-ware (it means FREE OF CHARGE, but I will earn money by display ads in application provided by
+        third party companies(Admob and Appbrain).\n
+        \n
+        Thank you for read this and I hope you find this app useful and helpful.Have a good fun!
+    </string>
+    <string name="noAbout">Woops. No information about "About".How bizarre, is it ?</string>
+
+    <string name="back_to_quit">If you press BACK BUTTON one more time, then game will be abandoned and you will back to
+        main menu.
+    </string>
+
+
+    <!-- CAMPAIGN -->
+    <string name="go_to_next_level">Go to next lesson</string>
+    <string name="restart_level">Restart Level</string>
+
+    <!-- GRADES -->
+    <string name="perfect">PERFECT</string>
+    <string name="awesome">AWESOME</string>
+    <string name="great">GREAT</string>
+    <string name="good">GOOD</string>
+    <string name="poor">POOR</string>
+    <string name="fail">FAIL</string>
+    <string name="epic_fail">EPIC FAIL</string>
+
+    <!-- HSK -->
+    <string name="hsk_basics_title">HSK BASICS</string>
+    <string name="hsk_basics_about">
+        This is a Basic level.\n
+        Yes.I know,that it was removed,but i believe,it is a good set of basic words warm up.\n
+
+    </string>
+    <string name="hsk_tutorial">
+        Rules.\n
+        You have very limited time to answer 50 questions. \n
+        You lose 1% per wrong answer and if you are too slow.\n
+        You gain 1% for every 15 seconds before time\n
+        \n
+        Grades:\n
+        * 100% - Perfect!\n
+        * at least or more 90% AWESOME!\n
+        * at least or more 80% GREAT!\n
+        * at least or more 70% GOOD!\n
+        * at least or more 60% Pass!\n
+        * less than 60% FAIL!\n
+    </string>
+
+    <!-- LESSONS -->
+    <string name="lesson_about">
+
+        Here you can find few mini lessons (treat this as revision to improve your vocabulary and knowledge about
+        Chinese grammar).\n
+        How this works. It is split into few parts.\n
+        I) First you need select lesson.\n
+        II) On top, you can find about topic of the lesson. On bottom, you can find list of words in this application
+        about topic. When you will read everything and remember all words, press Start Test.\n
+        III) Quick 10 question to confirm, that you remember some words.\n
+        IV) Done. You can go to next lesson, repeat test or back to main menu\n\n
+        Remember!\n
+        1. These lessons do NOT replace proper professional lesson from book and course!\n
+        2. These lessons should be treated as revision.\n
+        3. These lessons not have ability to play Chinese character.\n
+        4. I will add levels constantly in future releases, so back here when new version is released.\n
+    </string>
+    <string name="lesson_title">LESSON</string>
+    <string name="lesson_content">Woops!\n\nNo content for this lesson :(.\nEmail me and shout that i mess
+        this.\nThanks!
+    </string>
+    <string name="lesson_testyourself">
+        If you believe,that you learn enough.\n
+        Press \'start test\',to perform quick and easy test and if you pass you will unlock next lesson!
+    </string>
+
+
+    <!-- LEVEL -->
+
+    <string name="corrects">Correct:</string>
+    <string name="mistakes">Mistakes:</string>
+    <string name="time_left">LEFT:</string>
+    <string name="time_elapsed">TIME:</string>
+    <string name="removed">-removed-</string>
+    <string name="incorrect">INCORRECT</string>
+    <string name="no_mana">NOT ENOUGH MANA</string>
+
+    <!-- MAIN MENU -->
+    <string name="new_game_title">NEW GAME</string>
+    <string name="new_game_button_title">NEW GAME</string>
+    <string name="highscore_button_title">High score</string>
+    <string name="about_title">ABOUT</string>
+
+    <string name="adventure_game">Adventure Game</string>
+    <string name="extras_title">Extras</string>
+    <string name="show_dictionary_title">Show dictionary</string>
+    <string name="radical_game">RADICALS Test</string>
+    <string name="hsk_game">HSK test</string>
+    <string name="saper_game">Saper game</string>
+    <string name="play_game">START GAME!</string>
+    <string name="radical_title">RADICALS TEST</string>
+    <string name="word_info_title">WORD INFO</string>
+    <string name="mini_lesson_title">MINI LESSONS</string>
+
+    <!-- OPTIONS -->
+    <string name="play_sound">Play sound:</string>
+    <string name="option_game">Various setting about game.</string>
+
+    <!-- RESULT-->
+    <string name="new_record">NEW RECORD</string>
+
+
+    <!-- SETTINGS -->
+    <string name="highscore_restarted_due_error">Highscore restarted due error.</string>
+
+
+    <!-- SINGLE WORDS -->
+    <string name="ok">OK</string>
+    <string name="unknown">Unknown</string>
+
+
+    <!-- SPELLS -->
+    <string name="spell_show_pinyin">Show Pinyin</string>
+    <string name="spell_heal">Heal</string>
+    <string name="remove_bad_answer">Rm. bad Answer</string>
+    <string name="spell_cure">Cure</string>
+    <string name="tap2unfreeze_label">TAP TO UNFREEZE</string>
+
+    <!--Tutorial -->
+    <string name="back_to_menu">Back to\n Main Menu</string>
+    <string name="test_start">Start Test</string>
+    <string name="select_lesson">Select Lesson</string>
+    <string name="learning_title">Learning</string>
+    <string name="lesson_selection_label">SELECT A LESSON</string>
+    <string name="saper_game_about">
+        You need guess as many character as you can without make a mistake.\n
+    </string>
+    <string name="saper_tutorial">
+        Game objective is simple:\n
+        You need guess characters without making mistake.\n
+        Game over,if you gave incorrect answer.\n
+        Game over,if you take too long to give a correct answer.\n\n
+
+    </string>
+    <string name="saper_game_title">Saper Game</string>
+    <string name="highscore_no_available">High Score Not Z</string>
+    <string name="pattern_title">Sentence Patterns</string>
+    <string name="sentence_pattern_about">
+        Warning! This is still work in progress.\n
+        I needed this feature as i have problem with remember sentence pattern in Chinese.\n
+        Here you can find a common used Chinese\'s sentence patterns.\n
+        It will help you with create a sentence in various scenarios.\n
+    </string>
+    <string name="select_sentence_pattern">Select a pattern</string>
+    <string name="pattern_content">Content</string>
+    <string name="chat_title">Chat patterns</string>
+    <string name="select_chat_pattern">Select a chat</string>
+    <string name="chat_pattern_about">
+        Warning! This is still work in progress.\n
+        (Let\'s me know,if program crashes or it contains mistakes.Thank you!)\n
+        \n
+        Occasionally.I have possibility to do small chats in Chinese, but quite often i am not prepared so i am struggle
+        with remind myself various words and sentence.
+        \"Chats\" contains various scenarios and help me to mind a common and simple sentences that are useful in these
+        situation.\n
+        And i Hope it will help you too practice chinese in real life situation of adult person.\n
+        Remember! If you learn chinese,then is better to use books as their structure is designed to learn chinese
+        sentence, where my sentences are design to use them in real life situation.\n
+        As always I will be add much in next release.\n
+    </string>
+    <string name="about_tips_title">Chinese culture tips.</string>
+    <string name="learning_tips_title">Learning tips</string>
+    <string name="useful_numbers_title">Useful numbers in china</string>
+    <string name="todo_b4_title">To do before travel</string>
+    <string name="frozen">Frozen</string>
+    <string name="unfreeze">Tap to unfreeze</string>
+    <string name="e_inform_me">
+        If error appear again and again.
+        Please contact me and inform me about step you did,
+        to get this error,so i can find out what i mess up.\n
+        THANK YOU AND SORRY FOR SHIT HAPPENS WHILE USING MY SOFTWARE!\n
+    </string>
+    <string name="e">ERROR!</string>
+    <string name="show_info">Show information</string>
+    <string name="show_words">Show words</string>
+    <string name="show_sentences">Show sentences</string>
+    <string name="score">SCORE:</string>
+    <string name="mana">MANA:</string>
+    <string name="time">TIME:</string>
+    <string name="answer">Answer</string>
+    <string name="pinyin">Zì</string>
+    <string name="level">LEVEL:</string>
+    <string name="ab_e">AppBrain ERROR</string>
+    <string name="ab_e_init">Something went wrong with appbrain init method.
+        Error message:
+    </string>
+    <string name="am_e">Admob ERROR</string>
+    <string name="am_e_init">Something went wrong with admob init method.
+        Error message:
+    </string>
+    <string name="w_unknown_selection">Unknown click.Bug? In:</string>
+    <string name="exit">Exit</string>
+    <string name="e_file_read">Problem with reading file.
+    </string>
+    <string name="e_get_word">unable to get word</string>
+    <string name="e_dictionary_problem_msg2me">Program has problem with dictionary. It means Author(Me) mess up
+        something.Please.send me an email. I am sorry for problem!
+        Pos:
+    </string>
+    <string name="word_builder_stroke">Strokes:</string>
+    <string name="word_builder_english">English:</string>
+    <string name="word_builder_notes">Notes:</string>
+    <string name="word_builder_groups">Groups:</string>
+    <string name="word_builder_polish">Polish:</string>
+    <string name="sorry_msg">Sorry for problem.Send me email. dmspastor@gmail.com . Tell me steps which you did to see
+        this error.I will try to solve ASAP.Thank you for your help in advance!
+    </string>
+    <string name="unknownPlayerName">Chao</string>
+    <string name="game_over_timeout">timeout</string>
+    <string name="game_over_wrong_answer">\n Wrong answer!\n Correct answer is:\n\t</string>
+    <string name="game_over">Game Over!</string>
+    <string name="combo_bonus">Combo bonus:</string>
+    <string name="cast_shit_happens">Shit happens!</string>
+    <string name="cast_swap">Swap</string>
+    <string name="cast_frozen">Buttons are frozen.</string>
+    <string name="cast_blind">Blind</string>
+    <string name="cast_regeneration">Regenerations for body and soul!</string>
+    <string name="cast_poison">You are poisoned!</string>
+    <string name="cast_mana_drain">Mana drain :(!</string>
+    <string name="cast_minor_bonus">every little bonus helps(</string>
+    <string name="cast_teleport">Teleporting to next level (bonus:</string>
+    <string name="cast_triple">Triple!</string>
+    <string name="msg_un_tap_1">You need tap button</string>
+    <string name="msg_un_tap_2">times to unfreeze buttons.</string>
+    <string name="woops">Woops!</string>
+    <string name="combo">Combo:</string>
+    <string name="combo_points">comboPoints:</string>
+    <string name="msg_defrost">Buttons defrost :).Hurry up! Guess answer!</string>
+    <string name="msg_dict_loaded">Dictionary loaded.</string>
+    <string name="e_read_file_problem_in_line">Problem with reading file. (Line:</string>
+    <string name="e_closing_stream_problem">Problem with closing stream for read</string>
+    <string name="msg_dict_from_file_error">dictionary From File.
+        Error message:
+    </string>
+    <string name="dict_data_corrupted">Dictionary data is corrupted. (Line:</string>
+    <string name="life">LIFE:</string>
+    <string name="restart_game">TRY AGAIN</string>
+    <string name="hs_adventure">HS for Adventure</string>
+    <string name="hs_sapper">HS for Sapper</string>
+    <string name="setting_sapper_display_pinyin_summary">Display pinyin in sapper game?
+    </string>
+    <string name="option_pinyin_extra_info">Display or not pinyin during game has effect on
+         score. If pinyin are displayed then less points are given.
+    </string>
+    <string name="username_title">Who are you?</string>
+    <string name="username_question">Please insert your username.
+        (If you don\'t want do this now,then you can do this later in \'Options\')
+    </string>
+    <string name="default_value">0</string>
+    <string name="result_corrects">CORRECT:</string>
+    <string name="result_mistakes">MISTAKES:</string>
+    <string name="result_questions">QUESTIONS:</string>
+    <string name="result_time">TIME:</string>
+    <string name="extras_todob4go_title">TO DO BEFORE TRAVEL</string>
+    <string name="dictionary_type">Select Dictionary Type</string>
+    <string name="dt_words">Words</string>
+    <string name="dt_questions">Questions</string>
+    <string name="dt_sentences">Sentences</string>
+    <string name="chat_content">Content of chat..</string>
+    <string name="xxx">_?_?_?_?_</string>
+    <string name="secret_title">What you want?</string>
+    <string name="secret_msg">What you get from blending cheesecake with garlic and knysza?</string>
+    <string name="result_result">YOUR RESULT</string>
+    <string name="sto_percent">100%</string>
+    <string name="extras_ambulance">Ambulance</string>
+    <string name="extras_ambulance_number">120</string>
+    <string name="extras_fire_brigade">Fire brigade</string>
+    <string name="extras_fire_brigade_number">119</string>
+    <string name="extras_police">Police</string>
+    <string name="extras_police_number">110</string>
+    <string name="extras_traffic_accidents">Traffic Accidents</string>
+    <string name="extras_extras_traffic_accidents_number">122</string>
+    <string name="extras_public_transport">Public Transport</string>
+    <string name="extras_railway_info">Railway Information</string>
+    <string name="extras_railway_info_number">12306</string>
+    <string name="extras_hainan_airlanes">Hainan Airlines</string>
+    <string name="extras_hainan_airlanes_value">950718</string>
+    <string name="extras_southern_airlanes">Southern Airlines</string>
+    <string name="extras_southern_airlanes_value">400-669-5539</string>
+    <string name="extras_shenzen_airlanes">Shenzhen Airlines</string>
+    <string name="extras_shenzen_airlanes_value">95080</string>
+    <string name="extras_xiamen_airlanes">Xiamen Airlines</string>
+    <string name="extras_xiamen_airlanes_value">0592 - 57 - 39888</string>
+    <string name="extras_shandong_airlanes">Shandong Airlines</string>
+    <string name="extras_shandong_airlanes_value">4006096777</string>
+    <string name="extras_sichuan_airlanes">Sichuan Airlines</string>
+    <string name="extras_sichuan_airlanes_value">4008300999</string>
+    <string name="extras_air_china">Air China</string>
+    <string name="extras_air_china_value">95583</string>
+    <string name="extras_china_eastern_airlines">China Eastern Airline</string>
+    <string name="extras_china_eastern_airlines_value">95530</string>
+    <string name="extras_international_airports_label">International Airports</string>
+    <string name="extras_beijing_international_airport">Beijing Capital\n International Airport</string>
+    <string name="extras_beijing_international_airport_value">96158</string>
+    <string name="extras_shanghai_pudong_airport">Shanghai Pudong\n International Airport</string>
+    <string name="extras_shanghai_pudong_airport_value">96990</string>
+    <string name="extras_agricultural_bank">Agricultural\n Bank of China</string>
+    <string name="extras_agricultural_bank_value">95599</string>
+    <string name="extras_banks">Banks</string>
+    <string name="extras_bank_communications">Bank of\n Communications</string>
+    <string name="extras_bank_communications_value">95559</string>
+    <string name="extras_construction_bank">China\n Construction Bank</string>
+    <string name="extras_construction_bank_value">95533</string>
+    <string name="extras_citibank">Citibank</string>
+    <string name="extras_citibank_value">800–830-1880</string>
+    <string name="extras_hsbc">HSBC</string>
+    <string name="extras_hsbc_value">800–820-8828</string>
+    <string name="extras_iac_bank">Industrial and\n CommercialBank\n of China</string>
+    <string name="extras_iac_bank_value">95588</string>
+    <string name="extras_standard_chartered_bank">Standard Chartered\n Bank</string>
+    <string name="extras_standard_chartered_bank_value">800–820-8088</string>
+    <string name="image_content_description">An Image</string>
+    <string name="default_character">字</string>
+    <string name="zero">0</string>
+    <string name="s1_title">1:</string>
+    <string name="s1_value">Sentence 1</string>
+    <string name="s2_title">2:</string>
+    <string name="s2_value">Sentence 2</string>
+    <string name="s3_title">3:</string>
+    <string name="s3_value">Sentence 3</string>
+    <string name="s4_title">4:</string>
+    <string name="s4_value">Sentence 4</string>
+    <string name="s5_title">5:</string>
+    <string name="s5_value">Sentence 5</string>
+    <string name="e_failed_to_load_db">Fail to load DB.</string>
+    <string name="msg_db_loaded">DB Loaded.</string>
+    <string name="dt_links">Links</string>
+    <string name="go2www">Go to WWW</string>
+    <string name="cancel">Cancel</string>
+    <string name="cast_show_pinyin">Pinyin showed :)</string>
+    <string name="rateMe_title">Rate me please!</string>
+    <string name="rateMe_about">
+        Do you like my game?\n
+        Please Rate it.\n
+        If you don\'t like, please send me email with explanations and suggestions.\n
+        I will be happy to improve my game.
+    </string>
+    <string name="send_email">Send an Email</string>
+    <string name="rate_it">RATE IT</string>
+    <string name="rateMe_label">RATE MY APP(Please)</string>
+    <string name="adventure_about">
+        You meed guess as many character as you can and as quick as you can.\n
+        You lose game,if your health is below zero.\n\n
+    </string>
+    <string name="adventure_tutorial">
+        Game objective:\n
+        \t - Guess as many character as you can.\n
+        \t - Game over,if you health is below zero.\n
+        \n
+        Points:\n
+        You get points for correct answer.\n
+        You lose points for wrong answer.\n
+        \n
+        Health:\n
+        You lose game,if your health gets below zero.\n
+        You gain little health points for pass level.\n
+        You can get some health by cast spell heal.\n
+        You lose health for wrong answer.\n
+        You lose health if guess correct answer take too long time.\n
+        \n
+        Mana points:\n
+        \t can be use to cast spell .\n
+        Heal - add some health.\n
+        Remove wrong answer - removes wrong answer.\n
+        Show pinyin = shows pinyin of current character.\n
+    </string>
+    <string name="e_ioobe">(IndexOutOfBoundsException)</string>
+    <string name="copy2clippo">Copy</string>
+    <string name="options">Options</string>
+    <string name="option_username_description">Information about User</string>
+    <string name="saved">:) Change saved.</string>
+    <string name="unable_to_save">:( Unable to save change.</string>
+    <string name="nothing_selected">Nothing selected..</string>
+    <string name="vibra">Vibration</string>
+    <string name="fix_problems">Fix all problems</string>
+    <string name="option_reset_hs">Reset high score</string>
+    <string name="option_show_intro_title">Show intro before game?</string>
+    <string name="option_defaultusername">PLAYER1</string>
+    <string name="option_change">change</string>
+    <string name="copied2clipboard">copied to clipboard.</string>
+    <string name="cast_painKiller">PainKiller applied.</string>
+    <string name="option_pinyin">Settings about show or not pinyin during games.</string>
+    <string name="close">CLOSE!</string>
+    <string name="stats_title">Statistics</string>
+    <string name="adUnitId">ca-app-pub-1669938002445825/8358612701</string>
+    <string name="backup">BACKUP</string>
+    <string name="restore">RESTORE</string>
+    <string name="backupRestoreTitle">Backup and Restore highscores and stats</string>
+    <string name="option_backup_restore"><![CDATA[Backup&Restore]]></string>
+    <string name="radical_download">I remove Radical test from this Game.Why? Because I create separate game called .. DOMS CHINESE RADICALS GAME. If you want  practice Radicals ,please download game and have great fun!</string>
+    <string name="debug_c"><![CDATA[C>]]></string>
+    <string name="debug_mplus">M+</string>
+    <string name="debug_mana_plus">H+</string>
+    <string name="debug_a">A</string>
+    <string name="halfHalfToGuess">50% to guess!</string>
+    <string name="list_of_cmd">List:\t</string>
+    <string name="access_denied">Access denied!</string>
+    <string name="pattern_into">Pattern Selection Intro</string>
+    <string name="advert">↓ Advert ↓</string>
+    <string name="stats_games">Games:</string>
+    <string name="b4go_travel_guide">Travel guide</string>
+    <string name="b4go_dictionary">Take dictionary with you</string>
+    <string name="b4go_medicine">Some medicine for diarrhoea, ache and anti vomit stuff</string>
+    <string name="b4go_gel">antibacterial gel</string>
+    <string name="b4go_first_aid">Mini first-aid kit</string>
+    <string name="b4go_roaming">Learn how to switch off roaming</string>
+    <string name="b4go_embassy">embassy contact details</string>
+    <string name="b4go_passport">Passport</string>
+    <string name="b4go_national_id">ID</string>
+    <string name="b4go_travel_details_friends">Leave travel details to friend or family</string>
+    <string name="b4go_insurance">Arrange health and travel insurance</string>
+    <string name="b4go_vaccinations">BOOK your vaccinations</string>
+    <string name="score_player_name">PLAYER NAME</string>
+    <string name="cast_show_pinyin_hide_character">Guess pinyin without Chinese character!</string>
+    <string name="pinyin_instead_character">Pinyin instead Character: </string>
+    <string name="cast_double_hp">double HP!</string>
+    <string name="cast_half_hp">half HP</string>
+    <string name="cast_double_mp">double MP</string>
+    <string name="cast_half_mp">half MP</string>
+    <string name="result_place_title">PLACE:</string>
+    <string name="option_hs_backup_restore">Backup/Restore your high score</string>
+    <string name="dictionary_stats">Dictionary Stats</string>
+    <string name="words_stats">Words Stats</string>
+    <string name="patterns_title">Patterns</string>
+    <string name="tests_title">Tests</string>
+    <string name="learning_menu_title">LEARNING MENU</string>
+    <string name="word_mistakes_list">List of word mistakes</string>
+    <string name="find_word">Find Word</string>
+    <string name="adventure_games">Adventure Games: </string>
+    <string name="sapper_games">Sapper Games: </string>
+    <string name="total_time">Total Time: </string>
+    <string name="wrongs">Wrongs: </string>
+    <string name="maxCombo">MaxCombo: </string>
+    <string name="max_combo_points">Max Combo Points: </string>
+    <string name="max_score">Max Score: </string>
+    <string name="total_levels">Total Levels: </string>
+    <string name="sapper_highest_level">Highest Level Sapper: </string>
+    <string name="adventure_highest_level">Highest Level Adventures: </string>
+    <string name="sapper_total_time">Total Time (Sapper): </string>
+    <string name="adventure_total_time">Total Time (Adventure): </string>
+    <string name="show_pinyin">Show pinyin (spell): </string>
+    <string name="spell_remove_bad_answer">Rm. Bad Answer(Spell): </string>
+    <string name="event_cure">Cure: </string>
+    <string name="event_heal">Heal: </string>
+    <string name="event_half">HalfHalf: </string>
+    <string name="event_poison">Poison: </string>
+    <string name="event_triple">Triple: </string>
+    <string name="event_jackpot">Jackpot: </string>
+    <string name="event_drain_mana">Drain Mana: </string>
+    <string name="event_minor_points_title">Minor Points: </string>
+    <string name="event_regenaration_title">Regeneration: </string>
+    <string name="event_s_happens_title">S..t happens: </string>
+    <string name="event_swap_hp_mp_title">swapHpMp: </string>
+    <string name="event_frozen_label">Frozen: </string>
+    <string name="event_blind_label">Blind: </string>
+    <string name="event_show_pinyin_label">Show Pinyin: </string>
+    <string name="event_painkiller_label">PainKiller: </string>
+    <string name="sapper_difficulty_easy_label">Sapper Diff.(Easy): </string>
+    <string name="sapper_difficulty_hard_label">Sapper Diff.(Hard): </string>
+    <string name="lessons_title">LESSONS</string>
+    <string name="option_polish_mode_title">Polish Mode</string>
+    <string name="option_polish_mode_description">It shows translation in Polish in few places.  (Pokazuje polskie tlumaczenie w języku polskim w paru miejsach)</string>
+    <string name="title_activity_random_word">RandomWordActivity</string>
+    <string name="fullscreen">Screen Saver</string>
+    <string name="chinese">Chinese</string>
+    <string name="english">English</string>
+    <string name="notes">Notes</string>
+    <string name="copy">COPY</string>
+    <string name="next_word">NEXT WORD</string>
+    <string name="polish">Polish</string>
+    <string name="sentence">Sentence</string>
+    <string name="b4go_adapter">Bring the Right Power Adapter!</string>
+    <string name="points">" points."</string>
+    <string name="new_high_score">!NEW HIGH SCORE!</string>
+    <string name="not_available">Not available yet</string>
+    <string name="cured">You are cured.</string>
+    <string name="emergency">Emergency</string>
+    <string name="error_unable_to_create_file">Unable to create file for Highscores due problems.Error:</string>
+    <string name="error_unable_to_copy_to_clipboard">Hmm.. that\'s weird. Unable to save text to clipboard</string>
+    <string name="whoops">Whoops</string>
+    <string name="dictionary_test_about">About Dictionary Test</string>
+    <string name="dictionary_test_tutorial">You need guess 100 words from this game dictionary.Rules:\nMore difficult question,more points you get.\nYou lost points,if you made mistake. </string>
+    <string name="dictionary_test_title">DICTIONARY TEST (beta)</string>
+    <string name="skip_answer">Skip this question</string>
+    <string name="skipped">Skipped</string>
+    <string name="dead">[DEAD]</string>
+    <string name="show_information">Show information</string>
+    <string name="show_vocabulary">Show vocabulary</string>
+    <string name="name">Name</string>
+</resources>

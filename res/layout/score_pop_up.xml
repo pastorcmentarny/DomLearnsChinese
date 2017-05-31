@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tlod"
+    android:orientation="vertical">
+
+
+    <TextView
+
+        android:id="@+id/countryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:text="@string/score_player_name"
+        android:textColor="@color/title"
+        android:textSize="32sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/countryDialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/unknown"
+        android:textColor="@color/good_news" />
+
+    <Button
+        android:id="@+id/buttonOK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/close" />
+</LinearLayout>

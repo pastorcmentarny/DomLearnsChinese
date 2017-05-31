@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/main_background_color"
+    android:gravity="top"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/pattern_title"
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal|top"
+        android:text="@string/pattern_title"
+        android:textColor="@color/first_main_font_color" />
+
+
+    <TextView
+        android:id="@+id/pattern_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|top"
+        android:text="@string/pattern_content"
+        android:textColor="@color/first_main_font_color" />
+
+
+    <ToggleButton
+        android:id="@+id/pattern_switch"
+        style="@style/switch_button_style"
+        android:layout_width="fill_parent"
+        android:checked="true"
+        android:textOff="@string/show_information"
+        android:textOn="@string/show_sentences" />
+
+    <TableLayout
+        android:id="@+id/sentence_table"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:shrinkColumns="*"
+        android:stretchColumns="*"
+        android:visibility="gone">
+
+        <TableRow android:id="@+id/sentence1row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:padding="2dp"
+                android:shadowColor="@color/green"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4"
+                android:text="@string/s1_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sentence1text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:padding="2dp"
+                android:shadowColor="@color/score_shadow"
+                android:shadowDx="4"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:text="@string/s1_value"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow android:id="@+id/sentence2row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:padding="2dp"
+                android:shadowColor="@color/green"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4"
+                android:text="@string/s2_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sentence2text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:padding="2dp"
+                android:shadowColor="@color/score_shadow"
+                android:shadowDx="4"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:text="@string/s2_value"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow android:id="@+id/sentence3row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:padding="2dp"
+                android:shadowColor="@color/green"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4"
+                android:text="@string/s3_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sentence3text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:padding="2dp"
+                android:shadowColor="@color/score_shadow"
+                android:shadowDx="4"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:text="@string/s3_value"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow android:id="@+id/sentence4row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:padding="2dp"
+                android:shadowColor="@color/green"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4"
+                android:text="@string/s4_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sentence4text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:padding="2dp"
+                android:shadowColor="@color/score_shadow"
+                android:shadowDx="4"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:text="@string/s4_value"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow android:id="@+id/sentence5row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:padding="2dp"
+                android:shadowColor="@color/green"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4"
+                android:text="@string/s5_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sentence5text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:padding="2dp"
+                android:shadowColor="@color/score_shadow"
+                android:shadowDx="4"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:text="@string/s5_value"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+                android:textSize="18sp" />
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/default_screen_scroll_view">
+
+    <LinearLayout style="@style/default_linear_layout">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="3"
+                android:text="@string/result_result"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="32sp"
+                android:textStyle="italic|bold" />
+
+            <TextView
+                android:id="@+id/result_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:padding="2dp"
+                android:shadowColor="@color/bad_news"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4"
+                android:text="@string/awesome"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/grey"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/result_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="3"
+                android:text="@string/sto_percent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="32sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/result_title_text"
+                    android:text="@string/result_place_title" />
+
+                <TextView
+                    android:id="@+id/result_place_text"
+                    style="@style/place_value_text" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <TextView
+                    style="@style/result_title_text"
+                    android:text="@string/result_corrects" />
+
+                <TextView
+                    android:id="@+id/correct_answers_value"
+                    style="@style/result_value_text" />
+            </TableRow>
+
+            <TableRow android:id="@+id/mistake_row">
+
+                <TextView
+                    style="@style/result_title_text"
+                    android:text="@string/result_mistakes" />
+
+                <TextView
+                    android:id="@+id/mistakes_value"
+                    style="@style/result_value_text" />
+            </TableRow>
+
+            <TableRow android:id="@+id/question_row">
+
+                <TextView
+                    android:id="@+id/questions_title"
+                    style="@style/result_title_text"
+                    android:text="@string/result_questions" />
+
+                <TextView
+                    android:id="@+id/questions_value"
+                    style="@style/result_value_text" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/result_title_text"
+                    android:text="@string/result_time" />
+
+                <TextView
+                    android:id="@+id/result_time"
+                    style="@style/result_value_text" />
+            </TableRow>
+
+            <Button
+                android:id="@+id/backToMainMenu"
+                style="@style/menu_button_style"
+                android:drawableLeft="@drawable/arrow_left"
+                android:drawableStart="@drawable/arrow_left"
+                android:text="@string/back_to_menu" />
+
+            <Button
+                android:id="@+id/tryAgain"
+                style="@style/menu_button_style"
+                android:drawableLeft="@drawable/arrow_refresh"
+                android:drawableStart="@drawable/arrow_refresh"
+                android:text="@string/restart_game" />
+
+            <Button
+                android:id="@+id/seeHS"
+                style="@style/menu_button_style"
+                android:drawableLeft="@drawable/medal_gold_2"
+                android:drawableStart="@drawable/medal_gold_2"
+                android:text="@string/highscore_button_title"
+                android:visibility="gone" />
+
+            <TableRow style="@style/default_table_row">
+
+                <TextView
+                    android:id="@+id/recordtext"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_span="2"
+                    android:text=""
+                    android:textColor="@color/ok"
+                    android:textStyle="italic" />
+            </TableRow>
+        </TableLayout>
+
+        <com.appbrain.AppBrainBanner xmlns:appbrain="http://schemas.android.com/apk/lib/com.appbrain"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            appbrain:button="1"
+            appbrain:colors="8"
+            appbrain:design="3"
+            appbrain:title="3" />
+    </LinearLayout>
+</ScrollView>

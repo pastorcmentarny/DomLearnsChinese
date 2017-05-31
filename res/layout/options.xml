@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/default_screen_scroll_view"
+    android:fillViewport="false">
+
+    <TableLayout
+        style="@style/default_table"
+        android:stretchColumns="*">
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/default_title"
+                android:layout_span="2"
+                android:text="@string/options" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <View
+                android:layout_width="64dp"
+                android:layout_height="1dp"
+                android:layout_span="2"
+                android:background="@drawable/gradientline" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_description"
+                android:layout_span="2"
+                android:text="@string/option_username_description" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                android:id="@+id/username_value"
+                style="@style/option_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_span="2"
+                android:text="@string/option_defaultusername"
+                android:textColor="@color/value_value" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <Button
+                android:id="@+id/changeNameButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:text="@string/option_change" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_span="2"
+                android:background="@drawable/gradientline" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_description"
+                android:layout_span="2"
+                android:text="@string/option_game" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_label"
+                android:text="@string/option_show_intro_title" />
+
+            <CheckBox
+                android:id="@+id/showIntro"
+                style="@style/option_checkbox" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_label"
+                android:text="@string/play_sound" />
+
+            <CheckBox
+                android:id="@+id/playsound"
+                style="@style/option_checkbox" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_label"
+                android:text="@string/vibra" />
+
+            <CheckBox
+                android:id="@+id/vibrate"
+                style="@style/option_checkbox" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_span="2"
+                android:background="@drawable/gradientline" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_label"
+                android:text="@string/option_polish_mode_title" />
+
+            <CheckBox
+                android:id="@+id/polishMode"
+                style="@style/option_checkbox" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_description"
+                android:layout_span="2"
+                android:text="@string/option_polish_mode_description" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_span="2"
+                android:background="@drawable/gradientline" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_description"
+                android:layout_span="2"
+                android:text="@string/option_pinyin" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_sub_description"
+                android:layout_span="2"
+                android:text="@string/option_pinyin_extra_info"
+                android:textColor="@color/info" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_label"
+                android:layout_width="wrap_content"
+                android:text="@string/setting_sapper_display_pinyin_summary" />
+
+            <CheckBox
+                android:id="@+id/sapper_pinyin"
+                style="@style/option_checkbox" />
+        </TableRow>
+
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_span="2"
+                android:background="@drawable/gradientline" />
+        </TableRow>
+
+        <TextView
+            style="@style/option_description"
+            android:layout_width="390dp"
+            android:text="@string/option_reset_hs" />
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <TextView
+                style="@style/option_label"
+                android:text="@string/fix_problems" />
+
+            <CheckBox
+                android:id="@+id/fixAll"
+                style="@style/option_checkbox" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_span="2"
+                android:background="@drawable/gradientline" />
+        </TableRow>
+
+        <TextView
+            style="@style/option_description"
+            android:layout_width="390dp"
+            android:text="@string/option_backup_restore"
+            android:visibility="gone" />
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/option_label"
+                android:text="@string/backupRestoreTitle"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_span="2"
+                android:background="@drawable/gradientline" />
+        </TableRow>
+
+        <TextView
+            style="@style/option_description"
+            android:layout_width="390dp"
+            android:text="@string/option_hs_backup_restore" />
+
+        <TableRow
+            style="@style/default_table_row"
+            android:gravity="center|center_vertical|center_horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/backup"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:text="@string/backup" />
+
+            <Button
+                android:id="@+id/restore"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:text="@string/restore" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

@@ -1,0 +1,97 @@
+<resources>
+    <color name="about">#FFA824</color>
+    <color name="version">#ffdd5f2c</color>
+
+    <color name="removed_button">#6FD2D2</color>
+    <color name="spell_font_color">#FAFAFA</color>
+    <color name="transparent">#0000</color>
+    <color name="title">#fffa0e0f</color>
+
+    <!-- character -->
+    <color name="character_color">#CCCCCC</color>
+    <color name="character_shadow">#888888</color>
+
+    <!-- defaults -->
+    <color name="value_title">#ffff4634</color>
+    <color name="value_value">#ffffdf00</color>
+    <color name="value_shadow">#ff9ca039</color>
+
+
+    <!-- bonus -->
+    <color name="big_bonus">#ff76c319</color>
+    <color name="small_bonus">#ffffdf00</color>
+    <color name="near_zero_bonus">#17cfd2</color>
+    <color name="penalty_bonus">#ffff4634</color>
+    <color name="game_over">#CCCCCC</color>
+
+
+    <!-- frozen button -->
+    <color name="freeze_text">#17cfd2</color>
+    <color name="freeze_text_background">#65A4C3</color>
+    <color name="freeze_background">#6FD2D2</color>
+    <color name="tap_button">#1133AA</color>
+
+    <!-- options -->
+    <color name="option_title">#ff76c319</color>
+    <color name="option_description">#ffddab29</color>
+
+    <!-- status -->
+    <color name="error">#FF2200</color>
+    <color name="ok">#74C365</color>
+
+    <!--score-->
+    <color name="score">#DDDDDD</color>
+    <color name="score_shadow">#74C365</color>
+    <color name="bonus_score">#66EE55</color>
+
+    <!--health-->
+    <color name="health_shadow">#65A4C3</color>
+    <color name="separator">#FFA824</color>
+    <color name="separator_shadow">#65A4C3</color>
+    <color name="very_high_hp">#88FF66</color>
+    <color name="high_hp">#74C365</color>
+    <color name="medium_hp">#DDDD44</color>
+    <color name="low_hp">#FFA824</color>
+    <color name="very_low_hp">#FF2211</color>
+
+    <!--mana-->
+    <color name="high_mp">#11BBFF</color>
+    <color name="medium_mp">#22AACC</color>
+    <color name="low_mp">#2266BB</color>
+    <color name="very_low_mp">#1133AA</color>
+
+    <!--menu-->
+    <color name="menu_button_font">#223322</color>
+    <!-- level colors -->
+    <color name="grey">#AAAAAA</color>
+    <color name="green">#74C365</color>
+
+    <!-- status -->
+    <color name="status">#65A4C3</color>
+    <color name="good_news">#9acd32</color>
+    <color name="bad_news">#ff8800</color>
+    <color name="combo">#ffaaee</color>
+    <color name="info">#ff78d8f4</color>
+
+    <!-- intro -->
+    <color name="intro_title">#ffeb1310</color>
+    <color name="intro_about">#ffffe11d</color>
+    <color name="intro_tutorial">#ffdfc8ff</color>
+
+    <color name="hs1">#F2F410</color>
+    <color name="hs2">#DEE610</color>
+    <color name="hs3">#CBD811</color>
+    <color name="hs5">#B7CA11</color>
+    <color name="hs10">#A4BC12</color>
+    <color name="hs20">#91AE13</color>
+    <color name="hs30">#7DA114</color>
+    <color name="hs40">#6A9214</color>
+    <color name="hs50">#437615</color>
+    <color name="hs75">#308916</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="main_background_color">#000000</color>
+
+    <color name="first_main_font_color">#FFFFFF</color>
+    <color name="second_main_font_color">#9ACD32</color>
+</resources>

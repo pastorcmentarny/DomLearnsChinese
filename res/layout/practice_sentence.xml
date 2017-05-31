@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/level_main"
+    style="@style/default_screen_layout">
+
+    <LinearLayout
+        android:id="@+id/top_line2"
+        style="@style/game_top_line_layout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/value_title"
+                android:text="@string/level" />
+
+            <TextView
+                android:id="@+id/current_lvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:shadowColor="@color/score_shadow"
+                android:shadowDx="4"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/score"
+
+                android:textSize="12sp" />
+
+            <TextView style="@style/separator" />
+
+            <TextView
+                android:id="@+id/time_elasped_title"
+                style="@style/value_title"
+                android:text="@string/time_elapsed" />
+
+            <TextView
+                android:id="@+id/time_elasped_value"
+                style="@style/value_value" />
+
+            <TextView style="@style/separator" />
+
+            <TextView
+                style="@style/value_title"
+                android:text="@string/corrects" />
+
+            <TextView
+                android:id="@+id/correct_value"
+                style="@style/value_value" />
+
+            <TextView style="@style/separator" />
+
+            <TextView
+                style="@style/value_title"
+                android:text="@string/mistakes" />
+
+            <TextView
+                android:id="@+id/mistakes_value"
+                style="@style/value_value" />
+
+            <TextView
+                android:id="@+id/skipped_separator"
+                style="@style/separator"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/skipped_title"
+                style="@style/value_title"
+                android:text="@string/skipped"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/skipped_value"
+                style="@style/value_value"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="545dp"
+        android:layout_gravity="center"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/currentCharacter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:gravity="center|center_horizontal"
+                android:padding="2dp"
+                android:shadowColor="@color/character_shadow"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="5"
+                android:text="@string/default_character"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/character_color"
+                android:textSize="64sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/currentPinyin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:gravity="center|center_horizontal"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="3"
+                android:text="@string/pinyin"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="32sp"
+                android:textStyle="italic" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="@string/name" />
+
+            <Button
+                android:id="@+id/answer3"
+                style="@style/answer_button_style" />
+        </TableRow>
+
+        <TableRow
+            android:gravity="bottom"
+            android:paddingTop="15dp">
+
+        </TableRow>
+
+        <TableRow
+            android:gravity="bottom"
+            android:paddingTop="1dp">
+
+            <ProgressBar
+                android:id="@+id/level_progressbar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:progress="0"
+                android:visibility="visible" />
+
+        </TableRow>
+
+        <TableRow
+            android:gravity="bottom"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/levelStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:gravity="end"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="3"
+                android:text=""
+                android:textColor="@color/status"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center|bottom|center_horizontal"
+            android:orientation="vertical">
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/adUnitId" />
+        </LinearLayout>
+
+    </TableLayout>
+</LinearLayout>

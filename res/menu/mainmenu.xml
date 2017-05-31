@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/aboutGameButton"
+        android:alphabeticShortcut="a"
+        android:enabled="true"
+        android:title="@string/about_title" />
+    <item
+        android:id="@+id/stats_menu"
+        android:alphabeticShortcut="s"
+        android:enabled="true"
+        android:title="@string/stats_title" />
+    <item
+        android:id="@+id/rateMeButton"
+        android:alphabeticShortcut="r"
+        android:enabled="true"
+        android:title="@string/rateMe_label" />
+</menu>

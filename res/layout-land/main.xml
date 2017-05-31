@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/menu_table">
+
+    <TableRow android:layout_marginBottom="2dp">
+
+
+        <TextView
+            android:id="@+id/gameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:gravity="center|center_horizontal"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textIsSelectable="false"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:gravity="bottom"
+        android:padding="2dp">
+
+
+        <Button
+            android:id="@+id/newGameButton"
+            style="@style/menu_button_style"
+            android:layout_span="2"
+            android:drawableLeft="@drawable/joystick"
+            android:drawableStart="@drawable/joystick"
+            android:text="@string/new_game_button_title"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/highScoreButton"
+            style="@style/menu_button_style"
+            android:layout_span="1"
+            android:drawableLeft="@drawable/medal_gold_2"
+            android:drawableStart="@drawable/medal_gold_2"
+            android:text="@string/highscore_button_title" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:gravity="bottom"
+        android:padding="2dp">
+
+        <Button
+            android:id="@+id/extras_button"
+            style="@style/menu_button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/table_multiple"
+            android:drawableStart="@drawable/table_multiple"
+            android:text="@string/extras_title" />
+
+        <Button
+            android:id="@+id/showLearningButton"
+            style="@style/menu_button_style"
+            android:layout_span="1"
+            android:drawableLeft="@drawable/eye"
+            android:drawableStart="@drawable/eye"
+            android:text="@string/learning_title" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            style="@style/menu_button_style"
+            android:layout_span="1"
+            android:drawableLeft="@drawable/wrench_orange"
+            android:drawableStart="@drawable/wrench_orange"
+            android:text="@string/options" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:gravity="bottom"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/unknown"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/version" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/advert"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/separator_shadow"
+            android:visibility="visible" />
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:gravity="bottom"
+        android:padding="2dp">
+
+        <com.appbrain.AppBrainBanner xmlns:appbrain="http://schemas.android.com/apk/lib/com.appbrain"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_span="3"
+            appbrain:button="0"
+            appbrain:colors="8"
+            appbrain:design="3"
+            appbrain:title="0" />
+    </TableRow>
+</TableLayout>
+
+

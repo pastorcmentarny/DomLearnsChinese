@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dbStats"
+        android:alphabeticShortcut="d"
+        android:enabled="true"
+        android:title="@string/dictionary_stats" />
+    <item
+        android:id="@+id/wordStats"
+        android:alphabeticShortcut="w"
+        android:enabled="true"
+        android:title="@string/words_stats" />
+    <item
+        android:id="@+id/findWords"
+        android:alphabeticShortcut="w"
+        android:enabled="true"
+        android:title="@string/find_word" />
+</menu>

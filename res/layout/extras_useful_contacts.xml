@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/default_screen_scroll_view"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        style="@style/default_table"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/title"
+            android:text="@string/useful_numbers_title" />
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_title_textview"
+                android:layout_span="2"
+                android:text="@string/emergency" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_ambulance" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_ambulance_number" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_fire_brigade" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_fire_brigade_number" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_police" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_police_number" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_traffic_accidents" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_extras_traffic_accidents_number" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_title_textview"
+                android:layout_span="2"
+                android:text="@string/extras_public_transport" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_railway_info" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_railway_info_number" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_air_china" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_air_china_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_china_eastern_airlines" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_china_eastern_airlines_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_hainan_airlanes" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_hainan_airlanes_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_southern_airlanes" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_southern_airlanes_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_shenzen_airlanes" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_shenzen_airlanes_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_xiamen_airlanes" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_xiamen_airlanes_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_shandong_airlanes" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_shandong_airlanes_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_sichuan_airlanes" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_sichuan_airlanes_value" />
+        </TableRow>
+
+
+        <TableRow>
+
+            <TextView
+                style="@style/extras_title_textview"
+                android:layout_span="2"
+                android:text="@string/extras_international_airports_label" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_beijing_international_airport" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_beijing_international_airport_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_shanghai_pudong_airport" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_shanghai_pudong_airport_value" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/extras_title_textview"
+                android:layout_span="2"
+                android:text="@string/extras_banks" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_agricultural_bank" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_agricultural_bank_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_bank_communications" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_bank_communications_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_construction_bank" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_construction_bank_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_citibank" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_citibank_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_hsbc" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_hsbc_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_iac_bank" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_iac_bank_value" />
+        </TableRow>
+
+        <TableRow style="@style/extras_table_row">
+
+            <TextView
+                style="@style/extras_row_title"
+                android:text="@string/extras_standard_chartered_bank" />
+
+            <TextView
+                style="@style/extras_row_value"
+                android:text="@string/extras_standard_chartered_bank_value" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

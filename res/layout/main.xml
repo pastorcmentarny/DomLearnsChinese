@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/menu_table">
+
+    <TableRow style="@style/menu_row_style">
+
+        <TextView
+            android:id="@+id/gameTitle"
+            style="@style/title"
+            android:layout_span="2"
+            android:text="@string/app_name" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/newGameButton"
+            style="@style/menu_button_style"
+            android:layout_span="2"
+            android:drawableLeft="@drawable/joystick"
+            android:drawableStart="@drawable/joystick"
+            android:text="@string/new_game_button_title"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/highScoreButton"
+            style="@style/menu_button_style"
+            android:layout_span="2"
+            android:drawableLeft="@drawable/medal_gold_2"
+            android:drawableStart="@drawable/medal_gold_2"
+            android:text="@string/highscore_button_title" />
+
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/showLearningButton"
+            style="@style/menu_button_style"
+            android:layout_span="2"
+            android:drawableLeft="@drawable/eye"
+            android:drawableStart="@drawable/eye"
+            android:text="@string/learning_title" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/extras_button"
+            style="@style/menu_button_style"
+            android:layout_span="2"
+            android:drawableLeft="@drawable/table_multiple"
+            android:drawableStart="@drawable/table_multiple"
+            android:text="@string/extras_title" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/settingsButton"
+            style="@style/menu_button_style"
+            android:layout_span="2"
+            android:drawableLeft="@drawable/wrench_orange"
+            android:drawableStart="@drawable/wrench_orange"
+            android:text="@string/options" />
+
+
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <TextView
+            android:id="@+id/version"
+            style="@style/version"
+            android:layout_span="2" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <TextView
+            style="@style/advert"
+            android:layout_span="2" />
+    </TableRow>
+
+    <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        style="@style/menu_row_style"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center|bottom|center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/adUnitId"
+            tools:ignore="InconsistentLayout" />
+
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background_color">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="3"
+                android:text="@string/result_result"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="32sp"
+                android:textStyle="italic|bold" />
+
+            <TextView
+                android:id="@+id/resultTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:padding="2dp"
+                android:shadowColor="@color/status"
+                android:text="@string/unknown"
+                android:textColor="@color/grey"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+
+            <Button
+                android:id="@+id/backToMainMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/arrow_left"
+                android:drawableStart="@drawable/arrow_left"
+                android:text="@string/back_to_menu" />
+
+            <Button
+                android:id="@+id/restart_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/arrow_refresh"
+                android:drawableStart="@drawable/arrow_refresh"
+                android:text="@string/restart_level" />
+
+            <Button
+                android:id="@+id/goToNextLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/arrow_right"
+                android:drawableStart="@drawable/arrow_right"
+                android:text="@string/go_to_next_level" />
+
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>

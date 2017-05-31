@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="dms.pastor.chinesegame"
+    android:installLocation="preferExternal"
+    android:largeScreens="true">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission
+        android:name="android.permission.VIBRATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:required="false" />
+
+    <compatible-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@drawable/logo"
+        android:isGame="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        tools:ignore="UnusedAttribute">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name=".AppLauncher"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".games.survival.word.WordSurvival"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:noHistory="true" />
+        <activity android:name=".menu.About" />
+        <activity android:name=".menu.Options" />
+        <activity android:name=".learning.dictionary.VocabularyList" />
+        <activity android:name=".learning.dictionary.DictionaryList" />
+        <activity android:name=".learning.dictionary.QuestionList" />
+        <activity android:name=".learning.dictionary.SentenceList" />
+        <activity android:name=".data.game.score.HighScoreList" />
+        <activity
+            android:name=".games.hsk.basic.HskBasicIntro"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".games.hsk.basic.HSKLevel"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".games.hsk.basic.HSKResult"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".learning.lessons.LessonsIntro"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity
+            android:name=".learning.lessons.LessonSelection"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/lesson_selection_label" />
+        <activity
+            android:name=".learning.lessons.SingleLesson"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".learning.lessons.LessonTest"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".learning.lessons.LessonResult"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".learning.sentencespattern.PatternIntro"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity
+            android:name=".learning.sentencespattern.PatternSelection"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity
+            android:name=".learning.sentencespattern.PatternLesson"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".games.survival.saper.SapperGame"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".games.survival.saper.SapperIntro"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".games.survival.saper.SapperResult"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".learning.chats.ChatLesson"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".learning.chats.ChatSelection"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity
+            android:name=".learning.chats.ChatIntro"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:noHistory="true" />
+        <activity android:name=".extras.LearningTipsActivity" />
+        <activity android:name=".extras.CultureInfoActivity" />
+        <activity android:name=".extras.ToDo4Go" />
+        <activity android:name=".extras.UsefulContactDetails" />
+        <activity android:name=".extras.LinksActivity" />
+        <activity android:name=".learning.dictionary.WordFinder" />
+        <activity android:name=".games.survival.SurvivalIntro" />
+        <activity android:name=".learning.dictionary.QAList" />
+        <activity android:name=".menu.WordMistakesCounterView" />
+        <activity android:name=".extras.ProverbsActivity" />
+        <activity
+            android:name=".menu.StatisticsViewer"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity
+            android:name=".games.survival.SurvivalResult"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".menu.LearningMenu" />
+        <activity android:name=".games.dictionarytest.DictionaryTestIntro" />
+        <activity android:name=".games.dictionarytest.DictionaryTestGame" />
+        <activity android:name=".games.dictionarytest.DictionaryTestResult" />
+        <activity
+            android:name=".learning.practice.SentencePracticeIntro"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity
+            android:name=".learning.practice.SentencePractice"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+
+        <!-- AppBrain AppLift SDK -->
+        <activity
+            android:name="com.appbrain.AppBrainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+        <service android:name="com.appbrain.AppBrainService" />
+
+        <receiver
+            android:name="com.appbrain.ReferrerReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <!-- End of AppLift SDK -->
+
+        <!-- Google Play Services -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+        <!-- Experimental, Beta  activities -->
+        <activity
+            android:name=".extras.RandomWordActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_random_word"
+            android:theme="@style/FullscreenTheme" />
+    </application>
+
+</manifest>

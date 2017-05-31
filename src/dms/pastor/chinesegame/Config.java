@@ -1,0 +1,200 @@
+package dms.pastor.chinesegame;
+
+import android.util.Log;
+
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Random;
+
+import dms.pastor.chinesegame.common.enums.GameType;
+import dms.pastor.chinesegame.data.game.Player;
+
+/**
+ * User: dominik symonowicz
+ * Date: 16/11/12
+ * Time: 08:48
+ * It contains all settings for game.
+ * <p>
+ * IMPORTANT: if you add anything to Config ,please add to displayConfig too!
+ */
+public final class Config {
+
+    //Ads stuff
+    public static final String AD_INTERSTITIAL_UNIT = "ca-app-pub-1669938002445825/2171184702";
+    //time constants
+    public static final int SECONDS = 1000;  // 1000 milliseconds
+    //HSK
+    public static final long HSK_BASIC_TIME_LIMIT = 240 * SECONDS;
+    public static final String EMPTY = "  ";
+    //constant
+    public static final String DATE_FORMAT = "dd-MM-yyyy HH:mm:ss";
+    public static final int DEFAULT_BONUS_POINTS = 50;  //25 is based +1/100 words in wordList
+    public static final int HEALTH_BONUS_PER_LEVEL = 1;
+    public static final int MANA_BONUS_PER_LEVEL = 3;
+    public static final int DEFAULT_FAIL_POINTS = 2;
+    //misc settings
+    public static final int HIGH_SCORE_SIZE = 250;
+    public static final String HIGH_SCORE_FILE_PATH = "highscore.txt";
+    public static final String HIGH_SCORE_SAPPER_FILE_PATH = "highscore_sapper.txt";
+    public static final long VIBRATE_ON_MISTAKE_TIME = 100;
+    public static final int BONUS_POINTS_BASE = 10;
+    public static final String TAG_PREFIX = "DLC ";
+    public static final String DEFAULT_USER_NAME = "Chao";
+    public static final int HEAL_HP_VALUE = 11;
+    public static final long REFRESH = 200;
+    public static final int RANDOM_EVENT_FREQ = 5;
+    public static final String APP_NAME = "dms.pastor.chinesegame";
+    static final String MY_EMAIL = "dmspastor@gmail.com";
+    public static final boolean DEFAULT_PLAY_SOUND = false;
+    public static final boolean DEFAULT_VIBRATE = true;
+    public static final boolean DEFAULT_INTRO = true;
+    public static final boolean DEFAULT_SHOW_PINYIN_SAPPER = false;
+    public static final String DEFAULT_NO_DATE = "Ancient times";
+    public static final int BONUS_ONLY_PINYIN = 50;
+    public static final int REGEN_HP_VALUE = 4;
+    public static final int TURN_RANGE = 10;
+    public static final int HSK_BASIC_LEVELS_SIZE = 50;
+    public static final int RANDOM_SIZE = 200;
+    public static final int LESSON_LEVELS_SIZE = 10;
+    public static final int FREEZE_RANGE = 50;
+    //SPELLS cost
+    public static final int PINYIN_SPELL_COST = 9;
+    public static final int REMOVE_BAD_ANSWER_SPELL_COST = 11;
+    public static final int HEAL_SPELL_COST = 23;
+    public static final int CURE_SPELL_COST = 31;
+    public static final String WORD_PREFIX_FOR_STATS = "word_";
+    public static final String CIPHER_TYPE = "AES";
+    public static final int NO_PENALTY_TIME = 4;
+    public static final int ADVENTURE_NO_PENALTY_TIME = 4;
+    public static final int SAPPER_NO_PENALTY_TIME = NO_PENALTY_TIME * 2;
+    public static final int COMBO_MINIMUM = 3;
+    public static final int REGEN_MANA_VALUE = 4 + new Random().nextInt(9);
+    public static final int POISON_VALUE = 3 + new Random().nextInt(10);
+    //DIFFICULTY RANGE FOR ADVENTURE
+    //SCORE
+    public static final int BONUS_POINTS_UNFREEZE = 3;
+    public static final String SPR = ";;";
+    //COMMON TEXT
+    public static final boolean DEFAULT_SHOW_POLISH = false;
+    public static final long NEXT_WORD_TIME = 5000;
+    public static final File BACKUP_FOLDER = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/domsBackups");
+    public static final int DICTIONARY_TEST_LEVELS_SIZE = 100;
+    public static final int DICTIONARY_TEST_TIME_LIMIT = 300;
+    public static final int HIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY = 6;
+    private static final long HSK_BASIC_BONUS_TIME_UNIT = 30 * SECONDS;
+    private static final String STATISTIC_FILENAME = "stats.txt";
+    public static final File STATISTIC_FILE = new File(Config.BACKUP_FOLDER, Config.STATISTIC_FILENAME);
+    private static final String TAG = TAG_PREFIX + " Config";
+    private static final int JACKPOT_BONUS = 1000;
+    private static final int MAX_PENALTY = 20;
+
+    private Config() {
+    }
+
+    //CAMPAIGN
+    public static int increaseFail(int fail) {
+        int newFail = (2 * fail) + 1;
+        return newFail > MAX_PENALTY ? MAX_PENALTY : newFail;
+    }
+
+    public static int reduceFail(int fail) {
+        int newFail = fail - Math.round(MAX_PENALTY / 5);
+        return newFail < DEFAULT_FAIL_POINTS ? DEFAULT_FAIL_POINTS : newFail;
+    }
+
+    public static int calcPenaltyHealthForTime(long time) {
+        return (int) time / 1000;
+    }
+
+    public static int calcDictionarySizeBonus(int dictSize) {
+        int bonus = (dictSize / 75) - 1;
+        return bonus >= 0 ? bonus : 0;
+    }
+
+    public static int calculateScore() {
+        Player player = Player.getPlayer();
+        int score;
+        score = player.game.getCorrect() * 100 / player.game.getLevels();
+        score -= player.game.getMistake();
+        if ((player.game.getStopTime() - player.game.getStartTime()) > HSK_BASIC_TIME_LIMIT) {
+            score += (HSK_BASIC_TIME_LIMIT - (player.game.getStopTime() - player.game.getStartTime())) / SECONDS;
+
+        } else {
+            score += (HSK_BASIC_TIME_LIMIT - (player.game.getStopTime() - player.game.getStartTime())) / HSK_BASIC_BONUS_TIME_UNIT;
+        }
+        return score;
+    }
+
+    public static int calcJackPot(int level) {
+        return JACKPOT_BONUS + (level * new Random().nextInt(4)) + new Random().nextInt(level + 1);
+    }
+
+    public static String getCurrentDateAsString() {
+        return new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH).format(new Date());
+    }
+
+    public static String getFilePathFor(GameType gameType) {
+        switch (gameType) {
+            case ADVENTURE:
+                return HIGH_SCORE_FILE_PATH;
+            case SAPPER:
+                return HIGH_SCORE_SAPPER_FILE_PATH;
+            default:
+                Log.e(TAG, "no file path for highscore : " + gameType.toString());
+                return "";
+        }
+    }
+
+    @SuppressWarnings("SpellCheckingInspection") //it contains key inside
+    public static String getKey() {
+        return "4q3ONmchPdv0Nfus4q4Pjs7P2PE6fr8Mk5e9WlOq5vCe2vrhvjZGvcOi8aIISZd".substring(0, 16);
+    }
+
+    @SuppressWarnings("SpellCheckingInspection") // it contains key inside
+    public static byte[] getKeyAsBytes() throws UnsupportedEncodingException {
+        return "4q3ONmchPdv0Nfus4q4Pjs7P2PE6fr8Mk5e9WlOq5vCe2vrhvjZGvcOi8aIISZd".substring(0, 16).getBytes("UTF-8");
+    }
+
+    public static String displayConfig() {
+        return "" + "HSK_BASIC_TIME_LIMIT" + " - " + 240 * SECONDS + "\n" +
+                "DEFAULT_BONUS_POINTS" + " - " + 50 + "\n" +
+                "HEALTH_BONUS_PER_LEVEL" + " - " + 1 + "\n" +
+                "MANA_BONUS_PER_LEVEL" + " - " + 3 + "\n" +
+                "DEFAULT_FAIL_POINTS" + " - " + 2 + "\n" +
+                "HIGH_SCORE_SIZE" + " - " + 100 + "\n" +
+                "VIBRATE_ON_MISTAKE_TIME" + " - " + 100 + "\n" +
+                "BONUS_POINTS_BASE" + " - " + 10 + "\n" +
+                "HEAL_HP_VALUE" + " - " + 11 + "\n" +
+                "REFRESH" + " - " + 200 + "\n" +
+                "RANDOM_EVENT_FREQ" + " - " + 5 + "\n" +
+                "BONUS_ONLY_PINYIN" + " - " + 50 + "\n" +
+                "REGEN_HP_VALUE" + " - " + 4 + "\n" +
+                "TURN_RANGE" + " - " + 10 + "\n" +
+                "HSK_BASIC_LEVELS_SIZE" + " - " + 50 + "\n" +
+                "RANDOM_SIZE" + " - " + 200 + "\n" +
+                "LESSON_LEVELS_SIZE" + " - " + 10 + "\n" +
+                "FREEZE_RANGE" + " - " + 50 + "\n" +
+                "PINYIN_SPELL_COST" + " - " + 9 + "\n" +
+                "REMOVE_BAD_ANSWER_SPELL_COST" + " - " + 11 + "\n" +
+                "HEAL_SPELL_COST" + " - " + 23 + "\n" +
+                "CURE_SPELL_COST" + " - " + 31 + "\n" +
+                "NO_PENALTY_TIME" + " - " + 4 + "\n" +
+                "ADVENTURE_NO_PENALTY_TIME" + " - " + 4 + "\n" +
+                "SAPPER_NO_PENALTY_TIME" + " - " + NO_PENALTY_TIME * 2 + "\n" +
+                "COMBO_MINIMUM" + " - " + 3 + "\n" +
+                "REGEN_MANA_VALUE" + " - " + (4 + new Random().nextInt(9)) + "\n" +
+                "POISON_VALUE" + " - " + (3 + new Random().nextInt(10)) + "\n" +
+                "BONUS_POINTS_UNFREEZE" + " - " + 3 + "\n" +
+                "NEXT_WORD_TIME" + " - " + 5000 + "\n" +
+                "DICTIONARY_TEST_LEVELS_SIZE" + " - " + 100 + "\n" +
+                "DICTIONARY_TEST_TIME_LIMIT" + " - " + 300 + "\n" +
+                "HSK_BASIC_BONUS_TIME_UNIT" + " - " + 30 * SECONDS + "\n" +
+                "JACKPOT_BONUS" + " - " + 1000 + "\n" +
+                "MAX_PENALTY" + " - " + 20 + "\n" +
+                "HIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY" + " - " + 6 + "\n";
+    }
+
+}

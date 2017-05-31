@@ -1,0 +1,99 @@
+package dms.pastor.chinesegame.learning.dictionary;
+
+import android.app.AlertDialog;
+import android.app.ListActivity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.List;
+
+import dms.pastor.chinesegame.Config;
+import dms.pastor.chinesegame.R;
+import dms.pastor.chinesegame.common.clipboard.Clipboard4;
+import dms.pastor.chinesegame.data.dictionary.Question;
+import dms.pastor.chinesegame.db.DatabaseManager;
+import dms.pastor.chinesegame.utils.DomUtils;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Pastor
+ * Date: 18.09.13
+ * Time: 22:03
+ * To change this template use File | Settings | File Templates.
+ */
+public final class QuestionList extends ListActivity {
+    @SuppressWarnings("FieldCanBeLocal")
+    private static final String TAG = Config.TAG_PREFIX + "Question List";
+    private String[] wordsList;
+    private Clipboard4 clipboard;
+    private SharedPreferences settings;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        DatabaseManager dmManager = DatabaseManager.getDbManager(this);
+        if (dmManager != null) {
+            List<Question> questions = DatabaseManager.getDbService().getAllQuestions();
+            wordsList = DatabaseManager.getQuestionAsWordList(questions);
+        } else {
+            finish();
+        }
+        settings = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        clipboard = new Clipboard4();
+        setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, wordsList));
+        getListView().setTextFilterEnabled(true);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        StringBuilder wordBuilder = new StringBuilder("");
+        final Question question = DatabaseManager.getDbService().getQuestion(position + 1);
+        AlertDialog.Builder dialog;
+        if (question != null) {
+            wordBuilder.append(question.getCharacter()).append("\n");
+            wordBuilder.append(question.getPinyin()).append("\n");
+            wordBuilder.append(question.getEnglish()).append("\n");
+            if (settings.getBoolean("polishMode", false)) {
+                wordBuilder.append(question.getPolish()).append("\n");
+            }
+            wordBuilder.append(question.getNotes()).append("\n");
+            dialog = new AlertDialog.Builder(this);
+            dialog.setTitle(getResources().getString(R.string.word_info_title));
+            dialog.setMessage(wordBuilder.toString());
+            dialog.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(final DialogInterface di, final int arg) {
+
+                }
+            });
+            dialog.setNeutralButton(getResources().getString(R.string.copy2clippo), new DialogInterface.OnClickListener() {
+                public void onClick(final DialogInterface di, final int arg) {
+                    clipboard.saveText(getApplicationContext(), question.getCharacter());
+                    Toast.makeText(getApplicationContext(), "Saved to clipboard", Toast.LENGTH_SHORT).show();
+                }
+            });
+            dialog.show();
+
+        } else {
+            Log.e(TAG, getString(R.string.e_get_word));
+            dialog = new AlertDialog.Builder(this);
+            dialog.setTitle(getString(R.string.e));
+            dialog.setMessage(getString(R.string.e_dictionary_problem_msg2me) + position);
+            dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+                public void onClick(final DialogInterface di, final int arg) {
+                    DomUtils.sorryToast(getApplicationContext());
+                }
+            });
+            dialog.show();
+        }
+    }
+
+}

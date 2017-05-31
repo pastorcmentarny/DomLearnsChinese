@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/stats_games" />
+
+            <TextView
+                android:id="@+id/games"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/adventure_games" />
+
+            <TextView
+                android:id="@+id/adventureGames"
+
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/sapper_games" />
+
+            <TextView
+                android:id="@+id/sapperGames"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/total_time" />
+
+            <TextView
+                android:id="@+id/totalTime"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/corrects" />
+
+            <TextView
+                android:id="@+id/corrects"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/wrongs" />
+
+            <TextView
+                android:id="@+id/wrongs"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/skipped_title"
+                style="@style/statistic_text"
+                android:text="@string/skipped" />
+
+            <TextView
+                android:id="@+id/skipped"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/maxCombo" />
+
+            <TextView
+                android:id="@+id/maxCombo"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/max_combo_points" />
+
+            <TextView
+                android:id="@+id/maxComboPoints"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/max_score" />
+
+            <TextView
+                android:id="@+id/maxScore"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/total_levels" />
+
+            <TextView
+                android:id="@+id/totalLevels"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/sapper_highest_level" />
+
+            <TextView
+                android:id="@+id/highestLevelSapper"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/adventure_highest_level" />
+
+            <TextView
+                android:id="@+id/highestLevelAdventures"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/sapper_total_time" />
+
+            <TextView
+                android:id="@+id/totalTime_sapper"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/adventure_total_time" />
+
+            <TextView
+                android:id="@+id/totalTime_adventure"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/show_pinyin" />
+
+            <TextView
+                android:id="@+id/showPinyinUsed"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_heal" />
+
+            <TextView
+                android:id="@+id/healUsed"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/spell_remove_bad_answer" />
+
+            <TextView
+                android:id="@+id/removeWrongAnswerUsed"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_cure" />
+
+            <TextView
+                android:id="@+id/cureUsed"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_half" />
+
+            <TextView
+                android:id="@+id/halfHalfHappen"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_poison" />
+
+            <TextView
+                android:id="@+id/poisonHappen"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_triple" />
+
+            <TextView
+                android:id="@+id/triple"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_jackpot" />
+
+            <TextView
+                android:id="@+id/jackpot"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_drain_mana" />
+
+            <TextView
+                android:id="@+id/drainMana"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_minor_points_title" />
+
+            <TextView
+                android:id="@+id/minorPoints"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_regenaration_title" />
+
+            <TextView
+                android:id="@+id/regeneration"
+                style="@style/statistic_text"
+                android:text="@string/unknown"
+                android:textColor="@color/first_main_font_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_s_happens_title" />
+
+            <TextView
+                android:id="@+id/shitHappens"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_swap_hp_mp_title" />
+
+            <TextView
+                android:id="@+id/swapHpMp"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_frozen_label" />
+
+            <TextView
+                android:id="@+id/frozen"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_blind_label" />
+
+            <TextView
+                android:id="@+id/blind"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_show_pinyin_label" />
+
+            <TextView
+                android:id="@+id/showPinyin"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/event_painkiller_label" />
+
+            <TextView
+                android:id="@+id/painKiller"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/sapper_difficulty_easy_label" />
+
+            <TextView
+                android:id="@+id/sapper_easy"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/sapper_difficulty_hard_label" />
+
+            <TextView
+                android:id="@+id/sapper_hard"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/statistic_text"
+                android:text="@string/pinyin_instead_character" />
+
+            <TextView
+                android:id="@+id/pinyin_instead_character"
+                style="@style/statistic_text"
+                android:text="@string/unknown" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

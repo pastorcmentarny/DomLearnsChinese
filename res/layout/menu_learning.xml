@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/menu_table">
+
+    <TableRow android:layout_marginBottom="2dp">
+
+        <TextView
+            android:id="@+id/gameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="@string/learning_menu_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textIsSelectable="false"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/lessonButton"
+            style="@style/learn_menu_button_style"
+            android:drawableLeft="@drawable/joystick"
+            android:drawableStart="@drawable/joystick"
+            android:text="@string/lessons_title" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/testsButton"
+            style="@style/learn_menu_button_style"
+            android:drawableLeft="@drawable/eye"
+            android:drawableStart="@drawable/eye"
+            android:text="@string/tests_title" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/learningTipssButton"
+            style="@style/learn_menu_button_style"
+            android:drawableLeft="@drawable/information"
+            android:drawableStart="@drawable/information"
+            android:text="@string/learning_tips_title" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/dictButton"
+            style="@style/learn_menu_button_style"
+            android:drawableLeft="@drawable/book_open"
+            android:drawableStart="@drawable/book_open"
+            android:text="@string/show_dictionary_title" />
+    </TableRow>
+
+    <TableRow style="@style/menu_row_style">
+
+        <Button
+            android:id="@+id/backToMainMenuButton"
+            style="@style/learn_menu_button_style"
+            android:drawableLeft="@drawable/arrow_left"
+            android:drawableStart="@drawable/arrow_left"
+            android:text="@string/back_to_menu" />
+    </TableRow>
+
+    <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        style="@style/menu_row_style"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center|bottom|center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/adUnitId" />
+
+    </TableRow>
+</TableLayout>
