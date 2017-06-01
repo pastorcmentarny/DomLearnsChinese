@@ -194,7 +194,6 @@
                 android:textColor="@color/character_color"
                 android:textSize="64sp"
                 android:textStyle="bold" />
-
         </TableRow>
 
         <TableRow>
@@ -210,6 +209,7 @@
                 android:shadowRadius="3"
                 android:text="@string/pinyin"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/character_color"
                 android:textSize="32sp"
                 android:textStyle="italic" />
 
@@ -287,8 +287,6 @@
                 android:layout_span="4"
                 android:text="@string/tap2unfreeze_label"
                 android:visibility="gone" />
-
-
         </TableRow>
 
         <TableRow
@@ -301,8 +299,6 @@
                 style="@style/spell_button_style"
                 android:layout_span="4"
                 android:text="@string/event_show_pinyin_label" />
-
-
         </TableRow>
 
         <TableRow
@@ -369,45 +365,6 @@
                 ads:adSize="BANNER"
                 ads:adUnitId="@string/adUnitId" />
         </LinearLayout>
-
-        <TableRow
-            android:id="@+id/development"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/d1"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="1"
-                android:text="@string/debug_a" />
-
-            <Button
-                android:id="@+id/d2"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="1"
-                android:text="@string/debug_mana_plus" />
-
-            <Button
-                android:id="@+id/d3"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="1"
-                android:text="@string/debug_mplus" />
-
-            <Button
-                android:id="@+id/d4"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="1"
-                android:text="@string/debug_c" />
-        </TableRow>
     </TableLayout>
 
 
