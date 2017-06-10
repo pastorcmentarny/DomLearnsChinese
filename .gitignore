@@ -6,7 +6,6 @@ local.properties
 build/
 /LearningChineseGame.iml
 /projectFilesBackup/
-assets/
 /gradlew
 /gradlew.bat
 /gradle.properties

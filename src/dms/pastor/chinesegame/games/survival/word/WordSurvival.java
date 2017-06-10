@@ -16,7 +16,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -184,22 +183,6 @@ public final class WordSurvival extends Level implements View.OnClickListener {
             Log.d(getString(R.string.am_e), getString(R.string.am_e_init) + e.getMessage());
         }
 
-
-        if (settings.getBoolean("ddev", false)) {
-            TableRow development = (TableRow) findViewById(R.id.development);
-            development.setVisibility(View.VISIBLE);
-            Button d1, d2, d3, d4;
-            d1 = (Button) findViewById(R.id.d1);
-            d2 = (Button) findViewById(R.id.d2);
-            d3 = (Button) findViewById(R.id.d3);
-            d4 = (Button) findViewById(R.id.d4);
-            d1.setOnClickListener(this);
-            d2.setOnClickListener(this);
-            d3.setOnClickListener(this);
-            d4.setOnClickListener(this);
-        }
-
-
         setup();
         highScore = HighScore.getHighScore();
         clipboard = new Clipboard4();
@@ -273,20 +256,6 @@ public final class WordSurvival extends Level implements View.OnClickListener {
                 break;
             case R.id.tap2unfreeze:
                 unfreezeAction();
-                break;
-            case R.id.d1:
-                DomUtils.msg(this, answerWord.getWordInEnglish());
-                break;
-            case R.id.d2:
-                player.setHealth(100);
-                break;
-            case R.id.d3:
-                player.setMana(100);
-                DomUtils.msg(this, "set mana to 100");
-                break;
-            case R.id.d4:
-                event(new Random().nextInt(RANDOM_SIZE));
-                DomUtils.msg(this, "Cast random event..");
                 break;
             case R.id.currentCharacter:
                 saveCurrentCharacterToClipboard();
