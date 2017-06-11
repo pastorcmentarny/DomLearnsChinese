@@ -17,6 +17,7 @@ import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Intro;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.games.survival.word.WordSurvival;
+import dms.pastor.chinesegame.utils.UIUtils;
 
 import static dms.pastor.chinesegame.data.game.Player.getPlayer;
 
@@ -57,7 +58,7 @@ public final class SurvivalIntro extends Intro {
         introTitle = (TextView) findViewById(R.id.intro_title);
         introAbout = (TextView) findViewById(R.id.intro_about);
         introTutorial = (TextView) findViewById(R.id.intro_tutorial);
-        setAd();
+        UIUtils.loadAd(this, this);
 
         updateUI();
         SharedPreferences preferences = getSharedPreferences("settings", Context.MODE_PRIVATE);

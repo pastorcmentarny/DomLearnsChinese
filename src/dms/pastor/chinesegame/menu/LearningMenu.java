@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-import com.appbrain.AppBrain;
 import com.google.android.gms.ads.AdView;
 
 import dms.pastor.chinesegame.R;
@@ -50,8 +49,6 @@ public final class LearningMenu extends Activity implements View.OnClickListener
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.menu_learning);
         statistic = Statistic.getStatistic(this);
-
-        loadAppBrain();
 
         loadAd();
 
@@ -193,14 +190,6 @@ public final class LearningMenu extends Activity implements View.OnClickListener
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         }).show();
-    }
-
-    private void loadAppBrain() {
-        try {
-            AppBrain.init(this);
-        } catch (Exception e) {
-            Log.d(getString(R.string.ab_e), getString(R.string.ab_e_init) + e.getMessage());
-        }
     }
 
     private void loadAd() {

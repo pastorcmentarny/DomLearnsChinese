@@ -4,18 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import dms.pastor.chinesegame.R;
+import dms.pastor.chinesegame.utils.UIUtils;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static dms.pastor.chinesegame.utils.Utils.getAdRequest;
 
 /**
  * User: Pastor
@@ -34,7 +30,7 @@ public final class SentencePracticeIntro extends Activity implements View.OnClic
 
         Button lessonSelectionButton = (Button) findViewById(R.id.lesson_selection_button);
         lessonSelectionButton.setOnClickListener(this);
-        loadAd();
+        UIUtils.loadAd(this, this);
     }
 
     @Override
@@ -45,16 +41,6 @@ public final class SentencePracticeIntro extends Activity implements View.OnClic
                 select = new Intent(getApplicationContext(), SentencePractice.class);
                 select.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(select);
-        }
-    }
-
-    private void loadAd() {
-        AdView adView = (AdView) this.findViewById(R.id.adView);
-        try {
-            AdRequest adRequest = getAdRequest();
-            adView.loadAd(adRequest);
-        } catch (Exception e) {
-            Log.d(getString(R.string.am_e), getString(R.string.am_e_init) + e.getMessage());
         }
     }
 

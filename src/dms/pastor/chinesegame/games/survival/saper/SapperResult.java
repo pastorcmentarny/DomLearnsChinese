@@ -13,8 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appbrain.AppBrain;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -94,12 +92,7 @@ public final class SapperResult extends GameResult {
         Button seeHS = (Button) findViewById(R.id.seeHS);
         seeHS.setOnClickListener(this);
         seeHS.setVisibility(View.VISIBLE);
-
-        try {
-            AppBrain.init(this);
-        } catch (Exception e) {
-            Log.d(TAG + getString(R.string.ab_e), getString(R.string.ab_e_init) + e.getMessage());
-        }
+        UIUtils.loadAd(this, this);
 
         setup();
     }

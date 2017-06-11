@@ -25,6 +25,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 import dms.pastor.chinesegame.R;
@@ -32,6 +35,7 @@ import dms.pastor.chinesegame.R;
 import static android.content.Context.MODE_PRIVATE;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.widget.Toast.LENGTH_LONG;
+import static dms.pastor.chinesegame.utils.Utils.getAdRequest;
 
 /**
  * Author: Dominik Symonowicz "Pastor cmentarny"
@@ -263,6 +267,16 @@ public final class UIUtils {
         myToast.setDuration(LENGTH_LONG);
         myToast.setView(myLayout);
         myToast.show();
+    }
+
+    public static void loadAd(Activity activity, Context context) {
+        AdView adView = (AdView) activity.findViewById(R.id.adView);
+        try {
+            AdRequest adRequest = getAdRequest();
+            adView.loadAd(adRequest);
+        } catch (Exception e) {
+            Log.d(context.getString(R.string.am_e), context.getString(R.string.am_e_init) + e.getMessage());
+        }
     }
 
 }

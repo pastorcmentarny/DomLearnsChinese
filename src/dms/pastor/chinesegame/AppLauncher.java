@@ -20,7 +20,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appbrain.AppBrain;
 import com.google.android.gms.ads.AdView;
 
 import dms.pastor.chinesegame.common.enums.GameType;
@@ -78,11 +77,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        try {
-            AppBrain.init(this);
-        } catch (Exception e) {
-            Log.d(getString(R.string.ab_e), getString(R.string.ab_e_init) + e.getMessage());
-        }
 
         player = Player.getPlayer(this);
         preferences = PreferenceManager.getDefaultSharedPreferences(AppLauncher.this);
@@ -317,12 +311,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     public void onBackPressed() {
         super.onBackPressed();
         if (isFinishing()) {
-            Log.i(TAG, getString(R.string.exit));
-            try {
-                AppBrain.getAds().showInterstitial(AppLauncher.this);
-            } catch (Exception e) {
-                Log.d(getString(R.string.ab_e), getString(R.string.ab_e_init) + "\nError message:" + e.getMessage());
-            }
+            Log.i(TAG, "Goodbye application! Goodbye weird entity who read this log.");
         }
     }
 

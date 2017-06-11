@@ -10,14 +10,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.appbrain.AppBrain;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.common.enums.Grades;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
+import dms.pastor.chinesegame.utils.UIUtils;
 
 import static dms.pastor.chinesegame.Config.calculateScore;
 import static dms.pastor.chinesegame.data.game.Player.getPlayer;
@@ -56,13 +55,8 @@ public final class HSKResult extends Activity implements View.OnClickListener {
         backToMainMenu.setOnClickListener(this);
         Button tryAgain = (Button) findViewById(R.id.tryAgain);
         tryAgain.setOnClickListener(this);
+        UIUtils.loadAd(this, this);
 
-
-        try {
-            AppBrain.init(this);
-        } catch (Exception e) {
-            Log.d(getString(R.string.ab_e), getString(R.string.ab_e_init) + e.getMessage());
-        }
         setup();
     }
 

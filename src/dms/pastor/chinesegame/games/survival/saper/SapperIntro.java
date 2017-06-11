@@ -16,6 +16,7 @@ import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Intro;
 import dms.pastor.chinesegame.data.game.Player;
+import dms.pastor.chinesegame.utils.UIUtils;
 
 /**
  * User: Pastor
@@ -43,7 +44,7 @@ public final class SapperIntro extends Intro implements View.OnClickListener {
         introTutorial.setText(getResources().getString(R.string.saper_tutorial));
         player = Player.getPlayer();
         statistic = Statistic.getStatistic(this);
-        setAd();
+        UIUtils.loadAd(this, this);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SapperIntro.this);
         if (!preferences.getBoolean("show_sapper_intro", true)) {
             start();

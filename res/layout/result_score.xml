@@ -157,12 +157,22 @@
             </TableRow>
         </TableLayout>
 
-        <com.appbrain.AppBrainBanner xmlns:appbrain="http://schemas.android.com/apk/lib/com.appbrain"
+        <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            style="@style/menu_row_style"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            appbrain:button="1"
-            appbrain:colors="8"
-            appbrain:design="3"
-            appbrain:title="3" />
+            android:layout_height="fill_parent"
+            android:gravity="center|bottom|center_horizontal"
+            android:orientation="vertical">
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/adUnitId" />
+
+        </TableRow>
+
     </LinearLayout>
 </ScrollView>

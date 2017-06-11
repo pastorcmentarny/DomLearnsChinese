@@ -15,6 +15,7 @@ import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.game.Intro;
 import dms.pastor.chinesegame.data.game.Player;
+import dms.pastor.chinesegame.utils.UIUtils;
 
 /**
  * Author: Pastor
@@ -43,7 +44,7 @@ public final class DictionaryTestIntro extends Intro implements View.OnClickList
         if (!preferences.getBoolean("showIntro", true)) {
             start();
         }
-        setAd();
+        UIUtils.loadAd(this, this);
     }
 
     @Override

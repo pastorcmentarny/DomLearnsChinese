@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appbrain.AppBrain;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -119,12 +118,6 @@ public final class SurvivalResult extends GameResult {
         seeHS = (Button) findViewById(R.id.seeHS);
         seeHS.setOnClickListener(this);
         setVisibilityForMenuItems(View.GONE);
-
-        try {
-            AppBrain.init(this);
-        } catch (Exception e) {
-            Log.d(getString(R.string.ab_e), getString(R.string.ab_e_init) + e.getMessage());
-        }
 
         setup();
 

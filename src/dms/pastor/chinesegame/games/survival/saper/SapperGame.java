@@ -5,14 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
@@ -38,7 +35,6 @@ import static dms.pastor.chinesegame.Config.SECONDS;
 import static dms.pastor.chinesegame.common.enums.Stage.getDifficultyLevelForLevel;
 import static dms.pastor.chinesegame.utils.DomUtils.getResultTimeAsString;
 import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
-import static dms.pastor.chinesegame.utils.Utils.getAdRequest;
 import static java.lang.String.format;
 
 /**
@@ -119,13 +115,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         answer4Button.setOnClickListener(this);
         removeBadAnswerButton.setOnClickListener(this);
 
-        AdView adView = (AdView) this.findViewById(R.id.adView);
-        try {
-            com.google.android.gms.ads.AdRequest adRequest = getAdRequest();
-            adView.loadAd(adRequest);
-        } catch (Exception e) {
-            Log.d(getString(R.string.am_e), getString(R.string.am_e_init) + e.getMessage());
-        }
+        UIUtils.loadAd(this, this);
 
         setup();
 
