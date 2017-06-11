@@ -28,17 +28,13 @@ import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 import static dms.pastor.chinesegame.data.dictionary.Dictionary.recreateDictionary;
 
 /**
- * Author: Pastor cmentarny
- * WWW:	http://pastor.ovh.org
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * Email: email can be found on my website
- * <p/>
- * Date: 02.09.13
- * Time: 23:13
- * <p/>
- * This class is response for manage database operations.
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 02/09/2013
  */
 public final class DatabaseManager {
     private static final String TAG = Config.TAG_PREFIX + "DB Manager";

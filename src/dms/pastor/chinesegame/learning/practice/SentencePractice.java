@@ -2,18 +2,21 @@ package dms.pastor.chinesegame.learning.practice;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import dms.pastor.chinesegame.R;
+import dms.pastor.chinesegame.utils.UIUtils;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 import static android.view.Window.FEATURE_NO_TITLE;
-import static dms.pastor.chinesegame.utils.Utils.getAdRequest;
 
-
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ */
 public class SentencePractice extends Activity {
 
     @Override
@@ -22,17 +25,7 @@ public class SentencePractice extends Activity {
         requestWindowFeature(FEATURE_NO_TITLE);
         setRequestedOrientation(SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.practice_sentence);
-
-        loadAd();
+        UIUtils.loadAd(this, this);
     }
 
-    private void loadAd() {
-        AdView adView = (AdView) this.findViewById(R.id.adView);
-        try {
-            AdRequest adRequest = getAdRequest();
-            adView.loadAd(adRequest);
-        } catch (Exception e) {
-            Log.d(getString(R.string.am_e), getString(R.string.am_e_init) + e.getMessage());
-        }
-    }
 }

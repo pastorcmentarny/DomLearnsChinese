@@ -33,10 +33,13 @@ import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
 import static dms.pastor.chinesegame.utils.UIUtils.setToDefault;
 
 /**
- * User: Pastor
- * Date: 02.01.13
- * Time: 21:47
- * Lesson test game Activity
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 02/01/2013
  */
 public final class LessonTest extends Level implements View.OnClickListener {
     private static final String TAG = "LESSON TEST";
@@ -192,7 +195,6 @@ public final class LessonTest extends Level implements View.OnClickListener {
         showPinyinSpellButton.setEnabled(enabled);
     }
 
-
     private void checkAnswer(Button button) {
         if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
             timer.stop();
@@ -214,7 +216,6 @@ public final class LessonTest extends Level implements View.OnClickListener {
             updatePlayer();
         }
     }
-
 
     public void setupUI() {
         setToDefault(this, answer1Button);
@@ -239,7 +240,6 @@ public final class LessonTest extends Level implements View.OnClickListener {
         } else {
             error("No answer word :(");
         }
-
 
         DomUtils.shuffle(words);
         answer1Button.setText(words.get(0).getWordInEnglish());

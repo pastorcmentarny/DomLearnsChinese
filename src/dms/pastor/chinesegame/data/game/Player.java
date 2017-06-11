@@ -16,19 +16,22 @@ import dms.pastor.chinesegame.data.learning.lessons.Lesson;
 import dms.pastor.chinesegame.data.learning.lessons.MiniLessons;
 import dms.pastor.chinesegame.data.learning.patterns.Pattern;
 
+public
 /**
- * Author: Pastor
- * Created at:
- * Date: 07.11.12
- * Time: 21:03
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 07/11/2012
  */
-public final class Player {
+final class Player {
     private static final String TAG = "PLAYER";
     private static Player player;
     private final Context context;
     public Game game;
     public MiniLessons miniLessons = null;
-    // --Commented out by Inspection (2016-04-10 02:21):boolean dbError = false;
     private String dbErrorMessage = "";
     private boolean poisoned = false;
     private boolean hpRegeneration = false;
@@ -57,9 +60,6 @@ public final class Player {
         restart(GameType.NONE);
     }
 
-    /**
-     * @return return instance of Player
-     */
     public static synchronized Player getPlayer(Context context) {
 
         if (player == null) {
@@ -68,9 +68,6 @@ public final class Player {
         return player;
     }
 
-    /**
-     * @return return instance of Player
-     */
     public static synchronized Player getPlayer() {
         return player;
     }
@@ -89,19 +86,19 @@ public final class Player {
         return poisoned;
     }
 
-    public void setHpRegeneration(boolean hpRegeneration) {
+    void setHpRegeneration(boolean hpRegeneration) {
         this.hpRegeneration = hpRegeneration;
     }
 
-    public void setManaRegeneration(boolean manaRegeneration) {
+    void setManaRegeneration(boolean manaRegeneration) {
         this.manaRegeneration = manaRegeneration;
     }
 
-    public void setHpRegenerationTurnLeft(int hpRegenerationTurnLeft) {
+    void setHpRegenerationTurnLeft(int hpRegenerationTurnLeft) {
         this.hpRegenerationTurnLeft = hpRegenerationTurnLeft;
     }
 
-    public void setManaRegenerationTurnLeft(int manaRegenerationTurnLeft) {
+    void setManaRegenerationTurnLeft(int manaRegenerationTurnLeft) {
         this.manaRegenerationTurnLeft = manaRegenerationTurnLeft;
     }
 
@@ -235,17 +232,17 @@ public final class Player {
         return bonus;
     }
 
-    public void activateHealthRegeneration(int turns) {
+    void activateHealthRegeneration(int turns) {
         setHpRegeneration(true);
         setHpRegenerationTurnLeft(turns);
     }
 
-    public void activateManaRegeneration(int turns) {
+    void activateManaRegeneration(int turns) {
         setManaRegeneration(true);
         setManaRegenerationTurnLeft(turns);
     }
 
-    public void activatePoison(int turns) {
+    void activatePoison(int turns) {
         poisoned = true;
         poisonedTurnLeft = turns;
     }
@@ -254,15 +251,15 @@ public final class Player {
         return combo;
     }
 
-    public void setTripleBonusToFalse() {
+    void setTripleBonusToFalse() {
         this.tripleBonus = false;
     }
 
-    public void setTripleBonusTurnLeft() {
+    void setTripleBonusTurnLeft() {
         this.tripleBonusTurnLeft = 0;
     }
 
-    public void removeNegativeSpells() {
+    void removeNegativeSpells() {
         hpRegeneration = false;
         manaRegeneration = false;
         poisoned = false;
@@ -288,7 +285,7 @@ public final class Player {
         return states.toString();
     }
 
-    public void activateTripleBonus(int turns) {
+    void activateTripleBonus(int turns) {
         tripleBonus = true;
         tripleBonusTurnLeft = turns;
     }
@@ -329,8 +326,7 @@ public final class Player {
         return currentPattern;
     }
 
-
-    public void addBonus() {
+    void addBonus() {
         switch (BonusType.RANDOM) {
             case RANDOM:
                 int bonus = new Random().nextInt(player.game.getLevel());

@@ -1,13 +1,5 @@
 package dms.pastor.chinesegame.learning.dictionary;
 
-/*
- * Author: Pastor
- * Created at:
- * Date: 18.11.12
- * Time: 17:34
- * It display all words from dictionary
- */
-
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
@@ -26,7 +18,15 @@ import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.dictionary.Word;
 import dms.pastor.chinesegame.utils.DomUtils;
 
-@SuppressWarnings("FieldCanBeLocal")
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 18/11/2012
+ */
 public final class VocabularyList extends ListActivity {
     private static final String TAG = "Vocabulary List";
     private AlertDialog.Builder dialog;

@@ -1,19 +1,5 @@
 package dms.pastor.chinesegame.data.game.score;
 
-/*
- * Author: Pastor cmentarny
- * WWW:	http://pastor.ovh.org
- * Github:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * Email: email can be found on my website
- * <p/>
- * Date: 18.11.12
- * Time: 17:34
- * <p/>
- * It display all words from dictionary
- */
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -32,6 +18,15 @@ import java.util.Locale;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 18/11/2012
+ */
 public final class HighScoreList extends ListActivity {
     private static final String TAG = "High Score List";
     private HighScore highScore;

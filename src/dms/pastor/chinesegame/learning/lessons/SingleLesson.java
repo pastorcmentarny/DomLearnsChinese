@@ -21,10 +21,13 @@ import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
 
 /**
- * User: Pastor
- * Date: 02.01.13
- * Time: 21:46
- * A lesson activity
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 02/01/2013
  */
 public final class SingleLesson extends Activity implements View.OnClickListener {
 
@@ -56,7 +59,6 @@ public final class SingleLesson extends Activity implements View.OnClickListener
         player = Player.getPlayer();
 
         setupGUI();
-
     }
 
     @Override

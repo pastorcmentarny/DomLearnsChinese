@@ -10,10 +10,20 @@ import static dms.pastor.chinesegame.Config.SECONDS;
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-17
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ */
+
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 17/10/2015
  */
 public final class SapperScoreCalculator implements Calculator {
     private static final int NEGATIVE = -1;

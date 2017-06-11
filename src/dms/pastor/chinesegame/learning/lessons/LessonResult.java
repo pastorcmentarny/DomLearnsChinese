@@ -19,14 +19,18 @@ import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.data.learning.lessons.Lesson;
-import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
 
+import static dms.pastor.chinesegame.utils.DomUtils.goToHome;
+
 /**
- * User: Pastor
- * Date: 02.01.13
- * Time: 21:47
- * Displays result_grade of test of lesson with some statistics
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 02/01/2013
  */
 public final class LessonResult extends Activity implements View.OnClickListener {
     private static final String TAG = "LESSON TEST RESULT";
@@ -54,12 +58,10 @@ public final class LessonResult extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
 
         setupScreen();
-
         setupAd();
 
         setupScreenViews();
         setupListenerForButtons();
-
         setVisibilityForMenuItems(View.GONE);
 
         setupGUI();
@@ -102,8 +104,7 @@ public final class LessonResult extends Activity implements View.OnClickListener
 
     @Override
     public void onBackPressed() {
-        DomUtils.goToHome(this, LessonResult.this);
-
+        goToHome(this, LessonResult.this);
     }
 
     @Override
@@ -116,7 +117,7 @@ public final class LessonResult extends Activity implements View.OnClickListener
                 resetLevel();
                 break;
             case R.id.backToMainMenu:
-                DomUtils.goToHome(this, LessonResult.this);
+                goToHome(this, LessonResult.this);
                 break;
             default:
                 Log.w(TAG, "woops!");

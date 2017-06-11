@@ -21,11 +21,13 @@ import dms.pastor.chinesegame.db.DatabaseManager;
 import dms.pastor.chinesegame.utils.DomUtils;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Pastor
- * Date: 27.02.14
- * Time: 23:02
- * To change this template use File | Settings | File Templates.
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 27/02/2014
  */
 public final class QAList extends ListActivity {
     @SuppressWarnings("FieldCanBeLocal")

@@ -21,10 +21,13 @@ import dms.pastor.chinesegame.data.learning.patterns.Pattern;
 import dms.pastor.chinesegame.db.DatabaseManager;
 
 /**
- * User: Pastor
- * Date: 05.01.13
- * Time: 00:27
- * Allows user to choose a pattern
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 05/01/2013
  */
 public final class PatternSelection extends ListActivity {
     private DatabaseManager dbManager;
@@ -43,7 +46,6 @@ public final class PatternSelection extends ListActivity {
             } else {
                 finish();
             }
-
         } else {
             finish();
         }

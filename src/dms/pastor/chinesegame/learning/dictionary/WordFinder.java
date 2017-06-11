@@ -19,18 +19,14 @@ import dms.pastor.chinesegame.data.dictionary.Word;
 import dms.pastor.chinesegame.db.DatabaseManager;
 import dms.pastor.chinesegame.utils.DomUtils;
 
-
 /**
- * author: Pastor cmentarny
- * WWW: http://pastor.ovh.org
- * Github: https://github.com/pastorcmentarny
- * Google Play:
- * https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * Email: email can be found on my website
- * <p/>
- * Created  18.09.13
- * To change this template use File | Settings | File Templates.
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 18/09/2013
  */
 public final class WordFinder extends Activity implements View.OnClickListener {
     private static final String TAG = "Word Finder";

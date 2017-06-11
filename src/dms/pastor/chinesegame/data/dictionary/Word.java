@@ -5,11 +5,13 @@ import android.util.Log;
 import static dms.pastor.chinesegame.utils.DomUtils.isStringEmpty;
 
 /**
- * Author: Pastor
- * Created at:
- * Date: 14.11.12
- * Time: 23:21
- * A word
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 14/11/2012
  */
 public final class Word {
     private static final String TAG = "WORD";

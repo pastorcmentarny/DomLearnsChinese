@@ -36,10 +36,13 @@ import dms.pastor.chinesegame.utils.DomUtils;
 import static java.lang.String.format;
 
 /**
- * User: Dominik Symonowicz
- * Date: 18.08.13
- * Time: 17:46
- * A helper class to manage database creation and version management.
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 18/08/2012
  */
 public final class DatabaseService extends SQLiteOpenHelper {
 
@@ -48,11 +51,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
     private static final String SELECT_ALL_FROM = "SELECT * FROM ";
     @SuppressWarnings("SpellCheckingInspection")
     private static final String DB_NAME = "dictdb";
-    /**
-     * TABLES ,
-     * if you add any here,add to displayInfo() method too!
-     */
-
+    //TABLES, if you add any here,add to displayInfo() method too!
     private static final String TABLE_CHATS = "Chats";
     @SuppressWarnings("SpellCheckingInspection")
     private static final String TABLE_CULTURE_INFO = "cultureinfo";
@@ -79,9 +78,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * Creates a empty database on the system and rewrites it with your own database.
-     */
+    //Creates a empty database on the system and rewrites it with your own database.
     void createDataBase() {
         Log.i(TAG, "creating database...");
         boolean dbExist = checkDataBase();

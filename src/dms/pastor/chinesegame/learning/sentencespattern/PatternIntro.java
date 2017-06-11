@@ -4,20 +4,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-import com.google.android.gms.ads.AdView;
-
 import dms.pastor.chinesegame.R;
-import dms.pastor.chinesegame.utils.Utils;
+import dms.pastor.chinesegame.utils.UIUtils;
 
 /**
- * User: Pastor
- * Date: 02.01.13
- * Time: 21:46
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 02/01/2013
  */
 public final class PatternIntro extends Activity implements View.OnClickListener {
 
@@ -30,15 +31,7 @@ public final class PatternIntro extends Activity implements View.OnClickListener
         setContentView(R.layout.pattern_intro);
         Button lessonSelectionButton = (Button) findViewById(R.id.lesson_selection_button);
         lessonSelectionButton.setOnClickListener(this);
-        AdView adView = (AdView) this.findViewById(R.id.adView);
-        try {
-            //set ads
-
-            com.google.android.gms.ads.AdRequest adRequest = Utils.getAdRequest();
-            adView.loadAd(adRequest);
-        } catch (Exception e) {
-            Log.d(getString(R.string.am_e), getString(R.string.am_e_init) + e.getMessage());
-        }
+        UIUtils.loadAd(this, this);
     }
 
     @Override

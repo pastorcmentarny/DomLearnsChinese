@@ -38,14 +38,13 @@ import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
 import static java.lang.String.format;
 
 /**
- * Author: Dominik Symonowicz "Pastor cmentarny"
- * WWW:	http://pastor.ovh.org
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * Email: email can be found on my website
- * <p>
- * Created 15.01'2013
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 15/01/2013
  */
 public final class SapperGame extends Level implements View.OnClickListener {
     private final SapperScoreCalculator calculator = new SapperScoreCalculator();

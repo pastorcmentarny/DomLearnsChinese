@@ -23,26 +23,19 @@ import dms.pastor.chinesegame.common.WordContainer;
 import dms.pastor.chinesegame.common.clipboard.Clipboard4;
 import dms.pastor.chinesegame.extras.util.SystemUiHider;
 
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ */
 public final class RandomWordActivity extends Activity implements View.OnClickListener, Runnable {
-    /**
-     * The flags to pass to {@link SystemUiHider#getInstance}.
-     */
     public static final int HIDER_FLAGS = SystemUiHider.FLAG_HIDE_NAVIGATION;
     private static final String TAG = "Random";
-    /**
-     * Whether or not the system UI should be auto-hidden after
-     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
-     */
     private static final boolean AUTO_HIDE = true;
-    /**
-     * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
-     * user interaction before hiding the system UI.
-     */
     private static final int AUTO_HIDE_DELAY_MILLIS = 1000;
-    /**
-     * If set, will toggle the system UI visibility upon interaction. Otherwise,
-     * will show the system UI visibility upon interaction.
-     */
     private static final boolean TOGGLE_ON_CLICK = true;
     private final Handler mHideHandler = new Handler();
     private TextView chinese;
@@ -59,9 +52,6 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
         }
     };
     private Timer myTimer;
-    /**
-     * The instance of the {@link SystemUiHider} for this activity.
-     */
     private SystemUiHider mSystemUiHider;
     private final Runnable mHideRunnable = new Runnable() {
         @Override
@@ -75,8 +65,6 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_random_word);
-
-        //Statistic statistic = Statistic.getStatistic(this);
         final View contentView = findViewById(R.id.fullscreen_content);
         chinese = (TextView) findViewById(R.id.character);
         pinyin = (TextView) findViewById(R.id.pinyinTextView);
@@ -104,16 +92,12 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
                             mShortAnimTime = getResources().getInteger(
                                     android.R.integer.config_shortAnimTime);
                         }
-
-                        //noinspection ConstantConditions,PointlessBooleanExpression
                         if (visible && AUTO_HIDE) {
-                            // Schedule a hide().
                             delayedHide(AUTO_HIDE_DELAY_MILLIS);
                         }
                     }
                 });
 
-        // Set up the user interaction to manually show or hide the system UI.
         contentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,8 +108,6 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
                 }
             }
         });
-
-        //randomWord.setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override
@@ -140,15 +122,6 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
         myTimer.cancel();
         super.onPause();
     }
-
-/*
-    private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-
-        }
-    };
- */
 
     private void setup() {
         wordContainer = WordContainer.getWordContainer();
@@ -194,7 +167,6 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
 
     @Override
     public void run() {
-
     }
 
     private void updateUI() {

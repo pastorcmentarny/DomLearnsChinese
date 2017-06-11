@@ -31,9 +31,13 @@ import dms.pastor.chinesegame.utils.UIUtils;
 import static dms.pastor.chinesegame.utils.UIUtils.setIncorrect;
 
 /**
- * Author: Pastor
- * WWW: http://pastor.ovh.org
- * Date: 24.11.12 11:56
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 24/11/2012
  */
 public final class HSKLevel extends Level implements View.OnClickListener {
 

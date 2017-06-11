@@ -19,9 +19,13 @@ import static dms.pastor.chinesegame.data.game.Player.getPlayer;
 import static dms.pastor.chinesegame.utils.UIUtils.setInvisibleButton;
 
 /**
- * User: dominik symonowicz
- * Date: 21/11/12
- * Time: 15:08
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 21/11/2012
  */
 public final class Spells {
     private static final String TAG = "Spells/Events";

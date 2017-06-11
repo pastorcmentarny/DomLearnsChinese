@@ -21,15 +21,13 @@ import dms.pastor.chinesegame.db.DatabaseManager;
 import dms.pastor.chinesegame.utils.DomUtils;
 
 /**
- * Author: Pastor cmentarny
- * WWW:	http://pastor.ovh.org
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * Email: email can be found on my website
- * <p/>
- * Date: 18.09.13
- * Time: 22:04
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 18/09/2013
  */
 public class SentenceList extends ListActivity {
     @SuppressWarnings("FieldCanBeLocal")

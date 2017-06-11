@@ -25,10 +25,13 @@ import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
 
 /**
- * User: Pastor
- * Date: 05.01.13
- * Time: 00:27
- * Allows user to choose a lesson
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 05/01/2013
  */
 public final class LessonSelection extends ListActivity {
     private static final String TAG = "LESSON SELECTION";

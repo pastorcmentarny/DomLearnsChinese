@@ -35,14 +35,14 @@ import dms.pastor.chinesegame.utils.Utils;
 import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 
-
 /**
  * Author Dominik Symonowicz
- * Created 24/11/2012
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 24/11/2012
  */
 public final class Options extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
@@ -64,8 +64,7 @@ public final class Options extends Activity implements View.OnClickListener, Ada
     };
     private Timer myTimer;
 
-    //run timer with task to do after time out
-    private void runTimer() {
+    private void runTaskAfterTimeout() {
         myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
             @Override
@@ -75,7 +74,6 @@ public final class Options extends Activity implements View.OnClickListener, Ada
         }, 0, Config.REFRESH);
     }
 
-    // I need to read why is done this way,but i
     private void timerMethod() {
         this.runOnUiThread(timerTicker);
     }
@@ -123,7 +121,7 @@ public final class Options extends Activity implements View.OnClickListener, Ada
 
     public void onResume() {
         super.onResume();
-        runTimer();
+        runTaskAfterTimeout();
     }
 
     @Override

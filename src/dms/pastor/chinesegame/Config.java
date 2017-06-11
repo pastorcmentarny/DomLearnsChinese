@@ -13,10 +13,13 @@ import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.game.Player;
 
 /**
- * User: dominik symonowicz
- * Date: 16/11/12
- * Time: 08:48
- * It contains all settings for game.
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 16/11/2012
  * <p>
  * IMPORTANT: if you add anything to Config ,please add to displayConfig too!
  */
@@ -34,7 +37,7 @@ public final class Config {
 
     //constant
     public static final String DATE_FORMAT = "dd-MM-yyyy HH:mm:ss";
-    public static final int DEFAULT_BONUS_POINTS = 50;  //25 is based +1/100 words in wordList
+    public static final int DEFAULT_BONUS_POINTS = 50;  //it based +1/100 words in wordList
     public static final int HEALTH_BONUS_PER_LEVEL = 1;
     public static final int MANA_BONUS_PER_LEVEL = 3;
     public static final int DEFAULT_FAIL_POINTS = 2;

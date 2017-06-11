@@ -10,14 +10,18 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 /**
- * @author Pastor Cmentarny
- *         Created 2014-05-15.
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 15/04/2014
  */
 public final class FileUtils {
     private static final String TAG = "File Utils";
 
     private FileUtils() {
-        //Utility classes should not have a public or default constructor.
     }
 
     public static boolean saveTextToFile(String content, File file) {
@@ -28,8 +32,6 @@ public final class FileUtils {
 
             out = new OutputStreamWriter(os);
             out.write(content);
-            out.close();
-
         } catch (IOException e) {
             Log.w(TAG, "ExternalStorage. Error writing " + file, e);
             return false;

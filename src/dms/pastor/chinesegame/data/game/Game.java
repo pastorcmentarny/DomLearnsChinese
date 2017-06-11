@@ -28,14 +28,13 @@ import static dms.pastor.chinesegame.utils.DomUtils.shuffle;
 import static dms.pastor.chinesegame.utils.UIUtils.displayError;
 
 /**
- * Author: Dominik Symonowicz "Pastor cmentarny"
- * WWW:	http://pastor.ovh.org
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * Email: email can be found on my website
- * <p>
- * Created 28.11.2012
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 28/11/2012
  */
 public final class Game {
     private static final String TAG = Config.TAG_PREFIX + "GAME";

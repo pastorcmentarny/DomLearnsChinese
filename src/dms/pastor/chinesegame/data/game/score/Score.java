@@ -7,10 +7,13 @@ import android.util.Log;
 import dms.pastor.chinesegame.Config;
 
 /**
- * User: dominik symonowicz
- * Date: 16/11/12
- * Time: 10:23
- * This classes are response for everything relate to single score record
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 16/11/2012
  */
 public final class Score implements Comparable<Score> {
     private static final String TAG = "SCORE";

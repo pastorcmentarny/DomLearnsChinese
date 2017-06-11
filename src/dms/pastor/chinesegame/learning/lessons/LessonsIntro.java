@@ -11,9 +11,13 @@ import android.widget.Button;
 import dms.pastor.chinesegame.R;
 
 /**
- * User: Pastor
- * Date: 02.01.13
- * Time: 21:46
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * Created 02/11/2013
  */
 public final class LessonsIntro extends Activity implements View.OnClickListener {
 
