@@ -159,22 +159,6 @@
             android:name=".learning.practice.SentencePractice"
             android:configChanges="keyboard|keyboardHidden|orientation" />
 
-        <!-- AppBrain AppLift SDK -->
-        <activity
-            android:name="com.appbrain.AppBrainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-
-        <service android:name="com.appbrain.AppBrainService" />
-
-        <receiver
-            android:name="com.appbrain.ReferrerReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
-        <!-- End of AppLift SDK -->
-
         <!-- Google Play Services -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

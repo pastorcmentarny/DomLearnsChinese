@@ -1,6 +1,7 @@
 package dms.pastor.chinesegame.data.dictionary;
 
-import dms.pastor.chinesegame.utils.DomUtils;
+import static dms.pastor.chinesegame.Config.EMPTY_STRING;
+import static dms.pastor.chinesegame.utils.DomUtils.isStringEmpty;
 
 /**
  * Author Dominik Symonowicz
@@ -26,11 +27,11 @@ public final class Question {
     public static Question getEmptyQuestion() {
         Question question = new Question();
         question.setId(0);
-        question.setCharacter("");
-        question.setPinyin("");
-        question.setPolish("");
-        question.setEnglish("");
-        question.setNotes("");
+        question.setCharacter(EMPTY_STRING);
+        question.setPinyin(EMPTY_STRING);
+        question.setPolish(EMPTY_STRING);
+        question.setEnglish(EMPTY_STRING);
+        question.setNotes(EMPTY_STRING);
         return question;
     }
 
@@ -80,8 +81,7 @@ public final class Question {
 
 
     private boolean validate() {
-        return id >= 0 && !(DomUtils.isStringEmpty(character) || DomUtils.isStringEmpty(pinyin) || DomUtils.isStringEmpty(english));
-
+        return id >= 0 && !(isStringEmpty(character) || isStringEmpty(pinyin) || isStringEmpty(english));
     }
 
     public boolean isValidated() {

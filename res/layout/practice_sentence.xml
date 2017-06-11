@@ -37,12 +37,12 @@
             <TextView style="@style/separator" />
 
             <TextView
-                android:id="@+id/time_elasped_title"
+                android:id="@+id/time_elapsed_title"
                 style="@style/value_title"
                 android:text="@string/time_elapsed" />
 
             <TextView
-                android:id="@+id/time_elasped_value"
+                android:id="@+id/time_elapsed_value"
                 style="@style/value_value" />
 
             <TextView style="@style/separator" />
@@ -146,6 +146,7 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/horizontal_space"
             android:gravity="bottom"
             android:paddingTop="15dp">
 

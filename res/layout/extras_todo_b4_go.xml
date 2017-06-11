@@ -10,7 +10,7 @@
 
         <TextView
             style="@style/title"
-            android:text="@string/extras_todob4go_title" />
+            android:text="@string/extras_to_do_before_go_title" />
 
         <CheckBox
             style="@style/extras_checkbox"

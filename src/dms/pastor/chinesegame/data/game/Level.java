@@ -23,7 +23,7 @@ import dms.pastor.chinesegame.utils.UIUtils;
 import static dms.pastor.chinesegame.data.game.Player.getPlayer;
 
 /**
- /**
+ * /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
@@ -47,9 +47,6 @@ public abstract class Level extends Activity {
 
     public abstract void endOfLevel();
 
-    /*
-     run timer with task to do after time out
-     */
     protected void runTimer() {
         myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
@@ -61,47 +58,22 @@ public abstract class Level extends Activity {
         }, 0, Config.REFRESH);
     }
 
-    /*
-     *  I need to read why is done this way,but i
-     */
     protected void timerMethod() {
         this.runOnUiThread(timerTicker);
     }
 
-    /**
-     * setup turn elements (question,answer) for  level layout as by default,it has everything on.
-     * This method must be always overwritten!
-     */
     public abstract void setupTurn();
 
-    /**
-     * setup.
-     */
     public abstract void setup();
 
     protected abstract void setEnabled(boolean enabled);
 
-
-    /**
-     * setup UI for basic level layout as by default,it has everything on.
-     */
     public abstract void setupUI();
 
-    /**
-     * Updates player data on request
-     * This method must be always overwritten!
-     */
     public abstract void updatePlayer();
 
-    /**
-     * Updates data on UI on request
-     * This method must be always overwritten!
-     */
     protected abstract void updateUI();
 
-    /*
-     * Adding unique word to display on screen as possible answer
-     */
     protected Word selectAWord(Word newWord, Word[] selectedAlreadyWords) {
         boolean stepA = true;
         while (stepA) {

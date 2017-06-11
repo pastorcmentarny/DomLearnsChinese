@@ -6,11 +6,13 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Random;
 
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.game.Player;
+
+import static java.lang.String.format;
+import static java.util.Locale.ENGLISH;
 
 /**
  * Author Dominik Symonowicz
@@ -92,11 +94,14 @@ public final class Config {
     public static final int DICTIONARY_TEST_LEVELS_SIZE = 100;
     public static final int DICTIONARY_TEST_TIME_LIMIT = 300;
     public static final int HIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY = 6;
-    public static final File STATISTIC_FILE = new File(Config.BACKUP_FOLDER, Config.STATISTIC_FILENAME);
+    //STRING (Experimental)
+    public static final String EMPTY_STRING = "";
+    public static final String NEW_LINE = "\n";
     static final String APP_NAME = "dms.pastor.chinesegame";
     static final String MY_EMAIL = "dmspastor@gmail.com";
     private static final long HSK_BASIC_BONUS_TIME_UNIT = 30 * SECONDS;
     private static final String STATISTIC_FILENAME = "stats.txt";
+    public static final File STATISTIC_FILE = new File(Config.BACKUP_FOLDER, Config.STATISTIC_FILENAME);
     private static final String TAG = TAG_PREFIX + " Config";
     private static final int JACKPOT_BONUS = 1000;
     private static final int MAX_PENALTY = 20;
@@ -143,7 +148,7 @@ public final class Config {
     }
 
     public static String getCurrentDateAsString() {
-        return new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH).format(new Date());
+        return new SimpleDateFormat(DATE_FORMAT, ENGLISH).format(new Date());
     }
 
     public static String getFilePathFor(GameType gameType) {
@@ -169,42 +174,19 @@ public final class Config {
     }
 
     public static String displayConfig() {
-        return "" + "HSK_BASIC_TIME_LIMIT" + " - " + 240 * SECONDS + "\n" +
-                "DEFAULT_BONUS_POINTS" + " - " + 50 + "\n" +
-                "HEALTH_BONUS_PER_LEVEL" + " - " + 1 + "\n" +
-                "MANA_BONUS_PER_LEVEL" + " - " + 3 + "\n" +
-                "DEFAULT_FAIL_POINTS" + " - " + 2 + "\n" +
-                "HIGH_SCORE_SIZE" + " - " + 100 + "\n" +
-                "VIBRATE_ON_MISTAKE_TIME" + " - " + 100 + "\n" +
-                "BONUS_POINTS_BASE" + " - " + 10 + "\n" +
-                "HEAL_HP_VALUE" + " - " + 11 + "\n" +
-                "REFRESH" + " - " + 200 + "\n" +
-                "RANDOM_EVENT_FREQ" + " - " + 5 + "\n" +
-                "BONUS_ONLY_PINYIN" + " - " + 50 + "\n" +
-                "REGEN_HP_VALUE" + " - " + 4 + "\n" +
-                "TURN_RANGE" + " - " + 10 + "\n" +
-                "HSK_BASIC_LEVELS_SIZE" + " - " + 50 + "\n" +
-                "RANDOM_SIZE" + " - " + 200 + "\n" +
-                "LESSON_LEVELS_SIZE" + " - " + 10 + "\n" +
-                "FREEZE_RANGE" + " - " + 50 + "\n" +
-                "PINYIN_SPELL_COST" + " - " + 9 + "\n" +
-                "REMOVE_BAD_ANSWER_SPELL_COST" + " - " + 11 + "\n" +
-                "HEAL_SPELL_COST" + " - " + 23 + "\n" +
-                "CURE_SPELL_COST" + " - " + 31 + "\n" +
-                "NO_PENALTY_TIME" + " - " + 4 + "\n" +
-                "ADVENTURE_NO_PENALTY_TIME" + " - " + 4 + "\n" +
-                "SAPPER_NO_PENALTY_TIME" + " - " + NO_PENALTY_TIME * 2 + "\n" +
-                "COMBO_MINIMUM" + " - " + 3 + "\n" +
-                "REGEN_MANA_VALUE" + " - " + (4 + new Random().nextInt(9)) + "\n" +
-                "POISON_VALUE" + " - " + (3 + new Random().nextInt(10)) + "\n" +
-                "BONUS_POINTS_UNFREEZE" + " - " + 3 + "\n" +
-                "NEXT_WORD_TIME" + " - " + 5000 + "\n" +
-                "DICTIONARY_TEST_LEVELS_SIZE" + " - " + 100 + "\n" +
-                "DICTIONARY_TEST_TIME_LIMIT" + " - " + 300 + "\n" +
-                "HSK_BASIC_BONUS_TIME_UNIT" + " - " + 30 * SECONDS + "\n" +
-                "JACKPOT_BONUS" + " - " + 1000 + "\n" +
-                "MAX_PENALTY" + " - " + 20 + "\n" +
-                "HIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY" + " - " + 6 + "\n";
+        return format(ENGLISH, "HSK_BASIC_TIME_LIMIT - %d\nDEFAULT_BONUS_POINTS - %d\nHEALTH_BONUS_PER_LEVEL" +
+                        " - %d\nMANA_BONUS_PER_LEVEL - %d\nDEFAULT_FAIL_POINTS - %d\nHIGH_SCORE_SIZE - %d\nVIBRATE_ON_MISTAKE_TIME" +
+                        " - %d\nBONUS_POINTS_BASE - %d\nHEAL_HP_VALUE - %d\nREFRESH - %d\nRANDOM_EVENT_FREQ" +
+                        " - %d\nBONUS_ONLY_PINYIN - %d\nREGEN_HP_VALUE - %d\nTURN_RANGE - %d\nHSK_BASIC_LEVELS_SIZE" +
+                        " - %d\nRANDOM_SIZE - %d\nLESSON_LEVELS_SIZE - %d\nFREEZE_RANGE - %d\nPINYIN_SPELL_COST" +
+                        " - %d\nREMOVE_BAD_ANSWER_SPELL_COST" +
+                        " - %d\nHEAL_SPELL_COST - %d\nCURE_SPELL_COST - %d\nNO_PENALTY_TIME - %d\nADVENTURE_NO_PENALTY_TIME" +
+                        " - %d\nSAPPER_NO_PENALTY_TIME - %d\nCOMBO_MINIMUM - %d\nREGEN_MANA_VALUE" +
+                        " - %d\nPOISON_VALUE - %d\nBONUS_POINTS_UNFREEZE - %d\nNEXT_WORD_TIME" +
+                        " - %d\nDICTIONARY_TEST_LEVELS_SIZE - %d\nDICTIONARY_TEST_TIME_LIMIT - %d\nHSK_BASIC_BONUS_TIME_UNIT" +
+                        " - %d\nJACKPOT_BONUS - %d\nMAX_PENALTY - %d\nHIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY - %d\n",
+                240 * SECONDS, 50, 1, 3, 2, 100, 100, 10, 11, 200, 5, 50, 4, 10, 50, 200, 10, 50, 9, 11, 23, 31, 4, 4,
+                NO_PENALTY_TIME * 2, 3, 4 + new Random().nextInt(9), 3 + new Random().nextInt(10), 3, 5000, 100, 300, 30 * SECONDS, 1000, 20, 6);
     }
 
 }

@@ -55,7 +55,7 @@ public final class LearningMenu extends Activity implements View.OnClickListener
 
         Button miniLessonButton = (Button) findViewById(R.id.lessonButton);
         miniLessonButton.setOnClickListener(this);
-        Button learningTipsButton = (Button) findViewById(R.id.learningTipssButton);
+        Button learningTipsButton = (Button) findViewById(R.id.learningTipsButton);
         learningTipsButton.setOnClickListener(this);
         Button testsButton = (Button) findViewById(R.id.testsButton);
         testsButton.setOnClickListener(this);
@@ -82,7 +82,7 @@ public final class LearningMenu extends Activity implements View.OnClickListener
             case R.id.lessonButton:
                 lessonsDialog();
                 break;
-            case R.id.learningTipssButton:
+            case R.id.learningTipsButton:
                 ii = new Intent(getApplicationContext(), LearningTipsActivity.class);
                 startActivity(ii);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);

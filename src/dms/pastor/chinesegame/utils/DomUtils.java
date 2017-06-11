@@ -78,10 +78,10 @@ public final class DomUtils {
 
     public static void displayWandToast(Context context, Activity activity, String text, boolean extendedDisplay, boolean good) {
         LayoutInflater layoutInflater = activity.getLayoutInflater();
-        View myLayout = layoutInflater.inflate(R.layout.domtoast, (ViewGroup) activity.findViewById(R.id.toastlayout));
+        View myLayout = layoutInflater.inflate(R.layout.domtoast, (ViewGroup) activity.findViewById(R.id.toast_layout));
         ImageView myImage = (ImageView) myLayout.findViewById(R.id.img);
         myImage.setImageResource(R.drawable.wand);
-        TextView myMessage = (TextView) myLayout.findViewById(R.id.txtvdisplay);
+        TextView myMessage = (TextView) myLayout.findViewById(R.id.text_to_display);
         myMessage.setText(text);
         if (good) {
             UIUtils.setTextColor(myMessage, R.color.good_news, activity);

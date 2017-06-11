@@ -27,7 +27,7 @@
                 android:layout_width="64dp"
                 android:layout_height="1dp"
                 android:layout_span="2"
-                android:background="@drawable/gradientline" />
+                android:background="@drawable/gradient_line" />
         </TableRow>
 
         <TableRow
@@ -49,7 +49,7 @@
                 style="@style/option_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_span="2"
-                android:text="@string/option_defaultusername"
+                android:text="@string/option_default_username"
                 android:textColor="@color/value_value" />
         </TableRow>
 
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_span="2"
-                android:background="@drawable/gradientline" />
+                android:background="@drawable/gradient_line" />
         </TableRow>
 
         <TableRow
@@ -110,7 +110,7 @@
                 android:text="@string/play_sound" />
 
             <CheckBox
-                android:id="@+id/playsound"
+                android:id="@+id/play_sound"
                 style="@style/option_checkbox" />
         </TableRow>
 
@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_span="2"
-                android:background="@drawable/gradientline" />
+                android:background="@drawable/gradient_line" />
         </TableRow>
 
         <TableRow
@@ -171,7 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_span="2"
-                android:background="@drawable/gradientline" />
+                android:background="@drawable/gradient_line" />
         </TableRow>
 
         <TableRow
@@ -220,7 +220,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_span="2"
-                android:background="@drawable/gradientline" />
+                android:background="@drawable/gradient_line" />
         </TableRow>
 
         <TextView
@@ -249,7 +249,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_span="2"
-                android:background="@drawable/gradientline" />
+                android:background="@drawable/gradient_line" />
         </TableRow>
 
         <TextView
@@ -277,7 +277,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_span="2"
-                android:background="@drawable/gradientline" />
+                android:background="@drawable/gradient_line" />
         </TableRow>
 
         <TextView

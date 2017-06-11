@@ -61,7 +61,7 @@ public final class DictionaryTestResult extends Activity implements View.OnClick
         correctAnswersValue = (TextView) findViewById(R.id.correct_answers_value);
         mistakesValue = (TextView) findViewById(R.id.mistakes_value);
         skippedValue = (TextView) findViewById(R.id.questions_value);
-        recordText = (TextView) findViewById(R.id.recordtext);
+        recordText = (TextView) findViewById(R.id.record_text);
         defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(DictionaryTestResult.this);
         TextView questions_title = (TextView) findViewById(R.id.questions_title);
         questions_title.setText(format("%s:", getString(R.string.skipped).toUpperCase()));

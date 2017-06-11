@@ -158,7 +158,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         score = (TextView) findViewById(R.id.current_score);
         showPinyinSpellButton = (Button) findViewById(R.id.spell_show_pinyin_button);
         status = (TextView) findViewById(R.id.levelStatus);
-        timeElapsed = (TextView) findViewById(R.id.time_elasped_value);
+        timeElapsed = (TextView) findViewById(R.id.time_elapsed_value);
         tap2unfreeze = (Button) findViewById(R.id.tap2unfreeze);
         highScoreTextView = (TextView) findViewById(R.id.high_score);
         highScoreTextView.setVisibility(View.VISIBLE);
@@ -335,8 +335,8 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         checkForBonusPointsFor50Levels();
         generateEvent();
 
-        String status = player.nextTurn();
-        Log.i(TAG, status);
+        String gameStatus = player.nextTurn();
+        Log.i(TAG, gameStatus);
     }
 
     private void restartTimer() {
@@ -490,7 +490,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
             cheesecakeLevel();
         }
 
-        Log.d("DIFF LEVEL CHECK:", "" + answerWord.getDifficulty() + wrongWord1.getDifficulty() + wrongWord2.getDifficulty() + wrongWord3.getDifficulty());
+        Log.d("DIFF LEVEL CHECK:", String.valueOf(answerWord.getDifficulty()) + wrongWord1.getDifficulty() + wrongWord2.getDifficulty() + wrongWord3.getDifficulty());
     }
 
     private void setNewQuestion() {

@@ -111,66 +111,66 @@
 
             <TextView
                 style="@style/extras_row_title"
-                android:text="@string/extras_hainan_airlanes" />
+                android:text="@string/extras_hainan_airlines" />
 
             <TextView
                 style="@style/extras_row_value"
-                android:text="@string/extras_hainan_airlanes_value" />
+                android:text="@string/extras_hainan_airlines_value" />
         </TableRow>
 
         <TableRow style="@style/extras_table_row">
 
             <TextView
                 style="@style/extras_row_title"
-                android:text="@string/extras_southern_airlanes" />
+                android:text="@string/extras_southern_airlines" />
 
             <TextView
                 style="@style/extras_row_value"
-                android:text="@string/extras_southern_airlanes_value" />
+                android:text="@string/extras_southern_airlines_value" />
         </TableRow>
 
         <TableRow style="@style/extras_table_row">
 
             <TextView
                 style="@style/extras_row_title"
-                android:text="@string/extras_shenzen_airlanes" />
+                android:text="@string/extras_shenzen_airlines" />
 
             <TextView
                 style="@style/extras_row_value"
-                android:text="@string/extras_shenzen_airlanes_value" />
+                android:text="@string/extras_shenzen_airlines_value" />
         </TableRow>
 
         <TableRow style="@style/extras_table_row">
 
             <TextView
                 style="@style/extras_row_title"
-                android:text="@string/extras_xiamen_airlanes" />
+                android:text="@string/extras_xiamen_airlines" />
 
             <TextView
                 style="@style/extras_row_value"
-                android:text="@string/extras_xiamen_airlanes_value" />
+                android:text="@string/extras_xiamen_airlines_value" />
         </TableRow>
 
         <TableRow style="@style/extras_table_row">
 
             <TextView
                 style="@style/extras_row_title"
-                android:text="@string/extras_shandong_airlanes" />
+                android:text="@string/extras_shandong_airlines" />
 
             <TextView
                 style="@style/extras_row_value"
-                android:text="@string/extras_shandong_airlanes_value" />
+                android:text="@string/extras_shandong_airlines_value" />
         </TableRow>
 
         <TableRow style="@style/extras_table_row">
 
             <TextView
                 style="@style/extras_row_title"
-                android:text="@string/extras_sichuan_airlanes" />
+                android:text="@string/extras_sichuan_airlines" />
 
             <TextView
                 style="@style/extras_row_value"
-                android:text="@string/extras_sichuan_airlanes_value" />
+                android:text="@string/extras_sichuan_airlines_value" />
         </TableRow>
 
 

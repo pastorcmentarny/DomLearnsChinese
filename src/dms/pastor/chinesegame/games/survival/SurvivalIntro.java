@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import dms.pastor.chinesegame.R;
-import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Intro;
@@ -19,6 +18,7 @@ import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.games.survival.word.WordSurvival;
 import dms.pastor.chinesegame.utils.UIUtils;
 
+import static dms.pastor.chinesegame.common.enums.GameType.ADVENTURE;
 import static dms.pastor.chinesegame.data.game.Player.getPlayer;
 
 /**
@@ -73,14 +73,13 @@ public final class SurvivalIntro extends Intro {
 
     private void start() {
         Intent ii;
-        String gameType = extras.getString("GAME");
+        String selectedGameType = extras.getString("GAME");
 
-        if (gameType != null) {
-
-            if (gameType.equals("ADVENTURE")) {
+        if (selectedGameType != null) {
+            if (selectedGameType.equalsIgnoreCase(ADVENTURE.name().toLowerCase())) {
                 ii = new Intent(getApplicationContext(), WordSurvival.class);
                 ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                player.restart(GameType.ADVENTURE);
+                player.restart(ADVENTURE);
                 statistic.addAdventureGame();
                 player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
                 player.game.timeStart();

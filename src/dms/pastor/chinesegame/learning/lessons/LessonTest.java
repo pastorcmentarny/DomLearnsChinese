@@ -247,9 +247,9 @@ public final class LessonTest extends Level implements View.OnClickListener {
         answer3Button.setText(words.get(2).getWordInEnglish());
         answer4Button.setText(words.get(3).getWordInEnglish());
 
-        TextView timeElapsedTitle = (TextView) findViewById(R.id.time_elasped_title);
+        TextView timeElapsedTitle = (TextView) findViewById(R.id.time_elapsed_title);
         timeElapsedTitle.setVisibility(View.GONE);
-        TextView timeElapsedValue = (TextView) findViewById(R.id.time_elasped_value);
+        TextView timeElapsedValue = (TextView) findViewById(R.id.time_elapsed_value);
         timeElapsedValue.setVisibility(View.GONE);
 
     }

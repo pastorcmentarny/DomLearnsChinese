@@ -29,9 +29,7 @@ import dms.pastor.chinesegame.utils.DomUtils;
  */
 public final class VocabularyList extends ListActivity {
     private static final String TAG = "Vocabulary List";
-    private AlertDialog.Builder dialog;
     private Dictionary dictionary;
-    private String[] wordsList;
     private Clipboard4 clipboard;
     private SharedPreferences settings;
 
@@ -40,7 +38,7 @@ public final class VocabularyList extends ListActivity {
         super.onCreate(savedInstanceState);
         settings = getSharedPreferences("settings", Context.MODE_PRIVATE);
         dictionary = Dictionary.getDictionary();
-        wordsList = dictionary.generateWordList();
+        String[] wordsList = dictionary.generateWordList();
         clipboard = new Clipboard4();
         setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, wordsList));
         getListView().setTextFilterEnabled(true);
@@ -52,6 +50,7 @@ public final class VocabularyList extends ListActivity {
 
         StringBuilder wordBuilder = new StringBuilder("");
         final Word word = dictionary.getWordFromDictionary(position);
+        AlertDialog.Builder dialog;
         if (word != null) {
             wordBuilder.append(word.getChineseCharacter()).append("\n");
             wordBuilder.append(word.getPinyin()).append("\n");
@@ -78,7 +77,7 @@ public final class VocabularyList extends ListActivity {
 
                 }
             });
-            dialog.setNeutralButton(getResources().getString(R.string.copy2clippo), new DialogInterface.OnClickListener() {
+            dialog.setNeutralButton(getResources().getString(R.string.copy_to_clipboard), new DialogInterface.OnClickListener() {
                 public void onClick(final DialogInterface di, final int arg) {
                     final boolean saved = clipboard.saveText(getApplicationContext(), word.getChineseCharacter());
                     String message;

@@ -89,7 +89,7 @@ public final class Options extends Activity implements View.OnClickListener, Ada
         statistic = Statistic.getStatistic(this);
         CheckBox fixAll = (CheckBox) findViewById(R.id.fixAll);
         fixAll.setOnClickListener(this);
-        playSound = (CheckBox) findViewById(R.id.playsound);
+        playSound = (CheckBox) findViewById(R.id.play_sound);
         playSound.setOnClickListener(this);
         vibrate = (CheckBox) findViewById(R.id.vibrate);
         vibrate.setOnClickListener(this);
@@ -160,7 +160,7 @@ public final class Options extends Activity implements View.OnClickListener, Ada
             case R.id.vibrate:
                 preferencesEditor.putBoolean("vibrate", vibrate.isChecked());
                 break;
-            case R.id.playsound:
+            case R.id.play_sound:
                 preferencesEditor.putBoolean("playSound", playSound.isChecked());
                 break;
             case R.id.sapper_pinyin:
@@ -181,8 +181,8 @@ public final class Options extends Activity implements View.OnClickListener, Ada
     @SuppressWarnings("SpellCheckingInspection")
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-        SharedPreferences settings = getSharedPreferences("settings", Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = settings.edit();
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
         prefsEditor.putString("kolor", parent.getItemAtPosition(position).toString().substring(0, 3).toUpperCase());
         prefsEditor.apply();
     }
@@ -203,7 +203,7 @@ public final class Options extends Activity implements View.OnClickListener, Ada
     }
 
     @NonNull
-    private DialogInterface.OnClickListener getCancelForFixAllOnClickListener() {
+    private static DialogInterface.OnClickListener getCancelForFixAllOnClickListener() {
         return new DialogInterface.OnClickListener() {
             public void onClick(final DialogInterface di, final int arg) {
                 Log.d(TAG, "User cancelled fix all");

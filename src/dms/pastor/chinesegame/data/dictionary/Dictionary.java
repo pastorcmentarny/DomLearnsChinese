@@ -12,11 +12,15 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Locale;
 
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
+
+import static dms.pastor.chinesegame.Config.NEW_LINE;
+import static java.lang.String.format;
+import static java.lang.String.valueOf;
+import static java.util.Locale.ENGLISH;
 
 /**
  * Author Dominik Symonowicz
@@ -37,12 +41,6 @@ public final class Dictionary {
     private Dictionary() {
     }
 
-
-    /**
-     * Gets dictionary
-     *
-     * @return dictionary
-     */
     public static synchronized Dictionary getDictionary() {
 
         if (dictionary == null) {
@@ -51,9 +49,6 @@ public final class Dictionary {
         return dictionary;
     }
 
-    /**
-     * remove dictionary,so can be recreated.
-     */
     public static Dictionary recreateDictionary() {
         Log.i(TAG, "dictionary cleared.");
         dictionary = null;
@@ -61,7 +56,6 @@ public final class Dictionary {
         return dictionary;
     }
 
-    @SuppressWarnings({"CloneDoesntCallSuperClone"})
     @Override
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
@@ -182,9 +176,8 @@ public final class Dictionary {
         return new Result(true, context.getString(R.string.msg_dict_loaded));
     }
 
-    private String getLine(String line) {
+    private static String getLine(String line) {
         return line != null ? "[" + line + "]" : "line is empty.";
-
     }
 
     public Word getWordFromDictionary(int id) {
@@ -195,7 +188,7 @@ public final class Dictionary {
             }
         }
         Log.w(TAG, "Word not found in dictionary for id:" + id);
-        return null; //TODOD replace with noneWord
+        return null; //TODO replace with noneWord
     }
 
     public ArrayList<Word> getWordsFromCategoryFromDictionary(String[] requestedCategories) {
@@ -210,7 +203,7 @@ public final class Dictionary {
                 }
             }
         }
-        Log.w("Words from categories", "" + result.size());
+        Log.i(TAG, valueOf(result.size()));
         return result;
     }
 
@@ -219,7 +212,7 @@ public final class Dictionary {
         ArrayList<String> words = new ArrayList<>();
         int counter = 1;
         for (Word word : wordsList) {
-            words.add(String.format("%s. %s", String.valueOf(counter), word.toString()));
+            words.add(format("%s. %s", valueOf(counter), word.toString()));
             counter++;
         }
         return words.toArray(new String[words.size()]);
@@ -319,27 +312,27 @@ public final class Dictionary {
             }
 
         }
-        sb.append(lvl(1)).append(l1).append(WORDS).append(getPercentageOfAllWordsAsString(l1)).append("\n");
-        sb.append(lvl(2)).append(l2).append(WORDS).append(getPercentageOfAllWordsAsString(l2)).append("\n");
-        sb.append(lvl(3)).append(l3).append(WORDS).append(getPercentageOfAllWordsAsString(l3)).append("\n");
-        sb.append(lvl(4)).append(l4).append(WORDS).append(getPercentageOfAllWordsAsString(l4)).append("\n");
-        sb.append(lvl(5)).append(l5).append(WORDS).append(getPercentageOfAllWordsAsString(l5)).append("\n");
-        sb.append(lvl(6)).append(l6).append(WORDS).append(getPercentageOfAllWordsAsString(l6)).append("\n");
-        sb.append(lvl(7)).append(l7).append(WORDS).append(getPercentageOfAllWordsAsString(l7)).append("\n");
-        sb.append(lvl(8)).append(l8).append(WORDS).append(getPercentageOfAllWordsAsString(l8)).append("\n");
+        sb.append(lvl(1)).append(l1).append(WORDS).append(getPercentageOfAllWordsAsString(l1)).append(NEW_LINE);
+        sb.append(lvl(2)).append(l2).append(WORDS).append(getPercentageOfAllWordsAsString(l2)).append(NEW_LINE);
+        sb.append(lvl(3)).append(l3).append(WORDS).append(getPercentageOfAllWordsAsString(l3)).append(NEW_LINE);
+        sb.append(lvl(4)).append(l4).append(WORDS).append(getPercentageOfAllWordsAsString(l4)).append(NEW_LINE);
+        sb.append(lvl(5)).append(l5).append(WORDS).append(getPercentageOfAllWordsAsString(l5)).append(NEW_LINE);
+        sb.append(lvl(6)).append(l6).append(WORDS).append(getPercentageOfAllWordsAsString(l6)).append(NEW_LINE);
+        sb.append(lvl(7)).append(l7).append(WORDS).append(getPercentageOfAllWordsAsString(l7)).append(NEW_LINE);
+        sb.append(lvl(8)).append(l8).append(WORDS).append(getPercentageOfAllWordsAsString(l8)).append(NEW_LINE);
         sb.append("Total words: ").append(wordsList.size());
         return sb.toString();
     }
 
-    private String lvl(int level) {
-        return String.format(Locale.ENGLISH, "Lvl %d: ", level);
+    private static String lvl(int level) {
+        return format(ENGLISH, "Lvl %d: ", level);
     }
 
-    private String getPercentageOfAllWordsAsString(double words) {
+    private static String getPercentageOfAllWordsAsString(double words) {
         double value = (words * 100 / dictionary.getWordsList().size());
         DecimalFormat df = new DecimalFormat("##.##");
         value = Double.valueOf(df.format(value));
-        return String.format(Locale.ENGLISH, "%s%%", String.valueOf(value));
+        return format(ENGLISH, "%s%%", valueOf(value));
     }
 
     public int getAllDictionarySize() {

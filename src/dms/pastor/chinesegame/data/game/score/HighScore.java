@@ -265,10 +265,9 @@ public final class HighScore {
                 return;
         }
         status = new Result(true, "High scores loaded");
-
     }
 
-    private Score addScore(String[] data) {
+    private static Score addScore(String[] data) {
         int five, six;
         long dateStamp;
         switch (data.length) {
@@ -350,7 +349,6 @@ public final class HighScore {
             StringBuilder sb = new StringBuilder("");
             int counter = 1;
             ArrayList<Score> topScores = new ArrayList<>();
-            //noinspection ConstantConditions
             for (Score score : scores) {
                 if (counter <= Config.HIGH_SCORE_SIZE) {
                     sb.append(score.toString());

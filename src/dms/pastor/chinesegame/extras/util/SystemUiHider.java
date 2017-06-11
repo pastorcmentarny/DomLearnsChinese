@@ -30,7 +30,9 @@ public abstract class SystemUiHider {
     }
 
     public abstract void setup();
+
     protected abstract boolean isVisible();
+
     public abstract void hide();
 
     public abstract void show();

@@ -1,5 +1,8 @@
 package dms.pastor.chinesegame.data;
 
+import static java.lang.String.format;
+import static java.util.Locale.ENGLISH;
+
 /**
  * Author: Dominik Symonowicz "Pastor cmentarny"
  * WWW:	https://dominiksymonowicz.blogspot.co.uk
@@ -86,5 +89,10 @@ public final class ProverbsItem {
 
     public void setPinyin(String pinyin) {
         this.pinyin = pinyin;
+    }
+
+    @Override
+    public String toString() {
+        return format(ENGLISH, "ProverbsItem{id=%d, chinese='%s', pinyin='%s', english='%s', polish='%s', meaning='%s', notes='%s'}", id, chinese, pinyin, english, polish, meaning, notes);
     }
 }

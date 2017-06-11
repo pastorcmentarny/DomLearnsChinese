@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+import dms.pastor.chinesegame.Config;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -49,7 +51,7 @@ public final class FileUtils {
 
     public static String loadTextFromFile(File file) {
 
-        StringBuilder text = new StringBuilder();
+        StringBuilder text = new StringBuilder(Config.EMPTY_STRING);
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;

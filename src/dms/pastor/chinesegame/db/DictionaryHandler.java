@@ -31,7 +31,7 @@ public class DictionaryHandler extends Handler {
 
     @SuppressWarnings("VariableNotUsedInsideIf")
     @Override
-    public void handleMessage(Message msg) {
+    public final void handleMessage(Message msg) {
         try {
             dismissDialogIfCurrentlyShowing();
             logDBLoadStatus();
@@ -52,7 +52,7 @@ public class DictionaryHandler extends Handler {
         }
     }
 
-    private void interruptThreadIfDictionaryLoaderIsNotNull(Thread dictionaryLoaderThread) {
+    private static void interruptThreadIfDictionaryLoaderIsNotNull(Thread dictionaryLoaderThread) {
         if (dictionaryLoaderThread != null) {
             dictionaryLoaderThread.interrupt();
         }

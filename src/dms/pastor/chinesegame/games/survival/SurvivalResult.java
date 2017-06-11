@@ -170,15 +170,15 @@ public final class SurvivalResult extends GameResult {
 
     private void setup() {
 
-        HighScore highScore = HighScore.getHighScore();
-        sScore = new Score(player.getName(this), player.getScore(),
+        HighScore highScoreBoard = HighScore.getHighScore();
+        sScore = new Score(Player.getName(this), player.getScore(),
                 player.game.getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
                 statistic.getGames(), getVersionCode(this),
                 new Date().getTime());
         try {
-            if (highScore != null) {
+            if (highScoreBoard != null) {
 
-                highScore.addToHighScore(sScore, player.game.getGameType());
+                highScoreBoard.addToHighScore(sScore, player.game.getGameType());
             }
         } catch (Exception e) {
             Log.w(TAG, getResources().getString(R.string.highscore_restarted_due_error) + e.getMessage());

@@ -48,7 +48,7 @@ public final class SingleLesson extends Activity implements View.OnClickListener
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.lesson);
 
-        lessonTitle = (TextView) findViewById(R.id.lessson_title);
+        lessonTitle = (TextView) findViewById(R.id.lesson_title);
         lessonContent = (TextView) findViewById(R.id.lesson_content);
         Button lessonTestButton = (Button) findViewById(R.id.lesson_test_button);
         lessonSwitch = (ToggleButton) findViewById(R.id.lesson_switch);

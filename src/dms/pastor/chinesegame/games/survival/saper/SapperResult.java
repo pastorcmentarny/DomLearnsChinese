@@ -73,7 +73,7 @@ public final class SapperResult extends GameResult {
         resultTime = (TextView) findViewById(R.id.result_time);
         correctAnswersValue = (TextView) findViewById(R.id.correct_answers_value);
         questionsValue = (TextView) findViewById(R.id.questions_value);
-        recordText = (TextView) findViewById(R.id.recordtext);
+        recordText = (TextView) findViewById(R.id.record_text);
         placeText = (TextView) findViewById(R.id.result_place_text);
 
 
@@ -105,7 +105,7 @@ public final class SapperResult extends GameResult {
         } else {
             diff = Difficulty.HARD.name();
         }
-        sScore = new Score(player.getName(this), player.getScore(),
+        sScore = new Score(Player.getName(this), player.getScore(),
                 player.game.getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
                 statistic.getGames(), getVersionCode(this),
                 new Date().getTime(), diff);

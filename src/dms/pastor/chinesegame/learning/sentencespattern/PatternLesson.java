@@ -101,7 +101,7 @@ public final class PatternLesson extends Activity implements View.OnClickListene
         setExample(selectedPattern.getExample5(), sentence5row, sentence5text);
     }
 
-    private void setExample(String example, TableRow sentenceRow, TextView sentenceText) {
+    private static void setExample(String example, TableRow sentenceRow, TextView sentenceText) {
         if (!example.equalsIgnoreCase("none")) {
             sentenceRow.setVisibility(View.VISIBLE);
             sentenceText.setText(example);

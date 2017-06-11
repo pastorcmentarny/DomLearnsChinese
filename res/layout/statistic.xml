@@ -394,7 +394,7 @@
 
             <TextView
                 style="@style/statistic_text"
-                android:text="@string/event_regenaration_title" />
+                android:text="@string/event_regeneration_title" />
 
             <TextView
                 android:id="@+id/regeneration"

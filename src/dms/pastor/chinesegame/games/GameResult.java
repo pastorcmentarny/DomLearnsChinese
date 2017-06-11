@@ -19,7 +19,7 @@ import dms.pastor.chinesegame.utils.UIUtils;
 public abstract class GameResult extends Activity implements View.OnClickListener {
     protected TextView placeText;
 
-    protected void setHSPlaceColor(int place) {
+    protected final void setHSPlaceColor(int place) {
         if (place > 75) {
             UIUtils.setTextColor(placeText, R.color.hs75, this);
         } else if (place >= 50) {

@@ -20,8 +20,8 @@
                 android:shadowDy="0"
                 android:shadowRadius="3"
                 android:text="@string/result_result"
-                android:textColor="@color/title"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/title"
                 android:textSize="32sp"
                 android:textStyle="italic|bold" />
 
@@ -145,7 +145,7 @@
             <TableRow style="@style/default_table_row">
 
                 <TextView
-                    android:id="@+id/recordtext"
+                    android:id="@+id/record_text"
                     style="@android:style/TextAppearance.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

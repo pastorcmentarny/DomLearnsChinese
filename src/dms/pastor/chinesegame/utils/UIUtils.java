@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION_CODES;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.util.Log;
@@ -55,6 +56,7 @@ public final class UIUtils {
 
     private UIUtils() {
     }
+
     public static void setIncorrect(Activity activity, Context context, Button button) {
         Animation animWrong = AnimationUtils.loadAnimation(context, R.anim.remove_bad_answer);
         button.startAnimation(animWrong);
@@ -178,10 +180,10 @@ public final class UIUtils {
 
     public static void displayHalfHalfToast(Context context, Activity activity) {
         LayoutInflater layoutInflater = activity.getLayoutInflater();
-        View myLayout = layoutInflater.inflate(R.layout.domtoast, (ViewGroup) activity.findViewById(R.id.toastlayout));
+        View myLayout = layoutInflater.inflate(R.layout.domtoast, (ViewGroup) activity.findViewById(R.id.toast_layout));
         ImageView myImage = (ImageView) myLayout.findViewById(R.id.img);
         myImage.setImageResource(R.drawable.half);
-        TextView myMessage = (TextView) myLayout.findViewById(R.id.txtvdisplay);
+        TextView myMessage = (TextView) myLayout.findViewById(R.id.text_to_display);
         myMessage.setText(context.getString(R.string.halfHalfToGuess));
         showToast(context, myLayout);
     }
@@ -241,6 +243,7 @@ public final class UIUtils {
     @NonNull
     private static InputFilter getInputFilter() {
         return new InputFilter() {
+            @Nullable
             public CharSequence filter(CharSequence source, int start, int end,
                                        Spanned dest, int destinationStart, int destinationEnd) {
                 for (int i = start; i < end; i++) {

@@ -74,7 +74,7 @@ public class SentenceList extends ListActivity {
 
                 }
             });
-            dialog.setNeutralButton(getResources().getString(R.string.copy2clippo), new DialogInterface.OnClickListener() {
+            dialog.setNeutralButton(getResources().getString(R.string.copy_to_clipboard), new DialogInterface.OnClickListener() {
                 public void onClick(final DialogInterface di, final int arg) {
                     clipboard.saveText(getApplicationContext(), sentence.getCharacter());
                     Toast.makeText(getApplicationContext(), "Saved to clipboard", Toast.LENGTH_SHORT).show();

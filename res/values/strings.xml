@@ -153,7 +153,7 @@
     <string name="lesson_content">Woops!\n\nNo content for this lesson :(.\nEmail me and shout that i mess
         this.\nThanks!
     </string>
-    <string name="lesson_testyourself">
+    <string name="lesson_test_yourself">
         If you believe,that you learn enough.\n
         Press \'start test\',to perform quick and easy test and if you pass you will unlock next lesson!
     </string>
@@ -274,16 +274,11 @@
     <string name="answer">Answer</string>
     <string name="pinyin">Zì</string>
     <string name="level">LEVEL:</string>
-    <string name="ab_e">AppBrain ERROR</string>
-    <string name="ab_e_init">Something went wrong with appbrain init method.
-        Error message:
-    </string>
     <string name="am_e">Admob ERROR</string>
     <string name="am_e_init">Something went wrong with admob init method.
         Error message:
     </string>
     <string name="w_unknown_selection">Unknown click.Bug? In:</string>
-    <string name="exit">Exit</string>
     <string name="e_file_read">Problem with reading file.
     </string>
     <string name="e_get_word">unable to get word</string>
@@ -345,7 +340,7 @@
     <string name="result_mistakes">MISTAKES:</string>
     <string name="result_questions">QUESTIONS:</string>
     <string name="result_time">TIME:</string>
-    <string name="extras_todob4go_title">TO DO BEFORE TRAVEL</string>
+    <string name="extras_to_do_before_go_title">TO DO BEFORE TRAVEL</string>
     <string name="dictionary_type">Select Dictionary Type</string>
     <string name="dt_words">Words</string>
     <string name="dt_questions">Questions</string>
@@ -367,18 +362,18 @@
     <string name="extras_public_transport">Public Transport</string>
     <string name="extras_railway_info">Railway Information</string>
     <string name="extras_railway_info_number">12306</string>
-    <string name="extras_hainan_airlanes">Hainan Airlines</string>
-    <string name="extras_hainan_airlanes_value">950718</string>
-    <string name="extras_southern_airlanes">Southern Airlines</string>
-    <string name="extras_southern_airlanes_value">400-669-5539</string>
-    <string name="extras_shenzen_airlanes">Shenzhen Airlines</string>
-    <string name="extras_shenzen_airlanes_value">95080</string>
-    <string name="extras_xiamen_airlanes">Xiamen Airlines</string>
-    <string name="extras_xiamen_airlanes_value">0592 - 57 - 39888</string>
-    <string name="extras_shandong_airlanes">Shandong Airlines</string>
-    <string name="extras_shandong_airlanes_value">4006096777</string>
-    <string name="extras_sichuan_airlanes">Sichuan Airlines</string>
-    <string name="extras_sichuan_airlanes_value">4008300999</string>
+    <string name="extras_hainan_airlines">Hainan Airlines</string>
+    <string name="extras_hainan_airlines_value">950718</string>
+    <string name="extras_southern_airlines">Southern Airlines</string>
+    <string name="extras_southern_airlines_value">400-669-5539</string>
+    <string name="extras_shenzen_airlines">Shenzhen Airlines</string>
+    <string name="extras_shenzen_airlines_value">95080</string>
+    <string name="extras_xiamen_airlines">Xiamen Airlines</string>
+    <string name="extras_xiamen_airlines_value">0592 - 57 - 39888</string>
+    <string name="extras_shandong_airlines">Shandong Airlines</string>
+    <string name="extras_shandong_airlines_value">4006096777</string>
+    <string name="extras_sichuan_airlines">Sichuan Airlines</string>
+    <string name="extras_sichuan_airlines_value">4008300999</string>
     <string name="extras_air_china">Air China</string>
     <string name="extras_air_china_value">95583</string>
     <string name="extras_china_eastern_airlines">China Eastern Airline</string>
@@ -459,7 +454,7 @@
         Show pinyin = shows pinyin of current character.\n
     </string>
     <string name="e_ioobe">(IndexOutOfBoundsException)</string>
-    <string name="copy2clippo">Copy</string>
+    <string name="copy_to_clipboard">Copy</string>
     <string name="options">Options</string>
     <string name="option_username_description">Information about User</string>
     <string name="saved">:) Change saved.</string>
@@ -469,7 +464,7 @@
     <string name="fix_problems">Fix all problems</string>
     <string name="option_reset_hs">Reset high score</string>
     <string name="option_show_intro_title">Show intro before game?</string>
-    <string name="option_defaultusername">PLAYER1</string>
+    <string name="option_default_username">PLAYER1</string>
     <string name="option_change">change</string>
     <string name="copied2clipboard">copied to clipboard.</string>
     <string name="cast_painKiller">PainKiller applied.</string>
@@ -482,10 +477,6 @@
     <string name="backupRestoreTitle">Backup and Restore highscores and stats</string>
     <string name="option_backup_restore"><![CDATA[Backup&Restore]]></string>
     <string name="radical_download">I remove Radical test from this Game.Why? Because I create separate game called .. DOMS CHINESE RADICALS GAME. If you want  practice Radicals ,please download game and have great fun!</string>
-    <string name="debug_c"><![CDATA[C>]]></string>
-    <string name="debug_mplus">M+</string>
-    <string name="debug_mana_plus">H+</string>
-    <string name="debug_a">A</string>
     <string name="halfHalfToGuess">50% to guess!</string>
     <string name="list_of_cmd">List:\t</string>
     <string name="access_denied">Access denied!</string>
@@ -542,7 +533,7 @@
     <string name="event_jackpot">Jackpot: </string>
     <string name="event_drain_mana">Drain Mana: </string>
     <string name="event_minor_points_title">Minor Points: </string>
-    <string name="event_regenaration_title">Regeneration: </string>
+    <string name="event_regeneration_title">Regeneration: </string>
     <string name="event_s_happens_title">S..t happens: </string>
     <string name="event_swap_hp_mp_title">swapHpMp: </string>
     <string name="event_frozen_label">Frozen: </string>

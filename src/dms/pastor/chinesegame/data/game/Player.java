@@ -16,7 +16,10 @@ import dms.pastor.chinesegame.data.learning.lessons.Lesson;
 import dms.pastor.chinesegame.data.learning.lessons.MiniLessons;
 import dms.pastor.chinesegame.data.learning.patterns.Pattern;
 
-public
+import static android.content.Context.MODE_PRIVATE;
+import static dms.pastor.chinesegame.Config.EMPTY_STRING;
+import static dms.pastor.chinesegame.Config.NEW_LINE;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -26,13 +29,13 @@ public
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
  * Created 07/11/2012
  */
-final class Player {
+public final class Player {
     private static final String TAG = "PLAYER";
     private static Player player;
     private final Context context;
     public Game game;
     public MiniLessons miniLessons = null;
-    private String dbErrorMessage = "";
+    private String dbErrorMessage = EMPTY_STRING;
     private boolean poisoned = false;
     private boolean hpRegeneration = false;
     private boolean manaRegeneration = false;
@@ -72,6 +75,17 @@ final class Player {
         return player;
     }
 
+    public static String getName(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("settings", MODE_PRIVATE);
+        String name;
+        try {
+            name = preferences.getString("username", Config.DEFAULT_USER_NAME);
+        } catch (ClassCastException cce) {
+            name = context.getString(R.string.unknownPlayerName);
+        }
+        return name;
+    }
+
     public int getEECounter() {
         if (player != null) {
             eeCounter++;
@@ -104,11 +118,11 @@ final class Player {
 
     public String nextTurn() {
         game.nextTurn();
-        StringBuilder status = new StringBuilder("");
+        StringBuilder status = new StringBuilder(EMPTY_STRING);
         if (hpRegeneration) {
             setHealth(getHealth() + Config.REGEN_HP_VALUE);
             hpRegenerationTurnLeft--;
-            status.append("HP regen by " + Config.REGEN_HP_VALUE + "\n");
+            status.append("HP regen by " + Config.REGEN_HP_VALUE + NEW_LINE);
             if (hpRegenerationTurnLeft <= 0) {
                 hpRegeneration = false;
             }
@@ -197,11 +211,9 @@ final class Player {
         return health > 0;
     }
 
-
     public boolean isDead() {
         return !isAlive();
     }
-
 
     public boolean isCold() {
         return cold;
@@ -269,7 +281,7 @@ final class Player {
     }
 
     public String getPlayerState() {
-        StringBuilder states = new StringBuilder("");
+        StringBuilder states = new StringBuilder(EMPTY_STRING);
         if (hpRegeneration) {
             states.append("HP Regen;");
         }
@@ -290,7 +302,6 @@ final class Player {
         tripleBonusTurnLeft = turns;
     }
 
-
     public void initializeLessons(List<Lesson> lessons) {
         miniLessons = MiniLessons.getMiniLessons(lessons);
     }
@@ -301,17 +312,6 @@ final class Player {
 
     public void setSelectedLesson(String lessonTitle) {
         selectedLesson = lessonTitle;
-    }
-
-    public String getName(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
-        String name;
-        try {
-            name = preferences.getString("username", Config.DEFAULT_USER_NAME);
-        } catch (ClassCastException cce) {
-            name = context.getString(R.string.unknownPlayerName);
-        }
-        return name;
     }
 
     public boolean isLessonsInitialized() {
@@ -359,14 +359,14 @@ final class Player {
 
     public String getDbErrorMessage() {
         String tmp = dbErrorMessage;
-        dbErrorMessage = "";
+        dbErrorMessage = EMPTY_STRING;
         return tmp;
     }
 
     public void addHealthPerLevel() {
         if (player.getHealth() < 100) {
-            int health = player.getHealth() + (Config.HEALTH_BONUS_PER_LEVEL);
-            player.setHealth((health > 100 ? 100 : health));
+            int increasedHealth = player.getHealth() + (Config.HEALTH_BONUS_PER_LEVEL);
+            player.setHealth(increasedHealth > 100 ? 100 : increasedHealth);
         }
     }
 }

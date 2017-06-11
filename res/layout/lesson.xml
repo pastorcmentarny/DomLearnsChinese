@@ -5,7 +5,7 @@
     style="@style/default_screen_layout">
 
     <TextView
-        android:id="@+id/lessson_title"
+        android:id="@+id/lesson_title"
         style="@android:style/TextAppearance.Large"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal|bottom"
-        android:text="@string/lesson_testyourself"
+        android:text="@string/lesson_test_yourself"
         android:textColor="@color/ok" />
 
     <Button

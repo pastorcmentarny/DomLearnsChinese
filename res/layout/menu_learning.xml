@@ -40,7 +40,7 @@
     <TableRow style="@style/menu_row_style">
 
         <Button
-            android:id="@+id/learningTipssButton"
+            android:id="@+id/learningTipsButton"
             style="@style/learn_menu_button_style"
             android:drawableLeft="@drawable/information"
             android:drawableStart="@drawable/information"

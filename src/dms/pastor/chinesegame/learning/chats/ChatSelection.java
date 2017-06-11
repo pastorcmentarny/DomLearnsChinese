@@ -88,7 +88,7 @@ public final class ChatSelection extends ListActivity {
         return dbManager != null && getDbService() != null;
     }
 
-    private void setupPlayer(Chat chat) {
+    private static void setupPlayer(Chat chat) {
         Player player = Player.getPlayer();
         player.setCurrentChat(chat);
     }

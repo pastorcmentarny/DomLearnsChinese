@@ -5,16 +5,9 @@ import java.math.BigDecimal;
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.data.game.Game;
 
+import static dms.pastor.chinesegame.Config.DEFAULT_BONUS_POINTS;
 import static dms.pastor.chinesegame.Config.SECONDS;
-
-/**
- * Author Dominik Symonowicz
- * Created 2015-10-17
- * WWW:	https://dominiksymonowicz.blogspot.co.uk
- * Github:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
- */
+import static dms.pastor.chinesegame.Config.calcDictionarySizeBonus;
 
 /**
  * Author Dominik Symonowicz
@@ -51,9 +44,9 @@ public final class SapperScoreCalculator implements Calculator {
         return finalBonus;
     }
 
-    private int getPlainBonus(Game game) {
-        int bonus = Config.DEFAULT_BONUS_POINTS;
-        return (int) ((bonus + Config.calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
+    //TODO move to Config
+    private static int getPlainBonus(Game game) {
+        return (int) ((DEFAULT_BONUS_POINTS + calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
     }
 
 }

@@ -30,7 +30,7 @@
 
 
         <TextView
-            android:id="@+id/score_seperator"
+            android:id="@+id/score_separator"
             style="@style/separator" />
 
         <TextView
@@ -55,12 +55,12 @@
         <TextView style="@style/separator" />
 
         <TextView
-            android:id="@+id/time_elasped_title"
+            android:id="@+id/time_elapsed_title"
             style="@style/value_title"
             android:text="@string/time_elapsed" />
 
         <TextView
-            android:id="@+id/time_elasped_value"
+            android:id="@+id/time_elapsed_value"
             style="@style/value_value" />
 
 

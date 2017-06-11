@@ -103,7 +103,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
      *
      * @return true if it exists, false if it doesn't
      */
-    private boolean checkDataBase() {
+    private static boolean checkDataBase() {
         Log.i(TAG, "Checking database...");
         SQLiteDatabase checkDB = null;
 
@@ -190,11 +190,9 @@ public final class DatabaseService extends SQLiteOpenHelper {
             Log.e(TAG, "Something went terrible wrong. Unable to fix problem with Database");
             DomUtils.msg(myContext, "Unable to delete database");
         }
-
     }
 
-    @SuppressWarnings("ConstantConditions")
-    private boolean deleteDB(String dbName) {
+    private static boolean deleteDB(String dbName) {
         Log.i(TAG, "Deleting the database...");
         File file = new File(dbName);
         if (file == null) {

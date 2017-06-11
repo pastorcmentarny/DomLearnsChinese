@@ -101,7 +101,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         Button removeBadAnswerButton = (Button) findViewById(R.id.spell_remove_wrong_button);
         score = (TextView) findViewById(R.id.current_score);
 
-        timeElapsed = (TextView) findViewById(R.id.time_elasped_value);
+        timeElapsed = (TextView) findViewById(R.id.time_elapsed_value);
 
         topLine2 = (LinearLayout) findViewById(R.id.top_line2);
         spellRow1 = (LinearLayout) findViewById(R.id.spell_row1);
@@ -317,7 +317,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
                 playTestTune(this);
             }
             statistic.addWordToWordMistake(getWordIdFromWrong(words, button.getText().toString()));
-            dead(getString(R.string.game_over_wrong_answer) + answerWord.getChineseCharacter() + "\n\t" + answerWord.getPinyin() + "\n\t" + answerWord.getWordInEnglish().toUpperCase() + "");
+            dead(getString(R.string.game_over_wrong_answer) + answerWord.getChineseCharacter() + "\n\t" + answerWord.getPinyin() + "\n\t" + answerWord.getWordInEnglish().toUpperCase());
         }
     }
 

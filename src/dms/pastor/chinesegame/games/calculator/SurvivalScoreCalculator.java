@@ -4,6 +4,8 @@ import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Game;
 
+import static dms.pastor.chinesegame.Config.DEFAULT_BONUS_POINTS;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -37,9 +39,9 @@ public final class SurvivalScoreCalculator implements Calculator {
 
     }
 
-    private int getPlainBonus(Game game) {
-        int bonus = Config.DEFAULT_BONUS_POINTS;
-        return bonus + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
+    //TODO move to Config
+    private static int getPlainBonus(Game game) {
+        return DEFAULT_BONUS_POINTS + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
     }
 
 }

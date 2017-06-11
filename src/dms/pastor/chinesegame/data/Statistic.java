@@ -23,9 +23,9 @@ import dms.pastor.chinesegame.utils.FileUtils;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
- *
+ * <p>
  * Created 02/11/2012
- *
+ * <p>
  * if you add new value,then, add to reset() change set to add
  */
 public final class Statistic {

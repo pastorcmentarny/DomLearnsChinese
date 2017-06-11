@@ -21,8 +21,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
@@ -70,7 +68,6 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
     private TextView currentPinyin;
     private ProgressBar levelProgressBar;
     private ArrayList<Word> words;
-    private Timer myTimer;
     private Player player;
     private boolean woops = false;
     private boolean pinyinUsed = false;
@@ -131,7 +128,7 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
 
         currentCharacter = (TextView) findViewById(R.id.currentCharacter);
         currentPinyin = (TextView) findViewById(R.id.currentPinyin);
-        timeElapsed = (TextView) findViewById(R.id.time_elasped_value);
+        timeElapsed = (TextView) findViewById(R.id.time_elapsed_value);
         correctValue = (TextView) findViewById(R.id.correct_value);
         mistakesValue = (TextView) findViewById(R.id.mistakes_value);
 
@@ -414,6 +411,7 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
         }
     }
 
+/* //TODO remove it?
     protected void runTimer() {
         myTimer = new Timer();
         myTimer.schedule(
@@ -425,6 +423,7 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
 
                 }, 0, Config.SECONDS);
     }
+ */
 
     private enum ButtonType {
         ANSWERS,

@@ -38,7 +38,6 @@
                 android:textColor="@color/grey"
                 android:textSize="48sp"
                 android:textStyle="bold" />
-            <!-- change badnewss to different -->
             <TextView
                 android:id="@+id/result_score"
                 android:layout_width="wrap_content"
@@ -138,7 +137,7 @@
             <TableRow style="@style/default_table_row">
 
                 <TextView
-                    android:id="@+id/recordtext"
+                    android:id="@+id/record_text"
                     style="@android:style/TextAppearance.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

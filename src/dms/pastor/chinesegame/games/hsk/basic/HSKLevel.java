@@ -102,7 +102,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
         scoreTitle = (TextView) findViewById(R.id.score_title);
         currentScore = (TextView) findViewById(R.id.current_score);
         bonusScore = (TextView) findViewById(R.id.bonus_score);
-        scoreSeparator = (TextView) findViewById(R.id.score_seperator);
+        scoreSeparator = (TextView) findViewById(R.id.score_separator);
 
 
         spellRow1 = (TableRow) findViewById(R.id.spell_row1);
@@ -111,7 +111,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
         currentCharacter = (TextView) findViewById(R.id.currentCharacter);
         currentPinyin = (TextView) findViewById(R.id.currentPinyin);
         timeLeft = (TextView) findViewById(R.id.time_left_value);
-        timeElapsed = (TextView) findViewById(R.id.time_elasped_value);
+        timeElapsed = (TextView) findViewById(R.id.time_elapsed_value);
         correctValue = (TextView) findViewById(R.id.correct_value);
         mistakesValue = (TextView) findViewById(R.id.mistakes_value);
 
