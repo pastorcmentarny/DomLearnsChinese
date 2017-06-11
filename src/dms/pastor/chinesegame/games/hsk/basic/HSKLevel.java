@@ -36,7 +36,6 @@ import static dms.pastor.chinesegame.utils.UIUtils.setIncorrect;
  * Date: 24.11.12 11:56
  */
 public final class HSKLevel extends Level implements View.OnClickListener {
-    //private static String TAG = "HSK LEVEL";
 
     private SharedPreferences prefs, settings;
 
@@ -117,9 +116,6 @@ public final class HSKLevel extends Level implements View.OnClickListener {
 
 
         lvl = (TextView) findViewById(R.id.current_lvl);
-
-
-        //status = (TextView) findViewById(R.id.levelStatus);
         Button showPinyinSpellButton = (Button) findViewById(R.id.spell_show_pinyin_button);
 
         answer1Button.setOnClickListener(this);
@@ -128,9 +124,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
         answer4Button.setOnClickListener(this);
         showPinyinSpellButton.setOnClickListener(this);
 
-
         timer = new DomTimer();
-
 
         setup();
     }
@@ -175,7 +169,6 @@ public final class HSKLevel extends Level implements View.OnClickListener {
         words.add(wrongWord1);
         words.add(wrongWord2);
         words.add(wrongWord3);
-        //hskLevel = new LevelData(answerWord, words);
         setupUI();
         setupTurn();
         updatePlayer();

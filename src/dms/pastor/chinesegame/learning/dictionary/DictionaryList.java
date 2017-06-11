@@ -85,7 +85,6 @@ public final class DictionaryList extends ListActivity {
             dialog.setMessage(getString(R.string.e_dictionary_problem_msg2me) + position);
             dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                 public void onClick(final DialogInterface di, final int arg) {
-                    //NONE
                 }
             });
             dialog.show();

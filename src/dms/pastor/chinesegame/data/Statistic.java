@@ -848,7 +848,7 @@ public final class Statistic {
                 wordMistakes.add(wordMistake);
             }
         }
-        //Sorting
+
         Collections.sort(wordMistakes, new Comparator<WordMistake>() {
             @Override
             public int compare(WordMistake first, WordMistake second) {

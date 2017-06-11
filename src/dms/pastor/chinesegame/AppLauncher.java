@@ -113,7 +113,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     @Override
     public void onResume() {
         super.onResume();
-        //adView.resume();
     }
 
     /*
@@ -128,7 +127,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
 */
     @Override
     public void onPause() {
-        //adView.pause();
         super.onPause();
         statistic.save();
         if (dialog != null) {
@@ -146,7 +144,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
 
     @Override
     public void onDestroy() {
-        //adView.destroy();
         super.onDestroy();
     }
 

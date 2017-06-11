@@ -33,6 +33,8 @@ import dms.pastor.chinesegame.data.learning.lessons.Lesson;
 import dms.pastor.chinesegame.data.learning.patterns.Pattern;
 import dms.pastor.chinesegame.utils.DomUtils;
 
+import static java.lang.String.format;
+
 /**
  * User: Dominik Symonowicz
  * Date: 18.08.13
@@ -113,8 +115,6 @@ public final class DatabaseService extends SQLiteOpenHelper {
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
         } catch (SQLiteException e) {
             Log.w(TAG, "Exception during checkDataBase()" + e.getMessage());
-            //database does't exist yet.
-
         }
 
         if (checkDB != null) {
@@ -247,12 +247,13 @@ public final class DatabaseService extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //not needed
+        Log.d(TAG, "Fascinating. Unused onCreate() method called.");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //not needed
+        Log.d(TAG, format("Fascinating. Unused onUpdate() method called. oldVersion value:%d newVersion value::%d", oldVersion, newVersion));
     }
 
     public List<Question> getAllQuestions() {
@@ -286,12 +287,11 @@ public final class DatabaseService extends SQLiteOpenHelper {
             return Question.getEmptyQuestion();
         }
         Question question;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT  * FROM %s WHERE _id = %d", TABLE_QUESTIONS, index);
+        String selectQuery = format(Locale.ENGLISH, "SELECT  * FROM %s WHERE _id = %d", TABLE_QUESTIONS, index);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             question = new Question();
             question.setId(Integer.parseInt(cursor.getString(0)));
@@ -326,7 +326,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
             return Sentence.getEmptySentence();
         }
         Sentence sentence;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT  * FROM %s WHERE _id = %d", TABLE_SENTENCES, index);
+        String selectQuery = format(Locale.ENGLISH, "SELECT  * FROM %s WHERE _id = %d", TABLE_SENTENCES, index);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -379,7 +379,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
     public Pattern getPattern(int index) throws NotFoundException {
         Log.i(TAG, "Get pattern for index: " + index);
         Pattern pattern;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT  * FROM %s WHERE _id = %d", TABLE_PATTERNS, index);
+        String selectQuery = format(Locale.ENGLISH, "SELECT  * FROM %s WHERE _id = %d", TABLE_PATTERNS, index);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -471,7 +471,6 @@ public final class DatabaseService extends SQLiteOpenHelper {
                 chat.setId(id);
                 chat.setTitle(cursor.getString(1));
                 chat.setInformation(cursor.getString(2));
-                //TODO remove it? chat.setGroup(cursor.getString(3));
                 chat.setWordList(dictionary.getWordsFromCategoryFromDictionary(cursor.getString(3).split("~~")));
                 List<QA> qas = getAllQAsForChat(id);
                 chat.setQaList(qas);
@@ -490,7 +489,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
     public CultureInfoItem getCLI(int index) throws NotFoundException {
         Log.i(TAG, "Loading culture info for index: " + index);
         CultureInfoItem cultureInfoItem;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_CULTURE_INFO, index);
+        String selectQuery = format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_CULTURE_INFO, index);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -514,7 +513,6 @@ public final class DatabaseService extends SQLiteOpenHelper {
         Log.i(TAG, "get all culture info");
         List<CultureInfoItem> ciiList = new ArrayList<>();
         CultureInfoItem cii;
-        // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_CULTURE_INFO;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -547,7 +545,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
                 lesson = new Lesson();
                 lesson.setId(Integer.parseInt(cursor.getString(0)));
                 lesson.setTitle(cursor.getString(1));
-                lesson.setGroup(cursor.getString(2).split("~~"));// group;
+                lesson.setGroup(cursor.getString(2).split("~~"));
                 DatabaseManager.getDbManager(null);
                 lesson.setWords(Dictionary.getDictionary().getWordsFromCategoryFromDictionary(lesson.getGroup()));
                 lesson.setLessonContent(cursor.getString(3));
@@ -564,10 +562,10 @@ public final class DatabaseService extends SQLiteOpenHelper {
 
 
     private List<QA> getAllQAsForChat(int id) throws NotFoundException {
-        Log.i(TAG, String.format("ChatId  is:%d", id));
+        Log.i(TAG, format("ChatId  is:%d", id));
         List<QA> qaList = new ArrayList<>();
         QA qa;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE chat_id = %d", TABLE_QAS_FOR_CHAT, id);
+        String selectQuery = format(Locale.ENGLISH, "SELECT * FROM %s WHERE chat_id = %d", TABLE_QAS_FOR_CHAT, id);
         Cursor cursor = myDataBase.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
@@ -583,13 +581,11 @@ public final class DatabaseService extends SQLiteOpenHelper {
     private QA getQA(int index) throws NotFoundException {
         Log.i(TAG, "get QA for index:" + index);
         QA qa;
-        // Select All Query
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_QA, index);
+        String selectQuery = format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_QA, index);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             qa = new QA();
             Log.w(TAG, "Setting question");
@@ -675,13 +671,11 @@ public final class DatabaseService extends SQLiteOpenHelper {
         Log.i(TAG, "get all grammar tips");
         List<GrammarTipItem> gtiList = new ArrayList<>();
         GrammarTipItem gti;
-        // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_GRAMMAR_TIPS;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 gti = new GrammarTipItem();
@@ -702,7 +696,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
     public GrammarTipItem getGrammarTip(int index) throws NotFoundException {
         Log.i(TAG, "get grammar tip for index:" + index);
         GrammarTipItem grammarTipItem;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_GRAMMAR_TIPS, index);
+        String selectQuery = format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_GRAMMAR_TIPS, index);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -726,13 +720,11 @@ public final class DatabaseService extends SQLiteOpenHelper {
         Log.i(TAG, "get all links");
         List<LinkItem> gtiList = new ArrayList<>();
         LinkItem item;
-        // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_LINKS;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 item = new LinkItem();
@@ -755,7 +747,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
     public LinkItem getLink(int index) throws NotFoundException {
         Log.i(TAG, "get link for index:" + index);
         LinkItem grammarTipItem;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_LINKS, index);
+        String selectQuery = format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_LINKS, index);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -779,7 +771,6 @@ public final class DatabaseService extends SQLiteOpenHelper {
         Log.i(TAG, "get all proverbs");
         List<ProverbsItem> gtiList = new ArrayList<>();
         ProverbsItem item;
-        // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_PROVERBS;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -804,7 +795,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
     public ProverbsItem getProverb(int position) throws NotFoundException {
         Log.i(TAG, "get proverb for index:" + position);
         ProverbsItem proverbsItem;
-        String selectQuery = String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_PROVERBS, position);
+        String selectQuery = format(Locale.ENGLISH, "SELECT * FROM %s WHERE _id = %d", TABLE_PROVERBS, position);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

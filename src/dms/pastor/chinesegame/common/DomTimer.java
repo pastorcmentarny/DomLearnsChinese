@@ -12,6 +12,7 @@ import java.util.Calendar;
  * <p/>
  * Not Found Exception used for indicate that abnormal lack of items in collection of .. lessons and etc.
  */
+
 public final class DomTimer {
     private long start;
     private long finish;

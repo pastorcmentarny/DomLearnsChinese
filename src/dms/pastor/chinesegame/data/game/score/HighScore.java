@@ -110,26 +110,17 @@ public final class HighScore {
         return r;
     }
 
+    //TODO remove this crap
     private static void encrypt(FileInputStream fis, FileOutputStream fos) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
-        // Here you read the cleartext.
-        //FileInputStream fis = new FileInputStream(src);
-        // This stream write the encrypted text. This stream will be wrapped by another stream.
-        //FileOutputStream fos = new FileOutputStream(dst);
-
-        // Length is 16 byte
         SecretKeySpec sks = new SecretKeySpec(Config.getKey().getBytes(), Config.CIPHER_TYPE);
-        // Create cipher
         @SuppressLint("GetInstance") Cipher cipher = Cipher.getInstance(Config.CIPHER_TYPE);
         cipher.init(Cipher.ENCRYPT_MODE, sks);
-        // Wrap the output stream
         CipherOutputStream cos = new CipherOutputStream(fos, cipher);
-        // Write bytes
         int b;
         byte[] d = new byte[8];
         while ((b = fis.read(d)) != -1) {
             cos.write(d, 0, b);
         }
-        // Flush and close streams.
         cos.flush();
         cos.close();
         fis.close();
@@ -151,7 +142,7 @@ public final class HighScore {
         try {
             decrypt(new FileInputStream(dst), context.openFileOutput(String.valueOf(src), Context.MODE_PRIVATE));
         } catch (Exception e) {
-            Log.e(TAG, "woops!");
+            Log.e(TAG, "Unable to decrypt backup data due " + e.getMessage(), e);
         }
         return r;
     }
@@ -426,7 +417,7 @@ public final class HighScore {
     }
 
     public int getCurrentPlaceFor(int score, GameType gameType) {
-        //Log.i(TAG, "Checking current place on highscore for score:" + score);
+        Log.d(TAG, "Checking current place on highscore for score:" + score);
         if (status.isFail()) {
             Log.w(TAG, "No highscore");
             return 0;
@@ -435,7 +426,7 @@ public final class HighScore {
             case ADVENTURE:
                 for (int i = 0; i < hsAdventure.size(); i++) {
                     if (score >= hsAdventure.get(i).getScore()) {
-                        // Log.e("Result","Score:" + score + " HS score:"+ hsAdventure.get(i).getScore() +" i:"+i);
+                        Log.d("Result", "Score:" + score + " HS score:" + hsAdventure.get(i).getScore() + " i:" + i);
                         return (i + 1);
                     }
                 }
@@ -444,16 +435,15 @@ public final class HighScore {
             case SAPPER:
                 for (int i = 0; i < hsSapper.size(); i++) {
                     if (score >= hsSapper.get(i).getScore()) {
-                        //Log.e("Result","Score:" + score + " HS score:"+ hsSapper.get(i).getScore() +" i:"+i);
+                        Log.d("Result", "Score:" + score + " HS score:" + hsSapper.get(i).getScore() + " i:" + i);
                         return (i + 1);
                     }
                 }
                 return 0;
             default:
+                Log.w(TAG, "There is no highscore for " + gameType.name().toLowerCase());
                 return 0;
-
         }
-
     }
 
     public void addToHighScore(Score score, GameType type) {

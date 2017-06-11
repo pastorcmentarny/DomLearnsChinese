@@ -88,7 +88,6 @@ public final class HSKResult extends Activity implements View.OnClickListener {
         startActivity(select);
         finish();
         overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
-        //finish();
     }
 
     @Override

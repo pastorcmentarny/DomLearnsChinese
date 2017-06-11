@@ -25,7 +25,6 @@ public final class Utils {
     private static final String TXT = ".txt";
 
     private Utils() {
-        //Utility classes should not have a public or default constructor.
     }
 
     //INFO: if you add new info don't forget add commandline do the list

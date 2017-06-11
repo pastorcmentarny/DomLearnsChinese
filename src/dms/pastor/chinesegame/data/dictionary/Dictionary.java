@@ -69,7 +69,7 @@ public final class Dictionary {
     }
 
     public ArrayList<Word> getWordsList() {
-        //Log.e("Dict size","Size:" + wordsList.size());
+        Log.d(TAG, "Dictionary size:" + wordsList.size());
         return wordsList;
     }
 
@@ -86,7 +86,7 @@ public final class Dictionary {
     public Result readDictionaryFromFile(Context context, int resourceId, String[] requestedCategories) {
         Log.i(TAG, "Loading words to dictionary from file");
         wordsList = new ArrayList<>();
-        InputStream iStream;// = null;
+        InputStream iStream;
         try {
             iStream = context.getResources().openRawResource(resourceId);
         } catch (Resources.NotFoundException e) {
@@ -196,7 +196,7 @@ public final class Dictionary {
             }
         }
         Log.w(TAG, "Word not found in dictionary for id:" + id);
-        return null;
+        return null; //TODOD replace with noneWord
     }
 
     public ArrayList<Word> getWordsFromCategoryFromDictionary(String[] requestedCategories) {

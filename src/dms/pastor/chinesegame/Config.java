@@ -24,17 +24,21 @@ public final class Config {
 
     //Ads stuff
     public static final String AD_INTERSTITIAL_UNIT = "ca-app-pub-1669938002445825/2171184702";
+
     //time constants
     public static final int SECONDS = 1000;  // 1000 milliseconds
+
     //HSK
     public static final long HSK_BASIC_TIME_LIMIT = 240 * SECONDS;
     public static final String EMPTY = "  ";
+
     //constant
     public static final String DATE_FORMAT = "dd-MM-yyyy HH:mm:ss";
     public static final int DEFAULT_BONUS_POINTS = 50;  //25 is based +1/100 words in wordList
     public static final int HEALTH_BONUS_PER_LEVEL = 1;
     public static final int MANA_BONUS_PER_LEVEL = 3;
     public static final int DEFAULT_FAIL_POINTS = 2;
+
     //misc settings
     public static final int HIGH_SCORE_SIZE = 250;
     public static final String HIGH_SCORE_FILE_PATH = "highscore.txt";
@@ -46,8 +50,6 @@ public final class Config {
     public static final int HEAL_HP_VALUE = 11;
     public static final long REFRESH = 200;
     public static final int RANDOM_EVENT_FREQ = 5;
-    public static final String APP_NAME = "dms.pastor.chinesegame";
-    static final String MY_EMAIL = "dmspastor@gmail.com";
     public static final boolean DEFAULT_PLAY_SOUND = false;
     public static final boolean DEFAULT_VIBRATE = true;
     public static final boolean DEFAULT_INTRO = true;
@@ -60,6 +62,7 @@ public final class Config {
     public static final int RANDOM_SIZE = 200;
     public static final int LESSON_LEVELS_SIZE = 10;
     public static final int FREEZE_RANGE = 50;
+
     //SPELLS cost
     public static final int PINYIN_SPELL_COST = 9;
     public static final int REMOVE_BAD_ANSWER_SPELL_COST = 11;
@@ -73,10 +76,12 @@ public final class Config {
     public static final int COMBO_MINIMUM = 3;
     public static final int REGEN_MANA_VALUE = 4 + new Random().nextInt(9);
     public static final int POISON_VALUE = 3 + new Random().nextInt(10);
+
     //DIFFICULTY RANGE FOR ADVENTURE
     //SCORE
     public static final int BONUS_POINTS_UNFREEZE = 3;
     public static final String SPR = ";;";
+
     //COMMON TEXT
     public static final boolean DEFAULT_SHOW_POLISH = false;
     public static final long NEXT_WORD_TIME = 5000;
@@ -84,9 +89,11 @@ public final class Config {
     public static final int DICTIONARY_TEST_LEVELS_SIZE = 100;
     public static final int DICTIONARY_TEST_TIME_LIMIT = 300;
     public static final int HIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY = 6;
+    public static final File STATISTIC_FILE = new File(Config.BACKUP_FOLDER, Config.STATISTIC_FILENAME);
+    static final String APP_NAME = "dms.pastor.chinesegame";
+    static final String MY_EMAIL = "dmspastor@gmail.com";
     private static final long HSK_BASIC_BONUS_TIME_UNIT = 30 * SECONDS;
     private static final String STATISTIC_FILENAME = "stats.txt";
-    public static final File STATISTIC_FILE = new File(Config.BACKUP_FOLDER, Config.STATISTIC_FILENAME);
     private static final String TAG = TAG_PREFIX + " Config";
     private static final int JACKPOT_BONUS = 1000;
     private static final int MAX_PENALTY = 20;

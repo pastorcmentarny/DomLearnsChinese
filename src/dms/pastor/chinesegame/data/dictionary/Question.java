@@ -15,7 +15,6 @@ public final class Question {
     private String notes;
 
     public Question() {
-        //Nothing to do :(
     }
 
 

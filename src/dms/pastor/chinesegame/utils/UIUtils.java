@@ -54,9 +54,7 @@ public final class UIUtils {
     private static final String CANCEL = "CANCEL";
 
     private UIUtils() {
-        //Utility classes should not have a public or default constructor.
     }
-
     public static void setIncorrect(Activity activity, Context context, Button button) {
         Animation animWrong = AnimationUtils.loadAnimation(context, R.anim.remove_bad_answer);
         button.startAnimation(animWrong);

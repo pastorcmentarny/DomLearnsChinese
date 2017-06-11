@@ -18,7 +18,6 @@ public final class Sentence {
     private String notes;
 
     public Sentence() {
-        //Nothing to do :(
     }
 
 

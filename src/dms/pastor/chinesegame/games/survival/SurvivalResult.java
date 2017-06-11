@@ -206,7 +206,6 @@ public final class SurvivalResult extends GameResult {
         countDownTimer = new CountDownTimer(1000, 2000) {
 
             public void onTick(long millisUntilFinished) {
-                //NOT IN USE :)
             }
 
             public void onFinish() {
@@ -220,7 +219,6 @@ public final class SurvivalResult extends GameResult {
         countDownTimer.start();
     }
 
-    // Invoke displayInterstitial() when you are ready to display an interstitial.
     private void displayInterstitial() {
         if (interstitial.isLoaded()) {
             interstitial.show();

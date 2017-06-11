@@ -41,7 +41,6 @@ public final class SurvivalIntro extends Intro {
     private Statistic statistic;
     private Bundle extras;
     private String gameType;
-    //private AdView adView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

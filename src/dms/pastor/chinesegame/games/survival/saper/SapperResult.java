@@ -186,9 +186,7 @@ public final class SapperResult extends GameResult {
         }
 
         if (hs.getScoresFor(GameType.SAPPER).size() > 0) {
-
             recordText.setText(String.format("RECORD: %s - %s", hs.getScoresFor(GameType.SAPPER).get(0).getPlayerName(), hs.getScoresFor(GameType.SAPPER).get(0).asHighScore()));
-            //recordText.setText("RECORD:" + hs.getScoresFor(GameType.SAPPER).get(0).getPlayerName() + " - " +hs.getScoresFor(GameType.SAPPER).get(0).asHighScore());
         }
 
     }

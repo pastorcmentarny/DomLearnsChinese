@@ -68,8 +68,6 @@
             android:drawableLeft="@drawable/wrench_orange"
             android:drawableStart="@drawable/wrench_orange"
             android:text="@string/options" />
-
-
     </TableRow>
 
     <TableRow style="@style/menu_row_style">

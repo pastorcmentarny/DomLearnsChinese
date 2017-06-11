@@ -361,14 +361,6 @@ public final class Player {
         this.currentChat = currentChat;
     }
 
-
-// --Commented out by Inspection START (2015-11-15 14:28):
-//    public void setDbError(boolean newState, String addDbErrorMessage) {
-//        dbError = newState;
-//        dbErrorMessage += addDbErrorMessage + "\n";
-//    }
-// --Commented out by Inspection STOP (2015-11-15 14:28)
-
     public String getDbErrorMessage() {
         String tmp = dbErrorMessage;
         dbErrorMessage = "";

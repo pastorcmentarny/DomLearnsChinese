@@ -19,8 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdView;
-
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -173,16 +171,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         tap2unfreeze.setOnClickListener(this);
         currentCharacter.setOnClickListener(this);
 
-        AdView adView = (AdView) this.findViewById(R.id.adView);
-        try {
-            //set ads
-
-            com.google.android.gms.ads.AdRequest adRequest = Utils.getAdRequest();
-            adView.loadAd(adRequest);
-        } catch (Exception e) {
-            Log.d(getString(R.string.am_e), getString(R.string.am_e_init) + e.getMessage());
-        }
-
+        UIUtils.loadAd(this, this);
         setup();
         highScore = HighScore.getHighScore();
         clipboard = new Clipboard4();
@@ -694,7 +683,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     private void blindEvent() {
         Log.i(TAG, "generating event ..blind");
         statistic.addBlind();
-        Spells.blind(answer1Button, answer2Button, answer3Button, answer4Button);        //TEST IT
+        Spells.blind(answer1Button, answer2Button, answer3Button, answer4Button);
         eventHappen(getString(R.string.cast_blind), false);
         updatePlayer();
     }
@@ -997,11 +986,15 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
         player.addHealthPerLevel();
         player.setMana(player.getMana() + Config.MANA_BONUS_PER_LEVEL);
-        //max health is 100,if current health is higher it will be reduce by 1 per turn
+
+        reduceHealthByOneIfCurrentHealthIsMaxHealth();
+        setupNewLevel();
+    }
+
+    private void reduceHealthByOneIfCurrentHealthIsMaxHealth() {
         if (player.getHealth() > 100) {
             player.setHealth(player.getHealth() - 1);
         }
-        setupNewLevel();
     }
 
     private int addComboPoints(int totalBonus) {
