@@ -35,7 +35,6 @@ public final class Config {
 
     //HSK
     public static final long HSK_BASIC_TIME_LIMIT = 240 * SECONDS;
-    public static final String EMPTY = "  ";
 
     //constant
     public static final String DATE_FORMAT = "dd-MM-yyyy HH:mm:ss";

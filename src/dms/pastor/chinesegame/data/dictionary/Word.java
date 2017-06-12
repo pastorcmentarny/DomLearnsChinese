@@ -37,6 +37,10 @@ public final class Word {
         setDifficulty(difficulty);
     }
 
+    public Word noWord() {
+        return new Word(-1, null, null, -1, null, null, null, null, -1);
+    }
+
 
     public String getChineseCharacter() {
         return chineseCharacter;
@@ -153,7 +157,7 @@ public final class Word {
     }
 
 
-    @Override
+    @Override //TODO change this toShortString
     public String toString() {
         return chineseCharacter + " - '" +
                 pinyin + "' - [ " +

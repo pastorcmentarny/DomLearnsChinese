@@ -2,6 +2,8 @@ package dms.pastor.chinesegame.data.dictionary;
 
 import dms.pastor.chinesegame.utils.DomUtils;
 
+import static dms.pastor.chinesegame.Config.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -26,10 +28,10 @@ public final class Sentence {
     public static Sentence getEmptySentence() {
         Sentence sentence = new Sentence();
         sentence.setId(0);
-        sentence.setCharacter("");
-        sentence.setPinyin("");
-        sentence.setEnglish("");
-        sentence.setNotes("");
+        sentence.setCharacter(EMPTY_STRING);
+        sentence.setPinyin(EMPTY_STRING);
+        sentence.setEnglish(EMPTY_STRING);
+        sentence.setNotes(EMPTY_STRING);
         return sentence;
     }
 

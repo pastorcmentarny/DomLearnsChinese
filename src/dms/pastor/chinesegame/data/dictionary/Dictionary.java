@@ -89,7 +89,7 @@ public final class Dictionary {
         DataInputStream in = new DataInputStream(iStream);
         BufferedReader br;
         InputStreamReader isr;
-        String strLine;// = null;
+        String strLine;
         String[] data;
         String[] wordCategoriesList = null;
         Word word;

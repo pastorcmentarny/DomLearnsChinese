@@ -1,5 +1,10 @@
 package dms.pastor.chinesegame.data.dictionary;
 
+import android.util.Log;
+
+import static dms.pastor.chinesegame.Config.EMPTY_STRING;
+import static dms.pastor.chinesegame.Config.NEW_LINE;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -12,6 +17,7 @@ package dms.pastor.chinesegame.data.dictionary;
  * This contains question and answer and some  common methods to retrieve them.
  */
 public final class QA {
+    public static final String TAG = "QA";
     private Question question;
     private Sentence answer;
 
@@ -27,17 +33,18 @@ public final class QA {
     public String getQAas(QAType type) {
         switch (type) {
             case ALL:
-                return question.toString() + "\n" + answer.toString() + "\n";
+                return question.toString() + NEW_LINE + answer.toString() + NEW_LINE;
             case ENGLISH:
-                return question.getEnglish() + "\n" + answer.getEnglish() + "\n";
+                return question.getEnglish() + NEW_LINE + answer.getEnglish() + NEW_LINE;
             case CHINESE_CHARACTER:
-                return question.getCharacter() + "\n" + answer.getCharacter() + "\n";
+                return question.getCharacter() + NEW_LINE + answer.getCharacter() + NEW_LINE;
             case CHINESE_PINYIN:
-                return question.getPinyin() + "\n" + answer.getPinyin() + "\n";
+                return question.getPinyin() + NEW_LINE + answer.getPinyin() + NEW_LINE;
             case POLISH:
-                return question.getPolish() + "\n" + answer.getPolish() + "\n";
+                return question.getPolish() + NEW_LINE + answer.getPolish() + NEW_LINE;
             default:
-                return "";
+                Log.i(TAG, "Unknown QA type:" + type.name());
+                return EMPTY_STRING;
         }
     }
 

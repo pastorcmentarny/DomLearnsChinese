@@ -1,6 +1,6 @@
 package dms.pastor.chinesegame.data;
 
-import dms.pastor.chinesegame.Config;
+import static dms.pastor.chinesegame.Config.EMPTY_STRING;
 
 /**
  * Author Dominik Symonowicz
@@ -17,7 +17,6 @@ public final class CultureInfoItem {
     private String info;
     private String notes;
 
-
     public CultureInfoItem() {
     }
 
@@ -29,7 +28,7 @@ public final class CultureInfoItem {
     }
 
     public static CultureInfoItem getEmptyItem() {
-        return new CultureInfoItem(0, Config.EMPTY, Config.EMPTY, Config.EMPTY);
+        return new CultureInfoItem(0, EMPTY_STRING, EMPTY_STRING, EMPTY_STRING);
     }
 
     public String getTitle() {

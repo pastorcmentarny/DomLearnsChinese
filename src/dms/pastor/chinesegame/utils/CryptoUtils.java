@@ -18,6 +18,9 @@ import static javax.crypto.Cipher.getInstance;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
  * Email: email can be found on my website
+ *
+ *
+ * TODO remove this rubbish class
  */
 public final class CryptoUtils {
     private static final String ALGORITHM = "AES";

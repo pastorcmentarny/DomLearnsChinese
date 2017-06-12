@@ -36,6 +36,7 @@ import dms.pastor.chinesegame.R;
 import static android.content.Context.MODE_PRIVATE;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.widget.Toast.LENGTH_LONG;
+import static dms.pastor.chinesegame.Config.EMPTY_STRING;
 import static dms.pastor.chinesegame.utils.Utils.getAdRequest;
 
 /**
@@ -50,7 +51,6 @@ import static dms.pastor.chinesegame.utils.Utils.getAdRequest;
  */
 public final class UIUtils {
 
-    private static final String EMPTY_STRING = "";
     private static final String OK = "OK";
     private static final String CANCEL = "CANCEL";
 

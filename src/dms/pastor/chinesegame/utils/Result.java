@@ -53,7 +53,6 @@ public final class Result {
         } else {
             return "Unknown";
         }
-
     }
 
     public void setMessage(String message) {

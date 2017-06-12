@@ -158,18 +158,18 @@
         <activity
             android:name=".learning.practice.SentencePractice"
             android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity
+            android:name=".extras.RandomWordActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_random_word"
+            android:theme="@style/FullscreenTheme" />
 
         <!-- Google Play Services -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-        <!-- Experimental, Beta  activities -->
-        <activity
-            android:name=".extras.RandomWordActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_random_word"
-            android:theme="@style/FullscreenTheme" />
+
     </application>
 
 </manifest>

@@ -14,5 +14,4 @@ import android.view.View;
  */
 public abstract class Intro extends Activity implements View.OnClickListener {
 
-
 }
