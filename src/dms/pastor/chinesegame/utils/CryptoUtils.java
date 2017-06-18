@@ -16,7 +16,7 @@ import static javax.crypto.Cipher.getInstance;
  * WWW:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * Email: email can be found on my website
  *
  *

@@ -60,7 +60,7 @@ import static dms.pastor.chinesegame.utils.Utils.getEEMessage;
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class AppLauncher extends Activity implements View.OnClickListener, Runnable {
     private static final String TAG = "App launcher activity";

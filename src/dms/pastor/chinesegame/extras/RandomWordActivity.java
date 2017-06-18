@@ -29,7 +29,7 @@ import dms.pastor.chinesegame.extras.util.SystemUiHider;
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class RandomWordActivity extends Activity implements View.OnClickListener, Runnable {
     public static final int HIDER_FLAGS = SystemUiHider.FLAG_HIDE_NAVIGATION;
