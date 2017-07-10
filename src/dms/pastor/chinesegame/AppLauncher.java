@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,8 +20,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdView;
 
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
@@ -48,10 +47,11 @@ import dms.pastor.chinesegame.menu.WordMistakesCounterView;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
 import dms.pastor.chinesegame.utils.UIUtils;
-import dms.pastor.chinesegame.utils.Utils;
 
+import static dms.pastor.chinesegame.Config.APP_NAME;
 import static dms.pastor.chinesegame.data.game.score.HighScore.getNewHighScore;
 import static dms.pastor.chinesegame.utils.DomUtils.displayError;
+import static dms.pastor.chinesegame.utils.UIUtils.usernameDialog;
 import static dms.pastor.chinesegame.utils.Utils.getEEMessage;
 
 /**
@@ -90,15 +90,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         preferences = PreferenceManager.getDefaultSharedPreferences(AppLauncher.this);
         settings = getSharedPreferences("settings", Context.MODE_PRIVATE);
 
-
-        AdView adView = (AdView) this.findViewById(R.id.adView);
-        try {
-            com.google.android.gms.ads.AdRequest adRequest = Utils.getAdRequest();
-            adView.loadAd(adRequest);
-        } catch (Exception e) {
-            Log.d(getString(R.string.am_e), getString(R.string.am_e_init) + e.getMessage());
-        }
-
+        UIUtils.loadAd(this, this);
 
         TextView mainTitle = (TextView) findViewById(R.id.gameTitle);
         mainTitle.setOnClickListener(this);
@@ -150,10 +142,12 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         }
     }
 
+/* /TODO remove it in 18.1
     @Override
     public void onDestroy() {
         super.onDestroy();
     }
+*/
 
     public ProgressDialog getProgressDialog() {
         return progressDialog;
@@ -172,31 +166,16 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         loadHighScores();
         loadData();
         if (preferences.getBoolean("first", true)) {
-            UIUtils.usernameDialog(this);
-            SharedPreferences.Editor preferencesEditor = preferences.edit();
+            usernameDialog(this);
+            Editor preferencesEditor = preferences.edit();
             preferencesEditor.putBoolean("first", false);
             preferencesEditor.apply();
-        }
-
-    }
-
-    private void loadHighScores() {
-        Log.i(TAG, "Loading high scores..");
-        if (highScore != null) {
-            highScoreButton.setEnabled(highScore.isAvailable());
-        } else {
-            highScore = getNewHighScore(this);
-            if (highScore != null) {
-                highScoreButton.setEnabled(highScore.isAvailable());
-            } else {
-                highScoreButton.setEnabled(false);
-            }
         }
     }
 
     @Override
-    public final void onClick(final View v) {
-        switch (v.getId()) {
+    public final void onClick(final View view) {
+        switch (view.getId()) {
             case R.id.newGameButton:
                 newGameDialog();
                 break;
@@ -213,8 +192,8 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                 }
                 break;
             case R.id.settingsButton:
-                Intent p = new Intent(getApplicationContext(), Options.class);
-                startActivity(p);
+                Intent intent = new Intent(getApplicationContext(), Options.class);
+                startActivity(intent);
                 break;
             case R.id.extras_button:
                 openExtrasDialog();
@@ -230,13 +209,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         }
     }
 
-    public final boolean onCreateOptionsMenu(final Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
-        return true;
-    }
-
     @Override
     public final boolean onOptionsItemSelected(final MenuItem item) {
 
@@ -249,35 +221,45 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                 startActivity(ii);
                 return true;
             case R.id.rateMeButton:
-                AlertDialog.Builder alertBox = new AlertDialog.Builder(this);
-                alertBox.setTitle(getResources().getString(R.string.rateMe_title));
-                alertBox.setMessage(getResources().getString(R.string.rateMe_about));
-                alertBox.setPositiveButton(getString(R.string.rate_it), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Config.APP_NAME)));
-
-                    }
-                });
-                alertBox.setNeutralButton(getString(R.string.send_email), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                                "mailto", Config.MY_EMAIL, null));
-                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for " + Config.APP_NAME);
-                        startActivity(Intent.createChooser(emailIntent, "Send email..."));
-
-                    }
-                });
-                alertBox.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        DomUtils.msg(getApplicationContext(), "Thank you anyway");
-
-                    }
-                });
-                alertBox.show();
+                showRateMeDialog();
                 return true;
             default:
+                Log.w(TAG, "Unknown choice selected for item id:" + item.getItemId());
                 return false;
         }
+    }
+
+    public final boolean onCreateOptionsMenu(final Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+    private void showRateMeDialog() {
+        AlertDialog.Builder alertBox = new AlertDialog.Builder(this);
+        alertBox.setTitle(getResources().getString(R.string.rateMe_title));
+        alertBox.setMessage(getResources().getString(R.string.rateMe_about));
+        alertBox.setPositiveButton(getString(R.string.rate_it), new DialogInterface.OnClickListener() {
+            public void onClick(final DialogInterface di, final int arg) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_NAME)));
+            }
+        });
+        alertBox.setNeutralButton(getString(R.string.send_email), new DialogInterface.OnClickListener() {
+            public void onClick(final DialogInterface di, final int arg) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto", Config.MY_EMAIL, null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for " + APP_NAME);
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+
+            }
+        });
+        alertBox.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            public void onClick(final DialogInterface di, final int arg) {
+                DomUtils.msg(getApplicationContext(), "Thank you anyway");
+            }
+        });
+        alertBox.show();
     }
 
     private void openHighScoreSelectionDialog() {
@@ -320,52 +302,68 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         }
     }
 
+    @Override
+    public void run() {
+        if (dbManager == null) {
+            dbManager = DatabaseManager.getDbManager(this);
+        }
+        handler.sendEmptyMessage(0);
+    }
+
     private void newGameDialog() {
         dialog = new AlertDialog.Builder(this).setTitle(R.string.new_game_title).setItems(R.array.newGame, new DialogInterface.OnClickListener() {
             public void onClick(final DialogInterface dialoginterface, final int i) {
-                Intent ii;
                 switch (i) {
                     case 0:
-                        if (settings.getBoolean("showIntro", true)) {
-                            ii = new Intent(getApplicationContext(), SurvivalIntro.class);
-                            ii.putExtra("GAME", "ADVENTURE");
-                        } else {
-                            ii = new Intent(getApplicationContext(), WordSurvival.class);
-                            player.restart(GameType.ADVENTURE);
-                            player.game = new Game(getApplicationContext(), GameType.ADVENTURE);
-                            statistic.addAdventureGame();
-                            Dictionary dictionary = Dictionary.getDictionary();
-                            Result result = dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
-                            if (result.isFail()) {
-                                Log.w(TAG, result.getMessage());
-                            }
-                            player.game.setGameWordList(dictionary.getWordsForLevel(1));
-                            player.game.timeStart();
-                        }
-                        ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(ii);
-                        overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
-
+                        startAdventureGame();
                         break;
                     case 1:
-                        if (settings.getBoolean("showIntro", true)) {
-                            ii = new Intent(getApplicationContext(), SapperIntro.class);
-                        } else {
-                            player.restart(GameType.SAPPER);
-                            statistic.addSapperGame();
-                            ii = new Intent(getApplicationContext(), SapperGame.class);
-                            Dictionary dictionary = Dictionary.getDictionary();
-                            dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
-                            player.game.setGameWordList(dictionary.getWordsForLevel(1));
-                        }
-                        startActivity(ii);
-                        overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+                        startSaperGame();
                         break;
                     default:
                         Log.w(TAG, getString(R.string.w_unknown_selection) + "newGameDialog(" + i + ").");
                 }
             }
         }).show();
+    }
+
+    private void startSaperGame() {
+        Intent ii;
+        if (settings.getBoolean("showIntro", true)) {
+            ii = new Intent(getApplicationContext(), SapperIntro.class);
+        } else {
+            player.restart(GameType.SAPPER);
+            statistic.addSapperGame();
+            ii = new Intent(getApplicationContext(), SapperGame.class);
+            Dictionary dictionary = Dictionary.getDictionary();
+            dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
+            player.game.setGameWordList(dictionary.getWordsForLevel(1));
+        }
+        startActivity(ii);
+        overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+    }
+
+    private void startAdventureGame() {
+        Intent ii;
+        if (settings.getBoolean("showIntro", true)) {
+            ii = new Intent(getApplicationContext(), SurvivalIntro.class);
+            ii.putExtra("GAME", "ADVENTURE");
+        } else {
+            ii = new Intent(getApplicationContext(), WordSurvival.class);
+            player.restart(GameType.ADVENTURE);
+            player.game = new Game(getApplicationContext(), GameType.ADVENTURE);
+            statistic.addAdventureGame();
+            Dictionary dictionary = Dictionary.getDictionary();
+            Result result = dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
+            if (result.isFail()) {
+                Log.w(TAG, result.getMessage());
+            }
+            player.game.setGameWordList(dictionary.getWordsForLevel(1));
+            player.game.timeStart();
+        }
+        ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(ii);
+        overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
     }
 
     private void openExtrasDialog() {
@@ -407,7 +405,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                         break;
                     default:
                         DomUtils.msg(getApplicationContext(), "Work in progress");
-                        //Log.w(TAG, getString(R.string.w_unknown_selection) + "openExtrasDialog(" + i + ").");
+                        Log.w(TAG, getString(R.string.w_unknown_selection) + "openExtrasDialog(" + i + ").");
                         break;
                 }
             }
@@ -449,7 +447,20 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
             Result r = DatabaseManager.setUpdated(this);
             Log.i(TAG, r.getMessage());
         }
+    }
 
+    private void loadHighScores() {
+        Log.i(TAG, "Loading high scores..");
+        if (highScore != null) {
+            highScoreButton.setEnabled(highScore.isAvailable());
+        } else {
+            highScore = getNewHighScore(this);
+            if (highScore != null) {
+                highScoreButton.setEnabled(highScore.isAvailable());
+            } else {
+                highScoreButton.setEnabled(false);
+            }
+        }
     }
 
     private void loadDictionary() {
@@ -463,14 +474,4 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
             }
         }
     }
-
-    @Override
-    public void run() {
-        if (dbManager == null) {
-            dbManager = DatabaseManager.getDbManager(this);
-        }
-        handler.sendEmptyMessage(0);
-    }
-
-
 }

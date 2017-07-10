@@ -93,6 +93,7 @@ public final class Config {
     public static final int DICTIONARY_TEST_LEVELS_SIZE = 100;
     public static final int DICTIONARY_TEST_TIME_LIMIT = 300;
     public static final int HIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY = 6;
+
     //STRING (Experimental)
     public static final String EMPTY_STRING = "";
     public static final String NEW_LINE = "\n";
@@ -104,6 +105,9 @@ public final class Config {
     private static final String TAG = TAG_PREFIX + " Config";
     private static final int JACKPOT_BONUS = 1000;
     private static final int MAX_PENALTY = 20;
+    public static final String IGNORED_WORD = "////";
+    public static final String COLUMN_SEPERATOR = ";;";
+    public static final String GROUP_SEPERATOR = "~~";
 
     private Config() {
     }
@@ -134,16 +138,11 @@ public final class Config {
         score = player.game.getCorrect() * 100 / player.game.getLevels();
         score -= player.game.getMistake();
         if ((player.game.getStopTime() - player.game.getStartTime()) > HSK_BASIC_TIME_LIMIT) {
-            score += (HSK_BASIC_TIME_LIMIT - (player.game.getStopTime() - player.game.getStartTime())) / SECONDS;
-
+            score += calculateTime(player) / SECONDS;
         } else {
-            score += (HSK_BASIC_TIME_LIMIT - (player.game.getStopTime() - player.game.getStartTime())) / HSK_BASIC_BONUS_TIME_UNIT;
+            score += calculateTime(player) / HSK_BASIC_BONUS_TIME_UNIT;
         }
         return score;
-    }
-
-    public static int calcJackPot(int level) {
-        return JACKPOT_BONUS + (level * new Random().nextInt(4)) + new Random().nextInt(level + 1);
     }
 
     public static String getCurrentDateAsString() {
@@ -158,7 +157,7 @@ public final class Config {
                 return HIGH_SCORE_SAPPER_FILE_PATH;
             default:
                 Log.e(TAG, "no file path for highscore : " + gameType.toString());
-                return "";
+                return EMPTY_STRING;
         }
     }
 
@@ -186,6 +185,14 @@ public final class Config {
                         " - %d\nJACKPOT_BONUS - %d\nMAX_PENALTY - %d\nHIDE_PINYIN_ON_EASY_ON_WORD_DIFFICULTY - %d\n",
                 240 * SECONDS, 50, 1, 3, 2, 100, 100, 10, 11, 200, 5, 50, 4, 10, 50, 200, 10, 50, 9, 11, 23, 31, 4, 4,
                 NO_PENALTY_TIME * 2, 3, 4 + new Random().nextInt(9), 3 + new Random().nextInt(10), 3, 5000, 100, 300, 30 * SECONDS, 1000, 20, 6);
+    }
+
+    private static long calculateTime(Player player) {
+        return HSK_BASIC_TIME_LIMIT - (player.game.getStopTime() - player.game.getStartTime());
+    }
+
+    public static int calcJackPot(int level) {
+        return JACKPOT_BONUS + (level * new Random().nextInt(4)) + new Random().nextInt(level + 1);
     }
 
 }

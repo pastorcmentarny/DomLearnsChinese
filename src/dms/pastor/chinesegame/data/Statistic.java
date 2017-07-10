@@ -16,6 +16,8 @@ import dms.pastor.chinesegame.data.dictionary.WordMistake;
 import dms.pastor.chinesegame.utils.CryptoUtils;
 import dms.pastor.chinesegame.utils.FileUtils;
 
+import static dms.pastor.chinesegame.Config.STATISTIC_FILE;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -116,6 +118,7 @@ public final class Statistic {
     private int doubleMP = 0;
     private int halfHP = 0;
     private int halfMP = 0;
+
     //game difficulties
     private int sapperEasy = 0;
     private int sapperHard = 0;
@@ -129,11 +132,6 @@ public final class Statistic {
 
     }
 
-    /**
-     * get new instance of high score,if was not created.
-     *
-     * @return HighScore if was not instanced.
-     */
     public static synchronized Statistic getStatistic(Context context) {
 
         if (statistic == null) {
@@ -379,11 +377,9 @@ public final class Statistic {
         stats2backup.append(add(SAPPER_EASY_KEY, stats.getInt(SAPPER_EASY_KEY, sapperEasy)));
         stats2backup.append(add(SAPPER_HARD_KEY, stats.getInt(SAPPER_HARD_KEY, sapperHard)));
         return stats2backup.toString();
-
     }
 
     private String add(String title, Object value) {
-
         if (value instanceof Integer) {
             valueTmp = String.valueOf(value);
             typeTmp = "int";
@@ -433,7 +429,7 @@ public final class Statistic {
         Log.e(TAG, "Encrypting statistic..");
         String encryptedData = CryptoUtils.encrypt(Config.getKeyAsBytes(), data.getBytes());
         Log.e(TAG, "Saving statistics to backup folder");
-        File f = Config.STATISTIC_FILE;
+        File f = STATISTIC_FILE;
         Log.i("Backup file:", f.getAbsolutePath());
         return FileUtils.saveTextToFile(encryptedData, f);
     }
@@ -441,15 +437,14 @@ public final class Statistic {
 
     //TODO redesign as this method ass current method could win WTF is this piece of crap awards
     public boolean restore() {
-        File statsFile = Config.STATISTIC_FILE;
         Log.i(TAG, "Start restoring statistic..");
-        byte[] loaded = FileUtils.loadTextFromFile(statsFile).getBytes();
+        byte[] loaded = FileUtils.loadTextFromFile(STATISTIC_FILE).getBytes();
         Log.i(TAG, "Decrypting...");
         try {
             byte[] decryptedData = CryptoUtils.decrypt(Config.getKeyAsBytes(), loaded);
-            String[] xx = new String(decryptedData).split("\n");
-            for (String x : xx) {
-                if (!get(x)) {
+            String[] lines = new String(decryptedData).split("\n");
+            for (String line : lines) {
+                if (!get(line)) {
                     return false;
                 }
             }

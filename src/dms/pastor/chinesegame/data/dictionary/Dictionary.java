@@ -13,6 +13,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
@@ -66,16 +67,6 @@ public final class Dictionary {
         return wordsList;
     }
 
-    /**
-     * Read words from file and add them to dictionary list
-     * It can be filtered by category list
-     *
-     * @param context             - application context
-     * @param resourceId          - source from raw folder.
-     * @param requestedCategories - filter to find word in specific category(-ies),if null is treat (all categories)
-     * @return useless information for debugging purposes .Very lame from my part
-     */
-    @SuppressWarnings("SameParameterValue")
     public Result readDictionaryFromFile(Context context, int resourceId, String[] requestedCategories) {
         Log.i(TAG, "Loading words to dictionary from file");
         wordsList = new ArrayList<>();
@@ -98,35 +89,17 @@ public final class Dictionary {
             isr = new InputStreamReader(in);
             br = new BufferedReader(isr);
             while ((strLine = br.readLine()) != null) {
-                if (!strLine.startsWith("////")) {
-                    data = strLine.split(";;");
+                if (!strLine.startsWith(Config.IGNORED_WORD)) {
+                    data = strLine.split(Config.COLUMN_SEPERATOR);
                     try {
                         if (requestedCategories != null) {
-                            wordCategoriesList = data[7].split("~~");
+                            wordCategoriesList = data[7].split(Config.GROUP_SEPERATOR);
                         }
-                        String[] temp = data[7].split("~~");
-                        int diff = DomUtils.parseIntNullSafe(data[9], 9);
-                        word = new Word(Integer.parseInt(data[1]), data[2], data[3], Integer.parseInt(data[4]), data[5], data[6], temp, data[8], diff);
+                        String[] temp = data[7].split(Config.GROUP_SEPERATOR);
+                        int difficutly = DomUtils.parseIntNullSafe(data[9], 9);
+                        word = new Word(Integer.parseInt(data[1]), data[2], data[3], Integer.parseInt(data[4]), data[5], data[6], temp, data[8], difficutly);
                         if (word.isValid()) {
-                            if (requestedCategories != null) {
-                                for (String requestedCategory : requestedCategories) {
-                                    for (String wordCategory : wordCategoriesList) {
-                                        if (wordCategory.equals(requestedCategory)) {
-                                            if (wordsList != null) {
-                                                wordsList.add(word);
-                                                nr++;
-                                            } else {
-                                                if (wordsList == null) {
-                                                    Log.w(TAG, "wordsList null");
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            } else {
-                                wordsList.add(word);
-                                nr++;
-                            }
+                            nr = addWordToWordList(requestedCategories, wordCategoriesList, word, nr); //TODO imporve nr
                         } else {
                             Log.e(TAG, "Word is corrupted(Line:" + (nr - 1) + ".It is something wrong with Dictionary." + getLine(strLine));
                             return new Result(false, "Word is corrupted(Line:" + (nr - 1) + ")\n.It is something wrong with Dictionary." + getLine(strLine));
@@ -153,17 +126,8 @@ public final class Dictionary {
             setDBStatus(false);
             return new Result(false, context.getString(R.string.dict_data_corrupted) + nr + ")\n(ArrayIndexOutOfBoundsException)" + aioobe.getMessage());
         }
-        try {
-            isr.close();
-        } catch (IOException e) {
-            Log.w(TAG, context.getString(R.string.e_closing_stream_problem) + context.getString(R.string.msg_dict_from_file_error) + e.getMessage());
-        }
-        try {
-            br.close();
-        } catch (IOException e) {
-            Log.w(TAG, context.getString(R.string.e_closing_stream_problem) + context.getString(R.string.msg_dict_from_file_error) + e.getMessage());
-        }
-
+        closeInputStreamReader(context, isr);
+        closeBufferedReader(context, br);
 
         try {
             in.close();
@@ -174,6 +138,39 @@ public final class Dictionary {
         }
         setDBStatus(true);
         return new Result(true, context.getString(R.string.msg_dict_loaded));
+    }
+
+    private int addWordToWordList(String[] requestedCategories, String[] wordCategoriesList, Word word, int nr) {
+        if (requestedCategories != null) {
+            for (String requestedCategory : requestedCategories) {
+                for (String wordCategory : wordCategoriesList) {
+                    if (wordCategory.equals(requestedCategory)) {
+                        wordsList.add(word);
+                        nr++;
+                    }
+                }
+            }
+        } else {
+            wordsList.add(word);
+            nr++;
+        }
+        return nr;
+    }
+
+    private static void closeInputStreamReader(Context context, InputStreamReader isr) {
+        try {
+            isr.close();
+        } catch (IOException e) {
+            Log.w(TAG, context.getString(R.string.e_closing_stream_problem) + context.getString(R.string.msg_dict_from_file_error) + e.getMessage());
+        }
+    }
+
+    private static void closeBufferedReader(Context context, BufferedReader br) {
+        try {
+            br.close();
+        } catch (IOException e) {
+            Log.w(TAG, context.getString(R.string.e_closing_stream_problem) + context.getString(R.string.msg_dict_from_file_error) + e.getMessage());
+        }
     }
 
     private static String getLine(String line) {
@@ -196,15 +193,19 @@ public final class Dictionary {
         ArrayList<Word> result = new ArrayList<>();
         for (Word word : wordsList) {
             for (String wordCategories : word.getGroups()) {
-                for (String category : requestedCategories) {
-                    if (category.equalsIgnoreCase(wordCategories)) {
-                        result.add(word);
-                    }
-                }
+                addWordsFromRequestedCategories(requestedCategories, result, word, wordCategories);
             }
         }
         Log.i(TAG, valueOf(result.size()));
         return result;
+    }
+
+    private void addWordsFromRequestedCategories(String[] requestedCategories, ArrayList<Word> result, Word word, String wordCategories) {
+        for (String category : requestedCategories) {
+            if (category.equalsIgnoreCase(wordCategories)) {
+                result.add(word);
+            }
+        }
     }
 
     public String[] generateWordList() {
@@ -228,29 +229,15 @@ public final class Dictionary {
                 }
             }
         } else if (level == 6) {
-            for (Word word : wordsList) {
-                if (word.getDifficulty() <= level && word.getDifficulty() > 1) {
-                    result.add(word);
-                }
-            }
+            getWordsForDifficultyAbove(1, level, result);
         } else if (level == 7) {
-            for (Word word : wordsList) {
-                if (word.getDifficulty() <= level && word.getDifficulty() > 2) {
-                    result.add(word);
-                }
-            }
+            getWordsForDifficultyAbove(2, level, result);
         } else if (level == 8) {
-            for (Word word : wordsList) {
-                if (word.getDifficulty() <= level && word.getDifficulty() > 3) {
-                    result.add(word);
-                }
-            }
+            getWordsForDifficultyAbove(3, level, result);
         }
-
         return result;
     }
 
-    @SuppressWarnings("ReturnOfNull")
     public HashSet<Word> findAllWords(String searchQuery) {
         final HashSet<Word> words = new HashSet<>();
         Log.d(TAG, "Looking for word:" + searchQuery);
@@ -356,10 +343,12 @@ public final class Dictionary {
         throw new WordNotFoundException(id);
     }
 
-    private static class DictionaryException extends IllegalStateException {
-
-        DictionaryException() {
-            super("Cannot search due lack of dictionary.Error?");
+    private void getWordsForDifficultyAbove(int difficulty, int level, ArrayList<Word> result) {
+        for (Word word : wordsList) {
+            if (word.getDifficulty() <= level && word.getDifficulty() > difficulty) {
+                result.add(word);
+            }
         }
     }
+
 }
