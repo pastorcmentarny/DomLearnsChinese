@@ -18,11 +18,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Random;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -41,26 +36,14 @@ import dms.pastor.chinesegame.utils.Result;
 import dms.pastor.chinesegame.utils.UIUtils;
 import dms.pastor.chinesegame.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Random;
+
 import static android.widget.Toast.LENGTH_SHORT;
-import static dms.pastor.chinesegame.Config.COMBO_MINIMUM;
-import static dms.pastor.chinesegame.Config.RANDOM_EVENT_FREQ;
-import static dms.pastor.chinesegame.Config.RANDOM_SIZE;
-import static dms.pastor.chinesegame.data.game.Spells.castShowPinyinHideCharacter;
-import static dms.pastor.chinesegame.data.game.Spells.castSpellShowPinyin;
-import static dms.pastor.chinesegame.data.game.Spells.doubleHP;
-import static dms.pastor.chinesegame.data.game.Spells.doubleMP;
-import static dms.pastor.chinesegame.data.game.Spells.eventHappen;
-import static dms.pastor.chinesegame.data.game.Spells.halfHP;
-import static dms.pastor.chinesegame.data.game.Spells.halfMP;
-import static dms.pastor.chinesegame.utils.UIUtils.displayHalfHalfToast;
-import static dms.pastor.chinesegame.utils.UIUtils.setAllToDefault;
-import static dms.pastor.chinesegame.utils.UIUtils.setBackgroundColor;
-import static dms.pastor.chinesegame.utils.UIUtils.setFrozen;
-import static dms.pastor.chinesegame.utils.UIUtils.setIncorrect;
-import static dms.pastor.chinesegame.utils.UIUtils.setRemoved;
-import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
-import static dms.pastor.chinesegame.utils.UIUtils.setToDefault;
-import static dms.pastor.chinesegame.utils.UIUtils.setUnTapButton;
+import static dms.pastor.chinesegame.Config.*;
+import static dms.pastor.chinesegame.data.game.Spells.*;
+import static dms.pastor.chinesegame.utils.UIUtils.*;
 import static java.lang.String.format;
 
 /**
@@ -486,7 +469,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     public void setup() {
         player = Player.getPlayer();
         setNewQuestion();
-        if (isCheeseCakeLevel()) {
+        if (player.game.isCheeseCakeLevel()) {
             cheesecakeLevel();
         }
 
@@ -912,24 +895,18 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     private void checkAnswer(Button button) {
         Log.d(TAG, "check answer ..");
         if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
-            if (isCheeseCakeLevel()) {
-                Toast.makeText(this, "Yummy Yummy", Toast.LENGTH_SHORT).show();
-                player.addScore(88);
-            }
+            addPointsIfIsCheesecakeLevel();
+            addPointsIfIsWroclawWord();
+
             timer.stop();
+
             setEnabled(false);
             long time = timer.calcTotalTime();
             player.game.addToTotalTime(time);
 
             int healthPenalty = Config.calcPenaltyHealthForTime(time);
 
-
-            if (healthPenalty > Config.NO_PENALTY_TIME) {
-                player.setHealth(player.getHealth() - (healthPenalty - Config.NO_PENALTY_TIME));
-                woops = true;
-            } else {
-                player.setMana(player.getMana() + 1);
-            }
+            reduceHealthIfAnswerWasTooSlow(healthPenalty);
 
             if (player.isDead()) {
                 dead();
@@ -941,9 +918,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
             if (vibrator != null && settings.getBoolean("vibrate", Config.DEFAULT_VIBRATE)) {
                 vibrator.vibrate(Config.VIBRATE_ON_MISTAKE_TIME);
             }
-            if (settings.getBoolean("playSound", Config.DEFAULT_PLAY_SOUND)) {
-                playTestTune(this);
-            }
+            playMistakeSound();
             player.game.addMistake();
 
             setIncorrect(this, this, button);
@@ -958,6 +933,35 @@ public final class WordSurvival extends Level implements View.OnClickListener {
                 dead();
             }
             updatePlayer();
+        }
+    }
+
+    private void playMistakeSound() {
+        if (settings.getBoolean("playSound", Config.DEFAULT_PLAY_SOUND)) {
+            playTestTune(this);
+        }
+    }
+
+    private void reduceHealthIfAnswerWasTooSlow(int healthPenalty) {
+        if (healthPenalty > Config.NO_PENALTY_TIME) {
+            player.setHealth(player.getHealth() - (healthPenalty - Config.NO_PENALTY_TIME));
+            woops = true;
+        } else {
+            player.setMana(player.getMana() + 1);
+        }
+    }
+
+    private void addPointsIfIsWroclawWord() {
+        if (answerWord.getWordInPolish().equalsIgnoreCase("Wroclaw")) {
+            Toast.makeText(this, "You guess my homecity. You get 71 points. (71 is local phone are code)", LENGTH_SHORT).show();
+            player.addScore(71);
+        }
+    }
+
+    private void addPointsIfIsCheesecakeLevel() {
+        if (player.game.isCheeseCakeLevel()) {
+            Toast.makeText(this, "Yummy Yummy", LENGTH_SHORT).show();
+            player.addScore(88);
         }
     }
 
@@ -1075,7 +1079,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     private void cheesecakeLevel() {
         final String msg = "Lucky level means ... there is time for cheesecake";
         Log.i(TAG, msg);
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, msg, LENGTH_SHORT).show();
         answerWord = Dictionary.getDictionary().findWordById(743);
         wrongWord1 = Dictionary.getDictionary().findWordById(744);
         wrongWord2 = Dictionary.getDictionary().findWordById(745);
@@ -1087,9 +1091,4 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         words.add(wrongWord3);
 
     }
-
-    private boolean isCheeseCakeLevel() {
-        return player.game.getLevel() == 88;
-    }
-
 }

@@ -3,10 +3,6 @@ package dms.pastor.chinesegame.data.game;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-
-import java.util.List;
-import java.util.Random;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.BonusType;
@@ -15,6 +11,9 @@ import dms.pastor.chinesegame.data.learning.chats.Chat;
 import dms.pastor.chinesegame.data.learning.lessons.Lesson;
 import dms.pastor.chinesegame.data.learning.lessons.MiniLessons;
 import dms.pastor.chinesegame.data.learning.patterns.Pattern;
+
+import java.util.List;
+import java.util.Random;
 
 import static android.content.Context.MODE_PRIVATE;
 import static dms.pastor.chinesegame.Config.EMPTY_STRING;
