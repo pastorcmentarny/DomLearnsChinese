@@ -7,7 +7,7 @@
     <string name="about_me_label">ABOUT ME</string>
     <string name="about_me_text">ABOUT ME:\n\n
         My name is Dominik. I am software developer. If you want know more look to my parody of homepage
-        pastor.ovh.org . I hope You enjoying use my program. If You have any USEFUL comment,
+        https://dominiksymonowicz.com/ . I hope You enjoying use my program. If You have any USEFUL comment,
         suggestion,feedback.\n
         Feel happy to send to dmspastor@gmail.com.\n\n
         Ciao.
@@ -554,7 +554,9 @@
     <string name="next_word">NEXT WORD</string>
     <string name="polish">Polish</string>
     <string name="sentence">Sentence</string>
-    <string name="b4go_adapter">Bring the Right Power Adapter!</string>
+    <string name="b4go_adapter">Bring the Right Power Adapter! (Checked in 2016, 2017) Important note! You are not
+        allowed to bring Power Bank with capacity higher than 10000 mAh.
+    </string>
     <string name="points">" points."</string>
     <string name="new_high_score">!NEW HIGH SCORE!</string>
     <string name="not_available">Not available yet</string>
