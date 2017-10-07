@@ -12,11 +12,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
@@ -29,6 +24,10 @@ import dms.pastor.chinesegame.data.game.score.Score;
 import dms.pastor.chinesegame.games.GameResult;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import static dms.pastor.chinesegame.utils.DomUtils.getVersionCode;
 
@@ -106,12 +105,12 @@ public final class SapperResult extends GameResult {
             diff = Difficulty.HARD.name();
         }
         sScore = new Score(Player.getName(this), player.getScore(),
-                player.game.getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
+                player.getGame().getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
                 statistic.getGames(), getVersionCode(this),
                 new Date().getTime(), diff);
         try {
             if (highScore != null) {
-                highScore.addToHighScore(sScore, player.game.getGameType());
+                highScore.addToHighScore(sScore, player.getGame().getGameType());
             }
         } catch (Exception e) {
             Log.w(TAG, getResources().getString(R.string.highscore_restarted_due_error));
@@ -121,15 +120,15 @@ public final class SapperResult extends GameResult {
         gameOverTitle.setText(getString(R.string.game_over));
         resultGrade.setVisibility(View.GONE);
         resultScore.setText(String.valueOf(player.getScore() > 0 ? player.getScore() : 0));
-        resultTime.setText(DomUtils.getResultTimeAsString(player.game.getTotalTime()));
-        correctAnswersValue.setText(String.valueOf(player.game.getCorrect()));
-        questionsValue.setText(String.valueOf(player.game.getLevels()));
-        statistic.addTotalLevels(player.game.getLevel());
-        statistic.addToHighestLevelSapper(player.game.getLevel());
-        statistic.addCorrects(player.game.getCorrect());
+        resultTime.setText(DomUtils.getResultTimeAsString(player.getGame().getTotalTime()));
+        correctAnswersValue.setText(String.valueOf(player.getGame().getCorrect()));
+        questionsValue.setText(String.valueOf(player.getGame().getLevels()));
+        statistic.addTotalLevels(player.getGame().getLevel());
+        statistic.addToHighestLevelSapper(player.getGame().getLevel());
+        statistic.addCorrects(player.getGame().getCorrect());
         statistic.addWrong();
         statistic.addToMaxScore(player.getScore());
-        statistic.addToTotalTimeSapper(player.game.getTotalTime());
+        statistic.addToTotalTimeSapper(player.getGame().getTotalTime());
         statistic.save();
         checkHighScore();
 
@@ -145,7 +144,7 @@ public final class SapperResult extends GameResult {
             case R.id.tryAgain:
                 Intent ii = new Intent(getApplicationContext(), SapperGame.class);
                 player.restart(GameType.SAPPER);
-                player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
+                player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
                 statistic.addSapperGame();
                 startActivity(ii);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
@@ -170,7 +169,7 @@ public final class SapperResult extends GameResult {
     }
 
     private void checkHighScore() {
-        int place = hs.getCurrentPlaceFor(sScore.getScore(), player.game.getGameType());
+        int place = hs.getCurrentPlaceFor(sScore.getScore(), player.getGame().getGameType());
         if (place == 1) {
             resultGrade.setText(R.string.new_high_score);
             UIUtils.newRecord(this, placeText, this);

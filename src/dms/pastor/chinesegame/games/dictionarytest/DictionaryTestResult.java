@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
@@ -77,8 +76,8 @@ public final class DictionaryTestResult extends Activity implements View.OnClick
     private void setup() {
         player = Player.getPlayer();
         int score = player.getScore();
-        if (player.game.getTotalTimeInSeconds() > Config.DICTIONARY_TEST_TIME_LIMIT) {
-            int penalty = player.game.getTotalTimeInSeconds() - Config.DICTIONARY_TEST_TIME_LIMIT;
+        if (player.getGame().getTotalTimeInSeconds() > Config.DICTIONARY_TEST_TIME_LIMIT) {
+            int penalty = player.getGame().getTotalTimeInSeconds() - Config.DICTIONARY_TEST_TIME_LIMIT;
             score -= penalty;
             displayToast(this, format(ENGLISH, "Penalty for slow answers: -%d", penalty));
         }
@@ -103,16 +102,16 @@ public final class DictionaryTestResult extends Activity implements View.OnClick
 
         resultGrade.setText(DictionaryLevelInfo.getAGrade(grade));
         resultScore.setText(format(ENGLISH, "Score: %d ", player.getScore()));
-        resultTime.setText(DomUtils.getResultTimeAsString(player.game.getTotalTime()));
-        correctAnswersValue.setText(format(ENGLISH, "%d (%d%%)", player.game.getCorrect(), player.game.getCorrect() / Config.DICTIONARY_TEST_LEVELS_SIZE));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
-        skippedValue.setText(String.valueOf(player.game.getSkipped()));
+        resultTime.setText(DomUtils.getResultTimeAsString(player.getGame().getTotalTime()));
+        correctAnswersValue.setText(format(ENGLISH, "%d (%d%%)", player.getGame().getCorrect(), player.getGame().getCorrect() / Config.DICTIONARY_TEST_LEVELS_SIZE));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
+        skippedValue.setText(String.valueOf(player.getGame().getSkipped()));
 
     }
 
     private void restart() {
         player.restart(GameType.DICTIONARY_TEST);
-        player.game.timeStart();
+        player.getGame().timeStart();
         Statistic.getStatistic(this).addDictionaryTestGame();
         Intent select;
         select = new Intent(getApplicationContext(), DictionaryTestGame.class);

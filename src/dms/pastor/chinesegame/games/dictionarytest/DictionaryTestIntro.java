@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
@@ -63,7 +62,7 @@ public final class DictionaryTestIntro extends Intro implements View.OnClickList
     private void start() {
         player.restart(GameType.DICTIONARY_TEST);
         Statistic.getStatistic(this).addDictionaryTestGame();
-        player.game.timeStart();
+        player.getGame().timeStart();
         Intent select;
         select = new Intent(getApplicationContext(), DictionaryTestGame.class);
         select.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

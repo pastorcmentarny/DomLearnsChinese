@@ -1,15 +1,14 @@
 package dms.pastor.chinesegame;
 
 import android.util.Log;
+import dms.pastor.chinesegame.common.enums.GameType;
+import dms.pastor.chinesegame.data.game.Player;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-
-import dms.pastor.chinesegame.common.enums.GameType;
-import dms.pastor.chinesegame.data.game.Player;
 
 import static java.lang.String.format;
 import static java.util.Locale.ENGLISH;
@@ -135,9 +134,9 @@ public final class Config {
     public static int calculateScore() {
         Player player = Player.getPlayer();
         int score;
-        score = player.game.getCorrect() * 100 / player.game.getLevels();
-        score -= player.game.getMistake();
-        if ((player.game.getStopTime() - player.game.getStartTime()) > HSK_BASIC_TIME_LIMIT) {
+        score = player.getGame().getCorrect() * 100 / player.getGame().getLevels();
+        score -= player.getGame().getMistake();
+        if ((player.getGame().getStopTime() - player.getGame().getStartTime()) > HSK_BASIC_TIME_LIMIT) {
             score += calculateTime(player) / SECONDS;
         } else {
             score += calculateTime(player) / HSK_BASIC_BONUS_TIME_UNIT;
@@ -188,7 +187,7 @@ public final class Config {
     }
 
     private static long calculateTime(Player player) {
-        return HSK_BASIC_TIME_LIMIT - (player.game.getStopTime() - player.game.getStartTime());
+        return HSK_BASIC_TIME_LIMIT - (player.getGame().getStopTime() - player.getGame().getStartTime());
     }
 
     public static int calcJackPot(int level) {

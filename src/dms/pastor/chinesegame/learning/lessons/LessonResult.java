@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.InterstitialAd;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
@@ -176,10 +174,10 @@ public final class LessonResult extends Activity implements View.OnClickListener
     private void setPlayerForNewLevel() {
         Dictionary dict = setupDictionaryForNewLevel();
 
-        player.game.setLevels(Config.LESSON_LEVELS_SIZE);
-        player.game.setAnswerWordsForLevels(dict.getWordsList());
-        player.game.setGameWordList(dict.getWordsList());
-        player.game.createAnswerWordsForLevels(player.game.getAnswerWordsForLevels());
+        player.getGame().setLevels(Config.LESSON_LEVELS_SIZE);
+        player.getGame().setAnswerWordsForLevels(dict.getWordsList());
+        player.getGame().setGameWordList(dict.getWordsList());
+        player.getGame().createAnswerWordsForLevels(player.getGame().getAnswerWordsForLevels());
         player.setSelectedLesson(player.miniLessons.getCurrentLesson().getTitle());
     }
 
@@ -190,8 +188,8 @@ public final class LessonResult extends Activity implements View.OnClickListener
     }
 
     private String getResult() {
-        int good = player.game.getCorrect();
-        int bad = player.game.getMistake();
+        int good = player.getGame().getCorrect();
+        int bad = player.getGame().getMistake();
         if (bad > 0) {
             bad -= 1;
         }

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
@@ -81,8 +80,8 @@ public final class SurvivalIntro extends Intro {
                 ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 player.restart(ADVENTURE);
                 statistic.addAdventureGame();
-                player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
-                player.game.timeStart();
+                player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
+                player.getGame().timeStart();
                 startActivity(ii);
                 overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
             }

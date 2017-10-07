@@ -10,9 +10,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -25,13 +22,12 @@ import dms.pastor.chinesegame.games.calculator.SapperScoreCalculator;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
 
+import java.util.ArrayList;
+
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 import static android.view.View.VISIBLE;
 import static android.view.Window.FEATURE_NO_TITLE;
-import static dms.pastor.chinesegame.Config.HEALTH_BONUS_PER_LEVEL;
-import static dms.pastor.chinesegame.Config.MANA_BONUS_PER_LEVEL;
-import static dms.pastor.chinesegame.Config.SAPPER_NO_PENALTY_TIME;
-import static dms.pastor.chinesegame.Config.SECONDS;
+import static dms.pastor.chinesegame.Config.*;
 import static dms.pastor.chinesegame.common.enums.Stage.getDifficultyLevelForLevel;
 import static dms.pastor.chinesegame.utils.DomUtils.getResultTimeAsString;
 import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
@@ -150,9 +146,9 @@ public final class SapperGame extends Level implements View.OnClickListener {
         totalBonus = calcCurrentBonus();
 
         player.setScore((player.getScore() + totalBonus));
-        player.game.addToTotalTime(timer.calcTotalTime());
-        player.game.addLevel();
-        player.game.addCorrect();
+        player.getGame().addToTotalTime(timer.calcTotalTime());
+        player.getGame().addLevel();
+        player.getGame().addCorrect();
 
         player.setHealth(player.getHealth() + (HEALTH_BONUS_PER_LEVEL));
         player.setMana(player.getMana() + MANA_BONUS_PER_LEVEL);
@@ -160,7 +156,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
     }
 
     private int calcCurrentBonus() {
-        double finalBonus = calculator.calculate(player.game, timer.calcCurrentTime());
+        double finalBonus = calculator.calculate(player.getGame(), timer.calcCurrentTime());
 
         double time = SAPPER_NO_PENALTY_TIME * 1000 - timer.calcCurrentTime();
         if (time > 6750) {
@@ -168,7 +164,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         } else if (time > 500) {
             finalBonus = ((time) / ((SAPPER_NO_PENALTY_TIME * 1000))) * finalBonus;
         } else {
-            finalBonus = (getDifficultyLevelForLevel(player.game.getLevel()) + player.game.getLevel()) * (-1);
+            finalBonus = (getDifficultyLevelForLevel(player.getGame().getLevel()) + player.getGame().getLevel()) * (-1);
         }
 
 
@@ -203,7 +199,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         statistic = Statistic.getStatistic(this);
         words = new ArrayList<>();
         do {
-            answerWord = player.game.getRandomWordForLevel();
+            answerWord = player.getGame().getRandomWordForLevel();
         } while (answerWord == null);
         wrongWord1 = selectAWord(wrongWord1, new Word[]{answerWord});
         wrongWord2 = selectAWord(wrongWord2, new Word[]{answerWord, wrongWord1});
@@ -212,7 +208,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         words.add(wrongWord1);
         words.add(wrongWord2);
         words.add(wrongWord3);
-        player.game.timeStart();
+        player.getGame().timeStart();
     }
 
     @Override
@@ -238,7 +234,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         currentCharacter.setText(answerWord.getChineseCharacter());
         currentPinyin.setText(answerWord.getPinyin());
         score.setText(String.valueOf(player.getScore()));
-        lvl.setText(String.valueOf(player.game.getLevel()));
+        lvl.setText(String.valueOf(player.getGame().getLevel()));
     }
 
     @Override
@@ -251,11 +247,11 @@ public final class SapperGame extends Level implements View.OnClickListener {
         score.setText(String.valueOf(player.getScore()));
         int currentBonus = calcCurrentBonus();
         bonusScore.setText(format("(%s)", String.valueOf(currentBonus)));
-        if (currentBonus > calculator.calculate(player.game, timer.calcCurrentTime()) / 2) {
+        if (currentBonus > calculator.calculate(player.getGame(), timer.calcCurrentTime()) / 2) {
             setTextColor(bonusScore, R.color.big_bonus, this);
-        } else if (currentBonus > calculator.calculate(player.game, timer.calcCurrentTime()) / 5) {
+        } else if (currentBonus > calculator.calculate(player.getGame(), timer.calcCurrentTime()) / 5) {
             setTextColor(bonusScore, R.color.small_bonus, this);
-        } else if (currentBonus > (-1) * calculator.calculate(player.game, timer.calcCurrentTime()) / 10) {
+        } else if (currentBonus > (-1) * calculator.calculate(player.getGame(), timer.calcCurrentTime()) / 10) {
             setTextColor(bonusScore, R.color.near_zero_bonus, this);
         } else if (timer.calcCurrentTime() <= SAPPER_NO_PENALTY_TIME * SECONDS) {
             setTextColor(bonusScore, R.color.penalty_bonus, this);
@@ -263,7 +259,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
             bonusScore.setText(R.string.dead);
             setTextColor(bonusScore, R.color.game_over, this);
         }
-        int hsPlace = highScore.getCurrentPlaceFor(player.getScore(), player.game.getGameType());
+        int hsPlace = highScore.getCurrentPlaceFor(player.getScore(), player.getGame().getGameType());
         if (hsPlace > 0) {
             this.highScoreTextView.setText(format(" HS:[%s] ", String.valueOf(hsPlace)));
             this.highScoreTextView.setVisibility(VISIBLE);
@@ -274,8 +270,8 @@ public final class SapperGame extends Level implements View.OnClickListener {
         playerState.setText(player.getPlayerState());
         setTextColor(playerState, R.color.status, this);
 
-        timeElapsed.setText(getResultTimeAsString(player.game.getCurrentTime()));
-        correctValue.setText(String.valueOf(player.game.getCorrect()));
+        timeElapsed.setText(getResultTimeAsString(player.getGame().getCurrentTime()));
+        correctValue.setText(String.valueOf(player.getGame().getCorrect()));
     }
 
     @Override

@@ -9,16 +9,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Random;
-
+import android.widget.*;
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -27,10 +18,10 @@ import dms.pastor.chinesegame.data.game.Level;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
 
-import static dms.pastor.chinesegame.utils.UIUtils.setBackgroundColor;
-import static dms.pastor.chinesegame.utils.UIUtils.setIncorrect;
-import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
-import static dms.pastor.chinesegame.utils.UIUtils.setToDefault;
+import java.util.ArrayList;
+import java.util.Random;
+
+import static dms.pastor.chinesegame.utils.UIUtils.*;
 
 /**
  * Author Dominik Symonowicz
@@ -152,7 +143,7 @@ public final class LessonTest extends Level implements View.OnClickListener {
         player = Player.getPlayer();
         words = new ArrayList<>();
         try {
-            answerWord = player.game.getGameWordsList().get(new Random().nextInt((player.game.getGameWordsList().size())));
+            answerWord = player.getGame().getGameWordsList().get(new Random().nextInt((player.getGame().getGameWordsList().size())));
             if (answerWord != null) {
                 wrongWord1 = selectAWord(wrongWord1, new Word[]{answerWord});
                 wrongWord2 = selectAWord(wrongWord2, new Word[]{answerWord, wrongWord1});
@@ -199,7 +190,7 @@ public final class LessonTest extends Level implements View.OnClickListener {
         if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
             timer.stop();
             if (!woops) {
-                player.game.addCorrect();
+                player.getGame().addCorrect();
             }
             endOfLevel();
         } else {
@@ -212,7 +203,7 @@ public final class LessonTest extends Level implements View.OnClickListener {
             setIncorrect(this, this, button);
             bonus -= fail;
             woops = true;
-            player.game.addMistake();
+            player.getGame().addMistake();
             updatePlayer();
         }
     }
@@ -232,7 +223,7 @@ public final class LessonTest extends Level implements View.OnClickListener {
         spellRow1.setVisibility(View.GONE);
         spellRow2.setVisibility(View.GONE);
         levelProgressBar.setVisibility(View.VISIBLE);
-        lvl.setText(String.valueOf(player.game.getLevel()));
+        lvl.setText(String.valueOf(player.getGame().getLevel()));
 
         if (answerWord != null) {
             currentPinyin.setText(answerWord.getPinyin());
@@ -267,10 +258,10 @@ public final class LessonTest extends Level implements View.OnClickListener {
 
 
     protected void updateUI() {
-        correctValue.setText(String.valueOf(player.game.getCorrect()));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
-        levelProgressBar.setProgress(player.game.getLevel());
-        levelProgressBar.setMax(player.game.getLevels());
+        correctValue.setText(String.valueOf(player.getGame().getCorrect()));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
+        levelProgressBar.setProgress(player.getGame().getLevel());
+        levelProgressBar.setMax(player.getGame().getLevels());
         answer1Button = checkIsButtonUsed(answer1Button);
         answer2Button = checkIsButtonUsed(answer2Button);
         answer3Button = checkIsButtonUsed(answer3Button);
@@ -303,9 +294,9 @@ public final class LessonTest extends Level implements View.OnClickListener {
     @Override
     public void endOfLevel() {
         Log.d(TAG, "end of level...");
-        player.game.addLevel();
+        player.getGame().addLevel();
 
-        if (player.game.isLastLevel()) {
+        if (player.getGame().isLastLevel()) {
             Intent ii = new Intent(this, LessonResult.class);
             startActivity(ii);
             finish();

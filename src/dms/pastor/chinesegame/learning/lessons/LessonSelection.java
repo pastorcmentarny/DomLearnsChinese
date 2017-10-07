@@ -11,9 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.List;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
@@ -23,6 +20,8 @@ import dms.pastor.chinesegame.db.DatabaseManager;
 import dms.pastor.chinesegame.menu.LearningMenu;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
+
+import java.util.List;
 
 /**
  * Author Dominik Symonowicz
@@ -69,8 +68,8 @@ public final class LessonSelection extends ListActivity {
         } else {
             Log.d(TAG, r.getMessage());
             player.restart(GameType.LESSON);
-            player.game.setGameWordList(Dictionary.getDictionary().getWordsFromCategoryFromDictionary(player.miniLessons.getCurrentLesson().getGroup()));
-            if (player.game != null && player.game.getGameWordsList().size() < 4) {
+            player.getGame().setGameWordList(Dictionary.getDictionary().getWordsFromCategoryFromDictionary(player.miniLessons.getCurrentLesson().getGroup()));
+            if (player.getGame() != null && player.getGame().getGameWordsList().size() < 4) {
                 error("Lesson not ready yet.");
             } else {
                 Intent select = new Intent(getApplicationContext(), SingleLesson.class);

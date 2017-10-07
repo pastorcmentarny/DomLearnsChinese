@@ -20,7 +20,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
@@ -30,20 +29,12 @@ import dms.pastor.chinesegame.data.game.score.HighScore;
 import dms.pastor.chinesegame.data.game.score.HighScoreList;
 import dms.pastor.chinesegame.db.DatabaseManager;
 import dms.pastor.chinesegame.db.DictionaryHandler;
-import dms.pastor.chinesegame.extras.CultureInfoActivity;
-import dms.pastor.chinesegame.extras.LinksActivity;
-import dms.pastor.chinesegame.extras.RandomWordActivity;
-import dms.pastor.chinesegame.extras.ToDo4Go;
-import dms.pastor.chinesegame.extras.UsefulContactDetails;
+import dms.pastor.chinesegame.extras.*;
 import dms.pastor.chinesegame.games.survival.SurvivalIntro;
 import dms.pastor.chinesegame.games.survival.saper.SapperGame;
 import dms.pastor.chinesegame.games.survival.saper.SapperIntro;
 import dms.pastor.chinesegame.games.survival.word.WordSurvival;
-import dms.pastor.chinesegame.menu.About;
-import dms.pastor.chinesegame.menu.LearningMenu;
-import dms.pastor.chinesegame.menu.Options;
-import dms.pastor.chinesegame.menu.StatisticsViewer;
-import dms.pastor.chinesegame.menu.WordMistakesCounterView;
+import dms.pastor.chinesegame.menu.*;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
 import dms.pastor.chinesegame.utils.UIUtils;
@@ -337,7 +328,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
             ii = new Intent(getApplicationContext(), SapperGame.class);
             Dictionary dictionary = Dictionary.getDictionary();
             dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
-            player.game.setGameWordList(dictionary.getWordsForLevel(1));
+            player.getGame().setGameWordList(dictionary.getWordsForLevel(1));
         }
         startActivity(ii);
         overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
@@ -351,15 +342,15 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         } else {
             ii = new Intent(getApplicationContext(), WordSurvival.class);
             player.restart(GameType.ADVENTURE);
-            player.game = new Game(getApplicationContext(), GameType.ADVENTURE);
+            player.getGame() = new Game(getApplicationContext(), GameType.ADVENTURE);
             statistic.addAdventureGame();
             Dictionary dictionary = Dictionary.getDictionary();
             Result result = dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
             if (result.isFail()) {
                 Log.w(TAG, result.getMessage());
             }
-            player.game.setGameWordList(dictionary.getWordsForLevel(1));
-            player.game.timeStart();
+            player.getGame().setGameWordList(dictionary.getWordsForLevel(1));
+            player.getGame().timeStart();
         }
         ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ii);

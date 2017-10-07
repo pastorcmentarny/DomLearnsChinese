@@ -9,16 +9,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TableRow;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-
+import android.widget.*;
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -27,6 +18,10 @@ import dms.pastor.chinesegame.data.game.Level;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static dms.pastor.chinesegame.utils.UIUtils.setIncorrect;
 
@@ -164,7 +159,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
     public void setup() {
         player = Player.getPlayer();
         words = new ArrayList<>();
-        answerWord = player.game.getAnswerWordsForLevels().get(player.game.getLevel());
+        answerWord = player.getGame().getAnswerWordsForLevels().get(player.getGame().getLevel());
         wrongWord1 = selectAWord(wrongWord1, new Word[]{answerWord});
         wrongWord2 = selectAWord(wrongWord2, new Word[]{answerWord, wrongWord1});
         wrongWord3 = selectAWord(wrongWord3, new Word[]{answerWord, wrongWord1, wrongWord2});
@@ -183,7 +178,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
         if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
             timer.stop();
             if (!woops) {
-                player.game.addCorrect();
+                player.getGame().addCorrect();
             }
             endOfLevel();
         } else {
@@ -197,7 +192,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
             int fail = Config.DEFAULT_FAIL_POINTS;
             bonus -= fail;
             woops = true;
-            player.game.addMistake();
+            player.getGame().addMistake();
             updatePlayer();
         }
     }
@@ -214,7 +209,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
         spellRow1.setVisibility(View.GONE);
         spellRow2.setVisibility(View.GONE);
         levelProgressBar.setVisibility(View.VISIBLE);
-        lvl.setText(String.valueOf(player.game.getLevel()));
+        lvl.setText(String.valueOf(player.getGame().getLevel()));
         currentPinyin.setText(answerWord.getPinyin());
         currentCharacter.setText(answerWord.getChineseCharacter());
 
@@ -253,12 +248,12 @@ public final class HSKLevel extends Level implements View.OnClickListener {
 
 
     protected void updateUI() {
-        timeElapsed.setText(DomUtils.getResultTimeAsString(player.game.getCurrentTime()));
-        timeLeft.setText(String.valueOf(((Config.HSK_BASIC_TIME_LIMIT / 1000 - player.game.getCurrentTimeInSeconds()))));
-        correctValue.setText(String.valueOf(player.game.getCorrect()));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
-        levelProgressBar.setProgress(player.game.getLevel());
-        levelProgressBar.setMax(player.game.getLevels());
+        timeElapsed.setText(DomUtils.getResultTimeAsString(player.getGame().getCurrentTime()));
+        timeLeft.setText(String.valueOf(((Config.HSK_BASIC_TIME_LIMIT / 1000 - player.getGame().getCurrentTimeInSeconds()))));
+        correctValue.setText(String.valueOf(player.getGame().getCorrect()));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
+        levelProgressBar.setProgress(player.getGame().getLevel());
+        levelProgressBar.setMax(player.getGame().getLevels());
     }
 
 
@@ -287,12 +282,12 @@ public final class HSKLevel extends Level implements View.OnClickListener {
 
     @Override
     public void endOfLevel() {
-        player.game.addToTotalTime(timer.calcTotalTime());
-        player.game.addLevel();
+        player.getGame().addToTotalTime(timer.calcTotalTime());
+        player.getGame().addLevel();
         Intent ii;
-        if (player.game.isLastLevel()) {
-            player.game.timeStop();
-            player.game.setTotalTime(player.game.getStopTime() - player.game.getStartTime());
+        if (player.getGame().isLastLevel()) {
+            player.getGame().timeStop();
+            player.getGame().setTotalTime(player.getGame().getStopTime() - player.getGame().getStartTime());
             ii = new Intent(this, HSKResult.class);
             ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(ii);

@@ -303,7 +303,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
     @Override
     public void setupTurn() {
-        Log.d(TAG, "Set stuff for level " + player.game.getLevel());
+        Log.d(TAG, "Set stuff for level " + player.getGame().getLevel());
         fail = Config.reduceFail(fail);
         woops = false;
         comboPoints = 0;
@@ -329,21 +329,21 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     }
 
     private void checkForBonusPointsFor50Levels() {
-        if (player.game.getLevel() % 50 == 0) {
-            player.addScore((int) (player.game.getStage().getScoreBonusMultiply() * 25));
-            Toast.makeText(this, "Extra bonus every 50 levels :" + (player.game.getStage().getScoreBonusMultiply() * 25), LENGTH_SHORT).show();
+        if (player.getGame().getLevel() % 50 == 0) {
+            player.addScore((int) (player.getGame().getStage().getScoreBonusMultiply() * 25));
+            Toast.makeText(this, "Extra bonus every 50 levels :" + (player.getGame().getStage().getScoreBonusMultiply() * 25), LENGTH_SHORT).show();
         }
     }
 
     private void generateEvent() {
-        if (player.game.getLevel() % RANDOM_EVENT_FREQ == 0) {
+        if (player.getGame().getLevel() % RANDOM_EVENT_FREQ == 0) {
             event(new Random().nextInt(RANDOM_SIZE));
         }
     }
 
     private void setComboPoints() {
         if (player.getCombo() > COMBO_MINIMUM) {
-            status.setText(format(Locale.ENGLISH, "%s %d %s %d", getString(R.string.combo), player.getCombo(), getString(R.string.combo_points), player.getCurrentComboBonus(player.game.getLevel())));
+            status.setText(format(Locale.ENGLISH, "%s %d %s %d", getString(R.string.combo), player.getCombo(), getString(R.string.combo_points), player.getCurrentComboBonus(player.getGame().getLevel())));
             setTextColor(status, R.color.combo, this);
         } else {
             status.setText("");
@@ -374,14 +374,14 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         currentCharacter.setText(answerWord.getChineseCharacter());
         currentCharacter.setVisibility(TextView.VISIBLE);
         currentPinyin.setText(answerWord.getPinyin());
-        correctValue.setText(String.valueOf(player.game.getCorrect()));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
+        correctValue.setText(String.valueOf(player.getGame().getCorrect()));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
         score.setText(String.valueOf(player.getScore()));
         bonusScore.setText("");
         life.setText(String.valueOf(player.getHealth()));
         lifePenalty.setText(String.valueOf(player.getHealth()));
         mana.setText(String.valueOf(player.getMana()));
-        lvl.setText(String.valueOf(player.game.getLevel()));
+        lvl.setText(String.valueOf(player.getGame().getLevel()));
         setLifeColor();
         setManaColor();
     }
@@ -400,13 +400,13 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
         score.setText(String.valueOf(player.getScore()));
 
-        int hsPlace = highScore.getCurrentPlaceFor(player.getScore(), player.game.getGameType());
+        int hsPlace = highScore.getCurrentPlaceFor(player.getScore(), player.getGame().getGameType());
         if (hsPlace > 0) {
             this.highScoreTextView.setText(format(Locale.ENGLISH, " HS:[ %d ] ", hsPlace));
             setHSPlaceColor(hsPlace);
         }
 
-        int bonusNow = calculator.calculate(player.game, timer.calcCurrentTime());
+        int bonusNow = calculator.calculate(player.getGame(), timer.calcCurrentTime());
 
         if (onlyPinyin) {
             bonusNow += Config.BONUS_ONLY_PINYIN;
@@ -431,8 +431,8 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         setTextColor(debugInfo, R.color.status, this);
 
         timeElapsed.setText(String.valueOf(timer.calcCurrentTime() / 1000));
-        correctValue.setText(String.valueOf(player.game.getCorrect()));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
+        correctValue.setText(String.valueOf(player.getGame().getCorrect()));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
         answer1Button = checkIsButtonUsed(answer1Button);
         answer2Button = checkIsButtonUsed(answer2Button);
         answer3Button = checkIsButtonUsed(answer3Button);
@@ -469,7 +469,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     public void setup() {
         player = Player.getPlayer();
         setNewQuestion();
-        if (player.game.isCheeseCakeLevel()) {
+        if (player.getGame().isCheeseCakeLevel()) {
             cheesecakeLevel();
         }
 
@@ -479,7 +479,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     private void setNewQuestion() {
         words = new ArrayList<>();
         do {
-            answerWord = player.game.getRandomWordForLevel();
+            answerWord = player.getGame().getRandomWordForLevel();
         } while (answerWord == null);
         wrongWord1 = selectAWord(wrongWord1, new Word[]{answerWord});
         wrongWord2 = selectAWord(wrongWord2, new Word[]{answerWord, wrongWord1});
@@ -748,7 +748,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     private void jackpotEvent() {
         Log.i(TAG, "generating event ..jackpot");
         statistic.addJackpot();
-        int jackpot = Config.calcJackPot(player.game.getLevel());
+        int jackpot = Config.calcJackPot(player.getGame().getLevel());
         player.setScore(player.getScore() + jackpot);
         Toast.makeText(this, getString(R.string.cast_teleport) + jackpot + ")", LENGTH_SHORT).show();
         endOfLevel();
@@ -902,7 +902,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
             setEnabled(false);
             long time = timer.calcTotalTime();
-            player.game.addToTotalTime(time);
+            player.getGame().addToTotalTime(time);
 
             int healthPenalty = Config.calcPenaltyHealthForTime(time);
 
@@ -919,7 +919,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
                 vibrator.vibrate(Config.VIBRATE_ON_MISTAKE_TIME);
             }
             playMistakeSound();
-            player.game.addMistake();
+            player.getGame().addMistake();
 
             setIncorrect(this, this, button);
 
@@ -959,7 +959,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     }
 
     private void addPointsIfIsCheesecakeLevel() {
-        if (player.game.isCheeseCakeLevel()) {
+        if (player.getGame().isCheeseCakeLevel()) {
             Toast.makeText(this, "Yummy Yummy", LENGTH_SHORT).show();
             player.addScore(88);
         }
@@ -968,7 +968,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
     public void endOfLevel() {
         StringBuilder sb = new StringBuilder("");
-        int totalBonus = calculator.calculate(player.game, timer.calcTotalTime());
+        int totalBonus = calculator.calculate(player.getGame(), timer.calcTotalTime());
         if (woops) {
             if (player.getCombo() > COMBO_MINIMUM) {
                 totalBonus = addComboPoints(totalBonus);
@@ -981,7 +981,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
             }
         } else {
             player.addCombo();
-            player.game.addCorrect();
+            player.getGame().addCorrect();
         }
 
         player.setScore((player.getScore() + totalBonus));
@@ -989,7 +989,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         if (sb.length() > 5) {
             Toast.makeText(this, sb.toString(), Toast.LENGTH_LONG).show();
         }
-        player.game.addLevel();
+        player.getGame().addLevel();
 
         player.addHealthPerLevel();
         player.setMana(player.getMana() + Config.MANA_BONUS_PER_LEVEL);
@@ -1006,7 +1006,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
     private int addComboPoints(int totalBonus) {
         statistic.addToMaxCombo(player.getCombo());
-        comboPoints = player.claimComboBonus(player.game.getLevel());
+        comboPoints = player.claimComboBonus(player.getGame().getLevel());
         statistic.addToMaxComboPoints(comboPoints);
         totalBonus = totalBonus + comboPoints;
         return totalBonus;
@@ -1042,7 +1042,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
 
         long time = timer.calcTotalTime();
-        player.game.addToTotalTime(time);
+        player.getGame().addToTotalTime(time);
 
         Intent ii;
         ii = new Intent(this, SurvivalResult.class);

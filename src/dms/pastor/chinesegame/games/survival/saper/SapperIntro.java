@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
@@ -69,7 +68,7 @@ public final class SapperIntro extends Intro implements View.OnClickListener {
         Intent ii = new Intent(getApplicationContext(), SapperGame.class);
         player.restart(GameType.SAPPER);
         statistic.addSapperGame();
-        player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
+        player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
         startActivity(ii);
     }
 

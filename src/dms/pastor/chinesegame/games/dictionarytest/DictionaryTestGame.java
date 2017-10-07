@@ -13,15 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TableRow;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Locale;
-
+import android.widget.*;
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -32,6 +24,9 @@ import dms.pastor.chinesegame.data.game.Level;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
 
@@ -190,8 +185,8 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
     public void setup() {
         player = Player.getPlayer();
         words = new ArrayList<>();
-        answerWord = player.game.getAnswerWordsForLevels().get(player.game.getLevel() - 1);
-        player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(answerWord.getDifficulty()));
+        answerWord = player.getGame().getAnswerWordsForLevels().get(player.getGame().getLevel() - 1);
+        player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(answerWord.getDifficulty()));
         wrongWord1 = selectAWord(wrongWord1, new Word[]{answerWord});
         wrongWord2 = selectAWord(wrongWord2, new Word[]{answerWord, wrongWord1});
         wrongWord3 = selectAWord(wrongWord3, new Word[]{answerWord, wrongWord1, wrongWord2});
@@ -212,7 +207,7 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
             timer.stop();
             setEnabled(false);
             if (!woops) {
-                player.game.addCorrect();
+                player.getGame().addCorrect();
                 if (pinyinUsed) {
                     int reducedScore = DictionaryLevelInfo.getScoreForLevel(answerWord.getDifficulty()) / 3;
                     if (reducedScore < 1) {
@@ -240,14 +235,14 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
             UIUtils.setIncorrect(this, this, button);
             setVisibility(false, ButtonType.OTHERS);
             if (woops) {
-                player.addScore((-1) * player.game.getMistake());
-                updateStatus(String.format(Locale.ENGLISH, "Another wrong answer.Total mistakes so far: %d", player.game.getMistake()), R.color.error);
+                player.addScore((-1) * player.getGame().getMistake());
+                updateStatus(String.format(Locale.ENGLISH, "Another wrong answer.Total mistakes so far: %d", player.getGame().getMistake()), R.color.error);
             } else {
                 player.addScore((-1) * DictionaryLevelInfo.getPenaltyForLevel(answerWord.getDifficulty()));
                 updateStatus("Wrong answer", R.color.error);
             }
             woops = true;
-            player.game.addMistake();
+            player.getGame().addMistake();
             updatePlayer();
         }
     }
@@ -294,7 +289,7 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
         levelProgressBar.setVisibility(View.VISIBLE);
         setVisibility(true, ButtonType.ANSWERS);
         setVisibility(true, ButtonType.OTHERS);
-        lvl.setText(String.valueOf(player.game.getLevel()));
+        lvl.setText(String.valueOf(player.getGame().getLevel()));
         currentPinyin.setText(answerWord.getPinyin());
         currentCharacter.setText(answerWord.getChineseCharacter());
 
@@ -334,12 +329,12 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
     }
 
     protected void updateUI() {
-        timeElapsed.setText(DomUtils.getResultTimeAsString(player.game.getCurrentTime()));
-        correctValue.setText(String.valueOf(player.game.getCorrect()));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
-        skippedValue.setText(String.valueOf(player.game.getSkipped()));
-        levelProgressBar.setProgress(player.game.getLevel());
-        levelProgressBar.setMax(player.game.getLevels());
+        timeElapsed.setText(DomUtils.getResultTimeAsString(player.getGame().getCurrentTime()));
+        correctValue.setText(String.valueOf(player.getGame().getCorrect()));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
+        skippedValue.setText(String.valueOf(player.getGame().getSkipped()));
+        levelProgressBar.setProgress(player.getGame().getLevel());
+        levelProgressBar.setMax(player.getGame().getLevels());
         currentScore.setText(String.valueOf(player.getScore()));
         if (pinyinUsed) {
             UIUtils.setUsed(this, showPinyinButton);
@@ -368,10 +363,10 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
                 Log.d(TAG, "Player skipped an answer");
                 timer.stop();
                 setEnabled(false);
-                player.game.addSkipped();
+                player.getGame().addSkipped();
                 player.addScore(-1);
                 statistic.addSkipped();
-                updateStatus(String.format(Locale.ENGLISH, "You skipped this question.Total skipped answer so far: %d", player.game.getSkipped()), R.color.info);
+                updateStatus(String.format(Locale.ENGLISH, "You skipped this question.Total skipped answer so far: %d", player.getGame().getSkipped()), R.color.info);
                 endOfLevel();
                 break;
             case R.id.showPinyin:
@@ -395,12 +390,12 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
 
     @Override
     public void endOfLevel() {
-        player.game.addToTotalTime(timer.calcTotalTime());
-        player.game.addLevel();
+        player.getGame().addToTotalTime(timer.calcTotalTime());
+        player.getGame().addLevel();
         Intent ii;
-        if (player.game.isLastLevel()) {
-            player.game.timeStop();
-            player.game.setTotalTime(player.game.getStopTime() - player.game.getStartTime());
+        if (player.getGame().isLastLevel()) {
+            player.getGame().timeStop();
+            player.getGame().setTotalTime(player.getGame().getStopTime() - player.getGame().getStartTime());
             ii = new Intent(this, DictionaryTestResult.class);
             ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(ii);

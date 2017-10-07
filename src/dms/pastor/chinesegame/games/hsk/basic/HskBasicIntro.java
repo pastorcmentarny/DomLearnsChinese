@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.game.Intro;
@@ -62,7 +61,7 @@ public final class HskBasicIntro extends Intro implements View.OnClickListener {
     private void start() {
 
         player.restart(GameType.HSK0);
-        player.game.timeStart();
+        player.getGame().timeStart();
         Intent select;
         select = new Intent(getApplicationContext(), HSKLevel.class);
         select.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

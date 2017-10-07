@@ -8,17 +8,16 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.data.dictionary.Word;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static dms.pastor.chinesegame.data.game.Player.getPlayer;
 
@@ -78,7 +77,7 @@ public abstract class Level extends Activity {
         boolean stepA = true;
         while (stepA) {
             stepA = false;
-            newWord = player.game.getRandomWordForLevel();
+            newWord = player.getGame().getRandomWordForLevel();
             for (Word alreadyUsedWord : selectedAlreadyWords) {
                 if (newWord.equals(alreadyUsedWord)) {
                     stepA = true;

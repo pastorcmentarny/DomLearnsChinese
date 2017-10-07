@@ -32,7 +32,7 @@ public final class Player {
     private static final String TAG = "PLAYER";
     private static Player player;
     private final Context context;
-    public Game game;
+    private Game game;
     public MiniLessons miniLessons = null;
     private String dbErrorMessage = EMPTY_STRING;
     private boolean poisoned = false;
@@ -83,6 +83,10 @@ public final class Player {
             name = context.getString(R.string.unknownPlayerName);
         }
         return name;
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     public int getEECounter() {
@@ -328,7 +332,7 @@ public final class Player {
     void addBonus() {
         switch (BonusType.RANDOM) {
             case RANDOM:
-                int bonus = new Random().nextInt(player.game.getLevel());
+                int bonus = new Random().nextInt(player.getGame().getLevel());
                 bonus += (player.getHealth() + player.getMana() + new Random().nextInt(4));
                 player.addScore(bonus);
                 Log.d(TAG, "Random bonus: " + bonus + "points.");

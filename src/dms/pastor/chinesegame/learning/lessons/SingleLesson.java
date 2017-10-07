@@ -7,18 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.ToggleButton;
-
-import java.util.ArrayList;
-
+import android.widget.*;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.data.dictionary.Word;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
+
+import java.util.ArrayList;
 
 /**
  * Author Dominik Symonowicz
@@ -91,7 +86,7 @@ public final class SingleLesson extends Activity implements View.OnClickListener
         lessonContent.setText(DomUtils.getUnknownWhenNullString(player.miniLessons.getCurrentLesson().getLessonContent()));
         ArrayList<String> tmpList = new ArrayList<>();
 
-        for (Word word : player.game.getGameWordsList()) {
+        for (Word word : player.getGame().getGameWordsList()) {
             Log.w(TAG, word.getWordInEnglish());
             tmpList.add("\n-------------\n=============\n" + word.getChineseCharacter() + "(" + word.getStrokes() + ")\n" + word.getPinyin() + "\n" + word.getWordInEnglish() + "\nNotes: " + word.getNotes());
         }
