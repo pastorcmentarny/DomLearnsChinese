@@ -1,12 +1,11 @@
 package dms.pastor.chinesegame.data.learning.chats;
 
 import android.util.Log;
+import dms.pastor.chinesegame.data.dictionary.QA;
+import dms.pastor.chinesegame.data.dictionary.Word;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import dms.pastor.chinesegame.data.dictionary.QA;
-import dms.pastor.chinesegame.data.dictionary.Word;
 
 import static dms.pastor.chinesegame.utils.DomUtils.isStringEmpty;
 
