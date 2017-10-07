@@ -9,9 +9,6 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.List;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
@@ -21,6 +18,8 @@ import dms.pastor.chinesegame.db.DatabaseManager;
 import dms.pastor.chinesegame.menu.LearningMenu;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
+
+import java.util.List;
 
 /**
  * Author Dominik Symonowicz

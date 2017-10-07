@@ -5,15 +5,14 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.Locale;
-import java.util.Random;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
 import dms.pastor.chinesegame.utils.UIUtils;
+
+import java.util.Locale;
+import java.util.Random;
 
 import static dms.pastor.chinesegame.data.game.Player.getPlayer;
 import static dms.pastor.chinesegame.utils.UIUtils.setInvisibleButton;

@@ -9,16 +9,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TableRow;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-
+import android.widget.*;
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -27,6 +18,10 @@ import dms.pastor.chinesegame.data.game.Level;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static dms.pastor.chinesegame.utils.UIUtils.setIncorrect;
 

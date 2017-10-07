@@ -12,11 +12,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
@@ -29,6 +24,10 @@ import dms.pastor.chinesegame.data.game.score.Score;
 import dms.pastor.chinesegame.games.GameResult;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import static dms.pastor.chinesegame.utils.DomUtils.getVersionCode;
 

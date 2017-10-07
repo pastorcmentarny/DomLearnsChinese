@@ -7,18 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.ToggleButton;
-
-import java.util.ArrayList;
-
+import android.widget.*;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.data.dictionary.Word;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
+
+import java.util.ArrayList;
 
 /**
  * Author Dominik Symonowicz

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
