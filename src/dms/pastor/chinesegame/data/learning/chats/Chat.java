@@ -1,12 +1,11 @@
 package dms.pastor.chinesegame.data.learning.chats;
 
 import android.util.Log;
+import dms.pastor.chinesegame.data.dictionary.QA;
+import dms.pastor.chinesegame.data.dictionary.Word;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import dms.pastor.chinesegame.data.dictionary.QA;
-import dms.pastor.chinesegame.data.dictionary.Word;
 
 import static dms.pastor.chinesegame.utils.DomUtils.isStringEmpty;
 
@@ -84,7 +83,7 @@ public final class Chat {
         Log.i(TAG, "Generating word list");
         ArrayList<String> words = new ArrayList<>();
         for (Word word : wordList) {
-            words.add(word.toString());
+            words.add(word.toShortString());
         }
         return words.toArray(new String[words.size()]);
     }

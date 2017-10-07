@@ -3,20 +3,15 @@ package dms.pastor.chinesegame.data.dictionary;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashSet;
-
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
+
+import java.io.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import static dms.pastor.chinesegame.Config.NEW_LINE;
 import static java.lang.String.format;
@@ -213,7 +208,7 @@ public final class Dictionary {
         ArrayList<String> words = new ArrayList<>();
         int counter = 1;
         for (Word word : wordsList) {
-            words.add(format("%s. %s", valueOf(counter), word.toString()));
+            words.add(format("%s. %s", valueOf(counter), word.toShortString()));
             counter++;
         }
         return words.toArray(new String[words.size()]);
