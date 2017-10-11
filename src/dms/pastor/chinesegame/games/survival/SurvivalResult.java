@@ -19,6 +19,7 @@ import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Player;
+import dms.pastor.chinesegame.data.game.score.Difficulty;
 import dms.pastor.chinesegame.data.game.score.HighScore;
 import dms.pastor.chinesegame.data.game.score.Score;
 import dms.pastor.chinesegame.games.GameResult;
@@ -172,7 +173,7 @@ public final class SurvivalResult extends GameResult {
         sScore = new Score(Player.getName(this), player.getScore(),
                 player.getGame().getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
                 statistic.getGames(), getVersionCode(this),
-                new Date().getTime());
+                new Date().getTime(), Difficulty.ADVENTURE.name());
         try {
             if (highScoreBoard != null) {
 

@@ -11,12 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Locale;
-
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
+
+import java.util.ArrayList;
+
+import static java.util.Locale.ENGLISH;
 
 /**
  * Author Dominik Symonowicz
@@ -64,7 +64,7 @@ public final class HighScoreList extends ListActivity {
             int counter = 0;
             for (Score score : allScores) {
                 counter++;
-                list.add(String.format(Locale.ENGLISH, "%s. %s %d pts. level: %d %s", String.valueOf(counter), String.valueOf(score.getPlayerName()), score.getScore(), score.getLevel(), score.getData()));
+                list.add(String.format(ENGLISH, "%s. %s %d pts. level: %d %s", String.valueOf(counter), String.valueOf(score.getPlayerName()), score.getScore(), score.getLevel(), score.getData()));
             }
 
         } else {
