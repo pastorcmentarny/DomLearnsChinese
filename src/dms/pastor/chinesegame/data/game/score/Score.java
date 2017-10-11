@@ -2,7 +2,6 @@ package dms.pastor.chinesegame.data.game.score;
 
 
 import android.util.Log;
-
 import dms.pastor.chinesegame.Config;
 
 import static java.util.Locale.ENGLISH;

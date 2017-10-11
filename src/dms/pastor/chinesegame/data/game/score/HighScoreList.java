@@ -10,11 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import dms.pastor.chinesegame.R;
+import dms.pastor.chinesegame.common.enums.GameType;
 
 import java.util.ArrayList;
 
-import dms.pastor.chinesegame.R;
-import dms.pastor.chinesegame.common.enums.GameType;
+import static java.util.Locale.ENGLISH;
 
 import static java.util.Locale.ENGLISH;
 
