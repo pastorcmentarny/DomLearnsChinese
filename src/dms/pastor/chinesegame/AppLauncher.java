@@ -24,7 +24,6 @@ import android.widget.Toast;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
-import dms.pastor.chinesegame.data.game.Game;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.data.game.score.HighScore;
 import dms.pastor.chinesegame.data.game.score.HighScoreList;
@@ -92,19 +91,19 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
 
         UIUtils.loadAd(this, this);
 
-        TextView mainTitle = (TextView) findViewById(R.id.gameTitle);
+        TextView mainTitle = findViewById(R.id.gameTitle);
         mainTitle.setOnClickListener(this);
-        Button newGameButton = (Button) findViewById(R.id.newGameButton);
+        Button newGameButton = findViewById(R.id.newGameButton);
         newGameButton.setOnClickListener(this);
-        highScoreButton = (Button) findViewById(R.id.highScoreButton);
+        highScoreButton = findViewById(R.id.highScoreButton);
         highScoreButton.setOnClickListener(this);
-        Button optionsButton = (Button) findViewById(R.id.settingsButton);
+        Button optionsButton = findViewById(R.id.settingsButton);
         optionsButton.setOnClickListener(this);
-        Button extrasButton = (Button) findViewById(R.id.extras_button);
+        Button extrasButton = findViewById(R.id.extras_button);
         extrasButton.setOnClickListener(this);
-        Button showLearningButton = (Button) findViewById(R.id.showLearningButton);
+        Button showLearningButton = findViewById(R.id.showLearningButton);
         showLearningButton.setOnClickListener(this);
-        TextView version = (TextView) findViewById(R.id.version);
+        TextView version = findViewById(R.id.version);
         version.setText(DomUtils.getAppVersion(this));
 
         setup();
@@ -337,7 +336,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
             ii = new Intent(getApplicationContext(), SapperGame.class);
             Dictionary dictionary = Dictionary.getDictionary();
             dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
-            player.game.setGameWordList(dictionary.getWordsForLevel(1));
+            player.getGame().setGameWordList(dictionary.getWordsForLevel(1));
         }
         startActivity(ii);
         overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
@@ -351,15 +350,14 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         } else {
             ii = new Intent(getApplicationContext(), WordSurvival.class);
             player.restart(GameType.ADVENTURE);
-            player.game = new Game(getApplicationContext(), GameType.ADVENTURE);
             statistic.addAdventureGame();
             Dictionary dictionary = Dictionary.getDictionary();
             Result result = dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);
             if (result.isFail()) {
                 Log.w(TAG, result.getMessage());
             }
-            player.game.setGameWordList(dictionary.getWordsForLevel(1));
-            player.game.timeStart();
+            player.getGame().setGameWordList(dictionary.getWordsForLevel(1));
+            player.getGame().timeStart();
         }
         ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ii);

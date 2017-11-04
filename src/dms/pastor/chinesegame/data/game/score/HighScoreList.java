@@ -13,10 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
+
+import static java.util.Locale.ENGLISH;
 
 /**
  * Author Dominik Symonowicz
@@ -64,7 +65,7 @@ public final class HighScoreList extends ListActivity {
             int counter = 0;
             for (Score score : allScores) {
                 counter++;
-                list.add(String.format(Locale.ENGLISH, "%s. %s %d pts. level: %d %s", String.valueOf(counter), String.valueOf(score.getPlayerName()), score.getScore(), score.getLevel(), score.getData()));
+                list.add(String.format(ENGLISH, "%s. %s %d pts. level: %d %s", String.valueOf(counter), String.valueOf(score.getPlayerName()), score.getScore(), score.getLevel(), score.getData()));
             }
 
         } else {
@@ -88,12 +89,12 @@ public final class HighScoreList extends ListActivity {
             final Dialog countryDialog = new Dialog(this);
             countryDialog.setContentView(R.layout.score_pop_up);
             countryDialog.setTitle(score.getPlayerName());
-            TextView countryName = (TextView) countryDialog.findViewById(R.id.countryName);
+            TextView countryName = countryDialog.findViewById(R.id.countryName);
             countryName.setText(String.format("%s %s", String.valueOf(score.getScore()), getString(R.string.points)));
-            TextView message = (TextView) countryDialog.findViewById(R.id.countryDialogMessage);
+            TextView message = countryDialog.findViewById(R.id.countryDialogMessage);
             message.setText(score.asHighScoreList());
 
-            Button dialogButton = (Button) countryDialog.findViewById(R.id.buttonOK);
+            Button dialogButton = countryDialog.findViewById(R.id.buttonOK);
             dialogButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

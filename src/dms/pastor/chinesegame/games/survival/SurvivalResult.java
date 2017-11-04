@@ -25,6 +25,7 @@ import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Player;
+import dms.pastor.chinesegame.data.game.score.Difficulty;
 import dms.pastor.chinesegame.data.game.score.HighScore;
 import dms.pastor.chinesegame.data.game.score.Score;
 import dms.pastor.chinesegame.games.GameResult;
@@ -75,13 +76,13 @@ public final class SurvivalResult extends GameResult {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.result_score);
         player = Player.getPlayer();
-        if (player == null || player.game == null) {
+        if (player == null || player.getGame() == null) {
             Log.i(TAG, "No game data available");
             finish();
         }
         statistic = Statistic.getStatistic(this);
-        statistic.addToTotalTimeAdventure(player.game.getTotalTime());
-        statistic.addToHighestLevelAdventures(player.game.getLevel());
+        statistic.addToTotalTimeAdventure(player.getGame().getTotalTime());
+        statistic.addToHighestLevelAdventures(player.getGame().getLevel());
         statistic.save();
         try {
             interstitial = new InterstitialAd(this);
@@ -94,27 +95,27 @@ public final class SurvivalResult extends GameResult {
         }
 
 
-        gameOverTitle = (TextView) findViewById(R.id.result);
-        resultGrade = (TextView) findViewById(R.id.result_grade);
-        resultScore = (TextView) findViewById(R.id.result_score);
-        resultTime = (TextView) findViewById(R.id.result_time);
-        correctAnswersValue = (TextView) findViewById(R.id.correct_answers_value);
-        questionsValue = (TextView) findViewById(R.id.questions_value);
-        placeText = (TextView) findViewById(R.id.result_place_text);
+        gameOverTitle = findViewById(R.id.result);
+        resultGrade = findViewById(R.id.result_grade);
+        resultScore = findViewById(R.id.result_score);
+        resultTime = findViewById(R.id.result_time);
+        correctAnswersValue = findViewById(R.id.correct_answers_value);
+        questionsValue = findViewById(R.id.questions_value);
+        placeText = findViewById(R.id.result_place_text);
 
-        LinearLayout mistakeRow = (LinearLayout) findViewById(R.id.mistake_row);
+        LinearLayout mistakeRow = findViewById(R.id.mistake_row);
         mistakeRow.setVisibility(View.GONE);
-        LinearLayout questionsRow = (LinearLayout) findViewById(R.id.question_row);
+        LinearLayout questionsRow = findViewById(R.id.question_row);
         questionsRow.setVisibility(View.GONE);
 
-        backToMainMenu = (Button) findViewById(R.id.backToMainMenu);
+        backToMainMenu = findViewById(R.id.backToMainMenu);
         backToMainMenu.setOnClickListener(this);
 
-        tryAgain = (Button) findViewById(R.id.tryAgain);
+        tryAgain = findViewById(R.id.tryAgain);
         tryAgain.setOnClickListener(this);
 
         highScore = HighScore.getHighScore();
-        seeHS = (Button) findViewById(R.id.seeHS);
+        seeHS = findViewById(R.id.seeHS);
         seeHS.setOnClickListener(this);
         setVisibilityForMenuItems(View.GONE);
 
@@ -148,17 +149,17 @@ public final class SurvivalResult extends GameResult {
                 break;
             case R.id.tryAgain:
                 Intent ii = new Intent(getApplicationContext(), WordSurvival.class);
-                GameType tmp = player.game.getGameType();
+                GameType tmp = player.getGame().getGameType();
                 player.restart(tmp);
-                player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
-                player.game.timeStart();
+                player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
+                player.getGame().timeStart();
                 statistic.addAdventureGame();
                 startActivity(ii);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                 break;
             case R.id.seeHS:
                 if (highScore != null) {
-                    Toast.makeText(getApplicationContext(), highScore.displayTop10For(player.game.getGameType()), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), highScore.displayTop10For(player.getGame().getGameType()), Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
                 }
@@ -172,13 +173,13 @@ public final class SurvivalResult extends GameResult {
 
         HighScore highScoreBoard = HighScore.getHighScore();
         sScore = new Score(Player.getName(this), player.getScore(),
-                player.game.getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
+                player.getGame().getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
                 statistic.getGames(), getVersionCode(this),
-                new Date().getTime());
+                new Date().getTime(), Difficulty.ADVENTURE.name());
         try {
             if (highScoreBoard != null) {
 
-                highScoreBoard.addToHighScore(sScore, player.game.getGameType());
+                highScoreBoard.addToHighScore(sScore, player.getGame().getGameType());
             }
         } catch (Exception e) {
             Log.w(TAG, getResources().getString(R.string.highscore_restarted_due_error) + e.getMessage());
@@ -187,14 +188,14 @@ public final class SurvivalResult extends GameResult {
         gameOverTitle.setText(getString(R.string.game_over));
         resultGrade.setVisibility(View.GONE);
         resultScore.setText(String.valueOf(player.getScore() > 0 ? player.getScore() : 0));
-        resultTime.setText(DomUtils.getResultTimeAsString(player.game.getTotalTime()));
-        correctAnswersValue.setText(String.valueOf(player.game.getCorrect()));
-        questionsValue.setText(String.valueOf(player.game.getLevels()));
+        resultTime.setText(DomUtils.getResultTimeAsString(player.getGame().getTotalTime()));
+        correctAnswersValue.setText(String.valueOf(player.getGame().getCorrect()));
+        questionsValue.setText(String.valueOf(player.getGame().getLevels()));
         checkHighScore();
     }
 
     private void checkHighScore() {
-        int place = highScore.getCurrentPlaceFor(sScore.getScore(), player.game.getGameType());
+        int place = highScore.getCurrentPlaceFor(sScore.getScore(), player.getGame().getGameType());
         if (place > 0) {
             placeText.setText(String.valueOf(place));
             setHSPlaceColor(place);

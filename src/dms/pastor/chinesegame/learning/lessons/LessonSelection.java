@@ -69,8 +69,8 @@ public final class LessonSelection extends ListActivity {
         } else {
             Log.d(TAG, r.getMessage());
             player.restart(GameType.LESSON);
-            player.game.setGameWordList(Dictionary.getDictionary().getWordsFromCategoryFromDictionary(player.miniLessons.getCurrentLesson().getGroup()));
-            if (player.game != null && player.game.getGameWordsList().size() < 4) {
+            player.getGame().setGameWordList(Dictionary.getDictionary().getWordsFromCategoryFromDictionary(player.miniLessons.getCurrentLesson().getGroup()));
+            if (player.getGame() != null && player.getGame().getGameWordsList().size() < 4) {
                 error("Lesson not ready yet.");
             } else {
                 Intent select = new Intent(getApplicationContext(), SingleLesson.class);

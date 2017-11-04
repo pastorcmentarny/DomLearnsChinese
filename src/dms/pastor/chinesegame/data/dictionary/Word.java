@@ -2,6 +2,9 @@ package dms.pastor.chinesegame.data.dictionary;
 
 import android.util.Log;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 import static dms.pastor.chinesegame.utils.DomUtils.isStringEmpty;
 
 /**
@@ -37,7 +40,7 @@ public final class Word {
         setDifficulty(difficulty);
     }
 
-    public Word noWord() {
+    public static Word noWord() {
         return new Word(-1, null, null, -1, null, null, null, null, -1);
     }
 
@@ -156,13 +159,47 @@ public final class Word {
         this.notes = notes;
     }
 
-
-    @Override //TODO change this toShortString
-    public String toString() {
+    public String toShortString() {
         return chineseCharacter + " - '" +
                 pinyin + "' - [ " +
                 wEnglish + " ]";
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Word)) return false;
+        Word word = (Word) o;
+        return getId() == word.getId() &&
+                getStrokes() == word.getStrokes() &&
+                getDifficulty() == word.getDifficulty() &&
+                Objects.equals(getChineseCharacter(), word.getChineseCharacter()) &&
+                Objects.equals(getPinyin(), word.getPinyin()) &&
+                Objects.equals(wEnglish, word.wEnglish) &&
+                Objects.equals(wPolish, word.wPolish) &&
+                Arrays.equals(getGroups(), word.getGroups()) &&
+                Objects.equals(getNotes(), word.getNotes());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getChineseCharacter(), getPinyin(), getStrokes(), wEnglish, wPolish, getGroups(), getNotes(), getDifficulty());
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "id=" + id +
+                ", chineseCharacter='" + chineseCharacter + '\'' +
+                ", pinyin='" + pinyin + '\'' +
+                ", strokes=" + strokes +
+                ", wEnglish='" + wEnglish + '\'' +
+                ", wPolish='" + wPolish + '\'' +
+                ", groups=" + Arrays.toString(groups) +
+                ", notes='" + notes + '\'' +
+                ", difficulty=" + difficulty +
+                '}';
     }
 
     public String asWord() {

@@ -38,13 +38,13 @@ public final class SapperIntro extends Intro implements View.OnClickListener {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.game_intro);
 
-        Button startGame = (Button) findViewById(R.id.play_game_button);
+        Button startGame = findViewById(R.id.play_game_button);
         startGame.setOnClickListener(this);
-        TextView introTitle = (TextView) findViewById(R.id.intro_title);
+        TextView introTitle = findViewById(R.id.intro_title);
         introTitle.setText(getResources().getString(R.string.saper_game_title));
-        TextView introAboutGame = (TextView) findViewById(R.id.intro_about);
+        TextView introAboutGame = findViewById(R.id.intro_about);
         introAboutGame.setText(getResources().getString(R.string.saper_game_about));
-        TextView introTutorial = (TextView) findViewById(R.id.intro_tutorial);
+        TextView introTutorial = findViewById(R.id.intro_tutorial);
         introTutorial.setText(getResources().getString(R.string.saper_tutorial));
         player = Player.getPlayer();
         statistic = Statistic.getStatistic(this);
@@ -69,7 +69,7 @@ public final class SapperIntro extends Intro implements View.OnClickListener {
         Intent ii = new Intent(getApplicationContext(), SapperGame.class);
         player.restart(GameType.SAPPER);
         statistic.addSapperGame();
-        player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
+        player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
         startActivity(ii);
     }
 

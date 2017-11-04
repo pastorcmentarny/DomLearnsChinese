@@ -35,13 +35,13 @@ public final class HskBasicIntro extends Intro implements View.OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.game_intro);
-        Button startGame = (Button) findViewById(R.id.play_game_button);
+        Button startGame = findViewById(R.id.play_game_button);
         startGame.setOnClickListener(this);
-        TextView introTitle = (TextView) findViewById(R.id.intro_title);
+        TextView introTitle = findViewById(R.id.intro_title);
         introTitle.setText(getResources().getString(R.string.hsk_basics_title));
-        TextView introAbout = (TextView) findViewById(R.id.intro_about);
+        TextView introAbout = findViewById(R.id.intro_about);
         introAbout.setText(getResources().getString(R.string.hsk_basics_about));
-        TextView introTutorial = (TextView) findViewById(R.id.intro_tutorial);
+        TextView introTutorial = findViewById(R.id.intro_tutorial);
         introTutorial.setText(getResources().getString(R.string.hsk_tutorial));
         SharedPreferences preferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         if (!preferences.getBoolean("showIntro", true)) {
@@ -62,7 +62,7 @@ public final class HskBasicIntro extends Intro implements View.OnClickListener {
     private void start() {
 
         player.restart(GameType.HSK0);
-        player.game.timeStart();
+        player.getGame().timeStart();
         Intent select;
         select = new Intent(getApplicationContext(), HSKLevel.class);
         select.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

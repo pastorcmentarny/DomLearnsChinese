@@ -92,6 +92,10 @@ public final class Game {
         return level;
     }
 
+    public boolean isCheeseCakeLevel() {
+        return getLevel() == 88;
+    }
+
     public int getLevels() {
         return levels;
     }

@@ -78,7 +78,7 @@ public abstract class Level extends Activity {
         boolean stepA = true;
         while (stepA) {
             stepA = false;
-            newWord = player.game.getRandomWordForLevel();
+            newWord = player.getGame().getRandomWordForLevel();
             for (Word alreadyUsedWord : selectedAlreadyWords) {
                 if (newWord.equals(alreadyUsedWord)) {
                     stepA = true;

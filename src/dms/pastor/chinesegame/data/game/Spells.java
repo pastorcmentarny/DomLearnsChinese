@@ -111,7 +111,7 @@ public final class Spells {
     }
 
     public int castMinorPointsBonus() {
-        int bonus = new Random().nextInt((PLAYER.game.getLevel() + 1));
+        int bonus = new Random().nextInt((PLAYER.getGame().getLevel() + 1));
         PLAYER.addBonus();
 
         bonus += (PLAYER.getHealth() + PLAYER.getMana() + new Random().nextInt(4));

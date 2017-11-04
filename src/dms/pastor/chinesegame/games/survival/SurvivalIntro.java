@@ -48,11 +48,11 @@ public final class SurvivalIntro extends Intro {
         extras = getIntent().getExtras();
         gameType = extras.getString("GAME");
 
-        Button startGame = (Button) findViewById(R.id.play_game_button);
+        Button startGame = findViewById(R.id.play_game_button);
         startGame.setOnClickListener(this);
-        introTitle = (TextView) findViewById(R.id.intro_title);
-        introAbout = (TextView) findViewById(R.id.intro_about);
-        introTutorial = (TextView) findViewById(R.id.intro_tutorial);
+        introTitle = findViewById(R.id.intro_title);
+        introAbout = findViewById(R.id.intro_about);
+        introTutorial = findViewById(R.id.intro_tutorial);
         UIUtils.loadAd(this, this);
 
         updateUI();
@@ -81,8 +81,8 @@ public final class SurvivalIntro extends Intro {
                 ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 player.restart(ADVENTURE);
                 statistic.addAdventureGame();
-                player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
-                player.game.timeStart();
+                player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
+                player.getGame().timeStart();
                 startActivity(ii);
                 overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
             }

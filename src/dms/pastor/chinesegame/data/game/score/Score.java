@@ -1,7 +1,6 @@
 package dms.pastor.chinesegame.data.game.score;
 
 
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import dms.pastor.chinesegame.Config;
@@ -54,16 +53,6 @@ public final class Score implements Comparable<Score> {
 
     }
 
-    public Score(String playerName, int score, int level, String data, int gameNo, int gameVersion, long dateStamp) {
-        this.playerName = playerName;
-        this.score = score;
-        this.level = level;
-        this.data = data;
-        this.gameNo = gameNo;
-        this.gameVersion = gameVersion;
-        this.dateStamp = dateStamp;
-        this.difficulty = Difficulty.OLD;
-    }
 
     public String getPlayerName() {
         return playerName;
@@ -98,7 +87,7 @@ public final class Score implements Comparable<Score> {
     }
 
     @Override
-    public int compareTo(@NonNull Score score) {
+    public int compareTo(Score score) {
         return score.getScore() - getScore();
     }
 }

@@ -9,6 +9,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -96,12 +97,12 @@ public final class Dictionary {
                             wordCategoriesList = data[7].split(Config.GROUP_SEPERATOR);
                         }
                         String[] temp = data[7].split(Config.GROUP_SEPERATOR);
-                        int difficutly = DomUtils.parseIntNullSafe(data[9], 9);
-                        word = new Word(Integer.parseInt(data[1]), data[2], data[3], Integer.parseInt(data[4]), data[5], data[6], temp, data[8], difficutly);
+                        int difficultly = DomUtils.parseIntNullSafe(data[9], 9);
+                        word = new Word(Integer.parseInt(data[1]), data[2], data[3], Integer.parseInt(data[4]), data[5], data[6], temp, data[8], difficultly);
                         if (word.isValid()) {
-                            nr = addWordToWordList(requestedCategories, wordCategoriesList, word, nr); //TODO imporve nr
+                            nr = addWordToWordList(requestedCategories, wordCategoriesList, word, nr); //TODO improve nr
                         } else {
-                            Log.e(TAG, "Word is corrupted(Line:" + (nr - 1) + ".It is something wrong with Dictionary." + getLine(strLine));
+                            Log.e(TAG, "Word is corrupted.(Line:" + (nr - 1) + ".It is something wrong with Dictionary." + getLine(strLine));
                             return new Result(false, "Word is corrupted(Line:" + (nr - 1) + ")\n.It is something wrong with Dictionary." + getLine(strLine));
                         }
                     } catch (NumberFormatException nfe) {
@@ -126,8 +127,8 @@ public final class Dictionary {
             setDBStatus(false);
             return new Result(false, context.getString(R.string.dict_data_corrupted) + nr + ")\n(ArrayIndexOutOfBoundsException)" + aioobe.getMessage());
         }
-        closeInputStreamReader(context, isr);
-        closeBufferedReader(context, br);
+        closeReaderQuietly(isr);
+        closeReaderQuietly(br);
 
         try {
             in.close();
@@ -157,21 +158,6 @@ public final class Dictionary {
         return nr;
     }
 
-    private static void closeInputStreamReader(Context context, InputStreamReader isr) {
-        try {
-            isr.close();
-        } catch (IOException e) {
-            Log.w(TAG, context.getString(R.string.e_closing_stream_problem) + context.getString(R.string.msg_dict_from_file_error) + e.getMessage());
-        }
-    }
-
-    private static void closeBufferedReader(Context context, BufferedReader br) {
-        try {
-            br.close();
-        } catch (IOException e) {
-            Log.w(TAG, context.getString(R.string.e_closing_stream_problem) + context.getString(R.string.msg_dict_from_file_error) + e.getMessage());
-        }
-    }
 
     private static String getLine(String line) {
         return line != null ? "[" + line + "]" : "line is empty.";
@@ -213,7 +199,7 @@ public final class Dictionary {
         ArrayList<String> words = new ArrayList<>();
         int counter = 1;
         for (Word word : wordsList) {
-            words.add(format("%s. %s", valueOf(counter), word.toString()));
+            words.add(format("%s. %s", valueOf(counter), word.toShortString()));
             counter++;
         }
         return words.toArray(new String[words.size()]);
@@ -348,6 +334,14 @@ public final class Dictionary {
             if (word.getDifficulty() <= level && word.getDifficulty() > difficulty) {
                 result.add(word);
             }
+        }
+    }
+
+    private static void closeReaderQuietly(Reader reader) {
+        try {
+            reader.close();
+        } catch (IOException e) {
+            Log.w(TAG, "Unable to close  due " + e.getMessage(), e);
         }
     }
 

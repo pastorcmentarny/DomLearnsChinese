@@ -85,28 +85,28 @@ public final class SapperGame extends Level implements View.OnClickListener {
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
 
-        answer1Button = (Button) findViewById(R.id.answer1);
-        answer2Button = (Button) findViewById(R.id.answer2);
-        answer3Button = (Button) findViewById(R.id.answer3);
-        answer4Button = (Button) findViewById(R.id.answer4);
+        answer1Button = findViewById(R.id.answer1);
+        answer2Button = findViewById(R.id.answer2);
+        answer3Button = findViewById(R.id.answer3);
+        answer4Button = findViewById(R.id.answer4);
 
-        bonusScore = (TextView) findViewById(R.id.bonus_score);
-        correctValue = (TextView) findViewById(R.id.correct_value);
-        currentCharacter = (TextView) findViewById(R.id.currentCharacter);
-        currentPinyin = (TextView) findViewById(R.id.currentPinyin);
-        highScoreTextView = (TextView) findViewById(R.id.high_score);
+        bonusScore = findViewById(R.id.bonus_score);
+        correctValue = findViewById(R.id.correct_value);
+        currentCharacter = findViewById(R.id.currentCharacter);
+        currentPinyin = findViewById(R.id.currentPinyin);
+        highScoreTextView = findViewById(R.id.high_score);
         highScoreTextView.setVisibility(View.INVISIBLE);
-        playerState = (TextView) findViewById(R.id.player_states);
-        lvl = (TextView) findViewById(R.id.current_lvl);
-        Button removeBadAnswerButton = (Button) findViewById(R.id.spell_remove_wrong_button);
-        score = (TextView) findViewById(R.id.current_score);
+        playerState = findViewById(R.id.player_states);
+        lvl = findViewById(R.id.current_lvl);
+        Button removeBadAnswerButton = findViewById(R.id.spell_remove_wrong_button);
+        score = findViewById(R.id.current_score);
 
-        timeElapsed = (TextView) findViewById(R.id.time_elapsed_value);
+        timeElapsed = findViewById(R.id.time_elapsed_value);
 
-        topLine2 = (LinearLayout) findViewById(R.id.top_line2);
-        spellRow1 = (LinearLayout) findViewById(R.id.spell_row1);
-        spellRow2 = (LinearLayout) findViewById(R.id.spell_row2);
-        spellCureButton = (Button) findViewById(R.id.spell_cure_button);
+        topLine2 = findViewById(R.id.top_line2);
+        spellRow1 = findViewById(R.id.spell_row1);
+        spellRow2 = findViewById(R.id.spell_row2);
+        spellCureButton = findViewById(R.id.spell_cure_button);
 
         answer1Button.setOnClickListener(this);
         answer2Button.setOnClickListener(this);
@@ -150,9 +150,9 @@ public final class SapperGame extends Level implements View.OnClickListener {
         totalBonus = calcCurrentBonus();
 
         player.setScore((player.getScore() + totalBonus));
-        player.game.addToTotalTime(timer.calcTotalTime());
-        player.game.addLevel();
-        player.game.addCorrect();
+        player.getGame().addToTotalTime(timer.calcTotalTime());
+        player.getGame().addLevel();
+        player.getGame().addCorrect();
 
         player.setHealth(player.getHealth() + (HEALTH_BONUS_PER_LEVEL));
         player.setMana(player.getMana() + MANA_BONUS_PER_LEVEL);
@@ -160,7 +160,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
     }
 
     private int calcCurrentBonus() {
-        double finalBonus = calculator.calculate(player.game, timer.calcCurrentTime());
+        double finalBonus = calculator.calculate(player.getGame(), timer.calcCurrentTime());
 
         double time = SAPPER_NO_PENALTY_TIME * 1000 - timer.calcCurrentTime();
         if (time > 6750) {
@@ -168,7 +168,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         } else if (time > 500) {
             finalBonus = ((time) / ((SAPPER_NO_PENALTY_TIME * 1000))) * finalBonus;
         } else {
-            finalBonus = (getDifficultyLevelForLevel(player.game.getLevel()) + player.game.getLevel()) * (-1);
+            finalBonus = (getDifficultyLevelForLevel(player.getGame().getLevel()) + player.getGame().getLevel()) * (-1);
         }
 
 
@@ -203,7 +203,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         statistic = Statistic.getStatistic(this);
         words = new ArrayList<>();
         do {
-            answerWord = player.game.getRandomWordForLevel();
+            answerWord = player.getGame().getRandomWordForLevel();
         } while (answerWord == null);
         wrongWord1 = selectAWord(wrongWord1, new Word[]{answerWord});
         wrongWord2 = selectAWord(wrongWord2, new Word[]{answerWord, wrongWord1});
@@ -212,7 +212,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         words.add(wrongWord1);
         words.add(wrongWord2);
         words.add(wrongWord3);
-        player.game.timeStart();
+        player.getGame().timeStart();
     }
 
     @Override
@@ -238,7 +238,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
         currentCharacter.setText(answerWord.getChineseCharacter());
         currentPinyin.setText(answerWord.getPinyin());
         score.setText(String.valueOf(player.getScore()));
-        lvl.setText(String.valueOf(player.game.getLevel()));
+        lvl.setText(String.valueOf(player.getGame().getLevel()));
     }
 
     @Override
@@ -251,11 +251,11 @@ public final class SapperGame extends Level implements View.OnClickListener {
         score.setText(String.valueOf(player.getScore()));
         int currentBonus = calcCurrentBonus();
         bonusScore.setText(format("(%s)", String.valueOf(currentBonus)));
-        if (currentBonus > calculator.calculate(player.game, timer.calcCurrentTime()) / 2) {
+        if (currentBonus > calculator.calculate(player.getGame(), timer.calcCurrentTime()) / 2) {
             setTextColor(bonusScore, R.color.big_bonus, this);
-        } else if (currentBonus > calculator.calculate(player.game, timer.calcCurrentTime()) / 5) {
+        } else if (currentBonus > calculator.calculate(player.getGame(), timer.calcCurrentTime()) / 5) {
             setTextColor(bonusScore, R.color.small_bonus, this);
-        } else if (currentBonus > (-1) * calculator.calculate(player.game, timer.calcCurrentTime()) / 10) {
+        } else if (currentBonus > (-1) * calculator.calculate(player.getGame(), timer.calcCurrentTime()) / 10) {
             setTextColor(bonusScore, R.color.near_zero_bonus, this);
         } else if (timer.calcCurrentTime() <= SAPPER_NO_PENALTY_TIME * SECONDS) {
             setTextColor(bonusScore, R.color.penalty_bonus, this);
@@ -263,7 +263,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
             bonusScore.setText(R.string.dead);
             setTextColor(bonusScore, R.color.game_over, this);
         }
-        int hsPlace = highScore.getCurrentPlaceFor(player.getScore(), player.game.getGameType());
+        int hsPlace = highScore.getCurrentPlaceFor(player.getScore(), player.getGame().getGameType());
         if (hsPlace > 0) {
             this.highScoreTextView.setText(format(" HS:[%s] ", String.valueOf(hsPlace)));
             this.highScoreTextView.setVisibility(VISIBLE);
@@ -274,8 +274,8 @@ public final class SapperGame extends Level implements View.OnClickListener {
         playerState.setText(player.getPlayerState());
         setTextColor(playerState, R.color.status, this);
 
-        timeElapsed.setText(getResultTimeAsString(player.game.getCurrentTime()));
-        correctValue.setText(String.valueOf(player.game.getCorrect()));
+        timeElapsed.setText(getResultTimeAsString(player.getGame().getCurrentTime()));
+        correctValue.setText(String.valueOf(player.getGame().getCorrect()));
     }
 
     @Override

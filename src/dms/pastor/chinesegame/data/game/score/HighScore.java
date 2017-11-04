@@ -270,25 +270,12 @@ public final class HighScore {
     private static Score addScore(String[] data) {
         int five, six;
         long dateStamp;
-        switch (data.length) {
-            case 5:
-                return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], 0, 0, 0);
-            case 8:
-                five = parseIntNullSafe(data[5], 0);
-                six = parseIntNullSafe(data[6], 0);
-                dateStamp = parseLongNullSafe(data[7], 0);
-                parseIntNullSafe(data[6], 0);
-                return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp);
-            case 9:
-                five = parseIntNullSafe(data[5], 0);
-                six = parseIntNullSafe(data[6], 0);
-                dateStamp = parseLongNullSafe(data[7], 0);
-                String difficulty = getUnknownWhenNullString(data[8]);
-                parseIntNullSafe(data[6], 0);
-                return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp, difficulty);
-            default:
-                return new Score();
-        }
+        five = parseIntNullSafe(data[5], 0);
+        six = parseIntNullSafe(data[6], 0);
+        dateStamp = parseLongNullSafe(data[7], 0);
+        String difficulty = getUnknownWhenNullString(data[8]);
+        parseIntNullSafe(data[6], 0);
+        return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp, difficulty);
     }
 
     private boolean isFileExist(String filePath) {

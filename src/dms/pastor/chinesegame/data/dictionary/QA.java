@@ -17,7 +17,7 @@ import static dms.pastor.chinesegame.Config.NEW_LINE;
  * This contains question and answer and some  common methods to retrieve them.
  */
 public final class QA {
-    public static final String TAG = "QA";
+    private static final String TAG = "QA";
     private Question question;
     private Sentence answer;
 

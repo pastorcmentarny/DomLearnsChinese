@@ -55,19 +55,19 @@ public final class DictionaryTestResult extends Activity implements View.OnClick
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.result_grade);
 
-        resultGrade = (TextView) findViewById(R.id.result_grade);
-        resultScore = (TextView) findViewById(R.id.result_score);
-        resultTime = (TextView) findViewById(R.id.result_time);
-        correctAnswersValue = (TextView) findViewById(R.id.correct_answers_value);
-        mistakesValue = (TextView) findViewById(R.id.mistakes_value);
-        skippedValue = (TextView) findViewById(R.id.questions_value);
-        recordText = (TextView) findViewById(R.id.record_text);
+        resultGrade = findViewById(R.id.result_grade);
+        resultScore = findViewById(R.id.result_score);
+        resultTime = findViewById(R.id.result_time);
+        correctAnswersValue = findViewById(R.id.correct_answers_value);
+        mistakesValue = findViewById(R.id.mistakes_value);
+        skippedValue = findViewById(R.id.questions_value);
+        recordText = findViewById(R.id.record_text);
         defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(DictionaryTestResult.this);
-        TextView questions_title = (TextView) findViewById(R.id.questions_title);
+        TextView questions_title = findViewById(R.id.questions_title);
         questions_title.setText(format("%s:", getString(R.string.skipped).toUpperCase()));
-        Button backToMainMenu = (Button) findViewById(R.id.backToMainMenu);
+        Button backToMainMenu = findViewById(R.id.backToMainMenu);
         backToMainMenu.setOnClickListener(this);
-        Button tryAgain = (Button) findViewById(R.id.tryAgain);
+        Button tryAgain = findViewById(R.id.tryAgain);
         tryAgain.setOnClickListener(this);
         UIUtils.loadAd(this, this);
 
@@ -77,8 +77,8 @@ public final class DictionaryTestResult extends Activity implements View.OnClick
     private void setup() {
         player = Player.getPlayer();
         int score = player.getScore();
-        if (player.game.getTotalTimeInSeconds() > Config.DICTIONARY_TEST_TIME_LIMIT) {
-            int penalty = player.game.getTotalTimeInSeconds() - Config.DICTIONARY_TEST_TIME_LIMIT;
+        if (player.getGame().getTotalTimeInSeconds() > Config.DICTIONARY_TEST_TIME_LIMIT) {
+            int penalty = player.getGame().getTotalTimeInSeconds() - Config.DICTIONARY_TEST_TIME_LIMIT;
             score -= penalty;
             displayToast(this, format(ENGLISH, "Penalty for slow answers: -%d", penalty));
         }
@@ -103,16 +103,16 @@ public final class DictionaryTestResult extends Activity implements View.OnClick
 
         resultGrade.setText(DictionaryLevelInfo.getAGrade(grade));
         resultScore.setText(format(ENGLISH, "Score: %d ", player.getScore()));
-        resultTime.setText(DomUtils.getResultTimeAsString(player.game.getTotalTime()));
-        correctAnswersValue.setText(format(ENGLISH, "%d (%d%%)", player.game.getCorrect(), player.game.getCorrect() / Config.DICTIONARY_TEST_LEVELS_SIZE));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
-        skippedValue.setText(String.valueOf(player.game.getSkipped()));
+        resultTime.setText(DomUtils.getResultTimeAsString(player.getGame().getTotalTime()));
+        correctAnswersValue.setText(format(ENGLISH, "%d (%d%%)", player.getGame().getCorrect(), player.getGame().getCorrect() / Config.DICTIONARY_TEST_LEVELS_SIZE));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
+        skippedValue.setText(String.valueOf(player.getGame().getSkipped()));
 
     }
 
     private void restart() {
         player.restart(GameType.DICTIONARY_TEST);
-        player.game.timeStart();
+        player.getGame().timeStart();
         Statistic.getStatistic(this).addDictionaryTestGame();
         Intent select;
         select = new Intent(getApplicationContext(), DictionaryTestGame.class);

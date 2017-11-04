@@ -48,13 +48,13 @@ public final class SingleLesson extends Activity implements View.OnClickListener
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.lesson);
 
-        lessonTitle = (TextView) findViewById(R.id.lesson_title);
-        lessonContent = (TextView) findViewById(R.id.lesson_content);
-        Button lessonTestButton = (Button) findViewById(R.id.lesson_test_button);
-        lessonSwitch = (ToggleButton) findViewById(R.id.lesson_switch);
+        lessonTitle = findViewById(R.id.lesson_title);
+        lessonContent = findViewById(R.id.lesson_content);
+        Button lessonTestButton = findViewById(R.id.lesson_test_button);
+        lessonSwitch = findViewById(R.id.lesson_switch);
         lessonTestButton.setOnClickListener(this);
         lessonSwitch.setOnClickListener(this);
-        wordList = (ListView) findViewById(R.id.wordList);
+        wordList = findViewById(R.id.wordList);
 
         player = Player.getPlayer();
 
@@ -91,7 +91,7 @@ public final class SingleLesson extends Activity implements View.OnClickListener
         lessonContent.setText(DomUtils.getUnknownWhenNullString(player.miniLessons.getCurrentLesson().getLessonContent()));
         ArrayList<String> tmpList = new ArrayList<>();
 
-        for (Word word : player.game.getGameWordsList()) {
+        for (Word word : player.getGame().getGameWordsList()) {
             Log.w(TAG, word.getWordInEnglish());
             tmpList.add("\n-------------\n=============\n" + word.getChineseCharacter() + "(" + word.getStrokes() + ")\n" + word.getPinyin() + "\n" + word.getWordInEnglish() + "\nNotes: " + word.getNotes());
         }

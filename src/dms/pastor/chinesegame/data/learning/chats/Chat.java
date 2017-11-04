@@ -84,7 +84,7 @@ public final class Chat {
         Log.i(TAG, "Generating word list");
         ArrayList<String> words = new ArrayList<>();
         for (Word word : wordList) {
-            words.add(word.toString());
+            words.add(word.toShortString());
         }
         return words.toArray(new String[words.size()]);
     }

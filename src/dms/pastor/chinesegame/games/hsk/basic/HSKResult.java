@@ -48,15 +48,15 @@ public final class HSKResult extends Activity implements View.OnClickListener {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.result_grade);
 
-        resultGrade = (TextView) findViewById(R.id.result_grade);
-        resultScore = (TextView) findViewById(R.id.result_score);
-        resultTime = (TextView) findViewById(R.id.result_time);
-        correctAnswersValue = (TextView) findViewById(R.id.correct_answers_value);
-        mistakesValue = (TextView) findViewById(R.id.mistakes_value);
-        questionsValue = (TextView) findViewById(R.id.questions_value);
-        Button backToMainMenu = (Button) findViewById(R.id.backToMainMenu);
+        resultGrade = findViewById(R.id.result_grade);
+        resultScore = findViewById(R.id.result_score);
+        resultTime = findViewById(R.id.result_time);
+        correctAnswersValue = findViewById(R.id.correct_answers_value);
+        mistakesValue = findViewById(R.id.mistakes_value);
+        questionsValue = findViewById(R.id.questions_value);
+        Button backToMainMenu = findViewById(R.id.backToMainMenu);
         backToMainMenu.setOnClickListener(this);
-        Button tryAgain = (Button) findViewById(R.id.tryAgain);
+        Button tryAgain = findViewById(R.id.tryAgain);
         tryAgain.setOnClickListener(this);
         UIUtils.loadAd(this, this);
 
@@ -70,10 +70,10 @@ public final class HSKResult extends Activity implements View.OnClickListener {
         resultGrade.setText(Grades.giveAGrade(this, score));
         score = DomUtils.getResultIn0to100Range(score);
         resultScore.setText(String.format("%s %%", String.valueOf(score)));
-        resultTime.setText(DomUtils.getResultTimeAsString(player.game.getTotalTime()));
-        correctAnswersValue.setText(String.valueOf(player.game.getCorrect()));
-        mistakesValue.setText(String.valueOf(player.game.getMistake()));
-        questionsValue.setText(String.valueOf(player.game.getLevels()));
+        resultTime.setText(DomUtils.getResultTimeAsString(player.getGame().getTotalTime()));
+        correctAnswersValue.setText(String.valueOf(player.getGame().getCorrect()));
+        mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
+        questionsValue.setText(String.valueOf(player.getGame().getLevels()));
 
     }
 
@@ -81,10 +81,10 @@ public final class HSKResult extends Activity implements View.OnClickListener {
         player.restart(GameType.HSK0);
         Dictionary dictionary = Dictionary.recreateDictionary();
         dictionary.readDictionaryFromFile(this, R.raw.dictionary, new String[]{"hsk1"});
-        player.game.setAnswerWordsForLevels(dictionary.getWordsList());
-        player.game.setGameWordList(dictionary.getWordsList());
-        player.game.createAnswerWordsForLevels(player.game.getAnswerWordsForLevels());
-        player.game.timeStart();
+        player.getGame().setAnswerWordsForLevels(dictionary.getWordsList());
+        player.getGame().setGameWordList(dictionary.getWordsList());
+        player.getGame().createAnswerWordsForLevels(player.getGame().getAnswerWordsForLevels());
+        player.getGame().timeStart();
         Intent select;
         select = new Intent(getApplicationContext(), HSKLevel.class);
         select.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

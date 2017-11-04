@@ -67,28 +67,28 @@ public final class SapperResult extends GameResult {
         options = getSharedPreferences("settings", Context.MODE_PRIVATE);
         statistic = Statistic.getStatistic(this);
 
-        gameOverTitle = (TextView) findViewById(R.id.result);
-        resultGrade = (TextView) findViewById(R.id.result_grade);
-        resultScore = (TextView) findViewById(R.id.result_score);
-        resultTime = (TextView) findViewById(R.id.result_time);
-        correctAnswersValue = (TextView) findViewById(R.id.correct_answers_value);
-        questionsValue = (TextView) findViewById(R.id.questions_value);
-        recordText = (TextView) findViewById(R.id.record_text);
-        placeText = (TextView) findViewById(R.id.result_place_text);
+        gameOverTitle = findViewById(R.id.result);
+        resultGrade = findViewById(R.id.result_grade);
+        resultScore = findViewById(R.id.result_score);
+        resultTime = findViewById(R.id.result_time);
+        correctAnswersValue = findViewById(R.id.correct_answers_value);
+        questionsValue = findViewById(R.id.questions_value);
+        recordText = findViewById(R.id.record_text);
+        placeText = findViewById(R.id.result_place_text);
 
 
-        LinearLayout mistakeRow = (LinearLayout) findViewById(R.id.mistake_row);
+        LinearLayout mistakeRow = findViewById(R.id.mistake_row);
         mistakeRow.setVisibility(View.GONE);
-        LinearLayout questionsRow = (LinearLayout) findViewById(R.id.question_row);
+        LinearLayout questionsRow = findViewById(R.id.question_row);
         questionsRow.setVisibility(View.GONE);
 
-        Button backToMainMenu = (Button) findViewById(R.id.backToMainMenu);
+        Button backToMainMenu = findViewById(R.id.backToMainMenu);
         backToMainMenu.setOnClickListener(this);
 
-        Button tryAgain = (Button) findViewById(R.id.tryAgain);
+        Button tryAgain = findViewById(R.id.tryAgain);
         tryAgain.setOnClickListener(this);
 
-        Button seeHS = (Button) findViewById(R.id.seeHS);
+        Button seeHS = findViewById(R.id.seeHS);
         seeHS.setOnClickListener(this);
         seeHS.setVisibility(View.VISIBLE);
         UIUtils.loadAd(this, this);
@@ -106,12 +106,12 @@ public final class SapperResult extends GameResult {
             diff = Difficulty.HARD.name();
         }
         sScore = new Score(Player.getName(this), player.getScore(),
-                player.game.getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
+                player.getGame().getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
                 statistic.getGames(), getVersionCode(this),
                 new Date().getTime(), diff);
         try {
             if (highScore != null) {
-                highScore.addToHighScore(sScore, player.game.getGameType());
+                highScore.addToHighScore(sScore, player.getGame().getGameType());
             }
         } catch (Exception e) {
             Log.w(TAG, getResources().getString(R.string.highscore_restarted_due_error));
@@ -121,15 +121,15 @@ public final class SapperResult extends GameResult {
         gameOverTitle.setText(getString(R.string.game_over));
         resultGrade.setVisibility(View.GONE);
         resultScore.setText(String.valueOf(player.getScore() > 0 ? player.getScore() : 0));
-        resultTime.setText(DomUtils.getResultTimeAsString(player.game.getTotalTime()));
-        correctAnswersValue.setText(String.valueOf(player.game.getCorrect()));
-        questionsValue.setText(String.valueOf(player.game.getLevels()));
-        statistic.addTotalLevels(player.game.getLevel());
-        statistic.addToHighestLevelSapper(player.game.getLevel());
-        statistic.addCorrects(player.game.getCorrect());
+        resultTime.setText(DomUtils.getResultTimeAsString(player.getGame().getTotalTime()));
+        correctAnswersValue.setText(String.valueOf(player.getGame().getCorrect()));
+        questionsValue.setText(String.valueOf(player.getGame().getLevels()));
+        statistic.addTotalLevels(player.getGame().getLevel());
+        statistic.addToHighestLevelSapper(player.getGame().getLevel());
+        statistic.addCorrects(player.getGame().getCorrect());
         statistic.addWrong();
         statistic.addToMaxScore(player.getScore());
-        statistic.addToTotalTimeSapper(player.game.getTotalTime());
+        statistic.addToTotalTimeSapper(player.getGame().getTotalTime());
         statistic.save();
         checkHighScore();
 
@@ -145,7 +145,7 @@ public final class SapperResult extends GameResult {
             case R.id.tryAgain:
                 Intent ii = new Intent(getApplicationContext(), SapperGame.class);
                 player.restart(GameType.SAPPER);
-                player.game.setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
+                player.getGame().setGameWordList(Dictionary.getDictionary().getWordsForLevel(1));
                 statistic.addSapperGame();
                 startActivity(ii);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
@@ -170,7 +170,7 @@ public final class SapperResult extends GameResult {
     }
 
     private void checkHighScore() {
-        int place = hs.getCurrentPlaceFor(sScore.getScore(), player.game.getGameType());
+        int place = hs.getCurrentPlaceFor(sScore.getScore(), player.getGame().getGameType());
         if (place == 1) {
             resultGrade.setText(R.string.new_high_score);
             UIUtils.newRecord(this, placeText, this);
