@@ -19,7 +19,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    compile 'com.google.android.gms:play-services-ads:11.0.0'
+    compile 'com.google.android.gms:play-services-ads:11.0.2'
 }
 
 android {
@@ -30,8 +30,8 @@ android {
         applicationId 'dms.pastor.chinesegame'
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 69
-        versionName "18.0"
+        versionCode 71
+        versionName "18.1"
         multiDexEnabled true
     }
 
