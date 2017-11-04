@@ -86,7 +86,7 @@ public final class Score implements Comparable<Score> {
     }
 
     @Override
-    public int compareTo(@NonNull Score score) {
+    public int compareTo( Score score) {
         return score.getScore() - getScore();
     }
 }

@@ -342,7 +342,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         } else {
             ii = new Intent(getApplicationContext(), WordSurvival.class);
             player.restart(GameType.ADVENTURE);
-            player.getGame() = new Game(getApplicationContext(), GameType.ADVENTURE);
             statistic.addAdventureGame();
             Dictionary dictionary = Dictionary.getDictionary();
             Result result = dictionary.readDictionaryFromFile(getApplicationContext(), R.raw.dictionary, null);

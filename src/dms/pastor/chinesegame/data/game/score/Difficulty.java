@@ -10,5 +10,5 @@ package dms.pastor.chinesegame.data.game.score;
  * Created 26/05/2014
  */
 public enum Difficulty {
-    EASY, HARD, OLD, UNKNOWN
+    EASY, HARD, OLD, ADVENTURE, UNKNOWN
 }

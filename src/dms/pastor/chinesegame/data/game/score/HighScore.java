@@ -3,35 +3,22 @@ package dms.pastor.chinesegame.data.game.score;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
+import dms.pastor.chinesegame.Config;
+import dms.pastor.chinesegame.R;
+import dms.pastor.chinesegame.common.enums.GameType;
+import dms.pastor.chinesegame.utils.Result;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.*;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
-import dms.pastor.chinesegame.Config;
-import dms.pastor.chinesegame.R;
-import dms.pastor.chinesegame.common.enums.GameType;
-import dms.pastor.chinesegame.utils.Result;
-
-import static dms.pastor.chinesegame.utils.DomUtils.displayError;
-import static dms.pastor.chinesegame.utils.DomUtils.getUnknownWhenNullString;
-import static dms.pastor.chinesegame.utils.DomUtils.parseIntNullSafe;
-import static dms.pastor.chinesegame.utils.DomUtils.parseLongNullSafe;
+import static dms.pastor.chinesegame.utils.DomUtils.*;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.format;
 import static java.util.Collections.sort;
@@ -270,25 +257,12 @@ public final class HighScore {
     private static Score addScore(String[] data) {
         int five, six;
         long dateStamp;
-        switch (data.length) {
-            case 5:
-                return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], 0, 0, 0);
-            case 8:
-                five = parseIntNullSafe(data[5], 0);
-                six = parseIntNullSafe(data[6], 0);
-                dateStamp = parseLongNullSafe(data[7], 0);
-                parseIntNullSafe(data[6], 0);
-                return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp);
-            case 9:
-                five = parseIntNullSafe(data[5], 0);
-                six = parseIntNullSafe(data[6], 0);
-                dateStamp = parseLongNullSafe(data[7], 0);
-                String difficulty = getUnknownWhenNullString(data[8]);
-                parseIntNullSafe(data[6], 0);
-                return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp, difficulty);
-            default:
-                return new Score();
-        }
+        five = parseIntNullSafe(data[5], 0);
+        six = parseIntNullSafe(data[6], 0);
+        dateStamp = parseLongNullSafe(data[7], 0);
+        String difficulty = getUnknownWhenNullString(data[8]);
+        parseIntNullSafe(data[6], 0);
+        return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp, difficulty);
     }
 
     private boolean isFileExist(String filePath) {
