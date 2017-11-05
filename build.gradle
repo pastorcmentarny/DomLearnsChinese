@@ -3,23 +3,25 @@ buildscript {
         jcenter()
         maven { url "https://maven.google.com" }
         mavenCentral()
+        google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
     }
 }
 
 allprojects {
     repositories {
         mavenCentral()
+        google()
     }
 }
 apply plugin: 'com.android.application'
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    compile 'com.google.android.gms:play-services-ads:11.0.2'
+    compile 'com.google.android.gms:play-services-ads:11.4.2'
 }
 
 android {
@@ -52,7 +54,7 @@ android {
         release.setRoot('build-types/release')
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
