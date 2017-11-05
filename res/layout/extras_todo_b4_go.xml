@@ -30,6 +30,10 @@
 
         <CheckBox
             style="@style/extras_checkbox"
+            android:text="@string/b2go_visa" />
+
+        <CheckBox
+            style="@style/extras_checkbox"
             android:text="@string/b4go_passport" />
 
         <CheckBox
@@ -62,6 +66,14 @@
 
         <CheckBox
             style="@style/extras_checkbox"
+            android:text="@string/b4go_website" />
+
+        <CheckBox
+            style="@style/extras_checkbox"
             android:text="@string/b4go_adapter" />
+
+        <CheckBox
+            style="@style/extras_checkbox"
+            android:text="@string/b4go_power_bank" />
     </LinearLayout>
 </ScrollView>

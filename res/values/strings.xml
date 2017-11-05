@@ -6,9 +6,8 @@
     <!-- ABOUT -->
     <string name="about_me_label">ABOUT ME</string>
     <string name="about_me_text">ABOUT ME:\n\n
-        My name is Dominik. I am software developer. If you want know more look to my parody of homepage
-        https://dominiksymonowicz.com/ . I hope You enjoying use my program. If You have any USEFUL comment,
-        suggestion,feedback.\n
+        My name is Dominik. I am a software developer. If you want to know more, check my blog
+        https://dominiksymonowicz.com/ . I hope You enjoying use my program. If You have any USEFUL comment, suggestion, feedback.\n
         Feel happy to send to dmspastor@gmail.com.\n\n
         Ciao.
     </string>
@@ -44,7 +43,6 @@
         \n\t http://www.chinese.cn/
         \n
         \n Other THANKS:\n
-        * The Book People.\n
         * SAW (http://softwarealliancewales.com/)\n
         * stackoverflow.com website for useful solutions.\n
         * android-er.blogspot.co.uk for awesome blog entries\n
@@ -484,17 +482,17 @@
     <string name="advert">↓ Advert ↓</string>
     <string name="stats_games">Games:</string>
     <string name="b4go_travel_guide">Travel guide</string>
-    <string name="b4go_dictionary">Take dictionary with you</string>
-    <string name="b4go_medicine">Some medicine for diarrhoea, ache and anti vomit stuff</string>
-    <string name="b4go_gel">antibacterial gel</string>
-    <string name="b4go_first_aid">Mini first-aid kit</string>
-    <string name="b4go_roaming">Learn how to switch off roaming</string>
-    <string name="b4go_embassy">embassy contact details</string>
-    <string name="b4go_passport">Passport</string>
+    <string name="b4go_dictionary">Take dictionary with you.</string>
+    <string name="b4go_medicine">Take some medicine for diarrhoea, ache and anti-vomit stuff.</string>
+    <string name="b4go_gel">Antibacterial gel.</string>
+    <string name="b4go_first_aid">Mini first-aid kit.</string>
+    <string name="b4go_roaming">Learn how to switch off roaming in your smartphones.</string>
+    <string name="b4go_embassy">Embassy contact details.</string>
+    <string name="b4go_passport">Passport.</string>
     <string name="b4go_national_id">ID</string>
-    <string name="b4go_travel_details_friends">Leave travel details to friend or family</string>
-    <string name="b4go_insurance">Arrange health and travel insurance</string>
-    <string name="b4go_vaccinations">BOOK your vaccinations</string>
+    <string name="b4go_travel_details_friends">Leave travel details to friend or family.</string>
+    <string name="b4go_insurance">Arrange health and travel insurance.</string>
+    <string name="b4go_vaccinations">Book your vaccinations.</string>
     <string name="score_player_name">PLAYER NAME</string>
     <string name="cast_show_pinyin_hide_character">Guess pinyin without Chinese character!</string>
     <string name="pinyin_instead_character">Pinyin instead Character: </string>
@@ -554,9 +552,7 @@
     <string name="next_word">NEXT WORD</string>
     <string name="polish">Polish</string>
     <string name="sentence">Sentence</string>
-    <string name="b4go_adapter">Bring the Right Power Adapter! (Checked in 2016, 2017) Important note! You are not
-        allowed to bring Power Bank with capacity higher than 10000 mAh.
-    </string>
+    <string name="b4go_adapter">Bring the Right Power Adapter!</string>
     <string name="points">" points."</string>
     <string name="new_high_score">!NEW HIGH SCORE!</string>
     <string name="not_available">Not available yet</string>
@@ -574,4 +570,7 @@
     <string name="show_information">Show information</string>
     <string name="show_vocabulary">Show vocabulary</string>
     <string name="name">Name</string>
+    <string name="b2go_visa">Apply for a visa around 2 months in advance. Visa process is usually quick and efficient but be warn that staff occasionally can be annoying as some of them do not know rules and if they do not rule then they will lie to you. (This happen a few times, even to me). If you hear \" Law changed today\" it usually lies.</string>
+    <string name="b4go_website">Remember to check which website works and does NOT work. Are you using Dropbox, Google, Facebook or Twitter?  Then you cannot use it in China!</string>
+    <string name="b4go_power_bank">(Checked in 2016, 2017) Important note! You are not allowed to bring Power Bank with capacity higher than 10000 mAh.</string>
 </resources>
