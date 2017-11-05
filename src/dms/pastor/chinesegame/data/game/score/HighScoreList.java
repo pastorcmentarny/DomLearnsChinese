@@ -3,7 +3,6 @@ package dms.pastor.chinesegame.data.game.score;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -95,12 +94,7 @@ public final class HighScoreList extends ListActivity {
             message.setText(score.asHighScoreList());
 
             Button dialogButton = countryDialog.findViewById(R.id.buttonOK);
-            dialogButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    countryDialog.dismiss();
-                }
-            });
+            dialogButton.setOnClickListener(v1 -> countryDialog.dismiss());
             countryDialog.show();
 
 
@@ -109,10 +103,8 @@ public final class HighScoreList extends ListActivity {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setTitle("ERROR");
             dialog.setMessage("Program has problem with dictionary. It means Author(Me) mess up something.Please.send me an email. I am sorry for problem!\nPos:" + position);
-            dialog.setNeutralButton(getResources().getString(R.string.awesome), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
+            dialog.setNeutralButton(getResources().getString(R.string.awesome), (di, arg) -> {
 
-                }
             });
             dialog.show();
         }

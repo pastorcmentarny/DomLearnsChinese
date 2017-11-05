@@ -72,11 +72,7 @@ public final class HSKLevel extends Level implements View.OnClickListener {
     private TextView timeElapsed;
     private TextView correctValue;
     private TextView mistakesValue;
-    private final Runnable timerTicker = new Runnable() {
-        public void run() {
-            updateUI();
-        }
-    };
+    private final Runnable timerTicker = this::updateUI;
     private DomTimer timer;
     private TextView scoreTitle, currentScore, bonusScore, scoreSeparator;
 

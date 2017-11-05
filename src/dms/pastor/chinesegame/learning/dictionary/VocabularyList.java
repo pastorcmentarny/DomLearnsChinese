@@ -3,7 +3,6 @@ package dms.pastor.chinesegame.learning.dictionary;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -72,22 +71,18 @@ public final class VocabularyList extends ListActivity {
             dialog = new AlertDialog.Builder(this);
             dialog.setTitle(getResources().getString(R.string.word_info_title));
             dialog.setMessage(wordBuilder.toString());
-            dialog.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
+            dialog.setPositiveButton(getResources().getString(R.string.ok), (di, arg) -> {
 
-                }
             });
-            dialog.setNeutralButton(getResources().getString(R.string.copy_to_clipboard), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
-                    final boolean saved = clipboard.saveText(getApplicationContext(), word.getChineseCharacter());
-                    String message;
-                    if (saved) {
-                        message = getString(R.string.copied2clipboard);
-                    } else {
-                        message = getString(R.string.error_unable_to_copy_to_clipboard);
-                    }
-                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            dialog.setNeutralButton(getResources().getString(R.string.copy_to_clipboard), (di, arg) -> {
+                final boolean saved = clipboard.saveText(getApplicationContext(), word.getChineseCharacter());
+                String message;
+                if (saved) {
+                    message = getString(R.string.copied2clipboard);
+                } else {
+                    message = getString(R.string.error_unable_to_copy_to_clipboard);
                 }
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             });
             dialog.show();
 
@@ -96,11 +91,7 @@ public final class VocabularyList extends ListActivity {
             dialog = new AlertDialog.Builder(this);
             dialog.setTitle(getString(R.string.e));
             dialog.setMessage(getString(R.string.e_dictionary_problem_msg2me) + position);
-            dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
-                    DomUtils.sorryToast(getApplicationContext());
-                }
-            });
+            dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> DomUtils.sorryToast(getApplicationContext()));
             dialog.show();
         }
     }

@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -54,21 +52,18 @@ public final class PatternSelection extends ListActivity {
         listView.setTextFilterEnabled(true);
 
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                String patternTitle = ((TextView) view).getText().toString();
-                Pattern pattern = null;
-                try {
-                    pattern = dbManager.findPatternByTitle(patternTitle);
-                } catch (NotFoundException e) {
-                    error(e.getMessage());
-                }
-                Intent ii = new Intent(getApplicationContext(), PatternLesson.class);
-                Player player = Player.getPlayer();
-                player.setSelectedPattern(pattern);
-                startActivity(ii);
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            String patternTitle = ((TextView) view).getText().toString();
+            Pattern pattern = null;
+            try {
+                pattern = dbManager.findPatternByTitle(patternTitle);
+            } catch (NotFoundException e) {
+                error(e.getMessage());
             }
+            Intent ii = new Intent(getApplicationContext(), PatternLesson.class);
+            Player player = Player.getPlayer();
+            player.setSelectedPattern(pattern);
+            startActivity(ii);
         });
 
     }

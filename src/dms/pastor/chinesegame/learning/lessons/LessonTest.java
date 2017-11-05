@@ -71,11 +71,7 @@ public final class LessonTest extends Level implements View.OnClickListener {
 
     private TextView correctValue;
     private TextView mistakesValue;
-    private final Runnable timerTicker = new Runnable() {
-        public void run() {
-            updateUI();
-        }
-    };
+    private final Runnable timerTicker = this::updateUI;
     private DomTimer timer;
 
     @Override

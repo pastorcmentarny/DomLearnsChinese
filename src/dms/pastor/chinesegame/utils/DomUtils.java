@@ -7,7 +7,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,10 +63,10 @@ public final class DomUtils {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (NameNotFoundException ntfe) {
-            Log.w(TAG, "NameNotFoundException" + ntfe.getMessage());
+            Log.w(TAG, "NameNotFoundException. " + ntfe.getMessage());
             return 0;
         } catch (Exception e) {
-            Log.w(TAG, "NameNotFoundException" + e.getMessage());
+            Log.w(TAG, "Something went wrong." + e.getMessage());
             return 0;
         }
     }
@@ -78,10 +77,10 @@ public final class DomUtils {
 
     public static void displayWandToast(Context context, Activity activity, String text, boolean extendedDisplay, boolean good) {
         LayoutInflater layoutInflater = activity.getLayoutInflater();
-        View myLayout = layoutInflater.inflate(R.layout.domtoast, (ViewGroup) activity.findViewById(R.id.toast_layout));
-        ImageView myImage = (ImageView) myLayout.findViewById(R.id.img);
+        View myLayout = layoutInflater.inflate(R.layout.domtoast, activity.findViewById(R.id.toast_layout));
+        ImageView myImage = myLayout.findViewById(R.id.img);
         myImage.setImageResource(R.drawable.wand);
-        TextView myMessage = (TextView) myLayout.findViewById(R.id.text_to_display);
+        TextView myMessage = myLayout.findViewById(R.id.text_to_display);
         myMessage.setText(text);
         if (good) {
             UIUtils.setTextColor(myMessage, R.color.good_news, activity);

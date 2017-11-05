@@ -3,7 +3,6 @@ package dms.pastor.chinesegame.learning.dictionary;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -62,16 +61,12 @@ public final class DictionaryList extends ListActivity {
             dialog = new AlertDialog.Builder(this);
             dialog.setTitle(getResources().getString(R.string.word_info_title));
             dialog.setMessage(getWordAsString(word));
-            dialog.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
+            dialog.setPositiveButton(getResources().getString(R.string.ok), (di, arg) -> {
 
-                }
             });
-            dialog.setNeutralButton(getResources().getString(R.string.copy_to_clipboard), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
-                    clipboard.saveText(getApplicationContext(), word.getChineseCharacter());
-                    Toast.makeText(getApplicationContext(), "Saved to clipboard", Toast.LENGTH_SHORT).show();
-                }
+            dialog.setNeutralButton(getResources().getString(R.string.copy_to_clipboard), (di, arg) -> {
+                clipboard.saveText(getApplicationContext(), word.getChineseCharacter());
+                Toast.makeText(getApplicationContext(), "Saved to clipboard", Toast.LENGTH_SHORT).show();
             });
             dialog.show();
 
@@ -80,9 +75,7 @@ public final class DictionaryList extends ListActivity {
             dialog = new AlertDialog.Builder(this);
             dialog.setTitle(getString(R.string.e));
             dialog.setMessage(getString(R.string.e_dictionary_problem_msg2me) + position);
-            dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
-                }
+            dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> {
             });
             dialog.show();
         }
@@ -104,10 +97,8 @@ public final class DictionaryList extends ListActivity {
                 dialog.setTitle(getString(R.string.dictionary_stats));
                 DatabaseManager.getDbManager(getApplicationContext());
                 dialog.setMessage(DatabaseManager.getDbService().displayInfoAboutDB());
-                dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        //NONE
-                    }
+                dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> {
+                    //NONE
                 });
                 dialog.show();
                 return true;
@@ -115,10 +106,8 @@ public final class DictionaryList extends ListActivity {
                 dialog = new AlertDialog.Builder(this);
                 dialog.setTitle(getString(R.string.dictionary_stats));
                 dialog.setMessage(Dictionary.getDictionary().getWordsPerLevelStats());
-                dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        //NONE
-                    }
+                dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> {
+                    //NONE
                 });
                 dialog.show();
                 return true;

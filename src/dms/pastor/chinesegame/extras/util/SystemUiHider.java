@@ -9,10 +9,7 @@ public abstract class SystemUiHider {
     static final int FLAG_FULLSCREEN = 0x2;
     public static final int FLAG_HIDE_NAVIGATION = FLAG_FULLSCREEN | 0x4;
 
-    private static final OnVisibilityChangeListener DUMMY_LISTENER = new OnVisibilityChangeListener() {
-        @Override
-        public void onVisibilityChange(boolean visible) {
-        }
+    private static final OnVisibilityChangeListener DUMMY_LISTENER = visible -> {
     };
     final Activity mActivity;
     final View mAnchorView;

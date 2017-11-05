@@ -2,7 +2,6 @@ package dms.pastor.chinesegame.extras;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,10 +65,8 @@ public final class CultureInfoActivity extends ListActivity {
             dialog = new AlertDialog.Builder(this);
             dialog.setTitle(cultureInfoItem.getTitle());
             dialog.setMessage(wordBuilder.toString());
-            dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
+            dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> {
 
-                }
             });
             dialog.show();
 
@@ -78,11 +75,7 @@ public final class CultureInfoActivity extends ListActivity {
             dialog = new AlertDialog.Builder(this);
             dialog.setTitle(getString(R.string.e));
             dialog.setMessage(getString(R.string.e_dictionary_problem_msg2me) + position);
-            dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(final DialogInterface di, final int arg) {
-                    DomUtils.sorryToast(getApplicationContext());
-                }
-            });
+            dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> DomUtils.sorryToast(getApplicationContext()));
             dialog.show();
         }
     }

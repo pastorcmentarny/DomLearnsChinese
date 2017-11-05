@@ -7,7 +7,6 @@ import android.util.Log;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
@@ -846,12 +845,7 @@ public final class Statistic {
             }
         }
 
-        Collections.sort(wordMistakes, new Comparator<WordMistake>() {
-            @Override
-            public int compare(WordMistake first, WordMistake second) {
-                return Integer.valueOf(first.getCounter()).compareTo(second.getCounter());
-            }
-        });
+        Collections.sort(wordMistakes, (first, second) -> Integer.valueOf(first.getCounter()).compareTo(second.getCounter()));
         Collections.reverse(wordMistakes);
         return wordMistakes;
     }

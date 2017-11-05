@@ -57,11 +57,7 @@ public final class Options extends Activity implements View.OnClickListener, Ada
     private CheckBox sapperPinyin;
 
     // performs specific task on each interval of time
-    private final Runnable timerTicker = new Runnable() {
-        public void run() {
-            updateUI();
-        }
-    };
+    private final Runnable timerTicker = this::updateUI;
     private Timer myTimer;
 
     private void runTaskAfterTimeout() {
@@ -87,26 +83,26 @@ public final class Options extends Activity implements View.OnClickListener, Ada
         settings = getSharedPreferences("settings", Context.MODE_PRIVATE);
         highScore = HighScore.getHighScore();
         statistic = Statistic.getStatistic(this);
-        CheckBox fixAll = (CheckBox) findViewById(R.id.fixAll);
+        CheckBox fixAll = findViewById(R.id.fixAll);
         fixAll.setOnClickListener(this);
-        playSound = (CheckBox) findViewById(R.id.play_sound);
+        playSound = findViewById(R.id.play_sound);
         playSound.setOnClickListener(this);
-        vibrate = (CheckBox) findViewById(R.id.vibrate);
+        vibrate = findViewById(R.id.vibrate);
         vibrate.setOnClickListener(this);
-        Button changeNameButton = (Button) findViewById(R.id.changeNameButton);
+        Button changeNameButton = findViewById(R.id.changeNameButton);
         changeNameButton.setOnClickListener(this);
-        showIntro = (CheckBox) findViewById(R.id.showIntro);
+        showIntro = findViewById(R.id.showIntro);
         showIntro.setOnClickListener(this);
-        usernameValue = (TextView) findViewById(R.id.username_value);
+        usernameValue = findViewById(R.id.username_value);
         usernameValue.setOnClickListener(this);
-        sapperPinyin = (CheckBox) findViewById(R.id.sapper_pinyin);
+        sapperPinyin = findViewById(R.id.sapper_pinyin);
         sapperPinyin.setOnClickListener(this);
-        polishMode = (CheckBox) findViewById(R.id.polishMode);
+        polishMode = findViewById(R.id.polishMode);
         polishMode.setOnClickListener(this);
 
-        Button backup = (Button) findViewById(R.id.backup);
+        Button backup = findViewById(R.id.backup);
         backup.setOnClickListener(this);
-        Button restore = (Button) findViewById(R.id.restore);
+        Button restore = findViewById(R.id.restore);
         restore.setOnClickListener(this);
         loadAd();
         updateUI();
@@ -204,23 +200,17 @@ public final class Options extends Activity implements View.OnClickListener, Ada
 
     @NonNull
     private static DialogInterface.OnClickListener getCancelForFixAllOnClickListener() {
-        return new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface di, final int arg) {
-                Log.d(TAG, "User cancelled fix all");
-            }
-        };
+        return (di, arg) -> Log.d(TAG, "User cancelled fix all");
     }
 
     @NonNull
     private DialogInterface.OnClickListener getFixAllOnClickListener() {
-        return new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface di, final int arg) {
-                Result result = fixALL();
-                if (result.isSuccess()) {
-                    DomUtils.msg(getApplicationContext(), "Problem fixed.");
-                } else {
-                    DomUtils.msg(getApplicationContext(), result.getMessage());
-                }
+        return (di, arg) -> {
+            Result result = fixALL();
+            if (result.isSuccess()) {
+                DomUtils.msg(getApplicationContext(), "Problem fixed.");
+            } else {
+                DomUtils.msg(getApplicationContext(), result.getMessage());
             }
         };
     }
@@ -260,7 +250,7 @@ public final class Options extends Activity implements View.OnClickListener, Ada
     }
 
     private void loadAd() {
-        AdView adView = (AdView) this.findViewById(R.id.adView);
+        AdView adView = this.findViewById(R.id.adView);
         try {
             AdRequest adRequest = Utils.getAdRequest();
             adView.loadAd(adRequest);

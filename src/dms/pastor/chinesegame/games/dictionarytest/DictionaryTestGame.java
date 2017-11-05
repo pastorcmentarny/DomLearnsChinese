@@ -81,11 +81,7 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
     private TextView skippedValue;
     private DomTimer timer;
     private TextView currentScore;
-    private final Runnable timerTicker = new Runnable() {
-        public void run() {
-            updateUI();
-        }
-    };
+    private final Runnable timerTicker = this::updateUI;
     private TextView bonusScore;
 
     @Override

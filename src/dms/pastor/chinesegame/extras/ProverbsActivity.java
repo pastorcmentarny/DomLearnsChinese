@@ -3,7 +3,6 @@ package dms.pastor.chinesegame.extras;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,9 +84,7 @@ public final class ProverbsActivity extends ListActivity {
                 dialog = new AlertDialog.Builder(this);
                 dialog.setTitle(proverbsItem.getEnglish());
                 dialog.setMessage(wordBuilder.toString());
-                dialog.setNegativeButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                    }
+                dialog.setNegativeButton(getResources().getString(R.string.ok), (di, arg) -> {
                 });
                 dialog.show();
 
@@ -96,11 +93,7 @@ public final class ProverbsActivity extends ListActivity {
                 dialog = new AlertDialog.Builder(this);
                 dialog.setTitle(getString(R.string.e));
                 dialog.setMessage(getString(R.string.e_dictionary_problem_msg2me) + position);
-                dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        DomUtils.sorryToast(getApplicationContext());
-                    }
-                });
+                dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> DomUtils.sorryToast(getApplicationContext()));
                 dialog.show();
             }
         } catch (NotFoundException e) {

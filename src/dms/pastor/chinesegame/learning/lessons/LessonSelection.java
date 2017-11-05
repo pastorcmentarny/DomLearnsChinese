@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -50,12 +48,9 @@ public final class LessonSelection extends ListActivity {
 
         ListView listView = getListView();
         listView.setTextFilterEnabled(true);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                String selectedLesson = ((TextView) view).getText().toString();
-                setupATest(selectedLesson);
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedLesson = ((TextView) view).getText().toString();
+            setupATest(selectedLesson);
         });
     }
 

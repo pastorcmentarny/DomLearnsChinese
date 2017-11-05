@@ -46,11 +46,7 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
     private TextView notesTextView;
     private WordContainer wordContainer;
     private SharedPreferences settings;
-    private final Runnable timerTicker = new Runnable() {
-        public void run() {
-            nextWord();
-        }
-    };
+    private final Runnable timerTicker = this::nextWord;
     private Timer myTimer;
     private SystemUiHider mSystemUiHider;
     private final Runnable mHideRunnable = new Runnable() {
@@ -66,15 +62,15 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_random_word);
         final View contentView = findViewById(R.id.fullscreen_content);
-        chinese = (TextView) findViewById(R.id.character);
-        pinyin = (TextView) findViewById(R.id.pinyinTextView);
-        englishTextView = (TextView) findViewById(R.id.englishTextView);
-        polishTextView = (TextView) findViewById(R.id.polishTextView);
-        notesTextView = (TextView) findViewById(R.id.notesTextView);
-        sentenceTextView = (TextView) findViewById(R.id.sentenceTextView);
-        Button nextButton = (Button) findViewById(R.id.nextButton);
+        chinese = findViewById(R.id.character);
+        pinyin = findViewById(R.id.pinyinTextView);
+        englishTextView = findViewById(R.id.englishTextView);
+        polishTextView = findViewById(R.id.polishTextView);
+        notesTextView = findViewById(R.id.notesTextView);
+        sentenceTextView = findViewById(R.id.sentenceTextView);
+        Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(this);
-        Button copyButton = (Button) findViewById(R.id.copyButton);
+        Button copyButton = findViewById(R.id.copyButton);
         copyButton.setOnClickListener(this);
         wordContainer = WordContainer.getWordContainer();
         settings = getSharedPreferences("settings", Context.MODE_PRIVATE);
@@ -98,14 +94,11 @@ public final class RandomWordActivity extends Activity implements View.OnClickLi
                     }
                 });
 
-        contentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (TOGGLE_ON_CLICK) {
-                    mSystemUiHider.toggle();
-                } else {
-                    mSystemUiHider.show();
-                }
+        contentView.setOnClickListener(view -> {
+            if (TOGGLE_ON_CLICK) {
+                mSystemUiHider.toggle();
+            } else {
+                mSystemUiHider.show();
             }
         });
     }

@@ -36,7 +36,7 @@ public final class About extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
 
-        TextView aboutContent = (TextView) findViewById(R.id.about_content);
+        TextView aboutContent = findViewById(R.id.about_content);
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
@@ -94,31 +94,25 @@ public final class About extends Activity {
         alert.setView(input);
 
         alert.setPositiveButton("OK", getOkDialog(input));
-        alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                msg(getApplicationContext(), "good choice");
-            }
-        });
+        alert.setNegativeButton("CANCEL", (dialog, whichButton) -> msg(getApplicationContext(), "good choice"));
         alert.show();
     }
 
     @NonNull
     private DialogInterface.OnClickListener getOkDialog(final EditText input) {
-        return new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String cmd = input.getText().toString();
+        return (dialog, whichButton) -> {
+            String cmd = input.getText().toString();
 
-                if (isStringNotEmpty(cmd)) {
-                    if (cmd.equalsIgnoreCase("State")) {
-                        //DomUtils.msg(getApplicationContext(), "Nothing in test atm.");
-                        Intent ii = new Intent(getApplicationContext(), SentencePracticeIntro.class);
-                        startActivity(ii);
-                    } else {
-                        displayWandToast(getApplicationContext(), About.this, Utils.getInfoFor(getApplicationContext(), cmd), true, false);
-                    }
+            if (isStringNotEmpty(cmd)) {
+                if (cmd.equalsIgnoreCase("State")) {
+                    //DomUtils.msg(getApplicationContext(), "Nothing in test atm.");
+                    Intent ii = new Intent(getApplicationContext(), SentencePracticeIntro.class);
+                    startActivity(ii);
                 } else {
-                    msg(getApplicationContext(), "Entering into magical garlic-o-cheesecake world!");
+                    displayWandToast(getApplicationContext(), About.this, Utils.getInfoFor(getApplicationContext(), cmd), true, false);
                 }
+            } else {
+                msg(getApplicationContext(), "Entering into magical garlic-o-cheesecake world!");
             }
         };
     }

@@ -3,7 +3,6 @@ package dms.pastor.chinesegame.utils;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -11,13 +10,10 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION_CODES;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.InputFilter;
-import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -180,10 +176,10 @@ public final class UIUtils {
 
     public static void displayHalfHalfToast(Context context, Activity activity) {
         LayoutInflater layoutInflater = activity.getLayoutInflater();
-        View myLayout = layoutInflater.inflate(R.layout.domtoast, (ViewGroup) activity.findViewById(R.id.toast_layout));
-        ImageView myImage = (ImageView) myLayout.findViewById(R.id.img);
+        View myLayout = layoutInflater.inflate(R.layout.domtoast, activity.findViewById(R.id.toast_layout));
+        ImageView myImage = myLayout.findViewById(R.id.img);
         myImage.setImageResource(R.drawable.half);
-        TextView myMessage = (TextView) myLayout.findViewById(R.id.text_to_display);
+        TextView myMessage = myLayout.findViewById(R.id.text_to_display);
         myMessage.setText(context.getString(R.string.halfHalfToGuess));
         showToast(context, myLayout);
     }
@@ -220,39 +216,29 @@ public final class UIUtils {
 
     @NonNull
     private static OnClickListener getPositiveButtonOnClickListener(final Context context, final EditText input) {
-        return new OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String username = input.getText().toString();
-                if (!DomUtils.isStringEmpty(username)) {
-                    saveUserName(username, context);
-                }
-
+        return (dialog, whichButton) -> {
+            String username = input.getText().toString();
+            if (!DomUtils.isStringEmpty(username)) {
+                saveUserName(username, context);
             }
+
         };
     }
 
     @NonNull
     private static OnClickListener getNegativeButtonOnClickListener() {
-        return new OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                Log.i("usernameDialog", "Username not set.");
-            }
-        };
+        return (dialog, whichButton) -> Log.i("usernameDialog", "Username not set.");
     }
 
     @NonNull
     private static InputFilter getInputFilter() {
-        return new InputFilter() {
-            @Nullable
-            public CharSequence filter(CharSequence source, int start, int end,
-                                       Spanned dest, int destinationStart, int destinationEnd) {
-                for (int i = start; i < end; i++) {
-                    if (!Character.isLetterOrDigit(source.charAt(i)) && !Character.isSpaceChar(source.charAt(i))) {
-                        return EMPTY_STRING;
-                    }
+        return (source, start, end, dest, destinationStart, destinationEnd) -> {
+            for (int i = start; i < end; i++) {
+                if (!Character.isLetterOrDigit(source.charAt(i)) && !Character.isSpaceChar(source.charAt(i))) {
+                    return EMPTY_STRING;
                 }
-                return null;    //It is null ,otherwise it will not work..
             }
+            return null;    //It is null ,otherwise it will not work..
         };
     }
 
@@ -271,7 +257,7 @@ public final class UIUtils {
     }
 
     public static void loadAd(Activity activity, Context context) {
-        AdView adView = (AdView) activity.findViewById(R.id.adView);
+        AdView adView = activity.findViewById(R.id.adView);
         try {
             AdRequest adRequest = getAdRequest();
             adView.loadAd(adRequest);

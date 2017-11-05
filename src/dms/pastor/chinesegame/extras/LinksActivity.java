@@ -2,7 +2,6 @@ package dms.pastor.chinesegame.extras;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -65,16 +64,12 @@ public final class LinksActivity extends ListActivity {
                 dialog = new AlertDialog.Builder(this);
                 dialog.setTitle(linkItem.getTitle());
                 dialog.setMessage(wordBuilder.toString());
-                dialog.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                    }
+                dialog.setNegativeButton(getResources().getString(R.string.cancel), (di, arg) -> {
                 });
-                dialog.setNeutralButton(getResources().getString(R.string.go2www), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        Intent browserIntent =
-                                new Intent(Intent.ACTION_VIEW, Uri.parse(linkItem.getWww()));
-                        startActivity(browserIntent);
-                    }
+                dialog.setNeutralButton(getResources().getString(R.string.go2www), (di, arg) -> {
+                    Intent browserIntent =
+                            new Intent(Intent.ACTION_VIEW, Uri.parse(linkItem.getWww()));
+                    startActivity(browserIntent);
                 });
                 dialog.show();
 
@@ -83,11 +78,7 @@ public final class LinksActivity extends ListActivity {
                 dialog = new AlertDialog.Builder(this);
                 dialog.setTitle(getString(R.string.e));
                 dialog.setMessage(getString(R.string.e_dictionary_problem_msg2me) + position);
-                dialog.setNeutralButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface di, final int arg) {
-                        DomUtils.sorryToast(getApplicationContext());
-                    }
-                });
+                dialog.setNeutralButton(getResources().getString(R.string.ok), (di, arg) -> DomUtils.sorryToast(getApplicationContext()));
                 dialog.show();
             }
         } catch (NotFoundException e) {

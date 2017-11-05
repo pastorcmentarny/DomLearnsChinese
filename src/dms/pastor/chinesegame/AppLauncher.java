@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -239,56 +238,43 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         AlertDialog.Builder alertBox = new AlertDialog.Builder(this);
         alertBox.setTitle(getResources().getString(R.string.rateMe_title));
         alertBox.setMessage(getResources().getString(R.string.rateMe_about));
-        alertBox.setPositiveButton(getString(R.string.rate_it), new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface di, final int arg) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_NAME)));
-            }
-        });
-        alertBox.setNeutralButton(getString(R.string.send_email), new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface di, final int arg) {
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto", Config.MY_EMAIL, null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for " + APP_NAME);
-                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+        alertBox.setPositiveButton(getString(R.string.rate_it), (di, arg) -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_NAME))));
+        alertBox.setNeutralButton(getString(R.string.send_email), (di, arg) -> {
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto", Config.MY_EMAIL, null));
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for " + APP_NAME);
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
 
-            }
         });
-        alertBox.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface di, final int arg) {
-                DomUtils.msg(getApplicationContext(), "Thank you anyway");
-            }
-        });
+        alertBox.setNegativeButton(getString(R.string.cancel), (di, arg) -> DomUtils.msg(getApplicationContext(), "Thank you anyway"));
         alertBox.show();
     }
 
     private void openHighScoreSelectionDialog() {
 
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.highscore_button_title).setItems(R.array.hs, new DialogInterface.OnClickListener() {
-            @SuppressWarnings("VariableNotUsedInsideIf")
-            public void onClick(final DialogInterface dialoginterface, final int i) {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.highscore_button_title).setItems(R.array.hs, (dialoginterface, i) -> {
 
-                switch (i) {
-                    case 0:
-                        if (highScore != null) {
-                            Intent ii = new Intent(getApplicationContext(), HighScoreList.class);
-                            ii.putExtra("HS", "ADVENTURE");
-                            startActivity(ii);
-                        } else {
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
-                        }
-                        break;
-                    case 1:
-                        if (highScore != null) {
-                            Intent ii = new Intent(getApplicationContext(), HighScoreList.class);
-                            ii.putExtra("HS", "SAPPER");
-                            startActivity(ii);
-                        } else {
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
-                        }
-                        break;
-                    default:
-                        Log.w(TAG, getString(R.string.w_unknown_selection) + "openLearningDialog(" + i + ").");
-                }
+            switch (i) {
+                case 0:
+                    if (highScore != null) {
+                        Intent ii = new Intent(getApplicationContext(), HighScoreList.class);
+                        ii.putExtra("HS", "ADVENTURE");
+                        startActivity(ii);
+                    } else {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                case 1:
+                    if (highScore != null) {
+                        Intent ii = new Intent(getApplicationContext(), HighScoreList.class);
+                        ii.putExtra("HS", "SAPPER");
+                        startActivity(ii);
+                    } else {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                default:
+                    Log.w(TAG, getString(R.string.w_unknown_selection) + "openLearningDialog(" + i + ").");
             }
         }).show();
     }
@@ -310,18 +296,16 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     }
 
     private void newGameDialog() {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.new_game_title).setItems(R.array.newGame, new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface dialoginterface, final int i) {
-                switch (i) {
-                    case 0:
-                        startAdventureGame();
-                        break;
-                    case 1:
-                        startSaperGame();
-                        break;
-                    default:
-                        Log.w(TAG, getString(R.string.w_unknown_selection) + "newGameDialog(" + i + ").");
-                }
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.new_game_title).setItems(R.array.newGame, (dialoginterface, i) -> {
+            switch (i) {
+                case 0:
+                    startAdventureGame();
+                    break;
+                case 1:
+                    startSaperGame();
+                    break;
+                default:
+                    Log.w(TAG, getString(R.string.w_unknown_selection) + "newGameDialog(" + i + ").");
             }
         }).show();
     }
@@ -365,76 +349,72 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     }
 
     private void openExtrasDialog() {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.extras_title).setItems(R.array.extras, new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface dialoginterface, final int i) {
-                Intent ii;
-                switch (i) {
-                    case 0:
-                        ii = new Intent(getApplicationContext(), ToDo4Go.class);
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.extras_title).setItems(R.array.extras, (dialoginterface, i) -> {
+            Intent ii;
+            switch (i) {
+                case 0:
+                    ii = new Intent(getApplicationContext(), ToDo4Go.class);
+                    startActivity(ii);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                    break;
+                case 1:
+                    ii = new Intent(getApplicationContext(), UsefulContactDetails.class);
+                    startActivity(ii);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                    break;
+                case 2:
+                    ii = new Intent(getApplicationContext(), CultureInfoActivity.class);
+                    startActivity(ii);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                    break;
+                case 3:
+                    ii = new Intent(getApplicationContext(), LinksActivity.class);
+                    startActivity(ii);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                    break;
+                case 4:
+                    if (statistic != null) {
+                        ii = new Intent(getApplicationContext(), WordMistakesCounterView.class);
                         startActivity(ii);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-                        break;
-                    case 1:
-                        ii = new Intent(getApplicationContext(), UsefulContactDetails.class);
-                        startActivity(ii);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-                        break;
-                    case 2:
-                        ii = new Intent(getApplicationContext(), CultureInfoActivity.class);
-                        startActivity(ii);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-                        break;
-                    case 3:
-                        ii = new Intent(getApplicationContext(), LinksActivity.class);
-                        startActivity(ii);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-                        break;
-                    case 4:
-                        if (statistic != null) {
-                            ii = new Intent(getApplicationContext(), WordMistakesCounterView.class);
-                            startActivity(ii);
-                        } else {
-                            Toast.makeText(getApplicationContext(), "You can't see list of words that you didn't guess due problem with Statistics.Sorry", Toast.LENGTH_LONG).show();
-                        }
-                        break;
-                    case 5:
-                        ii = new Intent(getApplicationContext(), RandomWordActivity.class);
-                        startActivity(ii);
-                        break;
-                    default:
-                        DomUtils.msg(getApplicationContext(), "Work in progress");
-                        Log.w(TAG, getString(R.string.w_unknown_selection) + "openExtrasDialog(" + i + ").");
-                        break;
-                }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "You can't see list of words that you didn't guess due problem with Statistics.Sorry", Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                case 5:
+                    ii = new Intent(getApplicationContext(), RandomWordActivity.class);
+                    startActivity(ii);
+                    break;
+                default:
+                    DomUtils.msg(getApplicationContext(), "Work in progress");
+                    Log.w(TAG, getString(R.string.w_unknown_selection) + "openExtrasDialog(" + i + ").");
+                    break;
             }
         }).show();
     }
 
     private void openAboutDialog(final Context context) {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.about_title).setItems(R.array.runAbout, new DialogInterface.OnClickListener() {
-            public void onClick(final DialogInterface dialoginterface, final int i) {
-                Intent ii = new Intent(context, About.class);
-                switch (i) {
-                    case 0:
-                        ii.putExtra(TOPIC, "ME");
-                        startActivity(ii);
-                        break;
-                    case 1:
-                        ii.putExtra(TOPIC, "PROGRAM");
-                        startActivity(ii);
-                        break;
-                    case 2:
-                        ii.putExtra(TOPIC, "THANKS");
-                        startActivity(ii);
-                        break;
-                    case 3:
-                        ii.putExtra(TOPIC, "EULA");
-                        startActivity(ii);
-                        break;
-                    default:
-                        Log.w(TAG, getString(R.string.w_unknown_selection) + "openAboutDialog(" + i + ").");
-                        break;
-                }
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.about_title).setItems(R.array.runAbout, (dialoginterface, i) -> {
+            Intent ii = new Intent(context, About.class);
+            switch (i) {
+                case 0:
+                    ii.putExtra(TOPIC, "ME");
+                    startActivity(ii);
+                    break;
+                case 1:
+                    ii.putExtra(TOPIC, "PROGRAM");
+                    startActivity(ii);
+                    break;
+                case 2:
+                    ii.putExtra(TOPIC, "THANKS");
+                    startActivity(ii);
+                    break;
+                case 3:
+                    ii.putExtra(TOPIC, "EULA");
+                    startActivity(ii);
+                    break;
+                default:
+                    Log.w(TAG, getString(R.string.w_unknown_selection) + "openAboutDialog(" + i + ").");
+                    break;
             }
         }).show();
     }

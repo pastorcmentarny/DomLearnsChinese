@@ -213,12 +213,7 @@ public final class DatabaseService extends SQLiteOpenHelper {
         if (dir != null) {
             final String prefix = file.getName() + "-mj";
             try {
-                final FileFilter filter = new FileFilter() {
-                    @Override
-                    public boolean accept(File candidate) {
-                        return candidate.getName().startsWith(prefix);
-                    }
-                };
+                final FileFilter filter = candidate -> candidate.getName().startsWith(prefix);
                 for (File masterJournal : dir.listFiles(filter)) {
                     deleted |= masterJournal.delete();
                     Log.w(TAG, deleted ? "DB masterJournal file deleted." : "Unable to delete DB masterJournal file");

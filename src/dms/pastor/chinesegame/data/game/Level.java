@@ -34,11 +34,7 @@ import static dms.pastor.chinesegame.data.game.Player.getPlayer;
  */
 public abstract class Level extends Activity {
 
-    private final Runnable timerTicker = new Runnable() {
-        public void run() {
-            updateUI();
-        }
-    };
+    private final Runnable timerTicker = this::updateUI;
     private final Player player = getPlayer();
     protected Timer myTimer;
     protected TextView highScoreTextView;
