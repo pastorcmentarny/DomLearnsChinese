@@ -892,7 +892,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         setEnabled(true);
         levelMain.setBackgroundColor(Color.BLACK);
         tap2unfreeze.setVisibility(View.GONE);
-        UIUtils.setBackground(removeBadAnswerButton, Utils.getDrawable(this, R.drawable.spell_button));
+        removeBadAnswerButton.setBackground(Utils.getDrawable(this, R.drawable.spell_button));
         status.setText(getString(R.string.msg_defrost));
         setTextColor(status, R.color.status, this);
         player.addBonus(wallHPTotal);

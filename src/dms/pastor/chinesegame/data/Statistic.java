@@ -442,8 +442,8 @@ public final class Statistic {
         try {
             byte[] decryptedData = CryptoUtils.decrypt(Config.getKeyAsBytes(), loaded);
             String[] lines = new String(decryptedData).split("\n");
-            for (String line : lines) {
-                if (!get(line)) {
+            for (String decryptedLine : lines) {
+                if (!get(decryptedLine)) {
                     return false;
                 }
             }

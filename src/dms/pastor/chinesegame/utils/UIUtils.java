@@ -7,7 +7,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION_CODES;
 import android.support.annotation.NonNull;
 import android.text.InputFilter;
@@ -76,28 +75,16 @@ public final class UIUtils {
     public static void setUsed(Context context, Button button) {
         button.setEnabled(false);
         button.setTextColor(Color.DKGRAY);
-        if (SDK_INT >= 16) {
-            button.setBackground(context.getResources().getDrawable(R.drawable.spell_button));
-        } else {
-            button.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.spell_used_button));
-        }
+        button.setBackground(context.getResources().getDrawable(R.drawable.spell_button));
     }
 
     @SuppressWarnings("deprecation")
     public static void setButtonEnabled(Context context, Button button, boolean enabled) {
         button.setEnabled(enabled);
-        if (SDK_INT >= 16) {
-            if (enabled) {
-                button.setBackground(context.getResources().getDrawable(R.drawable.spell_button));
-            } else {
-                button.setBackground(context.getResources().getDrawable(R.drawable.spell_disabled_button));
-            }
+        if (enabled) {
+            button.setBackground(context.getResources().getDrawable(R.drawable.spell_button));
         } else {
-            if (enabled) {
-                button.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.spell_button));
-            } else {
-                button.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.spell_disabled_button));
-            }
+            button.setBackground(context.getResources().getDrawable(R.drawable.spell_disabled_button));
         }
     }
 
@@ -138,7 +125,7 @@ public final class UIUtils {
         button.startAnimation(animWrong);
         button.setEnabled(true);
         button.setText(context.getString(R.string.unfreeze));
-        UIUtils.setBackground(button, Utils.getDrawable(context, R.drawable.unfreeze_button));
+        button.setBackground(Utils.getDrawable(context, R.drawable.unfreeze_button));
     }
 
     public static void setFrozen(Context context, Button button, Activity activity) {
@@ -151,15 +138,6 @@ public final class UIUtils {
     public static void setInvisibleButton(Activity activity, Button button) {
         UIUtils.setTextColor(button, R.color.transparent, activity);
         UIUtils.setBackgroundColor(button, R.color.transparent, activity);
-    }
-
-    @SuppressWarnings("deprecation")
-    public static void setBackground(Button button, Drawable background) {
-        if (SDK_INT >= 16) {
-            button.setBackground(background);
-        } else {
-            button.setBackgroundDrawable(background);
-        }
     }
 
     public static void setAllToDefault(Activity activity, Button answer1Button, Button answer2Button, Button answer3Button, Button answer4Button) {

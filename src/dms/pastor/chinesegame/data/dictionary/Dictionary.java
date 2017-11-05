@@ -204,7 +204,7 @@ public final class Dictionary {
         return result;
     }
 
-    private void addWordsFromRequestedCategories(String[] requestedCategories, ArrayList<Word> result, Word word, String wordCategories) {
+    private static void addWordsFromRequestedCategories(String[] requestedCategories, ArrayList<Word> result, Word word, String wordCategories) {
         for (String category : requestedCategories) {
             if (category.equalsIgnoreCase(wordCategories)) {
                 result.add(word);

@@ -405,8 +405,11 @@
     </style>
 
     <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@null</item>
+        @style/FullscreenActionBarStyle
+        true
+        @null
+        ?android:attr/buttonBarStyle
+        ?android:attr/buttonBarButtonStyle
         <item name="metaButtonBarStyle">@style/ButtonBar</item>
         <item name="metaButtonBarButtonStyle">@style/ButtonBar</item>
     </style>
