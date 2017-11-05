@@ -36,6 +36,11 @@ public final class ChatSelection extends ListActivity {
     private static final String TAG = "CHAT SELECTION";
     private DatabaseManager dbManager;
 
+    private static void setupPlayer(Chat chat) {
+        Player player = Player.getPlayer();
+        player.setCurrentChat(chat);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "creating..");
@@ -81,11 +86,6 @@ public final class ChatSelection extends ListActivity {
 
     private boolean databaseIsNotNull() {
         return dbManager != null && getDbService() != null;
-    }
-
-    private static void setupPlayer(Chat chat) {
-        Player player = Player.getPlayer();
-        player.setCurrentChat(chat);
     }
 
     private void error(String message) {

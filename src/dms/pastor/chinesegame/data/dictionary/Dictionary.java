@@ -58,6 +58,29 @@ public final class Dictionary {
         return dictionary;
     }
 
+    private static String getLine(String line) {
+        return line != null ? "[" + line + "]" : "line is empty.";
+    }
+
+    private static String lvl(int level) {
+        return format(ENGLISH, "Lvl %d: ", level);
+    }
+
+    private static String getPercentageOfAllWordsAsString(double words) {
+        double value = (words * 100 / dictionary.getWordsList().size());
+        DecimalFormat df = new DecimalFormat("##.##");
+        value = Double.valueOf(df.format(value));
+        return format(ENGLISH, "%s%%", valueOf(value));
+    }
+
+    private static void closeReaderQuietly(Reader reader) {
+        try {
+            reader.close();
+        } catch (IOException e) {
+            Log.w(TAG, "Unable to close  due " + e.getMessage(), e);
+        }
+    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
@@ -156,11 +179,6 @@ public final class Dictionary {
             nr++;
         }
         return nr;
-    }
-
-
-    private static String getLine(String line) {
-        return line != null ? "[" + line + "]" : "line is empty.";
     }
 
     public Word getWordFromDictionary(int id) {
@@ -297,17 +315,6 @@ public final class Dictionary {
         return sb.toString();
     }
 
-    private static String lvl(int level) {
-        return format(ENGLISH, "Lvl %d: ", level);
-    }
-
-    private static String getPercentageOfAllWordsAsString(double words) {
-        double value = (words * 100 / dictionary.getWordsList().size());
-        DecimalFormat df = new DecimalFormat("##.##");
-        value = Double.valueOf(df.format(value));
-        return format(ENGLISH, "%s%%", valueOf(value));
-    }
-
     public int getAllDictionarySize() {
         return wordsList.size();
     }
@@ -334,14 +341,6 @@ public final class Dictionary {
             if (word.getDifficulty() <= level && word.getDifficulty() > difficulty) {
                 result.add(word);
             }
-        }
-    }
-
-    private static void closeReaderQuietly(Reader reader) {
-        try {
-            reader.close();
-        } catch (IOException e) {
-            Log.w(TAG, "Unable to close  due " + e.getMessage(), e);
         }
     }
 

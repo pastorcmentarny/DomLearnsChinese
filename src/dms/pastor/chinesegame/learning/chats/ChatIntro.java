@@ -32,7 +32,7 @@ public final class ChatIntro extends Activity implements View.OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.chat_intro);
-        Button chatSelectionButton = (Button) findViewById(R.id.lesson_selection_button);
+        Button chatSelectionButton = findViewById(R.id.lesson_selection_button);
         chatSelectionButton.setOnClickListener(this);
         displayAd();
 
@@ -54,7 +54,7 @@ public final class ChatIntro extends Activity implements View.OnClickListener {
     }
 
     private void displayAd() {
-        AdView adView = (AdView) this.findViewById(R.id.adView);
+        AdView adView = this.findViewById(R.id.adView);
         try {
             com.google.android.gms.ads.AdRequest adRequest = Utils.getAdRequest();
             adView.loadAd(adRequest);

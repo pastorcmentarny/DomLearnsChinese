@@ -33,8 +33,8 @@ public final class Player {
     private static final String TAG = "PLAYER";
     private static Player player;
     private final Context context;
-    private Game game;
     public MiniLessons miniLessons = null;
+    private Game game;
     private String dbErrorMessage = EMPTY_STRING;
     private boolean poisoned = false;
     private boolean hpRegeneration = false;

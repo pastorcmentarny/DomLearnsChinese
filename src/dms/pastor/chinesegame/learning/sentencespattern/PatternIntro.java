@@ -29,7 +29,7 @@ public final class PatternIntro extends Activity implements View.OnClickListener
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.pattern_intro);
-        Button lessonSelectionButton = (Button) findViewById(R.id.lesson_selection_button);
+        Button lessonSelectionButton = findViewById(R.id.lesson_selection_button);
         lessonSelectionButton.setOnClickListener(this);
         UIUtils.loadAd(this, this);
     }

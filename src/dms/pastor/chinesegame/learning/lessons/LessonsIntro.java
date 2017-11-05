@@ -29,7 +29,7 @@ public final class LessonsIntro extends Activity implements View.OnClickListener
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.lesson_intro);
 
-        Button lessonSelectionButton = (Button) findViewById(R.id.lesson_selection_button);
+        Button lessonSelectionButton = findViewById(R.id.lesson_selection_button);
         lessonSelectionButton.setOnClickListener(this);
     }
 

@@ -97,6 +97,9 @@ public final class Config {
     //STRING (Experimental)
     public static final String EMPTY_STRING = "";
     public static final String NEW_LINE = "\n";
+    public static final String IGNORED_WORD = "////";
+    public static final String COLUMN_SEPERATOR = ";;";
+    public static final String GROUP_SEPERATOR = "~~";
     static final String APP_NAME = "dms.pastor.chinesegame";
     static final String MY_EMAIL = "dmspastor@gmail.com";
     private static final long HSK_BASIC_BONUS_TIME_UNIT = 30 * SECONDS;
@@ -105,9 +108,6 @@ public final class Config {
     private static final String TAG = TAG_PREFIX + " Config";
     private static final int JACKPOT_BONUS = 1000;
     private static final int MAX_PENALTY = 20;
-    public static final String IGNORED_WORD = "////";
-    public static final String COLUMN_SEPERATOR = ";;";
-    public static final String GROUP_SEPERATOR = "~~";
 
     private Config() {
     }

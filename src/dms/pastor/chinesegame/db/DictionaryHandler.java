@@ -29,6 +29,12 @@ public class DictionaryHandler extends Handler {
         this.appLauncher = appLauncher;
     }
 
+    private static void interruptThreadIfDictionaryLoaderIsNotNull(Thread dictionaryLoaderThread) {
+        if (dictionaryLoaderThread != null) {
+            dictionaryLoaderThread.interrupt();
+        }
+    }
+
     @SuppressWarnings("VariableNotUsedInsideIf")
     @Override
     public final void handleMessage(Message msg) {
@@ -49,12 +55,6 @@ public class DictionaryHandler extends Handler {
         ProgressDialog progressDialog = appLauncher.getProgressDialog();
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
-        }
-    }
-
-    private static void interruptThreadIfDictionaryLoaderIsNotNull(Thread dictionaryLoaderThread) {
-        if (dictionaryLoaderThread != null) {
-            dictionaryLoaderThread.interrupt();
         }
     }
 

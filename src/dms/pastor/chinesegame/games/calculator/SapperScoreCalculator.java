@@ -21,6 +21,11 @@ import static dms.pastor.chinesegame.Config.calcDictionarySizeBonus;
 public final class SapperScoreCalculator implements Calculator {
     private static final int NEGATIVE = -1;
 
+    //TODO move to Config
+    private static int getPlainBonus(Game game) {
+        return (int) ((DEFAULT_BONUS_POINTS + calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
+    }
+
     public int calculate(Game game, long totalTime) {
 
         int finalBonus = getPlainBonus(game);
@@ -42,11 +47,6 @@ public final class SapperScoreCalculator implements Calculator {
             finalBonus = NEGATIVE * game.getLevel();
         }
         return finalBonus;
-    }
-
-    //TODO move to Config
-    private static int getPlainBonus(Game game) {
-        return (int) ((DEFAULT_BONUS_POINTS + calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
     }
 
 }

@@ -17,6 +17,11 @@ import static dms.pastor.chinesegame.Config.DEFAULT_BONUS_POINTS;
  */
 public final class SurvivalScoreCalculator implements Calculator {
 
+    //TODO move to Config
+    private static int getPlainBonus(Game game) {
+        return DEFAULT_BONUS_POINTS + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
+    }
+
     public int calculate(Game game, long totalTime) {
         int finalBonus = getPlainBonus(game);
         double maxTimeForAnyBonus = 6 * Config.SECONDS;
@@ -37,11 +42,6 @@ public final class SurvivalScoreCalculator implements Calculator {
             return (-1) * (painPoints.intValue());
         }
 
-    }
-
-    //TODO move to Config
-    private static int getPlainBonus(Game game) {
-        return DEFAULT_BONUS_POINTS + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
     }
 
 }

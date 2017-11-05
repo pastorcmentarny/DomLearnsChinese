@@ -39,6 +39,15 @@ public final class PatternLesson extends Activity implements View.OnClickListene
     private TextView sentence1text, sentence2text, sentence3text, sentence4text, sentence5text;
     private TableRow sentence1row, sentence2row, sentence3row, sentence4row, sentence5row;
 
+    private static void setExample(String example, TableRow sentenceRow, TextView sentenceText) {
+        if (!example.equalsIgnoreCase("none")) {
+            sentenceRow.setVisibility(View.VISIBLE);
+            sentenceText.setText(example);
+        } else {
+            sentenceRow.setVisibility(View.GONE);
+        }
+    }
+
     @SuppressLint("CutPasteId")
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,22 +55,22 @@ public final class PatternLesson extends Activity implements View.OnClickListene
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.pattern);
-        sentenceTable = (TableLayout) findViewById(R.id.sentence_table);
-        patternContent = (TextView) findViewById(R.id.pattern_content);
+        sentenceTable = findViewById(R.id.sentence_table);
+        patternContent = findViewById(R.id.pattern_content);
 
-        lessonTitle = (TextView) findViewById(R.id.pattern_title);
-        lessonContent = (TextView) findViewById(R.id.pattern_content);
-        sentence1row = (TableRow) findViewById(R.id.sentence1row);
-        sentence2row = (TableRow) findViewById(R.id.sentence2row);
-        sentence3row = (TableRow) findViewById(R.id.sentence3row);
-        sentence4row = (TableRow) findViewById(R.id.sentence4row);
-        sentence5row = (TableRow) findViewById(R.id.sentence5row);
-        sentence1text = (TextView) findViewById(R.id.sentence1text);
-        sentence2text = (TextView) findViewById(R.id.sentence2text);
-        sentence3text = (TextView) findViewById(R.id.sentence3text);
-        sentence4text = (TextView) findViewById(R.id.sentence4text);
-        sentence5text = (TextView) findViewById(R.id.sentence5text);
-        patternSwitch = (ToggleButton) findViewById(R.id.pattern_switch);
+        lessonTitle = findViewById(R.id.pattern_title);
+        lessonContent = findViewById(R.id.pattern_content);
+        sentence1row = findViewById(R.id.sentence1row);
+        sentence2row = findViewById(R.id.sentence2row);
+        sentence3row = findViewById(R.id.sentence3row);
+        sentence4row = findViewById(R.id.sentence4row);
+        sentence5row = findViewById(R.id.sentence5row);
+        sentence1text = findViewById(R.id.sentence1text);
+        sentence2text = findViewById(R.id.sentence2text);
+        sentence3text = findViewById(R.id.sentence3text);
+        sentence4text = findViewById(R.id.sentence4text);
+        sentence5text = findViewById(R.id.sentence5text);
+        patternSwitch = findViewById(R.id.pattern_switch);
         patternSwitch.setOnClickListener(this);
 
         Player player = Player.getPlayer();
@@ -99,15 +108,6 @@ public final class PatternLesson extends Activity implements View.OnClickListene
         setExample(selectedPattern.getExample3(), sentence3row, sentence3text);
         setExample(selectedPattern.getExample4(), sentence4row, sentence4text);
         setExample(selectedPattern.getExample5(), sentence5row, sentence5text);
-    }
-
-    private static void setExample(String example, TableRow sentenceRow, TextView sentenceText) {
-        if (!example.equalsIgnoreCase("none")) {
-            sentenceRow.setVisibility(View.VISIBLE);
-            sentenceText.setText(example);
-        } else {
-            sentenceRow.setVisibility(View.GONE);
-        }
     }
 
 

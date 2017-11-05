@@ -44,9 +44,9 @@ public final class WordFinder extends Activity implements View.OnClickListener {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.word_finder);
 
-        searchField = (EditText) findViewById(R.id.searchField);
-        listView = (ListView) findViewById(R.id.resultView);
-        Button findButton = (Button) findViewById(R.id.findButton);
+        searchField = findViewById(R.id.searchField);
+        listView = findViewById(R.id.resultView);
+        Button findButton = findViewById(R.id.findButton);
         findButton.setOnClickListener(this);
     }
 

@@ -161,6 +161,17 @@ public final class HighScore {
         cis.close();
     }
 
+    private static Score addScore(String[] data) {
+        int five, six;
+        long dateStamp;
+        five = parseIntNullSafe(data[5], 0);
+        six = parseIntNullSafe(data[6], 0);
+        dateStamp = parseLongNullSafe(data[7], 0);
+        String difficulty = getUnknownWhenNullString(data[8]);
+        parseIntNullSafe(data[6], 0);
+        return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp, difficulty);
+    }
+
     @SuppressWarnings("CloneDoesntCallSuperClone")
     @Override
     public Object clone() throws CloneNotSupportedException {
@@ -176,7 +187,6 @@ public final class HighScore {
         loadHighScoreFor(Config.HIGH_SCORE_SAPPER_FILE_PATH, GameType.SAPPER);
 
     }
-
 
     private void loadHighScoreFor(String filePath, GameType gameType) {
         Log.i(TAG, "Loading high-scores for file " + filePath);
@@ -265,17 +275,6 @@ public final class HighScore {
                 return;
         }
         status = new Result(true, "High scores loaded");
-    }
-
-    private static Score addScore(String[] data) {
-        int five, six;
-        long dateStamp;
-        five = parseIntNullSafe(data[5], 0);
-        six = parseIntNullSafe(data[6], 0);
-        dateStamp = parseLongNullSafe(data[7], 0);
-        String difficulty = getUnknownWhenNullString(data[8]);
-        parseIntNullSafe(data[6], 0);
-        return new Score(data[1], parseInt(data[2]), parseInt(data[3]), data[4], five, six, dateStamp, difficulty);
     }
 
     private boolean isFileExist(String filePath) {

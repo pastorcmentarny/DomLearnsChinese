@@ -60,6 +60,11 @@ public final class Options extends Activity implements View.OnClickListener, Ada
     private final Runnable timerTicker = this::updateUI;
     private Timer myTimer;
 
+    @NonNull
+    private static DialogInterface.OnClickListener getCancelForFixAllOnClickListener() {
+        return (di, arg) -> Log.d(TAG, "User cancelled fix all");
+    }
+
     private void runTaskAfterTimeout() {
         myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
@@ -196,11 +201,6 @@ public final class Options extends Activity implements View.OnClickListener, Ada
         dialog.setPositiveButton("Fix All", getFixAllOnClickListener());
         dialog.setNegativeButton(getResources().getString(R.string.cancel), getCancelForFixAllOnClickListener());
         dialog.show();
-    }
-
-    @NonNull
-    private static DialogInterface.OnClickListener getCancelForFixAllOnClickListener() {
-        return (di, arg) -> Log.d(TAG, "User cancelled fix all");
     }
 
     @NonNull

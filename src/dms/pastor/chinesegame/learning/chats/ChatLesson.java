@@ -131,16 +131,16 @@ public final class ChatLesson extends Activity implements View.OnClickListener {
     }
 
     private void setupViewForActivity() {
-        lessonTitle = (TextView) findViewById(R.id.chat_title);
-        lessonContent = (TextView) findViewById(R.id.chat_content);
+        lessonTitle = findViewById(R.id.chat_title);
+        lessonContent = findViewById(R.id.chat_content);
 
-        sentenceListView = (ListView) findViewById(R.id.sentencesListView);
-        wordListView = (ListView) findViewById(R.id.wordsListView);
+        sentenceListView = findViewById(R.id.sentencesListView);
+        wordListView = findViewById(R.id.wordsListView);
 
-        sentenceSwitch = (ToggleButton) findViewById(R.id.sentence_switch);
+        sentenceSwitch = findViewById(R.id.sentence_switch);
         sentenceSwitch.setOnClickListener(this);
 
-        wordSwitch = (ToggleButton) findViewById(R.id.word_switch);
+        wordSwitch = findViewById(R.id.word_switch);
         wordSwitch.setOnClickListener(this);
     }
 }
