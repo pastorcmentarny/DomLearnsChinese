@@ -99,7 +99,7 @@ public final class LearningMenu extends Activity implements View.OnClickListener
     }
 
     private void testsDialog() {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.learning_title).setItems(R.array.test_dialog, (dialoginterface, i) -> {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.learning_title).setItems(R.array.test_dialog, (dialogInterface, i) -> {
             Intent ii;
             switch (i) {
                 case 2:
@@ -133,7 +133,7 @@ public final class LearningMenu extends Activity implements View.OnClickListener
     }
 
     private void lessonsDialog() {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.learning_title).setItems(R.array.lesson_dialog, (dialoginterface, i) -> {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.learning_title).setItems(R.array.lesson_dialog, (dialogInterface, i) -> {
             Intent ii;
             switch (i) {
                 case 0:
@@ -158,7 +158,7 @@ public final class LearningMenu extends Activity implements View.OnClickListener
     }
 
     private void openDictionaryDialog() {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.dictionary_type).setItems(R.array.dict_type, (dialoginterface, i) -> {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.dictionary_type).setItems(R.array.dict_type, (dialogInterface, i) -> {
             Intent ii;
             switch (i) {
                 case 0:

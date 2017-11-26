@@ -102,24 +102,23 @@ public final class Dictionary {
         }
 
         DataInputStream in = new DataInputStream(iStream);
-        BufferedReader br;
-        InputStreamReader isr;
+
+
         String strLine;
         String[] data;
         String[] wordCategoriesList = null;
         Word word;
         int nr = 0;
-        try {
-            isr = new InputStreamReader(in);
-            br = new BufferedReader(isr);
+        try (InputStreamReader isr = new InputStreamReader(in); BufferedReader br = new BufferedReader(isr)) {
+
             while ((strLine = br.readLine()) != null) {
                 if (!strLine.startsWith(Config.IGNORED_WORD)) {
-                    data = strLine.split(Config.COLUMN_SEPERATOR);
+                    data = strLine.split(Config.COLUMN_SEPARATOR);
                     try {
                         if (requestedCategories != null) {
-                            wordCategoriesList = data[7].split(Config.GROUP_SEPERATOR);
+                            wordCategoriesList = data[7].split(Config.GROUP_SEPARATOR);
                         }
-                        String[] temp = data[7].split(Config.GROUP_SEPERATOR);
+                        String[] temp = data[7].split(Config.GROUP_SEPARATOR);
                         int difficultly = DomUtils.parseIntNullSafe(data[9], 9);
                         word = new Word(Integer.parseInt(data[1]), data[2], data[3], Integer.parseInt(data[4]), data[5], data[6], temp, data[8], difficultly);
                         if (word.isValid()) {
@@ -150,8 +149,6 @@ public final class Dictionary {
             setDBStatus(false);
             return new Result(false, context.getString(R.string.dict_data_corrupted) + nr + ")\n(ArrayIndexOutOfBoundsException)" + aioobe.getMessage());
         }
-        closeReaderQuietly(isr);
-        closeReaderQuietly(br);
 
         try {
             in.close();

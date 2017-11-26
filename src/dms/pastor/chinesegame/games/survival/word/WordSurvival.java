@@ -970,7 +970,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
     private void addPointsIfIsWroclawWord() {
         if (answerWord.getWordInPolish().equalsIgnoreCase("Wroclaw")) {
-            Toast.makeText(this, "You guess my homecity. You get 71 points. (71 is local phone are code)", LENGTH_SHORT).show();
+            Toast.makeText(this, "You guess my home city. You get 71 points. (71 is local phone are code)", LENGTH_SHORT).show();
             player.addScore(71);
         }
     }
@@ -981,7 +981,6 @@ public final class WordSurvival extends Level implements View.OnClickListener {
             player.addScore(88);
         }
     }
-
 
     public void endOfLevel() {
         StringBuilder sb = new StringBuilder("");
@@ -1053,7 +1052,6 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         cureSpellButton.setEnabled(enabled);
     }
 
-
     private void dead() {
         timer.stop();
 
@@ -1066,7 +1064,6 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ii);
         finish();
-
     }
 
     private void checkHealthPenalty() {

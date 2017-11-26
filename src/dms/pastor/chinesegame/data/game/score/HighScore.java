@@ -110,6 +110,7 @@ public final class HighScore {
     }
 
     //TODO remove this crap
+    @Deprecated
     private static void encrypt(FileInputStream fis, FileOutputStream fos) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
         SecretKeySpec sks = new SecretKeySpec(Config.getKey().getBytes(), Config.CIPHER_TYPE);
         @SuppressLint("GetInstance") Cipher cipher = Cipher.getInstance(Config.CIPHER_TYPE);
@@ -125,6 +126,7 @@ public final class HighScore {
         fis.close();
     }
 
+    @Deprecated
     public static Result decrypt(Context context, String path) {
         Log.i(TAG, format("performing decrypt for %s", path));
         Result r = new Result(true);

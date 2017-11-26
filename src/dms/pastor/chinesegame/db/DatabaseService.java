@@ -78,6 +78,26 @@ public final class DatabaseService extends SQLiteOpenHelper {
 
     }
 
+    //Creates a empty database on the system and rewrites it with your own database.
+    void createDataBase() {
+        Log.i(TAG, "creating database...");
+        boolean dbExist = checkDataBase();
+
+        if (dbExist) {
+            updateDataBase();
+
+        } else {
+            this.getReadableDatabase();
+            copyDataBase();
+        }
+    }
+
+    private void updateDataBase() {
+        Log.i(TAG, "Updating database...");
+        deleteDB(databasePath + DB_NAME);
+        copyDataBase();
+    }
+
     /**
      * Check if the database already exist to avoid re-copying the file each time you open the application.
      *
@@ -98,60 +118,6 @@ public final class DatabaseService extends SQLiteOpenHelper {
             checkDB.close();
         }
         return checkDB != null;
-    }
-
-    private static boolean deleteDB(String dbName) {
-        Log.i(TAG, "Deleting the database...");
-        File file = new File(dbName);
-        if (file == null) {
-            throw new IllegalArgumentException("file must not be null");
-        }
-
-        boolean deleted = false;
-        deleted |= file.delete();
-        Log.w(TAG, deleted ? "DB file deleted." : "Unable to delete DB file");
-        deleted |= new File(file.getPath() + "-journal").delete();
-        Log.w(TAG, deleted ? "DB journal file deleted." : "Unable to delete DB journal file");
-        deleted |= new File(file.getPath() + "-shm").delete();
-        Log.w(TAG, deleted ? "DB shm file deleted." : "Unable to delete DB shm file");
-        deleted |= new File(file.getPath() + "-wal").delete();
-        Log.w(TAG, deleted ? "DB wal file deleted." : "Unable to delete DB wal file");
-
-        File dir = file.getParentFile();
-        if (dir != null) {
-            final String prefix = file.getName() + "-mj";
-            try {
-                final FileFilter filter = candidate -> candidate.getName().startsWith(prefix);
-                for (File masterJournal : dir.listFiles(filter)) {
-                    deleted |= masterJournal.delete();
-                    Log.w(TAG, deleted ? "DB masterJournal file deleted." : "Unable to delete DB masterJournal file");
-                }
-            } catch (NullPointerException npe) {
-                Log.w(TAG, "deleteDB was unable to delete masterJournal due: " + npe.getMessage());
-                return false;
-            }
-        }
-        return deleted;
-    }
-
-    //Creates a empty database on the system and rewrites it with your own database.
-    void createDataBase() {
-        Log.i(TAG, "creating database...");
-        boolean dbExist = checkDataBase();
-
-        if (dbExist) {
-            updateDataBase();
-
-        } else {
-            this.getReadableDatabase();
-            copyDataBase();
-        }
-    }
-
-    private void updateDataBase() {
-        Log.i(TAG, "Updating database...");
-        deleteDB(databasePath + DB_NAME);
-        copyDataBase();
     }
 
     @SuppressWarnings("IOResourceOpenedButNotSafelyClosed")
@@ -224,6 +190,40 @@ public final class DatabaseService extends SQLiteOpenHelper {
             Log.e(TAG, "Something went terrible wrong. Unable to fix problem with Database");
             DomUtils.msg(myContext, "Unable to delete database");
         }
+    }
+
+    private static boolean deleteDB(String dbName) {
+        Log.i(TAG, "Deleting the database...");
+        File file = new File(dbName);
+        if (file == null) {
+            throw new IllegalArgumentException("file must not be null");
+        }
+
+        boolean deleted = false;
+        deleted |= file.delete();
+        Log.w(TAG, deleted ? "DB file deleted." : "Unable to delete DB file");
+        deleted |= new File(file.getPath() + "-journal").delete();
+        Log.w(TAG, deleted ? "DB journal file deleted." : "Unable to delete DB journal file");
+        deleted |= new File(file.getPath() + "-shm").delete();
+        Log.w(TAG, deleted ? "DB shm file deleted." : "Unable to delete DB shm file");
+        deleted |= new File(file.getPath() + "-wal").delete();
+        Log.w(TAG, deleted ? "DB wal file deleted." : "Unable to delete DB wal file");
+
+        File dir = file.getParentFile();
+        if (dir != null) {
+            final String prefix = file.getName() + "-mj";
+            try {
+                final FileFilter filter = candidate -> candidate.getName().startsWith(prefix);
+                for (File masterJournal : dir.listFiles(filter)) {
+                    deleted |= masterJournal.delete();
+                    Log.w(TAG, deleted ? "DB masterJournal file deleted." : "Unable to delete DB masterJournal file");
+                }
+            } catch (NullPointerException npe) {
+                Log.w(TAG, "deleteDB was unable to delete masterJournal due: " + npe.getMessage());
+                return false;
+            }
+        }
+        return deleted;
     }
 
     @Override
@@ -706,31 +706,33 @@ public final class DatabaseService extends SQLiteOpenHelper {
         throw new NotFoundException("Learning tip not found");
     }
 
+    //TODO improve this method
     public List<LinkItem> getAllLinks() {
         Log.i(TAG, "get all links");
         List<LinkItem> gtiList = new ArrayList<>();
         LinkItem item;
         String selectQuery = "SELECT * FROM " + TABLE_LINKS;
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        try (SQLiteDatabase db = this.getWritableDatabase(); Cursor cursor = db.rawQuery(selectQuery, null)) {
 
-        if (cursor.moveToFirst()) {
-            do {
-                item = new LinkItem();
-                item.setId(Integer.parseInt(cursor.getString(0)));
-                item.setTitle(cursor.getString(1));
-                item.setWww(cursor.getString(2));
-                item.setNotes(cursor.getString(3));
-                if (item.isValidated()) {
-                    gtiList.add(item);
-                } else {
-                    Log.e(TAG, "Validation failed for \'" + DomUtils.getUnknownWhenNullString(cursor.getString(1)) + "\'");
-                }
+            if (cursor.moveToFirst()) {
+                do {
+                    item = new LinkItem();
+                    item.setId(Integer.parseInt(cursor.getString(0)));
+                    item.setTitle(cursor.getString(1));
+                    item.setWww(cursor.getString(2));
+                    item.setNotes(cursor.getString(3));
+                    if (item.isValidated()) {
+                        gtiList.add(item);
+                    } else {
+                        Log.e(TAG, "Validation failed for \'" + DomUtils.getUnknownWhenNullString(cursor.getString(1)) + "\'");
+                    }
 
-            } while (cursor.moveToNext());
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Unable to get all links due " + e.getMessage(), e);
         }
-        cursor.close();
         return gtiList;
     }
 

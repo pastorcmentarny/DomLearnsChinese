@@ -252,7 +252,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
 
     private void openHighScoreSelectionDialog() {
 
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.highscore_button_title).setItems(R.array.hs, (dialoginterface, i) -> {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.highscore_button_title).setItems(R.array.hs, (dialogInterface, i) -> {
 
             switch (i) {
                 case 0:
@@ -296,7 +296,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     }
 
     private void newGameDialog() {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.new_game_title).setItems(R.array.newGame, (dialoginterface, i) -> {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.new_game_title).setItems(R.array.newGame, (dialogInterface, i) -> {
             switch (i) {
                 case 0:
                     startAdventureGame();
@@ -349,7 +349,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     }
 
     private void openExtrasDialog() {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.extras_title).setItems(R.array.extras, (dialoginterface, i) -> {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.extras_title).setItems(R.array.extras, (dialogInterface, i) -> {
             Intent ii;
             switch (i) {
                 case 0:
@@ -393,7 +393,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     }
 
     private void openAboutDialog(final Context context) {
-        dialog = new AlertDialog.Builder(this).setTitle(R.string.about_title).setItems(R.array.runAbout, (dialoginterface, i) -> {
+        dialog = new AlertDialog.Builder(this).setTitle(R.string.about_title).setItems(R.array.runAbout, (dialogInterface, i) -> {
             Intent ii = new Intent(context, About.class);
             switch (i) {
                 case 0:
