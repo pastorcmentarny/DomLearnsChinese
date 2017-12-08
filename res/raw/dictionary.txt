@@ -203,7 +203,7 @@
 ;;203;;矿泉水;;kuàngquánshuǐ;;12;;mineral water;;woda mineralna;;drinks;;none;;3;;
 ;;204;;可乐;;kělè;;-1;;cola;;cola;;drinks;;none;;3;;
 ;;205;;啤酒;;píjiǔ;;-1;;beer;;piwo;;drinks;;none;;3;;
-;;206;;橙汁;;chéngzhī;;-1;;orange juice;;sok pomarańczowy;;drinks;;none;;3;;
+;;206;;汁;;zhī;;-1;;juice;;sok;;drinks;;for example : 橙汁 - orange juice，葡萄汁 - Grape juice;;3;;
 ;;207;;咖啡;;kāfēi;;-1;;coffee;;kawa;;drinks;;none;;3;;
 ;;208;;浓咖啡;;nóngkāfēi;;-1;;espresso;;ekspresso;;drinks;;none;;3;;
 ;;209;;冰咖啡;;bīngkāfēi;;-1;;iced coffee;;kawa mrożona;;drinks;;none;;3;;
@@ -1278,3 +1278,18 @@
 ;;1278;;雷阵雨;;léizhènyǔ;;-1;;thunder shower;;deszcz z piorunami;;weather;;none;;5;;
 ;;1279;;洗澡;;xǐzǎo;;-1;;Take a bath;;brać kąpiel;;other;;none;;7;;
 ;;1280;;年假;;niánjià;;17;;annual leave;;urlop;;holiday;;none;;7;;
+;;1281;;市场营销;;shìchǎng yíngxiāo;;-1;;marketing;;marketing;;other;;none;;7;;
+;;1282;;网页;;wǎngyè;;-1;;web page;;strona internetowa;;internet;;none;;4;;
+;;1283;;僵尸;;jiāngshī;;-1;;zombie;;zombie;;sci-fi;;none;;8;;
+;;1284;;炒鸡蛋;;chǎo jīdàn;;-1;;scrambled egg;;jajecznica;;food;;none;;7;;
+;;1285;;运动裤;;yùndòng kù;;-1;;sport trouses;;spodnie dresowe;;sport;;none;;7;;
+;;1286;;精彩;;jīngcǎi;;-1;;brilliant,wonderful;;genialny,cudowny;;hsk4;;none;;4;;
+;;1287;;打嗝;;dǎgé;;18;;hiccups;;czkawka;;health;;none;;8;;
+;;1288;;公里;;gōnglǐ;;-1;;km;;km;;hsk4;;km is kilometers;;4;;
+;;1289;;没意思;;méiyìsi;;-1;;boring;;nudne;;other;;none;;7;;
+;;1290;;运动衫;;yùndòngshān;;23;;sport shirts;;koszulka sportowe;;sport;;none;;7;;
+;;1291;;尿片;;niàopiàn;;11;;diaper;;pielucha;;baby;;none;;7;;
+;;1292;;奶嘴;;nǎizuǐ;;-1;;dummy;;smoczek;;baby;;none;;7;;
+;;1293;;通知;;tōngzhī;;-1;;notice;;informacja;;other;;hsk4;;7;;
+;;1294;;T恤;;t xù;;9;;t-shirt;;koszulka;;clothes;;none;;3;;
+;;1295;;湖;;hú;;-1;;lake;;jezioro;;map;;none;;4;;
