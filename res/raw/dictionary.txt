@@ -1293,3 +1293,18 @@
 ;;1293;;通知;;tōngzhī;;-1;;notice;;informacja;;other;;hsk4;;7;;
 ;;1294;;T恤;;t xù;;9;;t-shirt;;koszulka;;clothes;;none;;3;;
 ;;1295;;湖;;hú;;-1;;lake;;jezioro;;map;;none;;4;;
+;;1296;;电子竞技;;diànzǐjìngjì;;-1;;e-sports;;e-sport;;internet~~politics;;none;;8;;
+;;1297;;移动支付;;yídòng zhīfù;;-1;;mobile payment;;płatność mobilna;;politics;;none;;8;;
+;;1298;;父亲假;;fùqīn jià;;-1;;Paternity leave;;urlop rodzicielski;;politics;;陪产假 - péi chǎnjià - father leave;;8;;
+;;1299;;带薪休假;;dài xīn xiūjià;;-1;;Paid leave;;płatny urlop;;politics;;none;;8;;
+;;1300;;共享汽车;;gòngxiǎng qìchē;;-1;;Car-sharing;;udostępnianie samochodów;;politics;;none;;8;;
+;;1301;;无现金支付;;wú xiànjīn zhīfù;;-1;;Cashless payment;;Płatność bezgotówkowa;;opolitics;;none;;8;;
+;;1302;;多次往返签证;;duō cì wǎngfǎn qiānzhèng;;-1;;Multiple entry visa;;wiza wielokrotna;;politics;;none;;8;;
+;;1303;;空中上网服务;;kōngzhōng shàngwǎng fúwù;;-1;;In-flight Wifi services;;WiFi w samolocie;;politics;;none;;8;;
+;;1304;;动车;;dòngchē;;-1;;Bullet train;;Kolej dużych prędkości(Pociąg pocisk);;politics;;none;;8;;
+;;1305;;軌道交通;;guǐdào jiāotōng;;-1;;Rail traffic;;ruch pociągów;;politics;;none;;8;;
+;;1306;;低碳城市;;dī tàn chéngshì;;-1;;Low-carbon cities;;Miasto z zerowym CO2;;politics;;none;;8;;
+;;1307;;人工智能;;réngōng zhìnéng;;-1;;Artificial intelligence;;sztuczna inteligencja;;politics;;none;;8;;
+;;1308;;工匠精神;;gōngjiàng jīngshén;;-1;;Craftsmanship spirit;;Duch rzemiosła;;politics;;none;;8;;
+;;1309;;旺季;;wàngjì;;-1;;Peak season;;szczyt sezonu;;politics;;none;;8;;
+;;1310;;虚拟现实;;xūnǐ xiànshí;;-1;;virtual reality;;rzeczywistość wirtualna;;politics;;none;;8;;
