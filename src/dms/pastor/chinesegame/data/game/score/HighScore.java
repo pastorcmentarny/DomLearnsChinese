@@ -326,6 +326,7 @@ public final class HighScore {
         return status;
     }
 
+    //TODO this code is odd
     private Result saveHighScoreFor(GameType gameType) {
         Log.i(TAG, "Saving high scores for " + gameType.toString());
         ArrayList<Score> scores = getScoresFor(gameType);

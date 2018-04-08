@@ -9,7 +9,6 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -71,14 +70,6 @@ public final class Dictionary {
         DecimalFormat df = new DecimalFormat("##.##");
         value = Double.valueOf(df.format(value));
         return format(ENGLISH, "%s%%", valueOf(value));
-    }
-
-    private static void closeReaderQuietly(Reader reader) {
-        try {
-            reader.close();
-        } catch (IOException e) {
-            Log.w(TAG, "Unable to close  due " + e.getMessage(), e);
-        }
     }
 
     @Override

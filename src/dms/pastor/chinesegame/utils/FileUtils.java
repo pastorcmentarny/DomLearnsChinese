@@ -28,32 +28,23 @@ public final class FileUtils {
 
     public static boolean saveTextToFile(String content, File file) {
 
-        OutputStreamWriter out = null;
-        try {
-            FileOutputStream os = new FileOutputStream(file);
 
-            out = new OutputStreamWriter(os);
+        try (FileOutputStream os = new FileOutputStream(file);
+             OutputStreamWriter out = new OutputStreamWriter(os)) {
+
             out.write(content);
         } catch (IOException e) {
             Log.w(TAG, "ExternalStorage. Error writing " + file, e);
             return false;
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    Log.w(TAG, "FileUtils/saveError occurred while closing FileOutputStream  " + file, e);
-                }
-            }
         }
+
         return true;
     }
 
     public static String loadTextFromFile(File file) {
 
         StringBuilder text = new StringBuilder(EMPTY_STRING);
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
                 text.append(line);
