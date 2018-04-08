@@ -520,7 +520,7 @@
 ;;520;;低成本;;dīchéngběn;;14;;low cost;;tanie(niski koszy);; adjective;;it is used for things like low cost airlanes;;7;;
 ;;521;;运行;;yùnxíng;;14;;running;;bieganie;;sport;;none;;3;;
 ;;522;;不然;;ùrán;;16;;Otherwise;;w przeciwnym razie;;adverb;;none;;5;;
-;;523;;冰箱;;bīngxiāng;;28;;Fridge;;lodówka;;kitchen~~noun;;none;;4;;
+;;523;;冰箱;;bīngxiāng;;28;;Fridge;;lodówka;;kitchen~~noun;;none;;5;;
 ;;524;;数字;;shùzì;;19;;number;;liczba;;noun;;none;;1;;
 ;;525;;这些;;zhèxiē;;15;;these;;te;;pronoun;;none;;2;;
 ;;526;;那些;;nàxiē;;14;;those;;tych;;pronoun;;none;;2;;
@@ -1180,7 +1180,7 @@
 ;;1180;;灶;;zào;;7;;stove;;kuchenka;;kitchen;;none;;5;;
 ;;1181;;水壶;;shuǐhú;;14;;kettle;;czajnik;;kitchen;;none;;5;;
 ;;1182;;微波炉;;wēibō lú;;29;;microwave;;mikrofalówka;;kitchen;;none;;5;;
-;;1183;;冰箱;;bīngxiāng;;21;;refrigerator;;chłodziarka;;kitchen;;none;;5;;
+;;1183;;咖啡因;;kāfēiyīn;;-1;;Caffeine;;kofeina;;loanword;;none;;7;;
 ;;1184;;菜刀;;càidāo;;16;;kitchen knife;;nóż kuchenny;;kitchen;;none;;5;;
 ;;1185;;电饭煲;;diànfànbāo;;25;;rice cooker;;urządzenie do gotowania ryżu?;;kitchen;;none;;4;;
 ;;1186;;甜玉米;;tiányùmǐ;;22;;sweetcorn;;kukurydza;;food;;none;;6;;
@@ -1308,3 +1308,18 @@
 ;;1308;;工匠精神;;gōngjiàng jīngshén;;-1;;Craftsmanship spirit;;Duch rzemiosła;;politics;;none;;8;;
 ;;1309;;旺季;;wàngjì;;-1;;Peak season;;szczyt sezonu;;politics;;none;;8;;
 ;;1310;;虚拟现实;;xūnǐ xiànshí;;-1;;virtual reality;;rzeczywistość wirtualna;;politics;;none;;8;;
+;;1311;;小时;;xiǎoshí;;-1;;hour;;godzina;;hsk2~~datetime;;none;;2;;
+;;1312;;去世;;qùshì;;-1;;to pass away,die;;umrzeć;;hsk5;;none;;5;;
+;;1313;;理论物理学;;lǐlùn wùlǐ xué;;-1;;Theoretical physics;;fizyka teoretyczna;;science;;none;;8;;
+;;1314;;残疾人士;;cánjí rénshì;;-1;;Disabled person;;Osoba niepełnosprawna;;health;;none;;8;;
+;;1315;;唐人街;;tángrénjiē;;-1;;Chinatown;;Chinska dzielnica;;city;;It is area of any non-Chinese townin which the population is predominantly of Chinese origin.;;7;;
+;;1316;;里停电;;lǐ tíngdiàn;;-1;;power outrage;;awaria zasilania;;other;;none;;7;;
+;;1317;;误点;;wùdiǎn;;-1;;delayed;;opóżniony;;transport;;none;;7;;
+;;1318;;乱世;;luànshì;;-1;;chaos;;chaos;;other;;none;;7;;
+;;1319;;旅程;;lǚchéng;;-1;;journey,trip;;podróż;;transport;;none;;7;;
+;;1320;;海南;;hǎinán;;-1;;Hainan;;hainan;;place;;none;;7;;
+;;1321;;做饭;;zuòfàn;;-1;;to cook;;gotować;;kitchen;;none;;7;;
+;;1322;;直到;;zhídào;;-1;;until;;do;;other;;none;;7;;
+;;1323;;精酿啤酒;;jīngniàngpíjiǔ;;49;;Craft beer;;Piwo rzemieślnicze;;drinks;;none;;7;;
+;;1324;;始哭;;shǐkū;;-1;;cry;;płakać;;emotion;;none;;3;;
+;;1325;;演员;;yǎnyuán;;21;;actor;;aktor;;hsk4~~occupation;;it cam be actor or actress;;4;;

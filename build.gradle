@@ -33,7 +33,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 73
-        versionName "v73"
+        versionName "73"
         multiDexEnabled true
     }
 
