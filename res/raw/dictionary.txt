@@ -352,7 +352,7 @@
 ;;352;;谢谢;;xièxie;;24;;thank you;;dziękuje;;hsk1;;none;;1;;
 ;;353;;岁;;suì;;6;;classifier for  age,year;;???;;hsk1;;none;;1;;
 ;;354;;能;;néng;;10;;to be able to;;???;;hsk1;;none;;2;;
-;;355;;些;;xiē;;7;;some,few,several;;???;;hsk1;;none;;2;;
+;;355;;些;;xiē;;7;;some,few,several;;kilka;;hsk1;;none;;2;;
 ;;356;;小姐;;xiǎojie;;11;;young lady; miss;;panna;;hsk1;;none;;2;;
 ;;357;;现在;;xiànzài;;14;;now,at the moment;;teraz;;hsk1;;none;;1;;
 ;;358;;先生;;xiānsheng;;11;;husband,doctor,teacher;;nauczycie,mąż;;hsk1;;先生 is an ancient way to doctor.Chinese people use 医生 for doctor. ;;2;;
@@ -507,7 +507,8 @@
 ;;507;;云;;yún;;4;;cloud;;chmura;;landscape;;none;;3;;
 ;;508;;锅;;guō;;12;;pan,pot;;rondel;;kitchen;;none;;3;;
 ;;509;;流行音乐;;liúxíngyīnyuè;;29;;pop music;;Pop;;genre;;none;;5;;
-;;510;;工程师;;gōngchéngshī;;21;;engineer;;inżynier;;occupation;;none;;5;;
+;;510;;工程师;;gōngchéngshī;;21;;engineer;;inżynier;;occupation~~hsk5;;none;;5;;
+;;1019;;工程师;;gōngchéngshī;;21;;engineer;;inżynier;;;;none;;5;;
 ;;511;;会计师;;kuàijìshī;;16;;accountant;;księgowy;;occupation;;none;;5;;
 ;;512;;厨师;;chúshī;;18;;chef;;kucharz;;occupation;;none;;5;;
 ;;513;;油漆工;;yóuqīgōng;;25;;painter(worker);;malarz;;occupation;;none;;5;;
@@ -851,7 +852,7 @@
 ;;851;;寻短见;;xúnduǎnjiàn;;22;;to commit suicide;;popełnić samobójstwo;;news;;none;;7;;
 ;;852;;墓穴;;mùxué;;19;;grave,tomb;;grób;;news;;none;;7;;
 ;;853;;丧礼;;sānglǐ;;14;;funeral;;pogrzeb;;news;;none;;7;;
-;;854;;些;;xiē;;7;;some,few,several;;kilka;;hsk1;;none;;2;;
+
 ;;855;;经常;;jīngcháng;;19;;often,frequently;;często;;hsk3;;none;;3;;
 ;;856;;觉得;;juéde;;20;;to think,to feel;;myślec,czuć;;hsk2;;none;;2;;
 ;;857;;贵;;guì;;9;;expensive;;drogi~~hsk2;;adjective;;none;;2;;
@@ -916,8 +917,8 @@
 ;;916;;抑郁;;yìyù;;16;;depression;;depresja;;disorder;;none;;7;;
 ;;917;;牙石;;yáshí;;9;;tartar;;kamień nazębny;;dental~~health;;alternative : 牙垢(yágòu);;7;;
 ;;918;;翅膀;;chìbǎng;;24;;wing;;skrzydło;;noun~~hsk5;;none;;5;;
-;;919;;服务员;;fúwùyuán;;20;;waiter,waitress;;kelner,kelnerka;;job~~noun~~hsk2~~restaurant;;none;;2;;
-;;920;;经理;;jīnglǐ;;19;;manager,director;;menadżer;;job~~hsk3;;none;;3;;
+;;919;;服务员;;fúwùyuán;;20;;waiter,waitress;;kelner,kelnerka;;occupation~~noun~~hsk2~~restaurant;;none;;2;;
+;;920;;经理;;jīnglǐ;;19;;manager,director;;menadżer;;occupation~~hsk3;;none;;3;;
 ;;921;;初;;chū;;7;;first,at the begining;;po pierwsze,na początek;;adverb;;none;;4;;
 ;;922;;胡子;;húzi;;12;;beard;;broda;;face~~body;;none;;4;;
 ;;923;;当然;;dāngrán;;18;;of course;;oczywiście;;other;;none;;5;;
@@ -1015,11 +1016,11 @@
 ;;1015;;年级;;niánjí;;12;;grade,year;;klasa;;school~~hsk3;;none;;3;;
 ;;1016;;小学生;;xiǎoxuéshēng;;16;;primary school;;szk. podstawowa;;school;;none;;3;;
 ;;1017;;中学生;;zhōngxuéshēng;;17;;middle school;;szk. średnia;;school;;none;;3;;
-;;1018;;职业;;zhíyè;;16;;occupation;;praca;;job~~hsk4;;none;;4;;
-;;1019;;工程师;;gōngchéngshī;;21;;engineer;;inżynier;;job~~hsk5;;none;;5;;
-;;1020;;商人;;shāngrén;;13;;businessman;;biznesman;;job;;none;;4;;
-;;1021;;经理;;jīnglǐ;;19;;manager;;menadżer;;job~~hsk3;;none;;3;;
-;;1022;;司机;;sījī;;11;;driver;;kierowca;;job~~hsk3;;none;;3;;
+;;1018;;职业;;zhíyè;;16;;occupation;;praca;;occupation~~hsk4;;none;;4;;
+;;1019
+;;1020;;商人;;shāngrén;;13;;businessman;;biznesman;;occupation;;none;;4;;
+;;1021;;经理;;jīnglǐ;;19;;manager;;menadżer;;occupation~~hsk3;;none;;3;;
+;;1022;;司机;;sījī;;11;;driver;;kierowca;;occupation~~hsk3;;none;;3;;
 ;;1023;;放学;;fàngxué;;16;;end of school day;;koniec zajęć;;school;;none;;4;;
 ;;1024;;洗碗池;;xǐwǎnchí;;28;;sink;;zlew;;kitchen~~bathroom;;none;;5;;
 ;;1025;;校车;;xiàochē;;14;;school bus;;autobus szkolny;;school;;none;;4;;
@@ -1212,7 +1213,7 @@
 ;;1212;;奔驰;;bēnchí;;15;;to run quickly,to gallop;;biegnąć szybko,galopować;;verb~~hsk6;;none;;6;;
 ;;1213;;播放;;bōfàng;;23;;to broadcast;;transmitować;;hsk6;;none;;6;;
 ;;1214;;手术;;shǒushù;;9;;surgery;;chirurgia;;health~~hsk5;;none;;5;;
-;;1215;;插画设计师;;chāhuà shèjìshī;;36;;Illustration designer;;projektant ilustracji;;job;;none;;8;;
+;;1215;;插画设计师;;chāhuà shèjìshī;;36;;Illustration designer;;projektant ilustracji;;occupation;;none;;8;;
 ;;1216;;短路;;duǎnlù;;25;;short circuit;;zwarcie;;noun;;none;;8;;
 ;;1217;;恭喜;;gōngxǐ;;22;;congratulations;;gratulacje;;noun;;none;;4;;
 ;;1218;;巴士;;bā shì;;7;;bus;;autobus;;loanword~~transport;;none;;4;;
@@ -1223,7 +1224,7 @@
 ;;1223;;木乃伊;;mùnǎiyī;;12;;mummy;;mumia;;history~~loanword;;none;;8;;
 ;;1224;;夹克;;jiākè;;13;;jacket;;kurtka;;clothes;;none;;4;;
 ;;1225;;荷尔蒙;;hé'ěrméng;;34;;hormone;;hormon;;health~~loanword;;none;;8;;
-;;1226;;志愿者;;zìyuànzhě;;31;;volunteer;;wolontariusz;;job~~hsk5;;none;;5;;
+;;1226;;志愿者;;zìyuànzhě;;31;;volunteer;;wolontariusz;;occupation~~hsk5;;none;;5;;
 ;;1227;;扑克;;pūkè;;12;;poker;;poker;;game;;none;;7;;
 ;;1228;;香槟;;xiāngbīn;;23;;champagne;;szampan;;drink;;none;;7;;
 ;;1229;;菜板;;càibǎn;;22;;chopping board;;deska do krojenia;;kitchen;;none;;5;;
@@ -1323,3 +1324,18 @@
 ;;1323;;精酿啤酒;;jīngniàngpíjiǔ;;49;;Craft beer;;Piwo rzemieślnicze;;drinks;;none;;7;;
 ;;1324;;始哭;;shǐkū;;-1;;cry;;płakać;;emotion;;none;;3;;
 ;;1325;;演员;;yǎnyuán;;21;;actor;;aktor;;hsk4~~occupation;;it cam be actor or actress;;4;;
+;;1326;;阿司匹林;;āsīpǐlín;;-1;;Aspirin;;aspiryna;;health;;none;;8;;
+;;1327;;基因;;jīyīn;;-1;;Gene;;geny;;biology;;none;;8;;
+;;1328;;海鱼;;hǎiyú;;-1;;sea fish;;ryba morska;;fish;;none;;8;;
+;;1329;;毛衣;;máoyī;;-1;;sweater;;sweter;;clothes;;none;;3;;
+;;1330;;可怕;;kěpà;;-1;;terrible;;straszny;;hsk5;;none;;5;;
+;;1331;;假期;;jiàqī;;-1;;holiday,vacation;;wakacje;;noun;;none;;5;;
+;;1332;;炒菜;;chǎocài;;-1;;stir-fried dish;;gotować?smażyć;;kitchen;;none;;5;;
+;;1333;;半程马拉松;;bàn chéng mǎlāsōng;;-1;;half marathon;;półmaraton;;sport;;none;;5;;
+;;1334;;最喜欢;;zuìxǐhuān;;-1;;favorite;;ulubiony;;other;;none;;3;;
+;;1335;;喜剧演员;;xǐjù yǎnyuán;;-1;;comedian;;komik;;occupation;;none;;4;;
+;;1336;;已經卖完了;;yǐjīng mài wánliǎo;;-1;;sold out;;wyprzedane;;shopping;;none;;5;;
+;;1337;;电视节目;;diànshì jiémù;;-1;;tv show;;Program telewizyjny;;other;;none;;4;;
+;;1338;;刮胡子;;guāhúzi;;-1;;to shave;;golić;;daily routine;;none;;4;;
+;;1339;;工作面试;;gōngzuò miànshì;;-1;;job interview;;Rozmowa kwalifikacyjna;;occupation;;none;;5;;
+;;1340;;访问;;fǎngwèn;;-1;;access;;dostęp;;other;;none;;5;;
