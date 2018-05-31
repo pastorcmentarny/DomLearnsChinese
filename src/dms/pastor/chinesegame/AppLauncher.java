@@ -1,5 +1,6 @@
 package dms.pastor.chinesegame;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -7,10 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -46,6 +50,7 @@ import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.Result;
 import dms.pastor.chinesegame.utils.UIUtils;
 
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static dms.pastor.chinesegame.Config.APP_NAME;
 import static dms.pastor.chinesegame.data.game.score.HighScore.getNewHighScore;
 import static dms.pastor.chinesegame.utils.DomUtils.displayError;
@@ -63,6 +68,7 @@ import static dms.pastor.chinesegame.utils.Utils.getEEMessage;
 public final class AppLauncher extends Activity implements View.OnClickListener, Runnable {
     private static final String TAG = "App launcher activity";
     private static final String TOPIC = "TOPIC";
+    private static final int WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST = 77001;
     private static Handler handler;
     private Player player;
     private DatabaseManager dbManager;
@@ -159,16 +165,9 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         return dictionaryLoaderThread;
     }
 
-    private void setup() {
-        statistic = Statistic.getStatistic(this);
-        loadHighScores();
-        loadData();
-        if (preferences.getBoolean("first", true)) {
-            usernameDialog(this);
-            Editor preferencesEditor = preferences.edit();
-            preferencesEditor.putBoolean("first", false);
-            preferencesEditor.apply();
-        }
+    private static boolean isPermissionGranted(int[] grantResults) {
+        return grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED;
     }
 
     @Override
@@ -308,6 +307,32 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                     Log.w(TAG, getString(R.string.w_unknown_selection) + "newGameDialog(" + i + ").");
             }
         }).show();
+    }
+
+    private void setup() {
+        statistic = Statistic.getStatistic(this);
+        loadHighScores();
+        loadData();
+        firstTimeSetup();
+        checkPermissions();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST: {
+
+                if (isPermissionGranted(grantResults)) {
+                    Log.i(TAG, "Permission granted by user!");
+                } else {
+                    Log.w(TAG, "Permission DENIED by user!");
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_no_storage_permission), Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
+
+        }
     }
 
     private void startSaperGame() {
@@ -452,4 +477,27 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
             }
         }
     }
+
+    private void checkPermissions() {
+        Log.i(TAG, "Checking permissions");
+        if (ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            Log.w(TAG, String.format("Currently permission %s is NOT granted.", WRITE_EXTERNAL_STORAGE));
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST);
+        } else {
+            Log.d(TAG, String.format("Permission %s is already granted.", WRITE_EXTERNAL_STORAGE));
+        }
+    }
+
+    private void firstTimeSetup() {
+        if (preferences.getBoolean("first", true)) {
+            usernameDialog(this);
+            Editor preferencesEditor = preferences.edit();
+            preferencesEditor.putBoolean("first", false);
+            preferencesEditor.apply();
+        }
+    }
+
 }
