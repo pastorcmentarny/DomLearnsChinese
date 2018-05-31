@@ -335,7 +335,7 @@ public final class HighScore {
                 new Result(false, "high score are not available at the moment.");
             }
             sortHighScoreFor(gameType);
-            StringBuilder sb = new StringBuilder("");
+            StringBuilder sb = new StringBuilder(Config.EMPTY_STRING);
             int counter = 1;
             ArrayList<Score> topScores = new ArrayList<>();
             for (Score score : scores) {
@@ -457,7 +457,7 @@ public final class HighScore {
         }
 
         sortHighScoreFor(gameType);
-        StringBuilder top10 = new StringBuilder("");
+        StringBuilder top10 = new StringBuilder(Config.EMPTY_STRING);
         int i = 1;
         ArrayList<Score> scores = getScoresFor(gameType);
         for (Score newScore : scores) {

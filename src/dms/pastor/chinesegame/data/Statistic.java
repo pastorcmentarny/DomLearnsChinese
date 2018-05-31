@@ -74,7 +74,7 @@ public final class Statistic {
     private static Statistic statistic;
     private final SharedPreferences stats;
     private final SharedPreferences settings;
-    private final StringBuilder line = new StringBuilder("");
+    private final StringBuilder line = new StringBuilder(Config.EMPTY_STRING);
     //Game
     private int games = 0;
     private int adventureGames = 0;
@@ -325,7 +325,7 @@ public final class Statistic {
 
     @SuppressWarnings("StringBufferReplaceableByString")
     private String getStatsAsText() {
-        StringBuilder stats2backup = new StringBuilder("");
+        StringBuilder stats2backup = new StringBuilder(Config.EMPTY_STRING);
         stats2backup.append(add(GAMES_KEY, stats.getInt(GAMES_KEY, games)));
         stats2backup.append(add(ADVENTURE_GAMES_KEY, stats.getInt(ADVENTURE_GAMES_KEY, adventureGames)));
         stats2backup.append(add(SAPPER_GAMES_KEY, stats.getInt(SAPPER_GAMES_KEY, sapperGames)));

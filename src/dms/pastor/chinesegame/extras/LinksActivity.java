@@ -53,7 +53,7 @@ public final class LinksActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        StringBuilder wordBuilder = new StringBuilder("");
+        StringBuilder wordBuilder = new StringBuilder(Config.EMPTY_STRING);
         final LinkItem linkItem;
         try {
             linkItem = DatabaseManager.getDbService().getLink(position + 1);

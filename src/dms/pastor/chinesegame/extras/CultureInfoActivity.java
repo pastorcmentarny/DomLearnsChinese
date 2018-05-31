@@ -50,7 +50,7 @@ public final class CultureInfoActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        StringBuilder wordBuilder = new StringBuilder("");
+        StringBuilder wordBuilder = new StringBuilder(Config.EMPTY_STRING);
         CultureInfoItem cultureInfoItem;
         try {
             cultureInfoItem = DatabaseManager.getDbService().getCLI(position + 1);

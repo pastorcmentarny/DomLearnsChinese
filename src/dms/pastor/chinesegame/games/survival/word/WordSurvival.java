@@ -363,7 +363,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
             status.setText(format(Locale.ENGLISH, "%s %d %s %d", getString(R.string.combo), player.getCombo(), getString(R.string.combo_points), player.getCurrentComboBonus(player.getGame().getLevel())));
             setTextColor(status, R.color.combo, this);
         } else {
-            status.setText("");
+            status.setText(Config.EMPTY_STRING);
         }
     }
 
@@ -394,7 +394,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         correctValue.setText(String.valueOf(player.getGame().getCorrect()));
         mistakesValue.setText(String.valueOf(player.getGame().getMistake()));
         score.setText(String.valueOf(player.getScore()));
-        bonusScore.setText("");
+        bonusScore.setText(Config.EMPTY_STRING);
         life.setText(String.valueOf(player.getHealth()));
         lifePenalty.setText(String.valueOf(player.getHealth()));
         mana.setText(String.valueOf(player.getMana()));
@@ -983,7 +983,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
     }
 
     public void endOfLevel() {
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder(Config.EMPTY_STRING);
         int totalBonus = calculator.calculate(player.getGame(), timer.calcTotalTime());
         if (woops) {
             if (player.getCombo() > COMBO_MINIMUM) {
@@ -1071,7 +1071,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
         if (healthPenalty > Config.NO_PENALTY_TIME) {
             lifePenalty.setText(format(Locale.ENGLISH, "(-%d)", (healthPenalty - Config.NO_PENALTY_TIME)));
         } else {
-            lifePenalty.setText("");
+            lifePenalty.setText(Config.EMPTY_STRING);
         }
     }
 

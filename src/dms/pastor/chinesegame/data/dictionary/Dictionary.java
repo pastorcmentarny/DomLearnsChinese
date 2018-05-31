@@ -253,7 +253,7 @@ public final class Dictionary {
     }
 
     public String getWordsPerLevelStats() {
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder(Config.EMPTY_STRING);
         int l1 = 0;
         int l2 = 0;
         int l3 = 0;

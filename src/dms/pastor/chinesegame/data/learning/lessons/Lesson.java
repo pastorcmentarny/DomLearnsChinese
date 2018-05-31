@@ -76,7 +76,7 @@ public final class Lesson {
                 ", group=" + (group == null ? null : Arrays.asList(group)) +
                 ", words=" + words +
                 ", lessonContent='" + lessonContent + '\'' +
-                (notes != null ? ", notes=" + notes : "") +
+                (notes != null ? ", notes=" + notes : Config.EMPTY_STRING) +
                 '}';
     }
 }

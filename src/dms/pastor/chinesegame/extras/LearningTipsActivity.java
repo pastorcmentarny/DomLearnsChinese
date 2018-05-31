@@ -50,7 +50,7 @@ public final class LearningTipsActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        StringBuilder wordBuilder = new StringBuilder("");
+        StringBuilder wordBuilder = new StringBuilder(Config.EMPTY_STRING);
         GrammarTipItem cultureInfoItem = null;
         try {
             cultureInfoItem = DatabaseManager.getDbService().getGrammarTip(position + 1);

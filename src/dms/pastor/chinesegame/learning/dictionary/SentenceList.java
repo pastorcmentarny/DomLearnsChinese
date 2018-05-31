@@ -54,7 +54,7 @@ public class SentenceList extends ListActivity {
     protected final void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        StringBuilder wordBuilder = new StringBuilder("");
+        StringBuilder wordBuilder = new StringBuilder(Config.EMPTY_STRING);
         final Sentence sentence = DatabaseManager.getDbService().getSentence(position + 1);
         AlertDialog.Builder dialog;
         if (sentence != null) {

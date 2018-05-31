@@ -97,7 +97,7 @@ public abstract class Level extends Activity {
         }
     }
 
-    protected final boolean isCorrectAnswer(String answer, String correctAnswer) {
+    protected static boolean isCorrectAnswer(String answer, String correctAnswer) {
         return answer.equalsIgnoreCase(correctAnswer);
     }
 
@@ -158,7 +158,7 @@ public abstract class Level extends Activity {
         }
     }
 
-    protected final int getWordIdFromWrong(ArrayList<Word> words, String wordAsString) {
+    protected static int getWordIdFromWrong(ArrayList<Word> words, String wordAsString) {
         for (Word word : words) {
             if (word.getWordInEnglish().equalsIgnoreCase(wordAsString)) {
                 return word.getId();

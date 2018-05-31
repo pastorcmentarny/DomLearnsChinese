@@ -121,17 +121,19 @@ public final class DictionaryList extends ListActivity {
     }
 
     private String getWordAsString(Word word) {
-        StringBuilder wordBuilder = new StringBuilder("");
+        StringBuilder wordBuilder = new StringBuilder(Config.EMPTY_STRING);
         wordBuilder.append(word.getChineseCharacter()).append("\n");
         wordBuilder.append(word.getPinyin()).append("\n");
         wordBuilder.append(getString(R.string.word_builder_stroke)).append(word.getStrokes() > 0 ? word.getStrokes() : "?").append("\n");
         wordBuilder.append(getString(R.string.word_builder_english)).append(word.getWordInEnglish()).append("\n");
-        wordBuilder.append(getString(R.string.word_builder_notes)).append(word.getNotes() != null ? word.getNotes() : "").append("\n\n");
-        String groups = "";
+        wordBuilder.append(getString(R.string.word_builder_notes)).append(word.getNotes() != null ? word.getNotes() : Config.EMPTY_STRING).append("\n\n");
+        String groups;
         if (word.getGroups() != null) {
+            StringBuilder groupsBuilder = new StringBuilder(Config.EMPTY_STRING);
             for (String group : word.getGroups()) {
-                groups += group + ",";
+                groupsBuilder.append(group).append(",");
             }
+            groups = groupsBuilder.toString();
         } else {
             groups = "?";
         }

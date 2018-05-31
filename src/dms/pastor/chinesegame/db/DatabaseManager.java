@@ -151,7 +151,7 @@ public final class DatabaseManager {
 
     @SuppressWarnings("ConstantConditions")
     private static Result test(Context context) {
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder(Config.EMPTY_STRING);
         if (dbManager != null) {
             sb.append("Database Manager works.\n");
         } else {

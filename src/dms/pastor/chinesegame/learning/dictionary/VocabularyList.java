@@ -47,7 +47,7 @@ public final class VocabularyList extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        StringBuilder wordBuilder = new StringBuilder("");
+        StringBuilder wordBuilder = new StringBuilder(Config.EMPTY_STRING);
         final Word word = dictionary.getWordFromDictionary(position);
         AlertDialog.Builder dialog;
         if (word != null) {
@@ -55,8 +55,8 @@ public final class VocabularyList extends ListActivity {
             wordBuilder.append(word.getPinyin()).append("\n");
             wordBuilder.append(getString(R.string.word_builder_stroke)).append(word.getStrokes() > 0 ? word.getStrokes() : "?").append("\n");
             wordBuilder.append(getString(R.string.word_builder_english)).append(word.getWordInEnglish()).append("\n");
-            wordBuilder.append(getString(R.string.word_builder_notes)).append(word.getNotes() != null ? word.getNotes() : "").append("\n\n");
-            StringBuilder groups = new StringBuilder("");
+            wordBuilder.append(getString(R.string.word_builder_notes)).append(word.getNotes() != null ? word.getNotes() : Config.EMPTY_STRING).append("\n\n");
+            StringBuilder groups = new StringBuilder(Config.EMPTY_STRING);
             if (word.getGroups() != null) {
                 for (String group : word.getGroups()) {
                     groups.append(group).append(",");
