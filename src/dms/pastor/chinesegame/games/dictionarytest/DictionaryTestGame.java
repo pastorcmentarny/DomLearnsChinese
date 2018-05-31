@@ -407,20 +407,6 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
         }
     }
 
-/* //TODO remove it?
-    protected void runTimer() {
-        myTimer = new Timer();
-        myTimer.schedule(
-                new TimerTask() {
-                    @Override
-                    public void run() {
-                        timerMethod();
-                    }
-
-                }, 0, Config.SECONDS);
-    }
- */
-
     private enum ButtonType {
         ANSWERS,
         OTHERS,

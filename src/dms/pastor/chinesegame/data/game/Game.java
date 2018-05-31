@@ -199,8 +199,6 @@ public final class Game {
         return gameType;
     }
 
-
-    //TODO improve it
     public Word getRandomWordForLevel() {
         Log.d(TAG, "selecting random word");
         if (gameType == null || gameType.equals(NONE)) {

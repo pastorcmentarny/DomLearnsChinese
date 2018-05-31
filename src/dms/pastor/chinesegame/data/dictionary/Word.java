@@ -101,8 +101,6 @@ public final class Word {
         this.strokes = strokes;
     }
 
-
-    //TODO improve validation
     boolean isValid() {
 
         if (id < 0) {

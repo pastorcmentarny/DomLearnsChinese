@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.Random;
 
 import dms.pastor.chinesegame.common.enums.GameType;
+import dms.pastor.chinesegame.data.dictionary.Dictionary;
+import dms.pastor.chinesegame.data.game.Game;
 import dms.pastor.chinesegame.data.game.Player;
 
 import static java.lang.String.format;
@@ -193,6 +195,17 @@ public final class Config {
 
     public static int calcJackPot(int level) {
         return JACKPOT_BONUS + (level * new Random().nextInt(4)) + new Random().nextInt(level + 1);
+    }
+
+    public static int getPlainBonus(Game game) {
+        if (game.getGameType() == GameType.ADVENTURE) {
+            return DEFAULT_BONUS_POINTS + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
+        } else if (game.getGameType() == GameType.SAPPER) {
+            return (int) ((DEFAULT_BONUS_POINTS + calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
+        } else {
+            Log.e(TAG, "No bonus score impelementation for " + game.getGameType().name());
+            return 0;
+        }
     }
 
 }

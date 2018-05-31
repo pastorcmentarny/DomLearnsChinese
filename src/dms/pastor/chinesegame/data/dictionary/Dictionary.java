@@ -72,6 +72,14 @@ public final class Dictionary {
         return format(ENGLISH, "%s%%", valueOf(value));
     }
 
+    private static void addWordsFromRequestedCategories(String[] requestedCategories, ArrayList<Word> result, Word word, String wordCategories) {
+        for (String category : requestedCategories) {
+            if (category.equalsIgnoreCase(wordCategories)) {
+                result.add(word);
+            }
+        }
+    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
@@ -177,7 +185,7 @@ public final class Dictionary {
             }
         }
         Log.w(TAG, "Word not found in dictionary for id:" + id);
-        return null; //TODO replace with noneWord
+        return Word.noWord();
     }
 
     public ArrayList<Word> getWordsFromCategoryFromDictionary(String[] requestedCategories) {
@@ -190,14 +198,6 @@ public final class Dictionary {
         }
         Log.i(TAG, valueOf(result.size()));
         return result;
-    }
-
-    private static void addWordsFromRequestedCategories(String[] requestedCategories, ArrayList<Word> result, Word word, String wordCategories) {
-        for (String category : requestedCategories) {
-            if (category.equalsIgnoreCase(wordCategories)) {
-                result.add(word);
-            }
-        }
     }
 
     public String[] generateWordList() {

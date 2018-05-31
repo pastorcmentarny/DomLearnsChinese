@@ -1,10 +1,7 @@
 package dms.pastor.chinesegame.games.calculator;
 
 import dms.pastor.chinesegame.Config;
-import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Game;
-
-import static dms.pastor.chinesegame.Config.DEFAULT_BONUS_POINTS;
 
 /**
  * Author Dominik Symonowicz
@@ -17,13 +14,9 @@ import static dms.pastor.chinesegame.Config.DEFAULT_BONUS_POINTS;
  */
 public final class SurvivalScoreCalculator implements Calculator {
 
-    //TODO move to Config
-    private static int getPlainBonus(Game game) {
-        return DEFAULT_BONUS_POINTS + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
-    }
 
     public int calculate(Game game, long totalTime) {
-        int finalBonus = getPlainBonus(game);
+        int finalBonus = Config.getPlainBonus(game);
         double maxTimeForAnyBonus = 6 * Config.SECONDS;
         if (totalTime <= maxTimeForAnyBonus / 3) {
             return finalBonus;

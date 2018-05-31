@@ -85,6 +85,11 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         handler = new DictionaryHandler(this);
     }
 
+    private static boolean isPermissionGranted(int[] grantResults) {
+        return grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,13 +151,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
         }
     }
 
-/* /TODO remove it in 18.1
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-*/
-
     public ProgressDialog getProgressDialog() {
         return progressDialog;
     }
@@ -163,11 +161,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
 
     public Thread getDictionaryLoaderThread() {
         return dictionaryLoaderThread;
-    }
-
-    private static boolean isPermissionGranted(int[] grantResults) {
-        return grantResults.length > 0
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED;
     }
 
     @Override
