@@ -36,7 +36,7 @@ public class SentenceList extends ListActivity {
     private SharedPreferences settings;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DatabaseManager dbManager = DatabaseManager.getDbManager(this);
         if (dbManager != null) {
@@ -51,7 +51,7 @@ public class SentenceList extends ListActivity {
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    protected final void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
         StringBuilder wordBuilder = new StringBuilder("");

@@ -20,7 +20,7 @@ import static android.view.Window.FEATURE_NO_TITLE;
 public class SentencePractice extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(FEATURE_NO_TITLE);
         setRequestedOrientation(SCREEN_ORIENTATION_PORTRAIT);

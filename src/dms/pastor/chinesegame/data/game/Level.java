@@ -43,7 +43,7 @@ public abstract class Level extends Activity {
 
     public abstract void endOfLevel();
 
-    protected void runTimer() {
+    protected final void runTimer() {
         myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
             @Override
@@ -54,7 +54,7 @@ public abstract class Level extends Activity {
         }, 0, Config.REFRESH);
     }
 
-    protected void timerMethod() {
+    protected final void timerMethod() {
         this.runOnUiThread(timerTicker);
     }
 
@@ -70,7 +70,7 @@ public abstract class Level extends Activity {
 
     protected abstract void updateUI();
 
-    protected Word selectAWord(Word newWord, Word[] selectedAlreadyWords) {
+    protected final Word selectAWord(Word newWord, Word[] selectedAlreadyWords) {
         boolean stepA = true;
         while (stepA) {
             stepA = false;
@@ -86,7 +86,7 @@ public abstract class Level extends Activity {
     }
 
     @Override
-    public void onBackPressed() {
+    public final void onBackPressed() {
         if (wasAlreadyPressed) {
             DomUtils.goToHome(this, Level.this);
             super.onBackPressed();
@@ -97,11 +97,11 @@ public abstract class Level extends Activity {
         }
     }
 
-    protected boolean isCorrectAnswer(String answer, String correctAnswer) {
+    protected final boolean isCorrectAnswer(String answer, String correctAnswer) {
         return answer.equalsIgnoreCase(correctAnswer);
     }
 
-    protected void setHSPlaceColor(int place) {
+    protected final void setHSPlaceColor(int place) {
         if (place > 75) {
             UIUtils.setTextColor(highScoreTextView, R.color.hs75, this);
         } else if (place >= 50) {
@@ -125,7 +125,7 @@ public abstract class Level extends Activity {
         }
     }
 
-    protected void playTestTune(Context context) {
+    protected final void playTestTune(Context context) {
         AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         if (mediaPlayer != null) {
             mediaPlayer.release();
@@ -158,7 +158,7 @@ public abstract class Level extends Activity {
         }
     }
 
-    protected int getWordIdFromWrong(ArrayList<Word> words, String wordAsString) {
+    protected final int getWordIdFromWrong(ArrayList<Word> words, String wordAsString) {
         for (Word word : words) {
             if (word.getWordInEnglish().equalsIgnoreCase(wordAsString)) {
                 return word.getId();

@@ -24,7 +24,7 @@ public class SystemUiHiderBase extends SystemUiHider {
     }
 
     @Override
-    public void setup() {
+    public final void setup() {
         if ((mFlags & FLAG_LAYOUT_IN_SCREEN_OLDER_DEVICES) == 0) {
             mActivity.getWindow().setFlags(
                     WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
@@ -35,12 +35,12 @@ public class SystemUiHiderBase extends SystemUiHider {
     }
 
     @Override
-    public boolean isVisible() {
+    public final boolean isVisible() {
         return mVisible;
     }
 
     @Override
-    public void hide() {
+    public final void hide() {
         if ((mFlags & FLAG_FULLSCREEN) != 0) {
             mActivity.getWindow().setFlags(
                     WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -51,7 +51,7 @@ public class SystemUiHiderBase extends SystemUiHider {
     }
 
     @Override
-    public void show() {
+    public final void show() {
         if ((mFlags & FLAG_FULLSCREEN) != 0) {
             mActivity.getWindow().setFlags(
                     0,

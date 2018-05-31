@@ -129,7 +129,7 @@ public final class Config {
         return (int) time / 1000;
     }
 
-    public static int calcDictionarySizeBonus(int dictSize) {
+    private static int calcDictionarySizeBonus(int dictSize) {
         int bonus = (dictSize / 75) - 1;
         return bonus >= 0 ? bonus : 0;
     }
@@ -198,13 +198,14 @@ public final class Config {
     }
 
     public static int getPlainBonus(Game game) {
-        if (game.getGameType() == GameType.ADVENTURE) {
-            return DEFAULT_BONUS_POINTS + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
-        } else if (game.getGameType() == GameType.SAPPER) {
-            return (int) ((DEFAULT_BONUS_POINTS + calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
-        } else {
-            Log.e(TAG, "No bonus score impelementation for " + game.getGameType().name());
-            return 0;
+        switch (game.getGameType()) {
+            case ADVENTURE:
+                return DEFAULT_BONUS_POINTS + Config.calcDictionarySizeBonus(Dictionary.getDictionary().getAllDictionarySize()) + game.getStage().getDifficulty() + Double.valueOf(game.getLevel() / 4).intValue();
+            case SAPPER:
+                return (int) ((DEFAULT_BONUS_POINTS + calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
+            default:
+                Log.e(TAG, "No bonus score impelementation for " + game.getGameType().name());
+                return 0;
         }
     }
 

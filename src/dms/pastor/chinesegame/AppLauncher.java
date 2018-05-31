@@ -322,7 +322,6 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                     Log.w(TAG, "Permission DENIED by user!");
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_no_storage_permission), Toast.LENGTH_LONG).show();
                 }
-                return;
             }
 
         }
