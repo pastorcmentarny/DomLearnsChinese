@@ -43,7 +43,7 @@ public abstract class Level extends Activity {
 
     public abstract void endOfLevel();
 
-    protected final void runTimer() {
+    protected void runTimer() {
         myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
             @Override
@@ -54,7 +54,7 @@ public abstract class Level extends Activity {
         }, 0, Config.REFRESH);
     }
 
-    protected final void timerMethod() {
+    protected void timerMethod() {
         this.runOnUiThread(timerTicker);
     }
 

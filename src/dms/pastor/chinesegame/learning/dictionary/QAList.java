@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.clipboard.Clipboard4;
 import dms.pastor.chinesegame.data.dictionary.Sentence;

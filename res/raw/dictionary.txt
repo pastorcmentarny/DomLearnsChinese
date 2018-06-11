@@ -852,7 +852,7 @@
 ;;851;;寻短见;;xúnduǎnjiàn;;22;;to commit suicide;;popełnić samobójstwo;;news;;none;;7;;
 ;;852;;墓穴;;mùxué;;19;;grave,tomb;;grób;;news;;none;;7;;
 ;;853;;丧礼;;sānglǐ;;14;;funeral;;pogrzeb;;news;;none;;7;;
-
+;;854;;电车;;diànchē;;9;;tram;;tramwaj;;transport;;none;;2;;
 ;;855;;经常;;jīngcháng;;19;;often,frequently;;często;;hsk3;;none;;3;;
 ;;856;;觉得;;juéde;;20;;to think,to feel;;myślec,czuć;;hsk2;;none;;2;;
 ;;857;;贵;;guì;;9;;expensive;;drogi~~hsk2;;adjective;;none;;2;;
@@ -1017,7 +1017,7 @@
 ;;1016;;小学生;;xiǎoxuéshēng;;16;;primary school;;szk. podstawowa;;school;;none;;3;;
 ;;1017;;中学生;;zhōngxuéshēng;;17;;middle school;;szk. średnia;;school;;none;;3;;
 ;;1018;;职业;;zhíyè;;16;;occupation;;praca;;occupation~~hsk4;;none;;4;;
-;;1019
+;;1019;;家乡;;jiāxiāng;;13;;hometown;;miasto rodzinne;;hsk5;;none;;5;;
 ;;1020;;商人;;shāngrén;;13;;businessman;;biznesman;;occupation;;none;;4;;
 ;;1021;;经理;;jīnglǐ;;19;;manager;;menadżer;;occupation~~hsk3;;none;;3;;
 ;;1022;;司机;;sījī;;11;;driver;;kierowca;;occupation~~hsk3;;none;;3;;

@@ -845,7 +845,7 @@ public final class Statistic {
             }
         }
 
-        Collections.sort(wordMistakes, (first, second) -> Integer.valueOf(first.getCounter()).compareTo(second.getCounter()));
+        Collections.sort(wordMistakes, (first, second) -> Integer.compare(first.getCounter(), second.getCounter()));
         Collections.reverse(wordMistakes);
         return wordMistakes;
     }

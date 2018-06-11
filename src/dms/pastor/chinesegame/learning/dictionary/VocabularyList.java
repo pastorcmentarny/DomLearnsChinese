@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.clipboard.Clipboard4;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;

@@ -3,6 +3,7 @@ package dms.pastor.chinesegame.data.learning.lessons;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.data.dictionary.Word;
 
 /**

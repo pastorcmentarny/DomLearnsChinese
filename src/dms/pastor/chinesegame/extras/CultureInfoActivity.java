@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import java.util.List;
 
+import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.exceptions.NotFoundException;
 import dms.pastor.chinesegame.data.CultureInfoItem;
