@@ -46,7 +46,7 @@ public final class Config {
     public static final int DEFAULT_FAIL_POINTS = 2;
 
     //misc settings
-    public static final int HIGH_SCORE_SIZE = 250;
+    public static final int HIGH_SCORE_SIZE = 500;
     public static final String HIGH_SCORE_FILE_PATH = "highscore.txt";
     public static final String HIGH_SCORE_SAPPER_FILE_PATH = "highscore_sapper.txt";
     public static final long VIBRATE_ON_MISTAKE_TIME = 100;
