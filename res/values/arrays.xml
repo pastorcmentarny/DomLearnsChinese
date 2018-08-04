@@ -12,7 +12,6 @@
     </array>
 
     <array name="extras">
-        <item>@string/todo_b4_title</item>
         <item>@string/useful_numbers_title</item>
         <item>@string/about_tips_title</item>
         <item>@string/dt_links</item>

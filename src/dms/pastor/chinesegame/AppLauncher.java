@@ -35,7 +35,6 @@ import dms.pastor.chinesegame.db.DictionaryHandler;
 import dms.pastor.chinesegame.extras.CultureInfoActivity;
 import dms.pastor.chinesegame.extras.LinksActivity;
 import dms.pastor.chinesegame.extras.RandomWordActivity;
-import dms.pastor.chinesegame.extras.ToDo4Go;
 import dms.pastor.chinesegame.extras.UsefulContactDetails;
 import dms.pastor.chinesegame.games.survival.SurvivalIntro;
 import dms.pastor.chinesegame.games.survival.saper.SapperGame;
@@ -370,26 +369,21 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
             Intent ii;
             switch (i) {
                 case 0:
-                    ii = new Intent(getApplicationContext(), ToDo4Go.class);
-                    startActivity(ii);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-                    break;
-                case 1:
                     ii = new Intent(getApplicationContext(), UsefulContactDetails.class);
                     startActivity(ii);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     break;
-                case 2:
+                case 1:
                     ii = new Intent(getApplicationContext(), CultureInfoActivity.class);
                     startActivity(ii);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     break;
-                case 3:
+                case 2:
                     ii = new Intent(getApplicationContext(), LinksActivity.class);
                     startActivity(ii);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     break;
-                case 4:
+                case 3:
                     if (statistic != null) {
                         ii = new Intent(getApplicationContext(), WordMistakesCounterView.class);
                         startActivity(ii);
@@ -397,7 +391,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                         Toast.makeText(getApplicationContext(), "You can't see list of words that you didn't guess due problem with Statistics.Sorry", Toast.LENGTH_LONG).show();
                     }
                     break;
-                case 5:
+                case 4:
                     ii = new Intent(getApplicationContext(), RandomWordActivity.class);
                     startActivity(ii);
                     break;
