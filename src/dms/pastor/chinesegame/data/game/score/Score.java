@@ -5,6 +5,8 @@ import android.util.Log;
 
 import dms.pastor.chinesegame.Config;
 
+import static java.util.Locale.ENGLISH;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -19,28 +21,28 @@ public final class Score implements Comparable<Score> {
     private final String playerName;
     private final int score;
     private final int level;
-    private final String data;
-    private int gameNo = 0;
-    private int gameVersion = 0;
-    private long dateStamp = 0;
-    private Difficulty difficulty = Difficulty.UNKNOWN;
+    private final String date;
+    private int gameNo;
+    private int gameVersion;
+    private long dateStamp;
+    private Difficulty difficulty;
 
     public Score() {
         this.playerName = Config.DEFAULT_USER_NAME;
         this.score = 0;
         this.level = 0;
-        this.data = Config.DEFAULT_NO_DATE;
+        this.date = Config.DEFAULT_NO_DATE;
         this.gameNo = 0;
         this.gameVersion = 0;
         this.dateStamp = 0;
         this.difficulty = Difficulty.OLD;
     }
 
-    public Score(String playerName, int score, int level, String data, int gameNo, int gameVersion, long dateStamp, String difficulty) {
+    public Score(String playerName, int score, int level, String date, int gameNo, int gameVersion, long dateStamp, String difficulty) {
         this.playerName = playerName;
         this.score = score;
         this.level = level;
-        this.data = data;
+        this.date = date;
         this.gameNo = gameNo;
         this.gameVersion = gameVersion;
         this.dateStamp = dateStamp;
@@ -68,22 +70,22 @@ public final class Score implements Comparable<Score> {
     }
 
 
-    public String getData() {
-        return data;
+    public String getDate() {
+        return date;
     }
 
 
     @Override
     public String toString() {
-        return Config.SPR + playerName + Config.SPR + score + Config.SPR + level + Config.SPR + data + Config.SPR + gameNo + Config.SPR + gameVersion + Config.SPR + dateStamp + Config.SPR + difficulty.name() + Config.SPR + "\n";
+        return Config.SPR + playerName + Config.SPR + score + Config.SPR + level + Config.SPR + date + Config.SPR + gameNo + Config.SPR + gameVersion + Config.SPR + dateStamp + Config.SPR + difficulty.name() + Config.SPR + "\n";
     }
 
     public String asHighScore() {
-        return " Score:  " + score + " Date: " + data + "\n";
+        return String.format(ENGLISH, " Score:  %d Level: %d\nDifficulty: %sGame Version: %d\n", score, level, difficulty.name(), gameVersion);
     }
 
     public String asHighScoreList() {
-        return " Level: " + level + "\nDate: " + data + "\nGame no.: " + gameNo + "\nGame Version: " + gameVersion + "\nDateStamp: " + dateStamp + "\nDifficulty: " + difficulty.name() + "\n";
+        return String.format(ENGLISH, " Level: %d\nDate: %s\nGame no.: %d\nGame Version: %d\nDateStamp: %d\nDifficulty: %s\n", level, date, gameNo, gameVersion, dateStamp, difficulty.name());
     }
 
     @Override

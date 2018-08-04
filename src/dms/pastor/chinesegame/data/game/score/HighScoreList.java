@@ -64,7 +64,7 @@ public final class HighScoreList extends ListActivity {
             int counter = 0;
             for (Score score : allScores) {
                 counter++;
-                list.add(String.format(ENGLISH, "%s. %s %d pts. level: %d %s", String.valueOf(counter), String.valueOf(score.getPlayerName()), score.getScore(), score.getLevel(), score.getData()));
+                list.add(String.format(ENGLISH, "%s. %s %d pts. level: %d %s", String.valueOf(counter), String.valueOf(score.getPlayerName()), score.getScore(), score.getLevel(), score.getDate()));
             }
 
         } else {
