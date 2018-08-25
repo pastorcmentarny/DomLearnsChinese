@@ -9,7 +9,16 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Random;
+
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -18,10 +27,10 @@ import dms.pastor.chinesegame.data.game.Level;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import static dms.pastor.chinesegame.utils.UIUtils.*;
+import static dms.pastor.chinesegame.utils.UIUtils.setBackgroundColor;
+import static dms.pastor.chinesegame.utils.UIUtils.setIncorrect;
+import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
+import static dms.pastor.chinesegame.utils.UIUtils.setToDefault;
 
 /**
  * Author Dominik Symonowicz
@@ -183,7 +192,7 @@ public final class LessonTest extends Level implements View.OnClickListener {
     }
 
     private void checkAnswer(Button button) {
-        if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
+        if (isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
             timer.stop();
             if (!woops) {
                 player.getGame().addCorrect();

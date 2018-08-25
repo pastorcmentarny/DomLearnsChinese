@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -22,12 +25,13 @@ import dms.pastor.chinesegame.games.calculator.SapperScoreCalculator;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
 
-import java.util.ArrayList;
-
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 import static android.view.View.VISIBLE;
 import static android.view.Window.FEATURE_NO_TITLE;
-import static dms.pastor.chinesegame.Config.*;
+import static dms.pastor.chinesegame.Config.HEALTH_BONUS_PER_LEVEL;
+import static dms.pastor.chinesegame.Config.MANA_BONUS_PER_LEVEL;
+import static dms.pastor.chinesegame.Config.SAPPER_NO_PENALTY_TIME;
+import static dms.pastor.chinesegame.Config.SECONDS;
 import static dms.pastor.chinesegame.common.enums.Stage.getDifficultyLevelForLevel;
 import static dms.pastor.chinesegame.utils.DomUtils.getResultTimeAsString;
 import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
@@ -296,7 +300,7 @@ public final class SapperGame extends Level implements View.OnClickListener {
 
     private void checkAnswer(Button button) {
         timer.stop();
-        if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
+        if (isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
 
             int healthPenalty = Config.calcPenaltyHealthForTime(timer.calcCurrentTime());
 

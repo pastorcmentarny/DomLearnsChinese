@@ -911,7 +911,7 @@ public final class WordSurvival extends Level implements View.OnClickListener {
 
     private void checkAnswer(Button button) {
         Log.d(TAG, "check answer ..");
-        if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
+        if (isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
             addPointsIfIsCheesecakeLevel();
             addPointsIfIsWroclawWord();
 

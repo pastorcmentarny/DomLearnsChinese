@@ -13,7 +13,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Locale;
+
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.DomTimer;
@@ -24,9 +32,6 @@ import dms.pastor.chinesegame.data.game.Level;
 import dms.pastor.chinesegame.data.game.Player;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
 
@@ -199,7 +204,7 @@ public final class DictionaryTestGame extends Level implements View.OnClickListe
     }
 
     private void checkAnswer(Button button) {
-        if (super.isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
+        if (isCorrectAnswer(button.getText().toString(), answerWord.getWordInEnglish())) {
             timer.stop();
             setEnabled(false);
             if (!woops) {
