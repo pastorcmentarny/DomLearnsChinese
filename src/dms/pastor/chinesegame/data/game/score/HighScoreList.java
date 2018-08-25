@@ -36,7 +36,7 @@ public final class HighScoreList extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle extras = getIntent().getExtras();
-        String type = extras.getString("HS");
+        String type = extras != null ? extras.getString("HS") : "NONE";
         highScore = HighScore.getHighScore();
         String[] scoreList = null;
         try {

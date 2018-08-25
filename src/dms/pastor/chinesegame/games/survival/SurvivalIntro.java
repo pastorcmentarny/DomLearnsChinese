@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
@@ -35,7 +36,7 @@ public final class SurvivalIntro extends Intro {
     private TextView introTitle, introAbout, introTutorial;
     private Statistic statistic;
     private Bundle extras;
-    private String gameType;
+    private String gameType; //TODO improve gameType detection
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public final class SurvivalIntro extends Intro {
         setContentView(R.layout.game_intro);
         statistic = Statistic.getStatistic(this);
         extras = getIntent().getExtras();
-        gameType = extras.getString("GAME");
+        gameType = extras != null ? extras.getString("GAME") : "UNKNOWN";
 
         Button startGame = findViewById(R.id.play_game_button);
         startGame.setOnClickListener(this);
@@ -90,15 +91,10 @@ public final class SurvivalIntro extends Intro {
     }
 
     private void updateUI() {
-
-
-        if (gameType != null) {
-
-            if (gameType.equals("ADVENTURE")) {
-                introTitle.setText(getResources().getString(R.string.adventure_game));
-                introAbout.setText(getResources().getString(R.string.adventure_about));
-                introTutorial.setText(getResources().getString(R.string.adventure_tutorial));
-            }
+        if (gameType.equals("ADVENTURE")) {
+            introTitle.setText(getResources().getString(R.string.adventure_game));
+            introAbout.setText(getResources().getString(R.string.adventure_about));
+            introTutorial.setText(getResources().getString(R.string.adventure_tutorial));
         }
     }
 

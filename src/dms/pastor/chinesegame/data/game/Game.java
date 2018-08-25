@@ -2,6 +2,11 @@ package dms.pastor.chinesegame.data.game;
 
 import android.content.Context;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.common.enums.Stage;
@@ -9,10 +14,6 @@ import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.dictionary.Word;
 import dms.pastor.chinesegame.games.dictionarytest.DictionaryLevelInfo;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
 
 import static dms.pastor.chinesegame.Config.DICTIONARY_TEST_LEVELS_SIZE;
 import static dms.pastor.chinesegame.Config.SECONDS;
@@ -42,7 +43,7 @@ public final class Game {
     private final Dictionary dictionary = getDictionary();
     private final GameType gameType;
     private final Random random = new Random();
-    private int level = 1;
+    private int level;
     private int levels;
     private Stage stage;
     private long totalTime;
