@@ -345,8 +345,6 @@ public final class HighScore {
                     counter++;
                 }
             }
-            scores = new ArrayList<>();
-            scores.addAll(topScores);
             OutputStreamWriter out = null;
             FileOutputStream fos;
             try {

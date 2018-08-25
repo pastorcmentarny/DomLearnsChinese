@@ -85,13 +85,6 @@
     </style>
 
 
-    <style name="extras_checkbox">
-        <item name="android:gravity">left|center_vertical|center_horizontal</item>
-        <item name="android:textColor">@color/second_main_font_color</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
     <style name="extras_table_row">
         <item name="android:gravity">center|center_vertical|center_horizontal</item>
         <item name="android:layout_width">match_parent</item>

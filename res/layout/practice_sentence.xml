@@ -147,7 +147,6 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/horizontal_space"
             android:gravity="bottom"
             android:paddingTop="15dp">
 

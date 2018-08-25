@@ -2,6 +2,7 @@ package dms.pastor.chinesegame.data.game.score;
 
 
 import android.util.Log;
+
 import dms.pastor.chinesegame.Config;
 
 import static java.util.Locale.ENGLISH;
@@ -21,9 +22,9 @@ public final class Score implements Comparable<Score> {
     private final int score;
     private final int level;
     private final String date;
-    private int gameNo;
-    private int gameVersion;
-    private long dateStamp;
+    private final int gameNo;
+    private final int gameVersion;
+    private final long dateStamp;
     private Difficulty difficulty;
 
     public Score() {

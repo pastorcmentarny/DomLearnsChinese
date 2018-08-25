@@ -204,7 +204,7 @@ public final class Config {
             case SAPPER:
                 return (int) ((DEFAULT_BONUS_POINTS + calcDictionarySizeBonus(game.getGameWordsList().size()) * game.getStage().getScoreBonusMultiply()) + (game.getLevel() * 3 / 5));
             default:
-                Log.e(TAG, "No bonus score impelementation for " + game.getGameType().name());
+                Log.e(TAG, "No bonus score implementation for " + game.getGameType().name());
                 return 0;
         }
     }
