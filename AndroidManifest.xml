@@ -137,7 +137,6 @@
             android:noHistory="true" />
         <activity android:name=".extras.LearningTipsActivity" />
         <activity android:name=".extras.CultureInfoActivity" />
-        <activity android:name=".extras.ToDo4Go" />
         <activity android:name=".extras.UsefulContactDetails" />
         <activity android:name=".extras.LinksActivity" />
         <activity android:name=".learning.dictionary.WordFinder" />

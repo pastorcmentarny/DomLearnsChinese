@@ -22,7 +22,6 @@
         <Button
             android:id="@+id/lessonButton"
             style="@style/learn_menu_button_style"
-            android:drawableLeft="@drawable/joystick"
             android:drawableStart="@drawable/joystick"
             android:text="@string/lessons_title" />
     </TableRow>
@@ -32,7 +31,6 @@
         <Button
             android:id="@+id/testsButton"
             style="@style/learn_menu_button_style"
-            android:drawableLeft="@drawable/eye"
             android:drawableStart="@drawable/eye"
             android:text="@string/tests_title" />
     </TableRow>
@@ -42,7 +40,6 @@
         <Button
             android:id="@+id/learningTipsButton"
             style="@style/learn_menu_button_style"
-            android:drawableLeft="@drawable/information"
             android:drawableStart="@drawable/information"
             android:text="@string/learning_tips_title" />
     </TableRow>
@@ -52,7 +49,6 @@
         <Button
             android:id="@+id/dictButton"
             style="@style/learn_menu_button_style"
-            android:drawableLeft="@drawable/book_open"
             android:drawableStart="@drawable/book_open"
             android:text="@string/show_dictionary_title" />
     </TableRow>
@@ -62,7 +58,6 @@
         <Button
             android:id="@+id/backToMainMenuButton"
             style="@style/learn_menu_button_style"
-            android:drawableLeft="@drawable/arrow_left"
             android:drawableStart="@drawable/arrow_left"
             android:text="@string/back_to_menu" />
     </TableRow>

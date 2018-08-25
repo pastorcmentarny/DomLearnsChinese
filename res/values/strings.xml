@@ -562,4 +562,5 @@
     <string name="b4go_website">Remember to check which website works and does NOT work. Are you using Dropbox, Google, Facebook or Twitter?  Then you cannot use it in China!</string>
     <string name="b4go_power_bank">(Checked in 2016, 2017) Important note! You are not allowed to bring Power Bank with capacity higher than 10000 mAh.</string>
     <string name="error_no_storage_permission">As you denied permission, highscores will not work but game still is playable.</string>
+    <string name="type_word_you_search_for">Type word you search for</string>
 </resources>

@@ -29,7 +29,6 @@
             android:id="@+id/newGameButton"
             style="@style/menu_button_style"
             android:layout_span="2"
-            android:drawableLeft="@drawable/joystick"
             android:drawableStart="@drawable/joystick"
             android:text="@string/new_game_button_title"
             android:textStyle="bold" />
@@ -38,7 +37,6 @@
             android:id="@+id/highScoreButton"
             style="@style/menu_button_style"
             android:layout_span="1"
-            android:drawableLeft="@drawable/medal_gold_2"
             android:drawableStart="@drawable/medal_gold_2"
             android:text="@string/highscore_button_title" />
 
@@ -54,7 +52,6 @@
             style="@style/menu_button_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/table_multiple"
             android:drawableStart="@drawable/table_multiple"
             android:text="@string/extras_title" />
 
@@ -62,7 +59,6 @@
             android:id="@+id/showLearningButton"
             style="@style/menu_button_style"
             android:layout_span="1"
-            android:drawableLeft="@drawable/eye"
             android:drawableStart="@drawable/eye"
             android:text="@string/learning_title" />
 
@@ -70,7 +66,6 @@
             android:id="@+id/settingsButton"
             style="@style/menu_button_style"
             android:layout_span="1"
-            android:drawableLeft="@drawable/wrench_orange"
             android:drawableStart="@drawable/wrench_orange"
             android:text="@string/options" />
 

@@ -6,6 +6,7 @@
     android:weightSum="1">
 
     <EditText
+        android:hint="@string/type_word_you_search_for"
         android:id="@+id/searchField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

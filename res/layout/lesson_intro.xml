@@ -20,7 +20,6 @@
         android:id="@+id/lesson_selection_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/page_green"
         android:drawableStart="@drawable/page_green"
         android:text="@string/select_lesson"
         android:textColor="@color/menu_button_font" />

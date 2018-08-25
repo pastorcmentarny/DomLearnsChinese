@@ -52,7 +52,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:drawableLeft="@drawable/report_edit"
         android:drawableStart="@drawable/report_edit"
         android:gravity="center_horizontal|clip_horizontal|bottom"
         android:text="@string/test_start" />

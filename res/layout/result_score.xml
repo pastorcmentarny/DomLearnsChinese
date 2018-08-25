@@ -123,21 +123,18 @@
             <Button
                 android:id="@+id/backToMainMenu"
                 style="@style/menu_button_style"
-                android:drawableLeft="@drawable/arrow_left"
                 android:drawableStart="@drawable/arrow_left"
                 android:text="@string/back_to_menu" />
 
             <Button
                 android:id="@+id/tryAgain"
                 style="@style/menu_button_style"
-                android:drawableLeft="@drawable/arrow_refresh"
                 android:drawableStart="@drawable/arrow_refresh"
                 android:text="@string/restart_game" />
 
             <Button
                 android:id="@+id/seeHS"
                 style="@style/menu_button_style"
-                android:drawableLeft="@drawable/medal_gold_2"
                 android:drawableStart="@drawable/medal_gold_2"
                 android:text="@string/highscore_button_title"
                 android:visibility="gone" />

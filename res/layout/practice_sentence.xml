@@ -135,6 +135,7 @@
             android:gravity="bottom">
 
             <EditText
+                android:hint="@string/name"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"

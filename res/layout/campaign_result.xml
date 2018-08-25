@@ -56,7 +56,6 @@
                 android:id="@+id/backToMainMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/arrow_left"
                 android:drawableStart="@drawable/arrow_left"
                 android:text="@string/back_to_menu" />
 
@@ -64,7 +63,6 @@
                 android:id="@+id/restart_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/arrow_refresh"
                 android:drawableStart="@drawable/arrow_refresh"
                 android:text="@string/restart_level" />
 
@@ -72,7 +70,6 @@
                 android:id="@+id/goToNextLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/arrow_right"
                 android:drawableStart="@drawable/arrow_right"
                 android:text="@string/go_to_next_level" />
 
