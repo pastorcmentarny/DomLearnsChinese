@@ -1,8 +1,6 @@
 package dms.pastor.chinesegame;
 
 import android.util.Log;
-import dms.pastor.chinesegame.common.enums.GameType;
-import dms.pastor.chinesegame.data.game.Player;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
