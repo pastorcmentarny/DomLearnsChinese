@@ -49,6 +49,7 @@ public final class Config {
     public static final int HIGH_SCORE_SIZE = 500;
     public static final String HIGH_SCORE_FILE_PATH = "highscore.txt";
     public static final String HIGH_SCORE_SAPPER_FILE_PATH = "highscore_sapper.txt";
+    public static final String HIGH_SCORE_DICTIONARY_FILE_PATH = "highscore_dictionary.txt";
     public static final long VIBRATE_ON_MISTAKE_TIME = 100;
     public static final int BONUS_POINTS_BASE = 10;
     public static final String TAG_PREFIX = "DLC ";

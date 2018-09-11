@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
@@ -23,7 +24,6 @@ import dms.pastor.chinesegame.utils.UIUtils;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- * Created 30/11/2012
  */
 public final class DictionaryTestIntro extends Intro implements View.OnClickListener {
     private final Player player = Player.getPlayer();
@@ -70,6 +70,5 @@ public final class DictionaryTestIntro extends Intro implements View.OnClickList
         overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
         finish();
     }
-
 
 }

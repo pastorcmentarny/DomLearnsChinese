@@ -36,6 +36,7 @@ import dms.pastor.chinesegame.extras.CultureInfoActivity;
 import dms.pastor.chinesegame.extras.LinksActivity;
 import dms.pastor.chinesegame.extras.RandomWordActivity;
 import dms.pastor.chinesegame.extras.UsefulContactDetails;
+import dms.pastor.chinesegame.games.dictionarytest.DictionaryTestIntro;
 import dms.pastor.chinesegame.games.survival.SurvivalIntro;
 import dms.pastor.chinesegame.games.survival.saper.SapperGame;
 import dms.pastor.chinesegame.games.survival.saper.SapperIntro;
@@ -249,7 +250,7 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                 case 0:
                     if (highScore != null) {
                         Intent ii = new Intent(getApplicationContext(), HighScoreList.class);
-                        ii.putExtra("HS", "ADVENTURE");
+                        ii.putExtra("HS", GameType.ADVENTURE.name());
                         startActivity(ii);
                     } else {
                         Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
@@ -258,7 +259,16 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                 case 1:
                     if (highScore != null) {
                         Intent ii = new Intent(getApplicationContext(), HighScoreList.class);
-                        ii.putExtra("HS", "SAPPER");
+                        ii.putExtra("HS", GameType.SAPPER.name());
+                        startActivity(ii);
+                    } else {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                case 2:
+                    if (highScore != null) {
+                        Intent ii = new Intent(getApplicationContext(), HighScoreList.class);
+                        ii.putExtra("HS", GameType.DICTIONARY_TEST.name());
                         startActivity(ii);
                     } else {
                         Toast.makeText(getApplicationContext(), getResources().getString(R.string.highscore_no_available), Toast.LENGTH_LONG).show();
@@ -295,6 +305,9 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
                 case 1:
                     startSaperGame();
                     break;
+                case 2:
+                    startDictionaryGame();
+                    break;
                 default:
                     Log.w(TAG, getString(R.string.w_unknown_selection) + "newGameDialog(" + i + ").");
             }
@@ -324,6 +337,13 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
             }
 
         }
+    }
+
+    private void startDictionaryGame() {
+        Intent ii;
+        ii = new Intent(getApplicationContext(), DictionaryTestIntro.class);
+        statistic.addGame();
+        startActivity(ii);
     }
 
     private void startSaperGame() {

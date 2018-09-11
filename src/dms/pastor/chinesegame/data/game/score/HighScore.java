@@ -54,6 +54,7 @@ public final class HighScore {
 
     private ArrayList<Score> hsAdventure;
     private ArrayList<Score> hsSapper;
+    private ArrayList<Score> hsDictinary;
 
     private HighScore(Context context) {
         this.context = context;
@@ -187,6 +188,10 @@ public final class HighScore {
             return;
         }
         loadHighScoreFor(Config.HIGH_SCORE_SAPPER_FILE_PATH, GameType.SAPPER);
+        if (status.isFail()) {
+            return;
+        }
+        loadHighScoreFor(Config.HIGH_SCORE_DICTIONARY_FILE_PATH, GameType.DICTIONARY_TEST);
 
     }
 
@@ -271,6 +276,8 @@ public final class HighScore {
             case SAPPER:
                 hsSapper = scores;
                 break;
+            case DICTIONARY_TEST:
+                hsDictinary = scores;
             default:
                 status = new Result(false, "Unknown highscore list..");
                 Log.e(TAG, "Unknown highscore list..");
@@ -381,6 +388,8 @@ public final class HighScore {
             case SAPPER:
                 sort(hsSapper);
                 break;
+            case DICTIONARY_TEST:
+                sort(hsDictinary);
             default:
                 Log.w(TAG, "No sort for" + gameType.toString());
                 break;
@@ -415,11 +424,18 @@ public final class HighScore {
                     }
                 }
                 return 0;
-
             case SAPPER:
                 for (int i = 0; i < hsSapper.size(); i++) {
                     if (score >= hsSapper.get(i).getScore()) {
                         Log.d("Result", "Score:" + score + " HS score:" + hsSapper.get(i).getScore() + " i:" + i);
+                        return (i + 1);
+                    }
+                }
+                return 0;
+            case DICTIONARY_TEST:
+                for (int i = 0; i < hsDictinary.size(); i++) {
+                    if (score >= hsDictinary.get(i).getScore()) {
+                        Log.d("Result", "Score:" + score + " HS score:" + hsDictinary.get(i).getScore() + " i:" + i);
                         return (i + 1);
                     }
                 }
@@ -443,6 +459,11 @@ public final class HighScore {
             case SAPPER:
                 if (hsSapper != null) {
                     hsSapper.add(score);
+                }
+                break;
+            case DICTIONARY_TEST:
+                if (hsDictinary != null) {
+                    hsDictinary.add(score);
                 }
                 break;
         }
@@ -473,6 +494,8 @@ public final class HighScore {
                 return hsAdventure;
             case SAPPER:
                 return hsSapper;
+            case DICTIONARY_TEST:
+                return hsDictinary;
             default:
                 Log.e(TAG, "No high scores for:" + gameType.toString() + "App will crash..");
                 return new ArrayList<>();
@@ -486,6 +509,7 @@ public final class HighScore {
     private void sortAllHighScores() {
         sort(hsAdventure);
         sort(hsSapper);
+        sort(hsDictinary);
     }
 
     private void recreateHSFile(String path) {
@@ -511,6 +535,7 @@ public final class HighScore {
         }
     }
 
+    //TODO analyse this
     public Result backupHighScores(Context context) {
         saveHighScores();
         Result r = new Result(true);

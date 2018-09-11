@@ -11,16 +11,25 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import dms.pastor.chinesegame.Config;
 import dms.pastor.chinesegame.R;
 import dms.pastor.chinesegame.common.enums.GameType;
 import dms.pastor.chinesegame.data.Statistic;
 import dms.pastor.chinesegame.data.dictionary.Dictionary;
 import dms.pastor.chinesegame.data.game.Player;
+import dms.pastor.chinesegame.data.game.score.Difficulty;
+import dms.pastor.chinesegame.data.game.score.HighScore;
+import dms.pastor.chinesegame.data.game.score.Score;
 import dms.pastor.chinesegame.utils.DomUtils;
 import dms.pastor.chinesegame.utils.UIUtils;
 
 import static dms.pastor.chinesegame.utils.DomUtils.displayToast;
+import static dms.pastor.chinesegame.utils.DomUtils.getVersionCode;
 import static dms.pastor.chinesegame.utils.UIUtils.setTextColor;
 import static java.lang.String.format;
 import static java.util.Locale.ENGLISH;
@@ -75,7 +84,26 @@ public final class DictionaryTestResult extends Activity implements View.OnClick
 
     private void setup() {
         player = Player.getPlayer();
+        final Statistic statistic = Statistic.getStatistic(this);
         int score = player.getScore();
+
+        HighScore highScoreBoard = HighScore.getHighScore();
+        final Score sScore = new Score(Player.getName(this), player.getScore(),
+                player.getGame().getLevel(), new SimpleDateFormat(Config.DATE_FORMAT, Locale.ENGLISH).format(new Date()),
+                statistic.getGames(), getVersionCode(this),
+                new Date().getTime(), Difficulty.DICTIONARY_TEST.name());
+        try {
+            if (highScoreBoard != null) {
+
+                highScoreBoard.addToHighScore(sScore, player.getGame().getGameType());
+            }
+        } catch (Exception e) {
+            Log.w(TAG, getResources().getString(R.string.highscore_restarted_due_error) + e.getMessage());
+            UIUtils.displayError(this, getResources().getString(R.string.highscore_restarted_due_error) + e.getMessage());
+        }
+
+
+
         if (player.getGame().getTotalTimeInSeconds() > Config.DICTIONARY_TEST_TIME_LIMIT) {
             int penalty = player.getGame().getTotalTimeInSeconds() - Config.DICTIONARY_TEST_TIME_LIMIT;
             score -= penalty;

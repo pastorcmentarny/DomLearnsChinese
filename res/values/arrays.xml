@@ -2,6 +2,7 @@
     <array name="newGame">
         <item>@string/adventure_game</item>
         <item>@string/saper_game</item>
+        <item>@string/dictionary_test_game</item>
         <!-- <item>@string/more</item> -->
     </array>
     <array name="runAbout">
@@ -21,6 +22,7 @@
     <array name="hs">
         <item>@string/hs_adventure</item>
         <item>@string/hs_sapper</item>
+        <item>@string/hs_dictionary_test</item>
     </array>
     <array name="dict_type">
         <item>@string/dt_words</item>
@@ -38,4 +40,6 @@
         <item>@string/patterns_title</item>
     </array>
 
+    <string name="dictionary_test_game">Dictionary Test</string>
+    <string name="hs_dictionary_test">Dictionary Test</string>
 </resources>
