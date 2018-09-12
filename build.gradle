@@ -34,8 +34,8 @@ android {
         applicationId 'dms.pastor.chinesegame'
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 76
-        versionName "76"
+        versionCode 77
+        versionName "77"
         multiDexEnabled true
     }
 
