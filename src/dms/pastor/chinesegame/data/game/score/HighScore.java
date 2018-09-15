@@ -447,7 +447,7 @@ public final class HighScore {
     }
 
     public void addToHighScore(Score score, GameType type) {
-        if (score.getScore() <= 0) {
+        if (score.getScore() <= 100) {
             return;
         }
         switch (type) {
