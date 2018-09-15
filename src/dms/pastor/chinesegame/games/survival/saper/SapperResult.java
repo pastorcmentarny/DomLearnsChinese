@@ -123,13 +123,7 @@ public final class SapperResult extends GameResult {
         resultTime.setText(DomUtils.getResultTimeAsString(player.getGame().getTotalTime()));
         correctAnswersValue.setText(String.valueOf(player.getGame().getCorrect()));
         questionsValue.setText(String.valueOf(player.getGame().getLevels()));
-        statistic.addTotalLevels(player.getGame().getLevel());
-        statistic.addToHighestLevelSapper(player.getGame().getLevel());
-        statistic.addCorrects(player.getGame().getCorrect());
-        statistic.addWrong();
-        statistic.addToMaxScore(player.getScore());
-        statistic.addToTotalTimeSapper(player.getGame().getTotalTime());
-        statistic.save();
+        updateStatistics();
         checkHighScore();
 
     }
@@ -187,5 +181,15 @@ public final class SapperResult extends GameResult {
             recordText.setText(String.format("RECORD: %s - %s", hs.getScoresFor(GameType.SAPPER).get(0).getPlayerName(), hs.getScoresFor(GameType.SAPPER).get(0).asHighScore()));
         }
 
+    }
+
+    private void updateStatistics() {
+        statistic.addTotalLevels(player.getGame().getLevel());
+        statistic.addToHighestLevelSapper(player.getGame().getLevel());
+        statistic.addCorrects(player.getGame().getCorrect());
+        statistic.addWrong();
+        statistic.addToMaxScore(player.getScore());
+        statistic.addToTotalTimeSapper(player.getGame().getTotalTime());
+        statistic.save();
     }
 }
