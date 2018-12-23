@@ -689,7 +689,7 @@
 ;;689;;哇;;wā;;9;;wow;;wow;;sound;;none;;5;;
 ;;690;;做梦;;zuòmèng;;22;;to dream;;śnić;;other;;verb;;4;;
 ;;691;;起来;;qǐlai;;17;;to get up;;wstać;;verb;;none;;4;;
-;;692;;雷达;;léidá;;20;;radar;;radar;;military~~hsk6~~loanword;;none;;8;;
+;;692;;雷达;;léidá;;20;;radar;;radar;;military~~hsk6;;none;;6;;
 ;;693;;同;;tóng;;6;;with;;z;;other;;none;;3;;
 ;;694;;冰淇淋;;xiàng bīngqílín;;28;;ice cream;;lody;;dessert~~food;;none;;3;;
 ;;695;;袭击者;;xíjīzhě;;26;;attacker;;napastnik;;news;;none;;7;;
@@ -1391,42 +1391,3 @@
 ;;1391;;小米;;Xiǎomǐ;;-1;;Xiaomi;;Xiaomi;;company;;Chinese company famous in western for smartphone;;7;;
 ;;1392;;外国人;;Wàiguó rén;;-1;;Foreigner;;obcokrajowiec;;noun;;none;;6
 ;;1393;;感到;;gǎndào;;-1;;feel/feel like;;jest jak;;other;;none;;7;;
-;;1394;;多风;;-1;;Duōfēng;;windy;;wietrzny;;weather~~adjective;;none;;5;;
-;;1395;;彩虹;;cǎihóng;;-1;;rainbow;;tęcza;;weather;;none;;5;;
-;;1396;;雷;;léi;;-1;;The thunder;;piotun;;weather;;none;;5;;
-;;1397;;雷雨;;léiyǔ;;-1;;thunderstorm;;sztorm;;weather;;none;;5;;
-;;1398;;水灾;;shuǐzāi;;-1;;the flood;;powódź;;weather;;none;;5;;
-;;1399;;害怕;;hàipà;;-1;;to fear;;bać;;verb;;none;;3;;
-;;1400;;跳舞;;tiàowǔ;;-1;;to dance;;tańczyć;;verb;;none;;6;;
-;;1401;;汽车修理工;;-1;;qìchē xiūlǐgōng;;mechanic;;occupation~~car;;none;;6;;
-;;1402;;车顶;;chēdǐng;;-1;;car roof;;szyberdach;;car;;none;;7;;
-;;1403;;保险杠;;bǎoxiǎngàng;;-1;;bumper;;zderzak;;car;;none;;7;;
-;;1404;;车牌;;chēpái;;-1;;license plate;;Tablica rejestracyjna;;car;;none;;7;;
-;;1405;;轮胎;;lúntāi;;-1;;tire;;koło;;car;;none;;7;;
-;;1406;;紧急疏散;;jǐnjí shūsàn;;-1;;Emergency evacuation;;ewakuacja;;other;;none;;7;;
-;;1407;;Java 开发人员;;Java kāifā rényuán;;-1;;Java developer;;Programista Java;;occupation~~it;;none;;6;;
-;;1408;;信号问题;;xìnhào wèntí;;-1;;Signal problem;;problem z sygnalizacja;;transport;;none;;7;;
-;;1409;;粤菜馆;;yuècài guǎn;;-1;;Cantonese Restaurant;;restauracja kantońska;;restaurant;;none;;5;;
-;;1410;;过于拥挤;;Guòyú yǒngjǐ;;-1;;Overcrowded;;zatłaczony;;transport;;none;;7;;
-;;1411;;约;;yāo;;-1;;o weigh(on a scale);;ważyć się(na wadze);;health;;none;;7;;
-;;1412;;煤炭;;méitàncoal;;-1;;coal;;węgiel;;hsk~~fire place;;none;;7;;
-;;1413;;订 ;;-1;;to book, to reserve
-;;1414;;混亂 ;;-1;;or 賭塞 for traffic
-;;1415;;图书馆;;túshūguǎn;;-1;;library;;biblioteka;;place~~hsk3;;none;;3;;
-;;1416;;狗年吉祥 gǒunián jíxiáng;;-1;;Year of the dog
-;;1417;;单位;; ;;-1;;company
-;;1418;;外星人基地;;Wài xīng rén jīdì;;-1;;alien base;;baza obcych;;other;;none;;8;;
-;;1419;;大衣;;dàyī;;-1;;A coat
-;;1420;;气温;;qìwēn;;-1;;temperature
-;;1421;;飓风;;jùfēng;;-1;;hurricane
-;;1422;;围巾;;wéijīn;;-1;;A scarf
-;;1423;;雨伞;;yǔsǎn;;-1;;An umbrella
-;;1424;;夹克;;jiákè;;-1;;A jacket
-;;1425;;帽子;;màozi;;-1;;A hat
-;;1427;;行李提取;;xínglǐ tíqǔ;;-1;;Baggage claim
-;;1428;;车轮;;chēlún;;-1;;wheel;;koło;;car;;none;;6;;
-;;1429;;发动机;;fādòngjī;;-1;;engine;;silnik;;car;;none;;6;;
-;;1430;;潮湿;;Cháoshī;;-1;;humid;;wilgoć;;weather;;none;;5;;
-;;1431;;幸运的数字;;xìngyùn de shùzì;;-1;;Lucky number;;Szczęśliwy numer;;none;;7;;
-;;1432;;走天星期几;;zǒu tiān xīngqí jǐ;;-1;;day of the week;; dzień tygodnia;;none;;6;;
-;;1433;;物理学家;;wùlǐxuéjiā;;-1;;physicist;;fizyk;;occupation~~science;;none;;8;;

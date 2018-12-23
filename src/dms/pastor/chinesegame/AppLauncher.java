@@ -245,8 +245,10 @@ public final class AppLauncher extends Activity implements View.OnClickListener,
     private void openHighScoreSelectionDialog() {
 
         dialog = new AlertDialog.Builder(this).setTitle(R.string.highscore_button_title).setItems(R.array.hs, (dialogInterface, i) -> {
+            Log.w(TAG, "You select openLearningDialog(" + i + ").");
 
             switch (i) {
+
                 case 0:
                     if (highScore != null) {
                         Intent ii = new Intent(getApplicationContext(), HighScoreList.class);

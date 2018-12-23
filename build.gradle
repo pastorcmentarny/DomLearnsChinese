@@ -1,32 +1,38 @@
 buildscript {
     repositories {
-        maven { url "https://maven.google.com" }
-        mavenCentral()
         google()
         jcenter()
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath 'com.google.gms:google-services:3.2.0'
+        classpath 'com.google.gms:google-services:4.2.0'
     }
 }
 
 allprojects {
     repositories {
-        mavenCentral()
         google()
         jcenter()
     }
 }
+
 apply plugin: 'com.android.application'
 
 dependencies {
-    implementation  fileTree(include: '*.jar', dir: 'libs')
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation fileTree(include: '*.jar', dir: 'libs')
+    implementation 'com.google.android.gms:play-services-ads:17.1.2'
 }
 
 android {
+/*    signingConfigs {
+        config {
+            keyAlias 'dmspastor'
+            keyPassword 'fluffygarlic'
+            storeFile file('E:/Dropbox/androKEY.txt')
+            storePassword 'fluffygarlic'
+        }
+    }*/
     compileSdkVersion 27
     buildToolsVersion '28.0.3'
 
@@ -37,15 +43,6 @@ android {
         versionCode 77
         versionName "77"
         multiDexEnabled true
-    }
-
-    signingConfigs {
-        release {
-            storeFile file("appkey.keystore")
-            storePassword 'fluffygarlic'
-            keyAlias 'android'
-            keyPassword 'fluffygarlic'
-        }
     }
 
     sourceSets {

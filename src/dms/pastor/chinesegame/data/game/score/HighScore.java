@@ -278,9 +278,10 @@ public final class HighScore {
                 break;
             case DICTIONARY_TEST:
                 hsDictinary = scores;
+                break;
             default:
-                status = new Result(false, "Unknown highscore list..");
-                Log.e(TAG, "Unknown highscore list..");
+                status = new Result(false, "Unknown highscore list.. " + gameType.name());
+                Log.e(TAG, "Unknown highscore list.." + gameType.name());
                 return;
         }
         status = new Result(true, "High scores loaded");
