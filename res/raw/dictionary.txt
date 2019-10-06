@@ -581,7 +581,7 @@
 ;;581;;它的;;tāde;;14;;its;;tego;;person;;none;;1;;
 ;;582;;我们的;;wǒmende;;20;;our;;nasze;;person;;none;;1;;
 ;;583;;我们的;;wǒmende;;20;;our;;nasze;;person;;none;;1;;
-;;584;;你们的;;wǐmende;;20;;Your;;wasze;;person;;none;;1;;
+;;584;;你们的;;nǐmende;;20;;Your;;wasze;;person;;none;;1;;
 ;;585;;他们的;;tāmende;;19;;Their(males);;ich(męskie));;person;;none;;1;;
 ;;586;;她们的;;tāmende;;19;;Their(females);;ich(żeńskie);;person;;none;;1;;
 ;;587;;它们的;;tāmende;;19;;Their(inanimate);;ich(nijakie);;person;;none;;1;;
